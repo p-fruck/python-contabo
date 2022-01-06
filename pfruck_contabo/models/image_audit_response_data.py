@@ -69,18 +69,29 @@ class ImageAuditResponseData(object):
         self._trace_id = None
         self._changes = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.id = id
-        self.image_id = image_id
-        self.action = action
-        self.timestamp = timestamp
-        self.changed_by = changed_by
-        self.username = username
-        self.request_id = request_id
-        self.trace_id = trace_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if id is not None:
+            self.id = id
+        if image_id is not None:
+            self.image_id = image_id
+        if action is not None:
+            self.action = action
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if changed_by is not None:
+            self.changed_by = changed_by
+        if username is not None:
+            self.username = username
+        if request_id is not None:
+            self.request_id = request_id
+        if trace_id is not None:
+            self.trace_id = trace_id
         if changes is not None:
-            self.changes = changes
+            if changes is not None:
+                self.changes = changes
 
     @property
     def tenant_id(self):

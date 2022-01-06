@@ -51,11 +51,16 @@ class CreateSnapshotResponseData(object):
         self._image_id = None
         self._image_name = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.snapshot_id = snapshot_id
-        self.image_id = image_id
-        self.image_name = image_name
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
+        if image_id is not None:
+            self.image_id = image_id
+        if image_name is not None:
+            self.image_name = image_name
 
     @property
     def tenant_id(self):

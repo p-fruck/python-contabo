@@ -45,9 +45,12 @@ class CreateRoleResponseData(object):
         self._customer_id = None
         self._role_id = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.role_id = role_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if role_id is not None:
+            self.role_id = role_id
 
     @property
     def tenant_id(self):

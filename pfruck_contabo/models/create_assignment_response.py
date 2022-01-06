@@ -39,7 +39,8 @@ class CreateAssignmentResponse(object):
         """CreateAssignmentResponse - a model defined in Swagger"""  # noqa: E501
         self._links = None
         self.discriminator = None
-        self.links = links
+        if links is not None:
+            self.links = links
 
     @property
     def links(self):

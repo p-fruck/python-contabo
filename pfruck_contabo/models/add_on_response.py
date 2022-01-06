@@ -42,8 +42,10 @@ class AddOnResponse(object):
         self._id = None
         self._quantity = None
         self.discriminator = None
-        self.id = id
-        self.quantity = quantity
+        if id is not None:
+            self.id = id
+        if quantity is not None:
+            self.quantity = quantity
 
     @property
     def id(self):

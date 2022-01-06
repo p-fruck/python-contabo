@@ -51,11 +51,16 @@ class CreateInstanceResponseData(object):
         self._created_date = None
         self._order_id = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.instance_id = instance_id
-        self.created_date = created_date
-        self.order_id = order_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if created_date is not None:
+            self.created_date = created_date
+        if order_id is not None:
+            self.order_id = order_id
 
     @property
     def tenant_id(self):

@@ -54,12 +54,18 @@ class CustomImagesStatsResponseData(object):
         self._used_size_mb = None
         self._free_size_mb = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.current_images_count = current_images_count
-        self.total_size_mb = total_size_mb
-        self.used_size_mb = used_size_mb
-        self.free_size_mb = free_size_mb
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if current_images_count is not None:
+            self.current_images_count = current_images_count
+        if total_size_mb is not None:
+            self.total_size_mb = total_size_mb
+        if used_size_mb is not None:
+            self.used_size_mb = used_size_mb
+        if free_size_mb is not None:
+            self.free_size_mb = free_size_mb
 
     @property
     def tenant_id(self):

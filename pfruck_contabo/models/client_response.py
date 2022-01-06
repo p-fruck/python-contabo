@@ -51,11 +51,16 @@ class ClientResponse(object):
         self._client_id = None
         self._secret = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.id = id
-        self.client_id = client_id
-        self.secret = secret
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if id is not None:
+            self.id = id
+        if client_id is not None:
+            self.client_id = client_id
+        if secret is not None:
+            self.secret = secret
 
     @property
     def tenant_id(self):

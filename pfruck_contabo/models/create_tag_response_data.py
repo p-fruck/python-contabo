@@ -45,9 +45,12 @@ class CreateTagResponseData(object):
         self._customer_id = None
         self._tag_id = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.tag_id = tag_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if tag_id is not None:
+            self.tag_id = tag_id
 
     @property
     def tenant_id(self):

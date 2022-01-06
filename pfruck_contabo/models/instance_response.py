@@ -99,28 +99,49 @@ class InstanceResponse(object):
         self._error_message = None
         self._product_type = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.name = name
-        self.instance_id = instance_id
-        self.region = region
-        self.product_id = product_id
-        self.image_id = image_id
-        self.ip_config = ip_config
-        self.mac_address = mac_address
-        self.ram_mb = ram_mb
-        self.cpu_cores = cpu_cores
-        self.os_type = os_type
-        self.disk_mb = disk_mb
-        self.ssh_keys = ssh_keys
-        self.created_date = created_date
-        self.cancel_date = cancel_date
-        self.status = status
-        self.v_host_id = v_host_id
-        self.add_ons = add_ons
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if name is not None:
+            self.name = name
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if region is not None:
+            self.region = region
+        if product_id is not None:
+            self.product_id = product_id
+        if image_id is not None:
+            self.image_id = image_id
+        if ip_config is not None:
+            self.ip_config = ip_config
+        if mac_address is not None:
+            self.mac_address = mac_address
+        if ram_mb is not None:
+            self.ram_mb = ram_mb
+        if cpu_cores is not None:
+            self.cpu_cores = cpu_cores
+        if os_type is not None:
+            self.os_type = os_type
+        if disk_mb is not None:
+            self.disk_mb = disk_mb
+        if ssh_keys is not None:
+            self.ssh_keys = ssh_keys
+        if created_date is not None:
+            self.created_date = created_date
+        if cancel_date is not None:
+            self.cancel_date = cancel_date
+        if status is not None:
+            self.status = status
+        if v_host_id is not None:
+            self.v_host_id = v_host_id
+        if add_ons is not None:
+            self.add_ons = add_ons
         if error_message is not None:
-            self.error_message = error_message
-        self.product_type = product_type
+            if error_message is not None:
+                self.error_message = error_message
+        if product_type is not None:
+            self.product_type = product_type
 
     @property
     def tenant_id(self):

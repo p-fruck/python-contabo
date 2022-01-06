@@ -78,7 +78,7 @@ class CreateSecretRequest(object):
     def value(self):
         """Gets the value of this CreateSecretRequest.  # noqa: E501
 
-        The secret value that needs to be saved. In case of a password it must match a pattern with at least one upper and lower case character and either one number with two special characters (!@#$^&*?_~) or at least three numbers with one special character (!@#$^&*?_~). This is expressed in the following regular expression: ^((?=.*?[A-Z]{1,})(?=.*?[a-z]{1,}))(((?=(?:[^d]*d){1})(?=([^^&*?_~]*[!@#$^&*?_~]){2,}))|((?=(?:[^d]*d){3})(?=.*?[!@#$^&*?_~]+))).{8,}$  # noqa: E501
+        The secret value that needs to be saved. In case of a password it must match a pattern with at least one upper and lower case character and either one number with two special characters `!@#$^&*?_~` or at least three numbers with one special character `!@#$^&*?_~`. This is expressed in the following regular expression: `^((?=.*?[A-Z]{1,})(?=.*?[a-z]{1,}))(((?=(?:[^d]*d){1})(?=([^^&*?_~]*[!@#$^&*?_~]){2,}))|((?=(?:[^d]*d){3})(?=.*?[!@#$^&*?_~]+))).{8,}$`  # noqa: E501
 
         :return: The value of this CreateSecretRequest.  # noqa: E501
         :rtype: str
@@ -89,7 +89,7 @@ class CreateSecretRequest(object):
     def value(self, value):
         """Sets the value of this CreateSecretRequest.
 
-        The secret value that needs to be saved. In case of a password it must match a pattern with at least one upper and lower case character and either one number with two special characters (!@#$^&*?_~) or at least three numbers with one special character (!@#$^&*?_~). This is expressed in the following regular expression: ^((?=.*?[A-Z]{1,})(?=.*?[a-z]{1,}))(((?=(?:[^d]*d){1})(?=([^^&*?_~]*[!@#$^&*?_~]){2,}))|((?=(?:[^d]*d){3})(?=.*?[!@#$^&*?_~]+))).{8,}$  # noqa: E501
+        The secret value that needs to be saved. In case of a password it must match a pattern with at least one upper and lower case character and either one number with two special characters `!@#$^&*?_~` or at least three numbers with one special character `!@#$^&*?_~`. This is expressed in the following regular expression: `^((?=.*?[A-Z]{1,})(?=.*?[a-z]{1,}))(((?=(?:[^d]*d){1})(?=([^^&*?_~]*[!@#$^&*?_~]){2,}))|((?=(?:[^d]*d){3})(?=.*?[!@#$^&*?_~]+))).{8,}$`  # noqa: E501
 
         :param value: The value of this CreateSecretRequest.  # noqa: E501
         :type: str

@@ -57,13 +57,20 @@ class AssignmentResponse(object):
         self._resource_id = None
         self._resource_name = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.tag_id = tag_id
-        self.tag_name = tag_name
-        self.resource_type = resource_type
-        self.resource_id = resource_id
-        self.resource_name = resource_name
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if tag_id is not None:
+            self.tag_id = tag_id
+        if tag_name is not None:
+            self.tag_name = tag_name
+        if resource_type is not None:
+            self.resource_type = resource_type
+        if resource_id is not None:
+            self.resource_id = resource_id
+        if resource_name is not None:
+            self.resource_name = resource_name
 
     @property
     def tenant_id(self):

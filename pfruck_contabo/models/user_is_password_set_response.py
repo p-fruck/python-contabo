@@ -45,9 +45,12 @@ class UserIsPasswordSetResponse(object):
         self._customer_id = None
         self._is_password_set = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.is_password_set = is_password_set
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if is_password_set is not None:
+            self.is_password_set = is_password_set
 
     @property
     def tenant_id(self):

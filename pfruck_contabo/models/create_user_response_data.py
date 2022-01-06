@@ -45,9 +45,12 @@ class CreateUserResponseData(object):
         self._customer_id = None
         self._user_id = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.user_id = user_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if user_id is not None:
+            self.user_id = user_id
 
     @property
     def tenant_id(self):

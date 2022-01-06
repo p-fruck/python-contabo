@@ -75,19 +75,32 @@ class UserResponse(object):
         self._locale = None
         self._roles = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.user_id = user_id
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.email_verified = email_verified
-        self.enabled = enabled
-        self.totp = totp
-        self.admin = admin
-        self.access_all_resources = access_all_resources
-        self.locale = locale
-        self.roles = roles
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if user_id is not None:
+            self.user_id = user_id
+        if first_name is not None:
+            self.first_name = first_name
+        if last_name is not None:
+            self.last_name = last_name
+        if email is not None:
+            self.email = email
+        if email_verified is not None:
+            self.email_verified = email_verified
+        if enabled is not None:
+            self.enabled = enabled
+        if totp is not None:
+            self.totp = totp
+        if admin is not None:
+            self.admin = admin
+        if access_all_resources is not None:
+            self.access_all_resources = access_all_resources
+        if locale is not None:
+            self.locale = locale
+        if roles is not None:
+            self.roles = roles
 
     @property
     def tenant_id(self):

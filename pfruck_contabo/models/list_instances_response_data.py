@@ -138,7 +138,8 @@ class ListInstancesResponseData(object):
         if add_ons is not None:
             self.add_ons = add_ons
         if error_message is not None:
-            self.error_message = error_message
+            if error_message is not None:
+                self.error_message = error_message
         if product_type is not None:
             self.product_type = product_type
 

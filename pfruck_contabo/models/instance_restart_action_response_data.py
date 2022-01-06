@@ -48,10 +48,14 @@ class InstanceRestartActionResponseData(object):
         self._instance_id = None
         self._action = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.instance_id = instance_id
-        self.action = action
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if action is not None:
+            self.action = action
 
     @property
     def tenant_id(self):

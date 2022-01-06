@@ -60,14 +60,22 @@ class SecretResponse(object):
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.secret_id = secret_id
-        self.name = name
-        self.type = type
-        self.value = value
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if secret_id is not None:
+            self.secret_id = secret_id
+        if name is not None:
+            self.name = name
+        if type is not None:
+            self.type = type
+        if value is not None:
+            self.value = value
+        if created_at is not None:
+            self.created_at = created_at
+        if updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def tenant_id(self):

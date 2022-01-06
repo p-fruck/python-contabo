@@ -57,13 +57,20 @@ class RoleResponse(object):
         self._api_permissions = None
         self._resource_permissions = None
         self.discriminator = None
-        self.role_id = role_id
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.name = name
-        self.role_type = role_type
-        self.api_permissions = api_permissions
-        self.resource_permissions = resource_permissions
+        if role_id is not None:
+            self.role_id = role_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if name is not None:
+            self.name = name
+        if role_type is not None:
+            self.role_type = role_type
+        if api_permissions is not None:
+            self.api_permissions = api_permissions
+        if resource_permissions is not None:
+            self.resource_permissions = resource_permissions
 
     @property
     def role_id(self):

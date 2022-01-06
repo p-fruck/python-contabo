@@ -48,10 +48,14 @@ class CancelInstanceResponseData(object):
         self._instance_id = None
         self._cancel_date = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.instance_id = instance_id
-        self.cancel_date = cancel_date
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if cancel_date is not None:
+            self.cancel_date = cancel_date
 
     @property
     def tenant_id(self):

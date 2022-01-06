@@ -51,11 +51,16 @@ class TagResponse(object):
         self._name = None
         self._color = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.tag_id = tag_id
-        self.name = name
-        self.color = color
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if tag_id is not None:
+            self.tag_id = tag_id
+        if name is not None:
+            self.name = name
+        if color is not None:
+            self.color = color
 
     @property
     def tenant_id(self):

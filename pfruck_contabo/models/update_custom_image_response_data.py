@@ -45,9 +45,12 @@ class UpdateCustomImageResponseData(object):
         self._customer_id = None
         self._image_id = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.image_id = image_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if image_id is not None:
+            self.image_id = image_id
 
     @property
     def tenant_id(self):

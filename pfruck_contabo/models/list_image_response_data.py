@@ -81,21 +81,36 @@ class ListImageResponseData(object):
         self._last_modified_date = None
         self._tags = None
         self.discriminator = None
-        self.image_id = image_id
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.name = name
-        self.description = description
-        self.url = url
-        self.size_mb = size_mb
-        self.os_type = os_type
-        self.version = version
-        self.format = format
-        self.status = status
-        self.error_message = error_message
-        self.standard_image = standard_image
-        self.last_modified_date = last_modified_date
-        self.tags = tags
+        if image_id is not None:
+            self.image_id = image_id
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if name is not None:
+            self.name = name
+        if description is not None:
+            self.description = description
+        if url is not None:
+            self.url = url
+        if size_mb is not None:
+            self.size_mb = size_mb
+        if os_type is not None:
+            self.os_type = os_type
+        if version is not None:
+            self.version = version
+        if format is not None:
+            self.format = format
+        if status is not None:
+            self.status = status
+        if error_message is not None:
+            self.error_message = error_message
+        if standard_image is not None:
+            self.standard_image = standard_image
+        if last_modified_date is not None:
+            self.last_modified_date = last_modified_date
+        if tags is not None:
+            self.tags = tags
 
     @property
     def image_id(self):

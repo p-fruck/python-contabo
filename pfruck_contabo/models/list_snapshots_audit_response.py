@@ -45,9 +45,12 @@ class ListSnapshotsAuditResponse(object):
         self._data = None
         self._links = None
         self.discriminator = None
-        self.pagination = pagination
-        self.data = data
-        self.links = links
+        if pagination is not None:
+            self.pagination = pagination
+        if data is not None:
+            self.data = data
+        if links is not None:
+            self.links = links
 
     @property
     def pagination(self):

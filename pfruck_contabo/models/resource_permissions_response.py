@@ -42,8 +42,10 @@ class ResourcePermissionsResponse(object):
         self._tag_id = None
         self._tag_name = None
         self.discriminator = None
-        self.tag_id = tag_id
-        self.tag_name = tag_name
+        if tag_id is not None:
+            self.tag_id = tag_id
+        if tag_name is not None:
+            self.tag_name = tag_name
 
     @property
     def tag_id(self):

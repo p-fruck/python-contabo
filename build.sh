@@ -18,3 +18,9 @@ $cmd run --rm \
     -l python \
     -o /local/ \
     -c /local/config.json
+
+# Contabo does not declare attributes as nullable, so I have to catch them manually
+sed -i 's/^\(\s\+\)self\.\([a-z][a-z_]\+\) = \2$/\1if \2 is not None:\n\1    self.\2 = \2/g' pfruck_contabo/models/*_response{,_data}.py
+
+# No functionality in unit-tests, they just validate that all files have valid syntax :)
+python -m unittest

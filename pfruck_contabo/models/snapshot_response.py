@@ -66,16 +66,26 @@ class SnapshotResponse(object):
         self._image_id = None
         self._image_name = None
         self.discriminator = None
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
-        self.snapshot_id = snapshot_id
-        self.name = name
-        self.description = description
-        self.instance_id = instance_id
-        self.created_date = created_date
-        self.auto_delete_date = auto_delete_date
-        self.image_id = image_id
-        self.image_name = image_name
+        if tenant_id is not None:
+            self.tenant_id = tenant_id
+        if customer_id is not None:
+            self.customer_id = customer_id
+        if snapshot_id is not None:
+            self.snapshot_id = snapshot_id
+        if name is not None:
+            self.name = name
+        if description is not None:
+            self.description = description
+        if instance_id is not None:
+            self.instance_id = instance_id
+        if created_date is not None:
+            self.created_date = created_date
+        if auto_delete_date is not None:
+            self.auto_delete_date = auto_delete_date
+        if image_id is not None:
+            self.image_id = image_id
+        if image_name is not None:
+            self.image_name = image_name
 
     @property
     def tenant_id(self):

@@ -52,7 +52,6 @@ class RESTResponse(io.IOBase):
 class RESTClientObject(object):
 
     def __init__(self, configuration, pools_size=4, maxsize=None):
-        self.configuration = configuration
         # urllib3.PoolManager will pass all kw parameters to connectionpool
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
@@ -137,11 +136,6 @@ class RESTClientObject(object):
 
         post_params = post_params or {}
         headers = headers or {}
-
-        for auth_key in self.configuration.api_key:
-            prefix = self.configuration.api_key_prefix.get(auth_key)
-            auth_key_value = self.configuration.api_key[auth_key]
-            headers[auth_key] = f"{prefix} {auth_key_value}" if prefix else auth_key_value
 
         timeout = None
         if _request_timeout:

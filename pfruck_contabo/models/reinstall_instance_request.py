@@ -85,7 +85,7 @@ class ReinstallInstanceRequest(object):
     def ssh_keys(self):
         """Gets the ssh_keys of this ReinstallInstanceRequest.  # noqa: E501
 
-        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems.  # noqa: E501
+        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.  # noqa: E501
 
         :return: The ssh_keys of this ReinstallInstanceRequest.  # noqa: E501
         :rtype: list[int]
@@ -96,7 +96,7 @@ class ReinstallInstanceRequest(object):
     def ssh_keys(self, ssh_keys):
         """Sets the ssh_keys of this ReinstallInstanceRequest.
 
-        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems.  # noqa: E501
+        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.  # noqa: E501
 
         :param ssh_keys: The ssh_keys of this ReinstallInstanceRequest.  # noqa: E501
         :type: list[int]
@@ -108,7 +108,7 @@ class ReinstallInstanceRequest(object):
     def root_password(self):
         """Gets the root_password of this ReinstallInstanceRequest.  # noqa: E501
 
-        Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP.  # noqa: E501
+        Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.  # noqa: E501
 
         :return: The root_password of this ReinstallInstanceRequest.  # noqa: E501
         :rtype: int
@@ -119,7 +119,7 @@ class ReinstallInstanceRequest(object):
     def root_password(self, root_password):
         """Sets the root_password of this ReinstallInstanceRequest.
 
-        Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP.  # noqa: E501
+        Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.  # noqa: E501
 
         :param root_password: The root_password of this ReinstallInstanceRequest.  # noqa: E501
         :type: int

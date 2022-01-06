@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **cpu_cores** | **int** | CPU core count | 
 **os_type** | **str** | Type of operating system (OS) | 
 **disk_mb** | **float** | Image Disk size in MB | 
-**ssh_keys** | **list[str]** | Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. | 
+**ssh_keys** | **list[str]** | Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API. | 
 **created_date** | **datetime** | The creation date for the instance | 
 **cancel_date** | **date** | The date on which the instance will be cancelled | 
 **status** | [**InstanceStatus**](InstanceStatus.md) |  | 

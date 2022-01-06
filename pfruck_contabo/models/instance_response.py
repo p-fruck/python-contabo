@@ -455,7 +455,7 @@ class InstanceResponse(object):
     def ssh_keys(self):
         """Gets the ssh_keys of this InstanceResponse.  # noqa: E501
 
-        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems.  # noqa: E501
+        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.  # noqa: E501
 
         :return: The ssh_keys of this InstanceResponse.  # noqa: E501
         :rtype: list[str]
@@ -466,7 +466,7 @@ class InstanceResponse(object):
     def ssh_keys(self, ssh_keys):
         """Sets the ssh_keys of this InstanceResponse.
 
-        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems.  # noqa: E501
+        Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.  # noqa: E501
 
         :param ssh_keys: The ssh_keys of this InstanceResponse.  # noqa: E501
         :type: list[str]

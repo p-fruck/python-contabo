@@ -5,7 +5,7 @@ All URIs are relative to */*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_instance**](InstancesApi.md#cancel_instance) | **POST** /v1/compute/instances/{instanceId}/cancel | Cancel specific instance by id
-[**create_instance**](InstancesApi.md#create_instance) | **POST** /v1/compute/instances | Create a new instances
+[**create_instance**](InstancesApi.md#create_instance) | **POST** /v1/compute/instances | Create a new instance
 [**reinstall_instance**](InstancesApi.md#reinstall_instance) | **PATCH** /v1/compute/instances/{instanceId} | Reinstall specific instance
 [**retrieve_instance**](InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 [**retrieve_instances_list**](InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 # **create_instance**
 > CreateInstanceResponse create_instance(body, x_request_id, x_trace_id=x_trace_id)
 
-Create a new instances
+Create a new instance
 
 Create a new instance for your account with the provided parameters.
 
@@ -86,7 +86,7 @@ x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/w
 x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
 try:
-    # Create a new instances
+    # Create a new instance
     api_response = api_instance.create_instance(body, x_request_id, x_trace_id=x_trace_id)
     pprint(api_response)
 except ApiException as e:

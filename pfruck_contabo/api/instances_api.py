@@ -140,7 +140,7 @@ class InstancesApi(object):
             collection_formats=collection_formats)
 
     def create_instance(self, body, x_request_id, **kwargs):  # noqa: E501
-        """Create a new instances  # noqa: E501
+        """Create a new instance  # noqa: E501
 
         Create a new instance for your account with the provided parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -164,7 +164,7 @@ class InstancesApi(object):
             return data
 
     def create_instance_with_http_info(self, body, x_request_id, **kwargs):  # noqa: E501
-        """Create a new instances  # noqa: E501
+        """Create a new instance  # noqa: E501
 
         Create a new instance for your account with the provided parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

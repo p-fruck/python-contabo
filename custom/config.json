@@ -1,5 +1,6 @@
 {
    "packageName": "pfruck_contabo",
    "projectName": "pfruck_contabo",
+   "packageUrl": "https://github.com/p-fruck/python-contabo",
    "packageVersion": "1.0.0"
 }

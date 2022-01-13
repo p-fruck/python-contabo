@@ -1,6 +1,6 @@
 # pfruck_contabo
 
-> :warning: I am not affiliated in any way with Contabo
+> ⚠️ I am not affiliated in any way with Contabo
 
 This is an UNOFFICIAL Python API client for [contabo.com](https://contabo.com), which is a hosting provider for VPS and dedicated servers.
 
@@ -14,8 +14,13 @@ Python 2.7 and 3.4+
 ## Installation & Usage
 ### pip install
 
-I am planning to publish this package on PyPI, but I have not done so already. However, you can simply install the package directly from the GitHub Repo using pip:
+The simplest way to install the Contabo API client is by using the provided [pip package](https://pypi.org/project/pfruck-contabo):
 
+```sh
+pip install pfruck-contabo
+```
+
+You can also install the package directly from the GitHub Repo using pip:
 ```sh
 pip install git+https://github.com/p-fruck/python-contabo.git
 ```

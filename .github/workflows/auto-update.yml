@@ -2,7 +2,9 @@ name: Auto update
 
 on:
   push:
-    branches: [ci/auto-update]
+    branches: [main]
+  schedule:
+    - cron: '0 18 * * *'  # every day at 6 PM
 
 jobs:
   gh-update:

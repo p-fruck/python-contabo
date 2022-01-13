@@ -1,0 +1,29 @@
+name: Auto update
+
+on:
+  push:
+    branches: [actions/auto-update]
+
+jobs:
+  gh-update:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: none
+      checks: none
+      contents: write
+      deployments: none
+      issues: none
+      packages: none
+      pull-requests: none
+      repository-projects: none
+      security-events: none
+      statuses: none
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v2
+
+      - name: "Build API client"
+        run: ./custom/build.sh
+
+      - name: "Publish changes"
+        run: ./git_push.sh

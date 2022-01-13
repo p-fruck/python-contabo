@@ -7,18 +7,22 @@ git_user_id=$1
 git_repo_id=$2
 release_note=$3
 
+author="GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>"
+main_branch="main"
+target_branch="actions/auto-update"
+
 if [ "$git_user_id" = "" ]; then
-    git_user_id="GIT_USER_ID"
+    git_user_id="p-fruck"
     echo "[INFO] No command line input provided. Set \$git_user_id to $git_user_id"
 fi
 
 if [ "$git_repo_id" = "" ]; then
-    git_repo_id="GIT_REPO_ID"
+    git_repo_id="python-contabo"
     echo "[INFO] No command line input provided. Set \$git_repo_id to $git_repo_id"
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="Minor update"
+    release_note="update to latest API spec"
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 
@@ -28,8 +32,8 @@ git init
 # Adds the files in the local repository and stages them for commit.
 git add .
 
-# Commits the tracked changes and prepares them to be pushed to a remote repository. 
-git commit -m "$release_note"
+# Commits the tracked changes and prepares them to be pushed to a remote repository.
+git commit --author="${author}" -m "$release_note"
 
 # Sets the new remote
 git_remote=`git remote`
@@ -44,9 +48,8 @@ if [ "$git_remote" = "" ]; then # git remote not defined
 
 fi
 
-git pull origin master
+git pull origin "${main_branch}"
 
 # Pushes (Forces) the changes in the local repository up to the remote repository
 echo "Git pushing to https://github.com/${git_user_id}/${git_repo_id}.git"
-git push origin master 2>&1 | grep -v 'To https'
-
+git push origin "${target_branch}" 2>&1 | grep -v 'To https'

@@ -35,12 +35,14 @@ class ListImageResponseData(object):
         'description': 'str',
         'url': 'str',
         'size_mb': 'float',
+        'uploaded_size_mb': 'float',
         'os_type': 'str',
         'version': 'str',
         'format': 'str',
         'status': 'str',
         'error_message': 'str',
         'standard_image': 'bool',
+        'creation_date': 'datetime',
         'last_modified_date': 'datetime',
         'tags': 'list[TagResponse1]'
     }
@@ -53,17 +55,19 @@ class ListImageResponseData(object):
         'description': 'description',
         'url': 'url',
         'size_mb': 'sizeMb',
+        'uploaded_size_mb': 'uploadedSizeMb',
         'os_type': 'osType',
         'version': 'version',
         'format': 'format',
         'status': 'status',
         'error_message': 'errorMessage',
         'standard_image': 'standardImage',
+        'creation_date': 'creationDate',
         'last_modified_date': 'lastModifiedDate',
         'tags': 'tags'
     }
 
-    def __init__(self, image_id=None, tenant_id=None, customer_id=None, name=None, description=None, url=None, size_mb=None, os_type=None, version=None, format=None, status=None, error_message=None, standard_image=None, last_modified_date=None, tags=None):  # noqa: E501
+    def __init__(self, image_id=None, tenant_id=None, customer_id=None, name=None, description=None, url=None, size_mb=None, uploaded_size_mb=None, os_type=None, version=None, format=None, status=None, error_message=None, standard_image=None, creation_date=None, last_modified_date=None, tags=None):  # noqa: E501
         """ListImageResponseData - a model defined in Swagger"""  # noqa: E501
         self._image_id = None
         self._tenant_id = None
@@ -72,12 +76,14 @@ class ListImageResponseData(object):
         self._description = None
         self._url = None
         self._size_mb = None
+        self._uploaded_size_mb = None
         self._os_type = None
         self._version = None
         self._format = None
         self._status = None
         self._error_message = None
         self._standard_image = None
+        self._creation_date = None
         self._last_modified_date = None
         self._tags = None
         self.discriminator = None
@@ -95,6 +101,8 @@ class ListImageResponseData(object):
             self.url = url
         if size_mb is not None:
             self.size_mb = size_mb
+        if uploaded_size_mb is not None:
+            self.uploaded_size_mb = uploaded_size_mb
         if os_type is not None:
             self.os_type = os_type
         if version is not None:
@@ -107,6 +115,8 @@ class ListImageResponseData(object):
             self.error_message = error_message
         if standard_image is not None:
             self.standard_image = standard_image
+        if creation_date is not None:
+            self.creation_date = creation_date
         if last_modified_date is not None:
             self.last_modified_date = last_modified_date
         if tags is not None:
@@ -294,6 +304,31 @@ class ListImageResponseData(object):
         self._size_mb = size_mb
 
     @property
+    def uploaded_size_mb(self):
+        """Gets the uploaded_size_mb of this ListImageResponseData.  # noqa: E501
+
+        Image Uploaded Size in MB  # noqa: E501
+
+        :return: The uploaded_size_mb of this ListImageResponseData.  # noqa: E501
+        :rtype: float
+        """
+        return self._uploaded_size_mb
+
+    @uploaded_size_mb.setter
+    def uploaded_size_mb(self, uploaded_size_mb):
+        """Sets the uploaded_size_mb of this ListImageResponseData.
+
+        Image Uploaded Size in MB  # noqa: E501
+
+        :param uploaded_size_mb: The uploaded_size_mb of this ListImageResponseData.  # noqa: E501
+        :type: float
+        """
+        if uploaded_size_mb is None:
+            raise ValueError("Invalid value for `uploaded_size_mb`, must not be `None`")  # noqa: E501
+
+        self._uploaded_size_mb = uploaded_size_mb
+
+    @property
     def os_type(self):
         """Gets the os_type of this ListImageResponseData.  # noqa: E501
 
@@ -448,6 +483,31 @@ class ListImageResponseData(object):
             raise ValueError("Invalid value for `standard_image`, must not be `None`")  # noqa: E501
 
         self._standard_image = standard_image
+
+    @property
+    def creation_date(self):
+        """Gets the creation_date of this ListImageResponseData.  # noqa: E501
+
+        The creation date time for the image  # noqa: E501
+
+        :return: The creation_date of this ListImageResponseData.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._creation_date
+
+    @creation_date.setter
+    def creation_date(self, creation_date):
+        """Sets the creation_date of this ListImageResponseData.
+
+        The creation date time for the image  # noqa: E501
+
+        :param creation_date: The creation_date of this ListImageResponseData.  # noqa: E501
+        :type: datetime
+        """
+        if creation_date is None:
+            raise ValueError("Invalid value for `creation_date`, must not be `None`")  # noqa: E501
+
+        self._creation_date = creation_date
 
     @property
     def last_modified_date(self):

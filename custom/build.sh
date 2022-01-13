@@ -20,6 +20,20 @@ function customize_readme() {
   rm README.md.gen
 }
 
+# by default, the Contabo API documentation is set as package description for the PyPI package.
+# Instead, the GitHub README should be defined as description.
+function customize_pypi_description() {
+  line_no=$(grep -n 'long_description' setup.py | cut -d ':' -f 1)
+  head -n ${line_no} setup.py > setup.py.new
+  sed "s#(docs/#(https://github.com/p-fruck/${git_repo_id}/blolb/main/docs/#g" README.md >> setup.py.new
+  cat << EOF >> setup.py.new
+    """,
+    long_description_content_type='text/markdown',
+)
+EOF
+  mv setup.py.new setup.py
+}
+
 if command -v podman >/dev/null 2>&1; then
   cmd="podman"
 else
@@ -51,3 +65,5 @@ done
 python -m unittest
 
 customize_readme
+
+customize_pypi_description

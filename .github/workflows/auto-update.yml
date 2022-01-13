@@ -16,7 +16,7 @@ jobs:
       deployments: none
       issues: none
       packages: none
-      pull-requests: none
+      pull-requests: write
       repository-projects: none
       security-events: none
       statuses: none
@@ -30,9 +30,18 @@ jobs:
         run: ./custom/build.sh
 
       - name: "Commit and publish the changes"
-        uses: EndBug/add-and-commit@v7
+        uses: peter-evans/create-pull-request@v3
         with:
+          commit-message: "update to latest API spec"
+          committer: "GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>"
           branch: actions/auto-update
-          branch_mode: create
-          default_author: github_actions
-          message: "update to latest API spec"
+          delete-branch: true
+          branch-suffix: timestamp
+          base: main
+          title: Update to latest API spec
+          body: |
+            Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
+
+            Make sure to review the changes before approving and merging. Provide a small summary of the given changes.
+          labels: "auto-update,need review"
+          assignees: p-fruck

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This simple bash script utilizes the swagger-codegen container to generate an
 # API-client for python from Contabo's API documentation.

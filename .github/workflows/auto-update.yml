@@ -45,3 +45,4 @@ jobs:
             Make sure to review the changes before approving and merging. Provide a small summary of the given changes.
           labels: "auto-update,need review"
           assignees: p-fruck
+          reviewers: p-fruck

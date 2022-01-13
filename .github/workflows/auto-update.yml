@@ -2,7 +2,7 @@ name: Auto update
 
 on:
   push:
-    branches: [actions/auto-update]
+    branches: [ci/auto-update]
 
 jobs:
   gh-update:
@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: "Checkout repository"
         uses: actions/checkout@v2
+        with:
+          ref: main
 
       - name: "Build API client"
         run: ./custom/build.sh

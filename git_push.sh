@@ -8,7 +8,6 @@ git_repo_id=$2
 release_note=$3
 
 author="GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>"
-main_branch="main"
 target_branch="actions/auto-update"
 
 if [ "$git_user_id" = "" ]; then
@@ -48,8 +47,6 @@ if [ "$git_remote" = "" ]; then # git remote not defined
 
 fi
 
-git pull origin "${main_branch}"
-
 # Pushes (Forces) the changes in the local repository up to the remote repository
 echo "Git pushing to https://github.com/${git_user_id}/${git_repo_id}.git"
-git push origin "${target_branch}" 2>&1 | grep -v 'To https'
+git push --force origin "${target_branch}" 2>&1 | grep -v 'To https'

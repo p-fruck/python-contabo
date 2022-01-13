@@ -47,6 +47,9 @@ if [ "$git_remote" = "" ]; then # git remote not defined
 
 fi
 
+# create a new branch to avoid refspec error
+git checkout -b "${target_branch}"
+
 # Pushes (Forces) the changes in the local repository up to the remote repository
 echo "Git pushing to https://github.com/${git_user_id}/${git_repo_id}.git"
 git push --force origin "${target_branch}" 2>&1 | grep -v 'To https'

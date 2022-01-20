@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "pfruck_contabo"
-VERSION = "1.0.1"
+VERSION = "1.1.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -94,7 +94,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-body = pfruck_contabo.CreateCustomImageRequest() # CreateCustomImageRequest | 
+body = pfruck_contabo.CreateCustomImageRequest() # CreateCustomImageRequest |
 x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
 x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
@@ -166,7 +166,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-body = pfruck_contabo.UpdateCustomImageRequest() # UpdateCustomImageRequest | 
+body = pfruck_contabo.UpdateCustomImageRequest() # UpdateCustomImageRequest |
 x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
 image_id = 'image_id_example' # str | The identifier of the image
 x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)

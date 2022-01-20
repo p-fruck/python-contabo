@@ -40,7 +40,8 @@ class UserResponse(object):
         'admin': 'bool',
         'access_all_resources': 'bool',
         'locale': 'str',
-        'roles': 'list[RoleResponse]'
+        'roles': 'list[RoleResponse]',
+        'owner': 'bool'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class UserResponse(object):
         'admin': 'admin',
         'access_all_resources': 'accessAllResources',
         'locale': 'locale',
-        'roles': 'roles'
+        'roles': 'roles',
+        'owner': 'owner'
     }
 
-    def __init__(self, tenant_id=None, customer_id=None, user_id=None, first_name=None, last_name=None, email=None, email_verified=None, enabled=None, totp=None, admin=None, access_all_resources=None, locale=None, roles=None):  # noqa: E501
+    def __init__(self, tenant_id=None, customer_id=None, user_id=None, first_name=None, last_name=None, email=None, email_verified=None, enabled=None, totp=None, admin=None, access_all_resources=None, locale=None, roles=None, owner=None):  # noqa: E501
         """UserResponse - a model defined in Swagger"""  # noqa: E501
         self._tenant_id = None
         self._customer_id = None
@@ -74,6 +76,7 @@ class UserResponse(object):
         self._access_all_resources = None
         self._locale = None
         self._roles = None
+        self._owner = None
         self.discriminator = None
         if tenant_id is not None:
             self.tenant_id = tenant_id
@@ -101,6 +104,8 @@ class UserResponse(object):
             self.locale = locale
         if roles is not None:
             self.roles = roles
+        if owner is not None:
+            self.owner = owner
 
     @property
     def tenant_id(self):
@@ -432,6 +437,31 @@ class UserResponse(object):
             raise ValueError("Invalid value for `roles`, must not be `None`")  # noqa: E501
 
         self._roles = roles
+
+    @property
+    def owner(self):
+        """Gets the owner of this UserResponse.  # noqa: E501
+
+        If user is owner he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
+
+        :return: The owner of this UserResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._owner
+
+    @owner.setter
+    def owner(self, owner):
+        """Sets the owner of this UserResponse.
+
+        If user is owner he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
+
+        :param owner: The owner of this UserResponse.  # noqa: E501
+        :type: bool
+        """
+        if owner is None:
+            raise ValueError("Invalid value for `owner`, must not be `None`")  # noqa: E501
+
+        self._owner = owner
 
     def to_dict(self):
         """Returns the model properties as a dict"""

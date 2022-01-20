@@ -9,8 +9,8 @@
 name: Upload Python Package
 
 on:
-  release:
-    types: [published]
+  push:
+    tags: [ 'v*' ]
 
 jobs:
   deploy:
@@ -49,6 +49,11 @@ jobs:
 
     - name: Build package
       run: python -m build
+
+    - name: Publish GitHub release
+      uses: softprops/action-gh-release@v1
+      with:
+        generate_release_notes: true
 
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1

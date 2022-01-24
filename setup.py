@@ -202,12 +202,12 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**retrieve_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
-*RolesApi* | [**create_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#create_role) | **POST** /v1/roles/{roleType} | Create a new role
-*RolesApi* | [**delete_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleType}/{roleId} | Delete existing role by id
+*RolesApi* | [**create_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#create_role) | **POST** /v1/roles | Create a new role
+*RolesApi* | [**delete_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleId} | Delete existing role by id
 *RolesApi* | [**retrieve_api_permissions_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#retrieve_api_permissions_list) | **GET** /v1/roles/api-permissions | List of API permissions
-*RolesApi* | [**retrieve_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#retrieve_role) | **GET** /v1/roles/{roleType}/{roleId} | Get specific role by id
-*RolesApi* | [**retrieve_role_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#retrieve_role_list) | **GET** /v1/roles/{roleType} | List roles
-*RolesApi* | [**update_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#update_role) | **PATCH** /v1/roles/{roleType}/{roleId} | Update specific role by id
+*RolesApi* | [**retrieve_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#retrieve_role) | **GET** /v1/roles/{roleId} | Get specific role by id
+*RolesApi* | [**retrieve_role_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#retrieve_role_list) | **GET** /v1/roles | List roles
+*RolesApi* | [**update_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#update_role) | **PUT** /v1/roles/{roleId} | Update specific role by id
 *RolesAuditsApi* | [**retrieve_role_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesAuditsApi.md#retrieve_role_audits_list) | **GET** /v1/roles/audits | List history about your roles (audit)
 *SecretsApi* | [**create_secret**](https://github.com/p-fruck/python-contabo/blob/main/docs/SecretsApi.md#create_secret) | **POST** /v1/secrets | Create a new secret
 *SecretsApi* | [**delete_secret**](https://github.com/p-fruck/python-contabo/blob/main/docs/SecretsApi.md#delete_secret) | **DELETE** /v1/secrets/{secretId} | Delete existing secret by id
@@ -392,6 +392,8 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponse.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [PaginationMeta](https://github.com/p-fruck/python-contabo/blob/main/docs/PaginationMeta.md)
+ - [PermissionRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PermissionRequest.md)
+ - [PermissionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PermissionResponse.md)
  - [ReinstallInstanceRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/ReinstallInstanceRequest.md)
  - [ReinstallInstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ReinstallInstanceResponse.md)
  - [ReinstallInstanceResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ReinstallInstanceResponseData.md)

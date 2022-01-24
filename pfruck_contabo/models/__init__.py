@@ -159,6 +159,8 @@ from pfruck_contabo.models.list_tag_response import ListTagResponse
 from pfruck_contabo.models.list_user_audit_response import ListUserAuditResponse
 from pfruck_contabo.models.list_user_response import ListUserResponse
 from pfruck_contabo.models.pagination_meta import PaginationMeta
+from pfruck_contabo.models.permission_request import PermissionRequest
+from pfruck_contabo.models.permission_response import PermissionResponse
 from pfruck_contabo.models.reinstall_instance_request import ReinstallInstanceRequest
 from pfruck_contabo.models.reinstall_instance_response import ReinstallInstanceResponse
 from pfruck_contabo.models.reinstall_instance_response_data import ReinstallInstanceResponseData

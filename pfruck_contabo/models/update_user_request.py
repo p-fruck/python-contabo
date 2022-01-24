@@ -33,8 +33,6 @@ class UpdateUserRequest(object):
         'email': 'str',
         'enabled': 'bool',
         'totp': 'bool',
-        'admin': 'bool',
-        'access_all_resources': 'bool',
         'locale': 'str',
         'roles': 'list[int]'
     }
@@ -45,21 +43,17 @@ class UpdateUserRequest(object):
         'email': 'email',
         'enabled': 'enabled',
         'totp': 'totp',
-        'admin': 'admin',
-        'access_all_resources': 'accessAllResources',
         'locale': 'locale',
         'roles': 'roles'
     }
 
-    def __init__(self, first_name=None, last_name=None, email=None, enabled=None, totp=None, admin=None, access_all_resources=None, locale=None, roles=None):  # noqa: E501
+    def __init__(self, first_name=None, last_name=None, email=None, enabled=None, totp=None, locale=None, roles=None):  # noqa: E501
         """UpdateUserRequest - a model defined in Swagger"""  # noqa: E501
         self._first_name = None
         self._last_name = None
         self._email = None
         self._enabled = None
         self._totp = None
-        self._admin = None
-        self._access_all_resources = None
         self._locale = None
         self._roles = None
         self.discriminator = None
@@ -73,10 +67,6 @@ class UpdateUserRequest(object):
             self.enabled = enabled
         if totp is not None:
             self.totp = totp
-        if admin is not None:
-            self.admin = admin
-        if access_all_resources is not None:
-            self.access_all_resources = access_all_resources
         if locale is not None:
             self.locale = locale
         if roles is not None:
@@ -196,52 +186,6 @@ class UpdateUserRequest(object):
         """
 
         self._totp = totp
-
-    @property
-    def admin(self):
-        """Gets the admin of this UpdateUserRequest.  # noqa: E501
-
-        If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
-
-        :return: The admin of this UpdateUserRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._admin
-
-    @admin.setter
-    def admin(self, admin):
-        """Sets the admin of this UpdateUserRequest.
-
-        If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
-
-        :param admin: The admin of this UpdateUserRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._admin = admin
-
-    @property
-    def access_all_resources(self):
-        """Gets the access_all_resources of this UpdateUserRequest.  # noqa: E501
-
-        Allow access to all resources. This will superseed all assigned roles of type `resourcePermission`. You'll need to set it to `true` in case you are not assigning roles of type `resourcePermission` explicitly.  # noqa: E501
-
-        :return: The access_all_resources of this UpdateUserRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._access_all_resources
-
-    @access_all_resources.setter
-    def access_all_resources(self, access_all_resources):
-        """Sets the access_all_resources of this UpdateUserRequest.
-
-        Allow access to all resources. This will superseed all assigned roles of type `resourcePermission`. You'll need to set it to `true` in case you are not assigning roles of type `resourcePermission` explicitly.  # noqa: E501
-
-        :param access_all_resources: The access_all_resources of this UpdateUserRequest.  # noqa: E501
-        :type: bool
-        """
-
-        self._access_all_resources = access_all_resources
 
     @property
     def locale(self):

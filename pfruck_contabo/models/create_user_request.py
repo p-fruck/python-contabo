@@ -33,8 +33,6 @@ class CreateUserRequest(object):
         'email': 'str',
         'enabled': 'bool',
         'totp': 'bool',
-        'admin': 'bool',
-        'access_all_resources': 'bool',
         'locale': 'str',
         'roles': 'list[int]'
     }
@@ -45,21 +43,17 @@ class CreateUserRequest(object):
         'email': 'email',
         'enabled': 'enabled',
         'totp': 'totp',
-        'admin': 'admin',
-        'access_all_resources': 'accessAllResources',
         'locale': 'locale',
         'roles': 'roles'
     }
 
-    def __init__(self, first_name=None, last_name=None, email=None, enabled=None, totp=None, admin=None, access_all_resources=None, locale=None, roles=None):  # noqa: E501
+    def __init__(self, first_name=None, last_name=None, email=None, enabled=None, totp=None, locale=None, roles=None):  # noqa: E501
         """CreateUserRequest - a model defined in Swagger"""  # noqa: E501
         self._first_name = None
         self._last_name = None
         self._email = None
         self._enabled = None
         self._totp = None
-        self._admin = None
-        self._access_all_resources = None
         self._locale = None
         self._roles = None
         self.discriminator = None
@@ -68,8 +62,6 @@ class CreateUserRequest(object):
         self.email = email
         self.enabled = enabled
         self.totp = totp
-        self.admin = admin
-        self.access_all_resources = access_all_resources
         self.locale = locale
         if roles is not None:
             self.roles = roles
@@ -198,56 +190,6 @@ class CreateUserRequest(object):
             raise ValueError("Invalid value for `totp`, must not be `None`")  # noqa: E501
 
         self._totp = totp
-
-    @property
-    def admin(self):
-        """Gets the admin of this CreateUserRequest.  # noqa: E501
-
-        If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
-
-        :return: The admin of this CreateUserRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._admin
-
-    @admin.setter
-    def admin(self, admin):
-        """Sets the admin of this CreateUserRequest.
-
-        If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
-
-        :param admin: The admin of this CreateUserRequest.  # noqa: E501
-        :type: bool
-        """
-        if admin is None:
-            raise ValueError("Invalid value for `admin`, must not be `None`")  # noqa: E501
-
-        self._admin = admin
-
-    @property
-    def access_all_resources(self):
-        """Gets the access_all_resources of this CreateUserRequest.  # noqa: E501
-
-        Allow access to all resources. This will superseed all assigned roles of type `resourcePermission`. You'll need to set it to `true` in case you are not assigning roles of type `resourcePermission` explicitly.  # noqa: E501
-
-        :return: The access_all_resources of this CreateUserRequest.  # noqa: E501
-        :rtype: bool
-        """
-        return self._access_all_resources
-
-    @access_all_resources.setter
-    def access_all_resources(self, access_all_resources):
-        """Sets the access_all_resources of this CreateUserRequest.
-
-        Allow access to all resources. This will superseed all assigned roles of type `resourcePermission`. You'll need to set it to `true` in case you are not assigning roles of type `resourcePermission` explicitly.  # noqa: E501
-
-        :param access_all_resources: The access_all_resources of this CreateUserRequest.  # noqa: E501
-        :type: bool
-        """
-        if access_all_resources is None:
-            raise ValueError("Invalid value for `access_all_resources`, must not be `None`")  # noqa: E501
-
-        self._access_all_resources = access_all_resources
 
     @property
     def locale(self):

@@ -38,7 +38,7 @@ jobs:
           delete-branch: true
           branch-suffix: timestamp
           base: main
-          title: Update to latest API spec
+          title: "API-Update: <Short description goes here>"
           body: |
             Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
 

@@ -166,12 +166,12 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**retrieve_instance**](docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
-*RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /v1/roles | Create a new role
-*RolesApi* | [**delete_role**](docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleId} | Delete existing role by id
+*RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /v1/roles/{roleType} | Create a new role
+*RolesApi* | [**delete_role**](docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleType}/{roleId} | Delete existing role by id
 *RolesApi* | [**retrieve_api_permissions_list**](docs/RolesApi.md#retrieve_api_permissions_list) | **GET** /v1/roles/api-permissions | List of API permissions
-*RolesApi* | [**retrieve_role**](docs/RolesApi.md#retrieve_role) | **GET** /v1/roles/{roleId} | Get specific role by id
-*RolesApi* | [**retrieve_role_list**](docs/RolesApi.md#retrieve_role_list) | **GET** /v1/roles | List roles
-*RolesApi* | [**update_role**](docs/RolesApi.md#update_role) | **PUT** /v1/roles/{roleId} | Update specific role by id
+*RolesApi* | [**retrieve_role**](docs/RolesApi.md#retrieve_role) | **GET** /v1/roles/{roleType}/{roleId} | Get specific role by id
+*RolesApi* | [**retrieve_role_list**](docs/RolesApi.md#retrieve_role_list) | **GET** /v1/roles/{roleType} | List roles
+*RolesApi* | [**update_role**](docs/RolesApi.md#update_role) | **PATCH** /v1/roles/{roleType}/{roleId} | Update specific role by id
 *RolesAuditsApi* | [**retrieve_role_audits_list**](docs/RolesAuditsApi.md#retrieve_role_audits_list) | **GET** /v1/roles/audits | List history about your roles (audit)
 *SecretsApi* | [**create_secret**](docs/SecretsApi.md#create_secret) | **POST** /v1/secrets | Create a new secret
 *SecretsApi* | [**delete_secret**](docs/SecretsApi.md#delete_secret) | **DELETE** /v1/secrets/{secretId} | Delete existing secret by id
@@ -356,8 +356,6 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponse](docs/ListUserAuditResponse.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [PaginationMeta](docs/PaginationMeta.md)
- - [PermissionRequest](docs/PermissionRequest.md)
- - [PermissionResponse](docs/PermissionResponse.md)
  - [ReinstallInstanceRequest](docs/ReinstallInstanceRequest.md)
  - [ReinstallInstanceResponse](docs/ReinstallInstanceResponse.md)
  - [ReinstallInstanceResponseData](docs/ReinstallInstanceResponseData.md)

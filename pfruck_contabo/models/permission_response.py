@@ -46,11 +46,14 @@ class PermissionResponse(object):
         self._resources = None
         self.discriminator = None
         if api_name is not None:
-            self.api_name = api_name
+            if api_name is not None:
+                self.api_name = api_name
         if actions is not None:
-            self.actions = actions
+            if actions is not None:
+                self.actions = actions
         if resources is not None:
-            self.resources = resources
+            if resources is not None:
+                self.resources = resources
 
     @property
     def api_name(self):

@@ -29,29 +29,26 @@ class UpdateRoleRequest(object):
     """
     swagger_types = {
         'name': 'str',
-        'admin': 'bool',
-        'access_all_resources': 'bool',
-        'permissions': 'list[PermissionRequest]'
+        'api_permissions': 'list[ApiPermissionsResponse]',
+        'resource_permissions': 'list[int]'
     }
 
     attribute_map = {
         'name': 'name',
-        'admin': 'admin',
-        'access_all_resources': 'accessAllResources',
-        'permissions': 'permissions'
+        'api_permissions': 'apiPermissions',
+        'resource_permissions': 'resourcePermissions'
     }
 
-    def __init__(self, name=None, admin=None, access_all_resources=None, permissions=None):  # noqa: E501
+    def __init__(self, name=None, api_permissions=None, resource_permissions=None):  # noqa: E501
         """UpdateRoleRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
-        self._admin = None
-        self._access_all_resources = None
-        self._permissions = None
+        self._api_permissions = None
+        self._resource_permissions = None
         self.discriminator = None
         self.name = name
-        self.admin = admin
-        self.access_all_resources = access_all_resources
-        self.permissions = permissions
+        if api_permissions is not None:
+            self.api_permissions = api_permissions
+        self.resource_permissions = resource_permissions
 
     @property
     def name(self):
@@ -79,77 +76,50 @@ class UpdateRoleRequest(object):
         self._name = name
 
     @property
-    def admin(self):
-        """Gets the admin of this UpdateRoleRequest.  # noqa: E501
+    def api_permissions(self):
+        """Gets the api_permissions of this UpdateRoleRequest.  # noqa: E501
 
-        If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
 
-        :return: The admin of this UpdateRoleRequest.  # noqa: E501
-        :rtype: bool
+        :return: The api_permissions of this UpdateRoleRequest.  # noqa: E501
+        :rtype: list[ApiPermissionsResponse]
         """
-        return self._admin
+        return self._api_permissions
 
-    @admin.setter
-    def admin(self, admin):
-        """Sets the admin of this UpdateRoleRequest.
+    @api_permissions.setter
+    def api_permissions(self, api_permissions):
+        """Sets the api_permissions of this UpdateRoleRequest.
 
-        If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.  # noqa: E501
 
-        :param admin: The admin of this UpdateRoleRequest.  # noqa: E501
-        :type: bool
+        :param api_permissions: The api_permissions of this UpdateRoleRequest.  # noqa: E501
+        :type: list[ApiPermissionsResponse]
         """
-        if admin is None:
-            raise ValueError("Invalid value for `admin`, must not be `None`")  # noqa: E501
 
-        self._admin = admin
+        self._api_permissions = api_permissions
 
     @property
-    def access_all_resources(self):
-        """Gets the access_all_resources of this UpdateRoleRequest.  # noqa: E501
+    def resource_permissions(self):
+        """Gets the resource_permissions of this UpdateRoleRequest.  # noqa: E501
 
-        Allow access to all resources. This will superseed all assigned resources in a role  # noqa: E501
+        The IDs of tags. Only if those tags are assgined to a resource the user with that role will be able to access the resource.  # noqa: E501
 
-        :return: The access_all_resources of this UpdateRoleRequest.  # noqa: E501
-        :rtype: bool
+        :return: The resource_permissions of this UpdateRoleRequest.  # noqa: E501
+        :rtype: list[int]
         """
-        return self._access_all_resources
+        return self._resource_permissions
 
-    @access_all_resources.setter
-    def access_all_resources(self, access_all_resources):
-        """Sets the access_all_resources of this UpdateRoleRequest.
+    @resource_permissions.setter
+    def resource_permissions(self, resource_permissions):
+        """Sets the resource_permissions of this UpdateRoleRequest.
 
-        Allow access to all resources. This will superseed all assigned resources in a role  # noqa: E501
+        The IDs of tags. Only if those tags are assgined to a resource the user with that role will be able to access the resource.  # noqa: E501
 
-        :param access_all_resources: The access_all_resources of this UpdateRoleRequest.  # noqa: E501
-        :type: bool
+        :param resource_permissions: The resource_permissions of this UpdateRoleRequest.  # noqa: E501
+        :type: list[int]
         """
-        if access_all_resources is None:
-            raise ValueError("Invalid value for `access_all_resources`, must not be `None`")  # noqa: E501
+        if resource_permissions is None:
+            raise ValueError("Invalid value for `resource_permissions`, must not be `None`")  # noqa: E501
 
-        self._access_all_resources = access_all_resources
-
-    @property
-    def permissions(self):
-        """Gets the permissions of this UpdateRoleRequest.  # noqa: E501
-
-
-        :return: The permissions of this UpdateRoleRequest.  # noqa: E501
-        :rtype: list[PermissionRequest]
-        """
-        return self._permissions
-
-    @permissions.setter
-    def permissions(self, permissions):
-        """Sets the permissions of this UpdateRoleRequest.
-
-
-        :param permissions: The permissions of this UpdateRoleRequest.  # noqa: E501
-        :type: list[PermissionRequest]
-        """
-        if permissions is None:
-            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
-
-        self._permissions = permissions
+        self._resource_permissions = resource_permissions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

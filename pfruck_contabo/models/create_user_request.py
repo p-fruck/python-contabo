@@ -57,8 +57,10 @@ class CreateUserRequest(object):
         self._locale = None
         self._roles = None
         self.discriminator = None
-        self.first_name = first_name
-        self.last_name = last_name
+        if first_name is not None:
+            self.first_name = first_name
+        if last_name is not None:
+            self.last_name = last_name
         self.email = email
         self.enabled = enabled
         self.totp = totp
@@ -86,8 +88,6 @@ class CreateUserRequest(object):
         :param first_name: The first_name of this CreateUserRequest.  # noqa: E501
         :type: str
         """
-        if first_name is None:
-            raise ValueError("Invalid value for `first_name`, must not be `None`")  # noqa: E501
 
         self._first_name = first_name
 
@@ -111,8 +111,6 @@ class CreateUserRequest(object):
         :param last_name: The last_name of this CreateUserRequest.  # noqa: E501
         :type: str
         """
-        if last_name is None:
-            raise ValueError("Invalid value for `last_name`, must not be `None`")  # noqa: E501
 
         self._last_name = last_name
 

@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "pfruck_contabo"
-VERSION = "1.2.1"
+VERSION = "1.3.1"
 # To install the library, run the following
 #
 # python setup.py install

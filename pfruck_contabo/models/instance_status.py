@@ -30,6 +30,7 @@ class InstanceStatus(object):
     STOPPED = "stopped"
     ERROR = "error"
     INSTALLING = "installing"
+    UNKNOWN = "unknown"
     """
     Attributes:
       swagger_types (dict): The key is attribute name

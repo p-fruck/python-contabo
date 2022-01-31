@@ -240,5 +240,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 1.3.2".\
+               "SDK Package Version: 1.4.2".\
                format(env=sys.platform, pyversion=sys.version)

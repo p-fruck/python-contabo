@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Provide a custom image
 
-In order to provide a custom image please specify an URL from where the image can be downloaded. A custom image must be in either `.qcow2` or `.iso` format. Other formats will be rejected. Please note that downloading can take a while depending on network speed resp. bandwidth and size of image. You can check the status by retrieving information about the image via a GET request. Download will be rejected if you have exceeded your limits.
+In order to provide a custom image please specify an URL from where the image can be directly downloaded. A custom image must be in either `.iso` or `.qcow2` format. Other formats will be rejected. Please note that downloading can take a while depending on network speed resp. bandwidth and size of image. You can check the status by retrieving information about the image via a GET request. Download will be rejected if you have exceeded your limits.
 
 ### Example
 ```python

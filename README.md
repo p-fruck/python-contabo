@@ -286,6 +286,7 @@ Class | Method | HTTP request | Description
  - [ClientResponse](docs/ClientResponse.md)
  - [ClientSecretResponse](docs/ClientSecretResponse.md)
  - [CreateAssignmentResponse](docs/CreateAssignmentResponse.md)
+ - [CreateCustomImageFailResponse](docs/CreateCustomImageFailResponse.md)
  - [CreateCustomImageRequest](docs/CreateCustomImageRequest.md)
  - [CreateCustomImageResponse](docs/CreateCustomImageResponse.md)
  - [CreateCustomImageResponseData](docs/CreateCustomImageResponseData.md)

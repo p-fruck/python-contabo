@@ -31,6 +31,7 @@ class InstanceStatus(object):
     ERROR = "error"
     INSTALLING = "installing"
     UNKNOWN = "unknown"
+    INSTALLED = "installed"
     """
     Attributes:
       swagger_types (dict): The key is attribute name

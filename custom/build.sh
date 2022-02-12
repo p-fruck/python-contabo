@@ -78,6 +78,9 @@ cd "${proj_dir}"
 # Contabo does not declare attributes as nullable, so I have to catch them manually
 sed -i 's/^\(\s\+\)self\.\([a-z][a-z_]\+\) = \2$/\1if \2 is not None:\n\1    self.\2 = \2/g' pfruck_contabo/models/*_response{,_data}.py
 
+# Remove Contabo API Documentation from sourcefiles
+find . -name "*.py" -exec sed -i '/^\s\+# Introduction .*$/d' {} \;
+
 # apply custom patches to source files
 for patchfile in $(find custom/patches -type f)
 do

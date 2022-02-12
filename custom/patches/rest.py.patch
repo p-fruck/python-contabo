@@ -1,5 +1,5 @@
 +++ pfruck_contabo/rest.py
-@@ -52,6 +52,7 @@
+@@ -51,6 +51,7 @@
  class RESTClientObject(object):
 
      def __init__(self, configuration, pools_size=4, maxsize=None):
@@ -7,7 +7,7 @@
          # urllib3.PoolManager will pass all kw parameters to connectionpool
          # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
          # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
-@@ -137,6 +138,11 @@
+@@ -136,6 +137,11 @@
          post_params = post_params or {}
          headers = headers or {}
 

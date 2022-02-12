@@ -3,9 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Ignore orig files generated through patch files
-*.orig
-
 # C extensions
 *.so
 

@@ -81,6 +81,9 @@ sed -i 's/^\(\s\+\)self\.\([a-z][a-z_]\+\) = \2$/\1if \2 is not None:\n\1    sel
 # Remove Contabo API Documentation from sourcefiles
 find . -name "*.py" -exec sed -i '/^\s\+# Introduction .*$/d' {} \;
 
+# Replace internal URI with the public one
+find . -name "*.py" -or -name "*.md" -exec sed -i 's;contabo.intra;contabo.com;g' {} \;
+
 # apply custom patches to source files
 for patchfile in $(find custom/patches -type f)
 do

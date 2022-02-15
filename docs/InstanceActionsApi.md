@@ -1,6 +1,6 @@
 # pfruck_contabo.InstanceActionsApi
 
-All URIs are relative to *https://api.contabo.intra*
+All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

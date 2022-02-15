@@ -1,6 +1,6 @@
 # pfruck_contabo.TagAssignmentsApi
 
-All URIs are relative to */*
+All URIs are relative to *https://api.contabo.intra*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

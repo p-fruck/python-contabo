@@ -145,7 +145,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to */*
+All URIs are relative to *https://api.contabo.intra*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

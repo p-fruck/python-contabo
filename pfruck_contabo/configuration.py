@@ -45,7 +45,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://api.contabo.intra"
+        self.host = "https://api.contabo.com"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

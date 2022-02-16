@@ -9,6 +9,7 @@ from pfruck_contabo.api.instance_actions_api import InstanceActionsApi
 from pfruck_contabo.api.instance_actions_audits_api import InstanceActionsAuditsApi
 from pfruck_contabo.api.instances_api import InstancesApi
 from pfruck_contabo.api.instances_audits_api import InstancesAuditsApi
+from pfruck_contabo.api.internal_api import InternalApi
 from pfruck_contabo.api.roles_api import RolesApi
 from pfruck_contabo.api.roles_audits_api import RolesAuditsApi
 from pfruck_contabo.api.secrets_api import SecretsApi

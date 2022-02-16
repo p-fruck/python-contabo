@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**reset_password**](UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 [**retrieve_user**](UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
 [**retrieve_user_client**](UsersApi.md#retrieve_user_client) | **GET** /v1/users/client | Get client
-[**retrieve_user_is_password_set**](UsersApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
 [**retrieve_user_list**](UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 [**update_user**](UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 
@@ -383,59 +382,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **retrieve_user_is_password_set**
-> FindUserIsPasswordSetResponse retrieve_user_is_password_set(x_request_id, x_trace_id=x_trace_id)
-
-Get user is password set status
-
-Get info about idm user if the password is set.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import pfruck_contabo
-from pfruck_contabo.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = pfruck_contabo.UsersApi(pfruck_contabo.ApiClient(configuration))
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
-
-try:
-    # Get user is password set status
-    api_response = api_instance.retrieve_user_is_password_set(x_request_id, x_trace_id=x_trace_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->retrieve_user_is_password_set: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
-
-### Return type
-
-[**FindUserIsPasswordSetResponse**](FindUserIsPasswordSetResponse.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **retrieve_user_list**
-> ListUserResponse retrieve_user_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, email=email, enabled=enabled)
+> ListUserResponse retrieve_user_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, email=email, enabled=enabled, owner=owner)
 
 List users
 
@@ -459,10 +407,11 @@ size = 789 # int | Number of elements per page. (optional)
 order_by = ['order_by_example'] # list[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
 email = 'email_example' # str | Filter as substring match for user emails. (optional)
 enabled = true # bool | Filter if user is enabled or not. (optional)
+owner = true # bool | Filter if user is owner or not. (optional)
 
 try:
     # List users
-    api_response = api_instance.retrieve_user_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, email=email, enabled=enabled)
+    api_response = api_instance.retrieve_user_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, email=email, enabled=enabled, owner=owner)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->retrieve_user_list: %s\n" % e)
@@ -479,6 +428,7 @@ Name | Type | Description  | Notes
  **order_by** | [**list[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
  **email** | **str**| Filter as substring match for user emails. | [optional] 
  **enabled** | **bool**| Filter if user is enabled or not. | [optional] 
+ **owner** | **bool**| Filter if user is owner or not. | [optional] 
 
 ### Return type
 

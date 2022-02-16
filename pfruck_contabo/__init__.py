@@ -20,6 +20,7 @@ from pfruck_contabo.api.instance_actions_api import InstanceActionsApi
 from pfruck_contabo.api.instance_actions_audits_api import InstanceActionsAuditsApi
 from pfruck_contabo.api.instances_api import InstancesApi
 from pfruck_contabo.api.instances_audits_api import InstancesAuditsApi
+from pfruck_contabo.api.internal_api import InternalApi
 from pfruck_contabo.api.roles_api import RolesApi
 from pfruck_contabo.api.roles_audits_api import RolesAuditsApi
 from pfruck_contabo.api.secrets_api import SecretsApi
@@ -46,6 +47,7 @@ from pfruck_contabo.models.all_of_create_secret_response_links import AllOfCreat
 from pfruck_contabo.models.all_of_create_snapshot_response_links import AllOfCreateSnapshotResponseLinks
 from pfruck_contabo.models.all_of_create_tag_response_links import AllOfCreateTagResponseLinks
 from pfruck_contabo.models.all_of_create_user_response_links import AllOfCreateUserResponseLinks
+from pfruck_contabo.models.all_of_credential_response_links import AllOfCredentialResponseLinks
 from pfruck_contabo.models.all_of_custom_images_stats_response_links import AllOfCustomImagesStatsResponseLinks
 from pfruck_contabo.models.all_of_find_assignment_response_links import AllOfFindAssignmentResponseLinks
 from pfruck_contabo.models.all_of_find_client_response_links import AllOfFindClientResponseLinks
@@ -132,6 +134,8 @@ from pfruck_contabo.models.create_tag_response_data import CreateTagResponseData
 from pfruck_contabo.models.create_user_request import CreateUserRequest
 from pfruck_contabo.models.create_user_response import CreateUserResponse
 from pfruck_contabo.models.create_user_response_data import CreateUserResponseData
+from pfruck_contabo.models.credential_data import CredentialData
+from pfruck_contabo.models.credential_response import CredentialResponse
 from pfruck_contabo.models.custom_images_stats_response import CustomImagesStatsResponse
 from pfruck_contabo.models.custom_images_stats_response_data import CustomImagesStatsResponseData
 from pfruck_contabo.models.find_assignment_response import FindAssignmentResponse
@@ -182,6 +186,8 @@ from pfruck_contabo.models.list_tag_response import ListTagResponse
 from pfruck_contabo.models.list_user_audit_response import ListUserAuditResponse
 from pfruck_contabo.models.list_user_response import ListUserResponse
 from pfruck_contabo.models.pagination_meta import PaginationMeta
+from pfruck_contabo.models.permission_request import PermissionRequest
+from pfruck_contabo.models.permission_response import PermissionResponse
 from pfruck_contabo.models.reinstall_instance_request import ReinstallInstanceRequest
 from pfruck_contabo.models.reinstall_instance_response import ReinstallInstanceResponse
 from pfruck_contabo.models.reinstall_instance_response_data import ReinstallInstanceResponseData

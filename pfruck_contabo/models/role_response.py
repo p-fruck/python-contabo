@@ -31,9 +31,10 @@ class RoleResponse(object):
         'tenant_id': 'str',
         'customer_id': 'str',
         'name': 'str',
-        'role_type': 'str',
-        'api_permissions': 'list[ApiPermissionsResponse]',
-        'resource_permissions': 'list[ResourcePermissionsResponse]'
+        'admin': 'bool',
+        'access_all_resources': 'bool',
+        'type': 'str',
+        'permissions': 'list[PermissionResponse]'
     }
 
     attribute_map = {
@@ -41,20 +42,22 @@ class RoleResponse(object):
         'tenant_id': 'tenantId',
         'customer_id': 'customerId',
         'name': 'name',
-        'role_type': 'roleType',
-        'api_permissions': 'apiPermissions',
-        'resource_permissions': 'resourcePermissions'
+        'admin': 'admin',
+        'access_all_resources': 'accessAllResources',
+        'type': 'type',
+        'permissions': 'permissions'
     }
 
-    def __init__(self, role_id=None, tenant_id=None, customer_id=None, name=None, role_type=None, api_permissions=None, resource_permissions=None):  # noqa: E501
+    def __init__(self, role_id=None, tenant_id=None, customer_id=None, name=None, admin=None, access_all_resources=None, type=None, permissions=None):  # noqa: E501
         """RoleResponse - a model defined in Swagger"""  # noqa: E501
         self._role_id = None
         self._tenant_id = None
         self._customer_id = None
         self._name = None
-        self._role_type = None
-        self._api_permissions = None
-        self._resource_permissions = None
+        self._admin = None
+        self._access_all_resources = None
+        self._type = None
+        self._permissions = None
         self.discriminator = None
         if role_id is not None:
             self.role_id = role_id
@@ -64,12 +67,15 @@ class RoleResponse(object):
             self.customer_id = customer_id
         if name is not None:
             self.name = name
-        if role_type is not None:
-            self.role_type = role_type
-        if api_permissions is not None:
-            self.api_permissions = api_permissions
-        if resource_permissions is not None:
-            self.resource_permissions = resource_permissions
+        if admin is not None:
+            self.admin = admin
+        if access_all_resources is not None:
+            self.access_all_resources = access_all_resources
+        if type is not None:
+            self.type = type
+        if permissions is not None:
+            if permissions is not None:
+                self.permissions = permissions
 
     @property
     def role_id(self):
@@ -172,85 +178,100 @@ class RoleResponse(object):
         self._name = name
 
     @property
-    def role_type(self):
-        """Gets the role_type of this RoleResponse.  # noqa: E501
+    def admin(self):
+        """Gets the admin of this RoleResponse.  # noqa: E501
 
-        Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints.  # noqa: E501
+        Admin  # noqa: E501
 
-        :return: The role_type of this RoleResponse.  # noqa: E501
+        :return: The admin of this RoleResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._admin
+
+    @admin.setter
+    def admin(self, admin):
+        """Sets the admin of this RoleResponse.
+
+        Admin  # noqa: E501
+
+        :param admin: The admin of this RoleResponse.  # noqa: E501
+        :type: bool
+        """
+        if admin is None:
+            raise ValueError("Invalid value for `admin`, must not be `None`")  # noqa: E501
+
+        self._admin = admin
+
+    @property
+    def access_all_resources(self):
+        """Gets the access_all_resources of this RoleResponse.  # noqa: E501
+
+        Access All Resources  # noqa: E501
+
+        :return: The access_all_resources of this RoleResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._access_all_resources
+
+    @access_all_resources.setter
+    def access_all_resources(self, access_all_resources):
+        """Sets the access_all_resources of this RoleResponse.
+
+        Access All Resources  # noqa: E501
+
+        :param access_all_resources: The access_all_resources of this RoleResponse.  # noqa: E501
+        :type: bool
+        """
+        if access_all_resources is None:
+            raise ValueError("Invalid value for `access_all_resources`, must not be `None`")  # noqa: E501
+
+        self._access_all_resources = access_all_resources
+
+    @property
+    def type(self):
+        """Gets the type of this RoleResponse.  # noqa: E501
+
+        Role type can be either `default` or `custom`. The `default` roles cannot be modified or deleted  # noqa: E501
+
+        :return: The type of this RoleResponse.  # noqa: E501
         :rtype: str
         """
-        return self._role_type
+        return self._type
 
-    @role_type.setter
-    def role_type(self, role_type):
-        """Sets the role_type of this RoleResponse.
+    @type.setter
+    def type(self, type):
+        """Sets the type of this RoleResponse.
 
-        Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints.  # noqa: E501
+        Role type can be either `default` or `custom`. The `default` roles cannot be modified or deleted  # noqa: E501
 
-        :param role_type: The role_type of this RoleResponse.  # noqa: E501
+        :param type: The type of this RoleResponse.  # noqa: E501
         :type: str
         """
-        if role_type is None:
-            raise ValueError("Invalid value for `role_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["apiPermission", "resourcePermission"]  # noqa: E501
-        if role_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `role_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(role_type, allowed_values)
-            )
+        if type is None:
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
-        self._role_type = role_type
+        self._type = type
 
     @property
-    def api_permissions(self):
-        """Gets the api_permissions of this RoleResponse.  # noqa: E501
+    def permissions(self):
+        """Gets the permissions of this RoleResponse.  # noqa: E501
 
-        API Permissions array  # noqa: E501
 
-        :return: The api_permissions of this RoleResponse.  # noqa: E501
-        :rtype: list[ApiPermissionsResponse]
+        :return: The permissions of this RoleResponse.  # noqa: E501
+        :rtype: list[PermissionResponse]
         """
-        return self._api_permissions
+        return self._permissions
 
-    @api_permissions.setter
-    def api_permissions(self, api_permissions):
-        """Sets the api_permissions of this RoleResponse.
+    @permissions.setter
+    def permissions(self, permissions):
+        """Sets the permissions of this RoleResponse.
 
-        API Permissions array  # noqa: E501
 
-        :param api_permissions: The api_permissions of this RoleResponse.  # noqa: E501
-        :type: list[ApiPermissionsResponse]
+        :param permissions: The permissions of this RoleResponse.  # noqa: E501
+        :type: list[PermissionResponse]
         """
-        if api_permissions is None:
-            raise ValueError("Invalid value for `api_permissions`, must not be `None`")  # noqa: E501
 
-        self._api_permissions = api_permissions
-
-    @property
-    def resource_permissions(self):
-        """Gets the resource_permissions of this RoleResponse.  # noqa: E501
-
-        Resource Permissions array  # noqa: E501
-
-        :return: The resource_permissions of this RoleResponse.  # noqa: E501
-        :rtype: list[ResourcePermissionsResponse]
-        """
-        return self._resource_permissions
-
-    @resource_permissions.setter
-    def resource_permissions(self, resource_permissions):
-        """Sets the resource_permissions of this RoleResponse.
-
-        Resource Permissions array  # noqa: E501
-
-        :param resource_permissions: The resource_permissions of this RoleResponse.  # noqa: E501
-        :type: list[ResourcePermissionsResponse]
-        """
-        if resource_permissions is None:
-            raise ValueError("Invalid value for `resource_permissions`, must not be `None`")  # noqa: E501
-
-        self._resource_permissions = resource_permissions
+        self._permissions = permissions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

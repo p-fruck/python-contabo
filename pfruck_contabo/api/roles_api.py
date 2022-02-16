@@ -31,19 +31,18 @@ class RolesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_role(self, body, x_request_id, role_type, **kwargs):  # noqa: E501
+    def create_role(self, body, x_request_id, **kwargs):  # noqa: E501
         """Create a new role  # noqa: E501
 
-        Create a new role. Roles can have two types `apiPermission` (restricting access to api endpoints) and `resourcePermission` (restricting access to resources like compute). In order to get a list availbale api enpoints please refer to the GET api-permissions endpoint. For specifying a role of type `resourcePermission` please use tag ids. For those to take effect please assign them to a resource in the tag management api.  # noqa: E501
+        Create a new role. In order to get a list availbale api enpoints (apiName) and their actions please refer to the GET api-permissions endpoint. For specifying `resources` please enter tag ids. For those to take effect please assign them to a resource in the tag management api.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_role(body, x_request_id, role_type, async_req=True)
+        >>> thread = api.create_role(body, x_request_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param CreateRoleRequest body: (required)
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: CreateRoleResponse
                  If the method is called asynchronously,
@@ -51,31 +50,30 @@ class RolesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_role_with_http_info(body, x_request_id, role_type, **kwargs)  # noqa: E501
+            return self.create_role_with_http_info(body, x_request_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_role_with_http_info(body, x_request_id, role_type, **kwargs)  # noqa: E501
+            (data) = self.create_role_with_http_info(body, x_request_id, **kwargs)  # noqa: E501
             return data
 
-    def create_role_with_http_info(self, body, x_request_id, role_type, **kwargs):  # noqa: E501
+    def create_role_with_http_info(self, body, x_request_id, **kwargs):  # noqa: E501
         """Create a new role  # noqa: E501
 
-        Create a new role. Roles can have two types `apiPermission` (restricting access to api endpoints) and `resourcePermission` (restricting access to resources like compute). In order to get a list availbale api enpoints please refer to the GET api-permissions endpoint. For specifying a role of type `resourcePermission` please use tag ids. For those to take effect please assign them to a resource in the tag management api.  # noqa: E501
+        Create a new role. In order to get a list availbale api enpoints (apiName) and their actions please refer to the GET api-permissions endpoint. For specifying `resources` please enter tag ids. For those to take effect please assign them to a resource in the tag management api.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_role_with_http_info(body, x_request_id, role_type, async_req=True)
+        >>> thread = api.create_role_with_http_info(body, x_request_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param CreateRoleRequest body: (required)
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: CreateRoleResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'x_request_id', 'role_type', 'x_trace_id']  # noqa: E501
+        all_params = ['body', 'x_request_id', 'x_trace_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -98,16 +96,10 @@ class RolesApi(object):
         if ('x_request_id' not in params or
                 params['x_request_id'] is None):
             raise ValueError("Missing the required parameter `x_request_id` when calling `create_role`")  # noqa: E501
-        # verify the required parameter 'role_type' is set
-        if ('role_type' not in params or
-                params['role_type'] is None):
-            raise ValueError("Missing the required parameter `role_type` when calling `create_role`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'role_type' in params:
-            path_params['roleType'] = params['role_type']  # noqa: E501
 
         query_params = []
 
@@ -135,7 +127,7 @@ class RolesApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/roles/{roleType}', 'POST',
+            '/v1/roles', 'POST',
             path_params,
             query_params,
             header_params,
@@ -150,18 +142,17 @@ class RolesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_role(self, x_request_id, role_type, role_id, **kwargs):  # noqa: E501
+    def delete_role(self, x_request_id, role_id, **kwargs):  # noqa: E501
         """Delete existing role by id  # noqa: E501
 
         You can't delete a role if it is still assigned to a user. In such cases please remove the role from the users.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_role(x_request_id, role_type, role_id, async_req=True)
+        >>> thread = api.delete_role(x_request_id, role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param int role_id: The identifier of the role (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: None
@@ -170,23 +161,22 @@ class RolesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_role_with_http_info(x_request_id, role_type, role_id, **kwargs)  # noqa: E501
+            return self.delete_role_with_http_info(x_request_id, role_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_role_with_http_info(x_request_id, role_type, role_id, **kwargs)  # noqa: E501
+            (data) = self.delete_role_with_http_info(x_request_id, role_id, **kwargs)  # noqa: E501
             return data
 
-    def delete_role_with_http_info(self, x_request_id, role_type, role_id, **kwargs):  # noqa: E501
+    def delete_role_with_http_info(self, x_request_id, role_id, **kwargs):  # noqa: E501
         """Delete existing role by id  # noqa: E501
 
         You can't delete a role if it is still assigned to a user. In such cases please remove the role from the users.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_role_with_http_info(x_request_id, role_type, role_id, async_req=True)
+        >>> thread = api.delete_role_with_http_info(x_request_id, role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param int role_id: The identifier of the role (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: None
@@ -194,7 +184,7 @@ class RolesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'role_type', 'role_id', 'x_trace_id']  # noqa: E501
+        all_params = ['x_request_id', 'role_id', 'x_trace_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -213,10 +203,6 @@ class RolesApi(object):
         if ('x_request_id' not in params or
                 params['x_request_id'] is None):
             raise ValueError("Missing the required parameter `x_request_id` when calling `delete_role`")  # noqa: E501
-        # verify the required parameter 'role_type' is set
-        if ('role_type' not in params or
-                params['role_type'] is None):
-            raise ValueError("Missing the required parameter `role_type` when calling `delete_role`")  # noqa: E501
         # verify the required parameter 'role_id' is set
         if ('role_id' not in params or
                 params['role_id'] is None):
@@ -225,8 +211,6 @@ class RolesApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'role_type' in params:
-            path_params['roleType'] = params['role_type']  # noqa: E501
         if 'role_id' in params:
             path_params['roleId'] = params['role_id']  # noqa: E501
 
@@ -246,7 +230,7 @@ class RolesApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/roles/{roleType}/{roleId}', 'DELETE',
+            '/v1/roles/{roleId}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -264,7 +248,7 @@ class RolesApi(object):
     def retrieve_api_permissions_list(self, x_request_id, **kwargs):  # noqa: E501
         """List of API permissions  # noqa: E501
 
-        List all available API permissions. This list serves as a reference for specifying roles of type `apiPermission`. As endpoints differ in their possibilities not all actions are available for each endpoint.  # noqa: E501
+        List all available API permissions. This list serves as a reference for specifying roles. As endpoints differ in their possibilities not all actions are available for each endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.retrieve_api_permissions_list(x_request_id, async_req=True)
@@ -291,7 +275,7 @@ class RolesApi(object):
     def retrieve_api_permissions_list_with_http_info(self, x_request_id, **kwargs):  # noqa: E501
         """List of API permissions  # noqa: E501
 
-        List all available API permissions. This list serves as a reference for specifying roles of type `apiPermission`. As endpoints differ in their possibilities not all actions are available for each endpoint.  # noqa: E501
+        List all available API permissions. This list serves as a reference for specifying roles. As endpoints differ in their possibilities not all actions are available for each endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.retrieve_api_permissions_list_with_http_info(x_request_id, async_req=True)
@@ -377,18 +361,17 @@ class RolesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def retrieve_role(self, x_request_id, role_type, role_id, **kwargs):  # noqa: E501
+    def retrieve_role(self, x_request_id, role_id, **kwargs):  # noqa: E501
         """Get specific role by id  # noqa: E501
 
         Get attributes of specific role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_role(x_request_id, role_type, role_id, async_req=True)
+        >>> thread = api.retrieve_role(x_request_id, role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param int role_id: The identifier of the role (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: FindRoleResponse
@@ -397,23 +380,22 @@ class RolesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.retrieve_role_with_http_info(x_request_id, role_type, role_id, **kwargs)  # noqa: E501
+            return self.retrieve_role_with_http_info(x_request_id, role_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.retrieve_role_with_http_info(x_request_id, role_type, role_id, **kwargs)  # noqa: E501
+            (data) = self.retrieve_role_with_http_info(x_request_id, role_id, **kwargs)  # noqa: E501
             return data
 
-    def retrieve_role_with_http_info(self, x_request_id, role_type, role_id, **kwargs):  # noqa: E501
+    def retrieve_role_with_http_info(self, x_request_id, role_id, **kwargs):  # noqa: E501
         """Get specific role by id  # noqa: E501
 
         Get attributes of specific role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_role_with_http_info(x_request_id, role_type, role_id, async_req=True)
+        >>> thread = api.retrieve_role_with_http_info(x_request_id, role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param int role_id: The identifier of the role (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: FindRoleResponse
@@ -421,7 +403,7 @@ class RolesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'role_type', 'role_id', 'x_trace_id']  # noqa: E501
+        all_params = ['x_request_id', 'role_id', 'x_trace_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -440,10 +422,6 @@ class RolesApi(object):
         if ('x_request_id' not in params or
                 params['x_request_id'] is None):
             raise ValueError("Missing the required parameter `x_request_id` when calling `retrieve_role`")  # noqa: E501
-        # verify the required parameter 'role_type' is set
-        if ('role_type' not in params or
-                params['role_type'] is None):
-            raise ValueError("Missing the required parameter `role_type` when calling `retrieve_role`")  # noqa: E501
         # verify the required parameter 'role_id' is set
         if ('role_id' not in params or
                 params['role_id'] is None):
@@ -452,8 +430,6 @@ class RolesApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'role_type' in params:
-            path_params['roleType'] = params['role_type']  # noqa: E501
         if 'role_id' in params:
             path_params['roleId'] = params['role_id']  # noqa: E501
 
@@ -477,7 +453,7 @@ class RolesApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/roles/{roleType}/{roleId}', 'GET',
+            '/v1/roles/{roleId}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -492,18 +468,17 @@ class RolesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def retrieve_role_list(self, x_request_id, role_type, **kwargs):  # noqa: E501
+    def retrieve_role_list(self, x_request_id, **kwargs):  # noqa: E501
         """List roles  # noqa: E501
 
         List and filter all your roles. A role allows you to specify permission to api endpoints and resources like compute.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_role_list(x_request_id, role_type, async_req=True)
+        >>> thread = api.retrieve_role_list(x_request_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :param int page: Number of page to be fetched.
         :param int size: Number of elements per page.
@@ -511,29 +486,29 @@ class RolesApi(object):
         :param str name: The name of the role
         :param str api_name: The name of api
         :param str tag_name: The name of the tag
+        :param str type: The type of the tag. Can be either `default` or `custom`
         :return: ListRoleResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.retrieve_role_list_with_http_info(x_request_id, role_type, **kwargs)  # noqa: E501
+            return self.retrieve_role_list_with_http_info(x_request_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.retrieve_role_list_with_http_info(x_request_id, role_type, **kwargs)  # noqa: E501
+            (data) = self.retrieve_role_list_with_http_info(x_request_id, **kwargs)  # noqa: E501
             return data
 
-    def retrieve_role_list_with_http_info(self, x_request_id, role_type, **kwargs):  # noqa: E501
+    def retrieve_role_list_with_http_info(self, x_request_id, **kwargs):  # noqa: E501
         """List roles  # noqa: E501
 
         List and filter all your roles. A role allows you to specify permission to api endpoints and resources like compute.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_role_list_with_http_info(x_request_id, role_type, async_req=True)
+        >>> thread = api.retrieve_role_list_with_http_info(x_request_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :param int page: Number of page to be fetched.
         :param int size: Number of elements per page.
@@ -541,12 +516,13 @@ class RolesApi(object):
         :param str name: The name of the role
         :param str api_name: The name of api
         :param str tag_name: The name of the tag
+        :param str type: The type of the tag. Can be either `default` or `custom`
         :return: ListRoleResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['x_request_id', 'role_type', 'x_trace_id', 'page', 'size', 'order_by', 'name', 'api_name', 'tag_name']  # noqa: E501
+        all_params = ['x_request_id', 'x_trace_id', 'page', 'size', 'order_by', 'name', 'api_name', 'tag_name', 'type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -565,16 +541,10 @@ class RolesApi(object):
         if ('x_request_id' not in params or
                 params['x_request_id'] is None):
             raise ValueError("Missing the required parameter `x_request_id` when calling `retrieve_role_list`")  # noqa: E501
-        # verify the required parameter 'role_type' is set
-        if ('role_type' not in params or
-                params['role_type'] is None):
-            raise ValueError("Missing the required parameter `role_type` when calling `retrieve_role_list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'role_type' in params:
-            path_params['roleType'] = params['role_type']  # noqa: E501
 
         query_params = []
         if 'page' in params:
@@ -590,6 +560,8 @@ class RolesApi(object):
             query_params.append(('apiName', params['api_name']))  # noqa: E501
         if 'tag_name' in params:
             query_params.append(('tagName', params['tag_name']))  # noqa: E501
+        if 'type' in params:
+            query_params.append(('type', params['type']))  # noqa: E501
 
         header_params = {}
         if 'x_request_id' in params:
@@ -609,7 +581,7 @@ class RolesApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/roles/{roleType}', 'GET',
+            '/v1/roles', 'GET',
             path_params,
             query_params,
             header_params,
@@ -624,19 +596,18 @@ class RolesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_role(self, body, x_request_id, role_type, role_id, **kwargs):  # noqa: E501
+    def update_role(self, body, x_request_id, role_id, **kwargs):  # noqa: E501
         """Update specific role by id  # noqa: E501
 
         Update attributes to your role. Attributes are optional. If not set, the attributes will retain their original values.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_role(body, x_request_id, role_type, role_id, async_req=True)
+        >>> thread = api.update_role(body, x_request_id, role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param UpdateRoleRequest body: (required)
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param int role_id: The identifier of the role (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: UpdateRoleResponse
@@ -645,24 +616,23 @@ class RolesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_role_with_http_info(body, x_request_id, role_type, role_id, **kwargs)  # noqa: E501
+            return self.update_role_with_http_info(body, x_request_id, role_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_role_with_http_info(body, x_request_id, role_type, role_id, **kwargs)  # noqa: E501
+            (data) = self.update_role_with_http_info(body, x_request_id, role_id, **kwargs)  # noqa: E501
             return data
 
-    def update_role_with_http_info(self, body, x_request_id, role_type, role_id, **kwargs):  # noqa: E501
+    def update_role_with_http_info(self, body, x_request_id, role_id, **kwargs):  # noqa: E501
         """Update specific role by id  # noqa: E501
 
         Update attributes to your role. Attributes are optional. If not set, the attributes will retain their original values.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_role_with_http_info(body, x_request_id, role_type, role_id, async_req=True)
+        >>> thread = api.update_role_with_http_info(body, x_request_id, role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param UpdateRoleRequest body: (required)
         :param str x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
-        :param str role_type: Role type can be either `resourcePermission` for accessing specific resources or `apiPermission` for accessing specific API endpoints. (required)
         :param int role_id: The identifier of the role (required)
         :param str x_trace_id: Identifier to trace group of requests.
         :return: UpdateRoleResponse
@@ -670,7 +640,7 @@ class RolesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'x_request_id', 'role_type', 'role_id', 'x_trace_id']  # noqa: E501
+        all_params = ['body', 'x_request_id', 'role_id', 'x_trace_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -693,10 +663,6 @@ class RolesApi(object):
         if ('x_request_id' not in params or
                 params['x_request_id'] is None):
             raise ValueError("Missing the required parameter `x_request_id` when calling `update_role`")  # noqa: E501
-        # verify the required parameter 'role_type' is set
-        if ('role_type' not in params or
-                params['role_type'] is None):
-            raise ValueError("Missing the required parameter `role_type` when calling `update_role`")  # noqa: E501
         # verify the required parameter 'role_id' is set
         if ('role_id' not in params or
                 params['role_id'] is None):
@@ -705,8 +671,6 @@ class RolesApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'role_type' in params:
-            path_params['roleType'] = params['role_type']  # noqa: E501
         if 'role_id' in params:
             path_params['roleId'] = params['role_id']  # noqa: E501
 
@@ -736,7 +700,7 @@ class RolesApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/roles/{roleType}/{roleId}', 'PATCH',
+            '/v1/roles/{roleId}', 'PUT',
             path_params,
             query_params,
             header_params,

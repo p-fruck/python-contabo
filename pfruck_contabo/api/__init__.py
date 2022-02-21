@@ -10,6 +10,8 @@ from pfruck_contabo.api.instance_actions_audits_api import InstanceActionsAudits
 from pfruck_contabo.api.instances_api import InstancesApi
 from pfruck_contabo.api.instances_audits_api import InstancesAuditsApi
 from pfruck_contabo.api.internal_api import InternalApi
+from pfruck_contabo.api.object_storages_api import ObjectStoragesApi
+from pfruck_contabo.api.object_storages_audits_api import ObjectStoragesAuditsApi
 from pfruck_contabo.api.roles_api import RolesApi
 from pfruck_contabo.api.roles_audits_api import RolesAuditsApi
 from pfruck_contabo.api.secrets_api import SecretsApi

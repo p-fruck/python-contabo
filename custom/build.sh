@@ -65,18 +65,15 @@ fi
 
 $cmd run --rm \
     -v "${proj_dir}":/local:Z \
-    swaggerapi/swagger-codegen-cli-v3 generate \
+    openapitools/openapi-generator-cli generate \
     -i https://api.contabo.com/api-v1.yaml \
-    -l python \
+    -g python \
     --git-user-id ${git_user_id} \
     --git-repo-id ${git_repo_id} \
     -o /local/ \
     -c /local/custom/config.json
 
 cd "${proj_dir}"
-
-# Contabo does not declare attributes as nullable, so I have to catch them manually
-sed -i 's/^\(\s\+\)self\.\([a-z][a-z_]\+\) = \2$/\1if \2 is not None:\n\1    self.\2 = \2/g' pfruck_contabo/models/*_response{,_data}.py
 
 # Remove Contabo API Documentation from sourcefiles
 find . -name "*.py" -exec sed -i '/^\s\+# Introduction .*$/d' {} \;
@@ -85,11 +82,11 @@ find . -name "*.py" -exec sed -i '/^\s\+# Introduction .*$/d' {} \;
 find . -name "*.py" -exec sed -i "s;contabo.intra;contabo.com;g" {} \;
 find . -name "*.md" -exec sed -i "s;contabo.intra;contabo.com;g" {} \;
 
-# apply custom patches to source files
-for patchfile in $(find custom/patches -type f)
-do
-    patch -p0 < "${patchfile}"
-done
+# # apply custom patches to source files
+# for patchfile in $(find custom/patches -type f)
+# do
+#     patch -p0 < "${patchfile}"
+# done
 
 # No functionality in unit-tests, they just validate that all files have valid syntax :)
 python -m unittest

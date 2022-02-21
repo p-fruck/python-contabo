@@ -49,98 +49,56 @@ import pfruck_contabo
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-from __future__ import print_function
+
 import time
 import pfruck_contabo
-from pfruck_contabo.rest import ApiException
 from pprint import pprint
+from pfruck_contabo.api import images_api
+from pfruck_contabo.model.create_custom_image_fail_response import CreateCustomImageFailResponse
+from pfruck_contabo.model.create_custom_image_request import CreateCustomImageRequest
+from pfruck_contabo.model.create_custom_image_response import CreateCustomImageResponse
+from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
+from pfruck_contabo.model.find_image_response import FindImageResponse
+from pfruck_contabo.model.list_image_response import ListImageResponse
+from pfruck_contabo.model.update_custom_image_request import UpdateCustomImageRequest
+from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 
 
-# create an instance of the API class
-api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-body = pfruck_contabo.CreateCustomImageRequest() # CreateCustomImageRequest | 
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = images_api.ImagesApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+create_custom_image_request = CreateCustomImageRequest(
+        name="Ubuntu Custom Image",
+        description="Ubuntu Server 20.04.2 LTS",
+        url="https://example.com/image.qcow2",
+        os_type="Linux",
+        version="20.04.2",
+    ) # CreateCustomImageRequest | 
+x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
-try:
-    # Provide a custom image
-    api_response = api_instance.create_custom_image(body, x_request_id, x_trace_id=x_trace_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
-
-
-# create an instance of the API class
-api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-image_id = 'image_id_example' # str | The identifier of the image
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
-
-try:
-    # Delete an uploaded custom image by its id
-    api_instance.delete_image(x_request_id, image_id, x_trace_id=x_trace_id)
-except ApiException as e:
-    print("Exception when calling ImagesApi->delete_image: %s\n" % e)
-
-
-# create an instance of the API class
-api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
-
-try:
-    # List statistics regarding the customer's custom images
-    api_response = api_instance.retrieve_custom_images_stats(x_request_id, x_trace_id=x_trace_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ImagesApi->retrieve_custom_images_stats: %s\n" % e)
-
-
-# create an instance of the API class
-api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-image_id = 'image_id_example' # str | The identifier of the image
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
-
-try:
-    # Get details about a specific image by its id
-    api_response = api_instance.retrieve_image(x_request_id, image_id, x_trace_id=x_trace_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ImagesApi->retrieve_image: %s\n" % e)
-
-
-# create an instance of the API class
-api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
-page = 789 # int | Number of page to be fetched. (optional)
-size = 789 # int | Number of elements per page. (optional)
-order_by = ['order_by_example'] # list[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-name = 'name_example' # str | The name of the image (optional)
-standard_image = true # bool | Flag indicating that image is either a standard (true) or a custom image (false) (optional)
-
-try:
-    # List available standard and custom images
-    api_response = api_instance.retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ImagesApi->retrieve_image_list: %s\n" % e)
-
-
-# create an instance of the API class
-api_instance = pfruck_contabo.ImagesApi(pfruck_contabo.ApiClient(configuration))
-body = pfruck_contabo.UpdateCustomImageRequest() # UpdateCustomImageRequest | 
-x_request_id = 'x_request_id_example' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-image_id = 'image_id_example' # str | The identifier of the image
-x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
-
-try:
-    # Update custom image name by its id
-    api_response = api_instance.update_image(body, x_request_id, image_id, x_trace_id=x_trace_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ImagesApi->update_image: %s\n" % e)
+    try:
+        # Provide a custom image
+        api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -151,7 +109,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ImagesApi* | [**create_custom_image**](docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
-*ImagesApi* | [**retrieve_custom_images_stats**](docs/ImagesApi.md#retrieve_custom_images_stats) | **GET** /v1/compute/images/stats | List statistics regarding the customer&#x27;s custom images
+*ImagesApi* | [**retrieve_custom_images_stats**](docs/ImagesApi.md#retrieve_custom_images_stats) | **GET** /v1/compute/images/stats | List statistics regarding the customer&#39;s custom images
 *ImagesApi* | [**retrieve_image**](docs/ImagesApi.md#retrieve_image) | **GET** /v1/compute/images/{imageId} | Get details about a specific image by its id
 *ImagesApi* | [**retrieve_image_list**](docs/ImagesApi.md#retrieve_image_list) | **GET** /v1/compute/images | List available standard and custom images
 *ImagesApi* | [**update_image**](docs/ImagesApi.md#update_image) | **PATCH** /v1/compute/images/{imageId} | Update custom image name by its id
@@ -220,93 +178,10 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
 
+
 ## Documentation For Models
 
  - [AddOnResponse](docs/AddOnResponse.md)
- - [AllOfCancelInstanceResponseLinks](docs/AllOfCancelInstanceResponseLinks.md)
- - [AllOfCancelObjectStorageResponseLinks](docs/AllOfCancelObjectStorageResponseLinks.md)
- - [AllOfCreateAssignmentResponseLinks](docs/AllOfCreateAssignmentResponseLinks.md)
- - [AllOfCreateCustomImageResponseLinks](docs/AllOfCreateCustomImageResponseLinks.md)
- - [AllOfCreateInstanceResponseLinks](docs/AllOfCreateInstanceResponseLinks.md)
- - [AllOfCreateObjectStorageRequestAutoScaling](docs/AllOfCreateObjectStorageRequestAutoScaling.md)
- - [AllOfCreateObjectStorageResponseDataAutoScaling](docs/AllOfCreateObjectStorageResponseDataAutoScaling.md)
- - [AllOfCreateObjectStorageResponseLinks](docs/AllOfCreateObjectStorageResponseLinks.md)
- - [AllOfCreateRoleResponseLinks](docs/AllOfCreateRoleResponseLinks.md)
- - [AllOfCreateSecretResponseLinks](docs/AllOfCreateSecretResponseLinks.md)
- - [AllOfCreateSnapshotResponseLinks](docs/AllOfCreateSnapshotResponseLinks.md)
- - [AllOfCreateTagResponseLinks](docs/AllOfCreateTagResponseLinks.md)
- - [AllOfCreateTicketResponseLinks](docs/AllOfCreateTicketResponseLinks.md)
- - [AllOfCreateUserResponseLinks](docs/AllOfCreateUserResponseLinks.md)
- - [AllOfCredentialResponseLinks](docs/AllOfCredentialResponseLinks.md)
- - [AllOfCustomImagesStatsResponseLinks](docs/AllOfCustomImagesStatsResponseLinks.md)
- - [AllOfFindAssignmentResponseLinks](docs/AllOfFindAssignmentResponseLinks.md)
- - [AllOfFindClientResponseLinks](docs/AllOfFindClientResponseLinks.md)
- - [AllOfFindImageResponseLinks](docs/AllOfFindImageResponseLinks.md)
- - [AllOfFindInstanceResponseLinks](docs/AllOfFindInstanceResponseLinks.md)
- - [AllOfFindObjectStorageResponseLinks](docs/AllOfFindObjectStorageResponseLinks.md)
- - [AllOfFindRoleResponseLinks](docs/AllOfFindRoleResponseLinks.md)
- - [AllOfFindSecretResponseLinks](docs/AllOfFindSecretResponseLinks.md)
- - [AllOfFindSnapshotResponseLinks](docs/AllOfFindSnapshotResponseLinks.md)
- - [AllOfFindTagResponseLinks](docs/AllOfFindTagResponseLinks.md)
- - [AllOfFindUserIsPasswordSetResponseLinks](docs/AllOfFindUserIsPasswordSetResponseLinks.md)
- - [AllOfFindUserResponseLinks](docs/AllOfFindUserResponseLinks.md)
- - [AllOfGenerateClientSecretResponseLinks](docs/AllOfGenerateClientSecretResponseLinks.md)
- - [AllOfImageAuditResponseLinks](docs/AllOfImageAuditResponseLinks.md)
- - [AllOfImageAuditResponsePagination](docs/AllOfImageAuditResponsePagination.md)
- - [AllOfInstanceRestartActionResponseLinks](docs/AllOfInstanceRestartActionResponseLinks.md)
- - [AllOfInstanceStartActionResponseLinks](docs/AllOfInstanceStartActionResponseLinks.md)
- - [AllOfInstanceStopActionResponseLinks](docs/AllOfInstanceStopActionResponseLinks.md)
- - [AllOfListApiPermissionResponseLinks](docs/AllOfListApiPermissionResponseLinks.md)
- - [AllOfListAssignmentAuditsResponseLinks](docs/AllOfListAssignmentAuditsResponseLinks.md)
- - [AllOfListAssignmentAuditsResponsePagination](docs/AllOfListAssignmentAuditsResponsePagination.md)
- - [AllOfListAssignmentResponseLinks](docs/AllOfListAssignmentResponseLinks.md)
- - [AllOfListAssignmentResponsePagination](docs/AllOfListAssignmentResponsePagination.md)
- - [AllOfListDataCenterResponseLinks](docs/AllOfListDataCenterResponseLinks.md)
- - [AllOfListDataCenterResponsePagination](docs/AllOfListDataCenterResponsePagination.md)
- - [AllOfListImageResponseLinks](docs/AllOfListImageResponseLinks.md)
- - [AllOfListImageResponsePagination](docs/AllOfListImageResponsePagination.md)
- - [AllOfListInstancesActionsAuditResponseLinks](docs/AllOfListInstancesActionsAuditResponseLinks.md)
- - [AllOfListInstancesActionsAuditResponsePagination](docs/AllOfListInstancesActionsAuditResponsePagination.md)
- - [AllOfListInstancesAuditResponseLinks](docs/AllOfListInstancesAuditResponseLinks.md)
- - [AllOfListInstancesAuditResponsePagination](docs/AllOfListInstancesAuditResponsePagination.md)
- - [AllOfListInstancesResponseLinks](docs/AllOfListInstancesResponseLinks.md)
- - [AllOfListInstancesResponsePagination](docs/AllOfListInstancesResponsePagination.md)
- - [AllOfListObjectStorageAuditResponseLinks](docs/AllOfListObjectStorageAuditResponseLinks.md)
- - [AllOfListObjectStorageAuditResponsePagination](docs/AllOfListObjectStorageAuditResponsePagination.md)
- - [AllOfListObjectStorageResponseLinks](docs/AllOfListObjectStorageResponseLinks.md)
- - [AllOfListObjectStorageResponsePagination](docs/AllOfListObjectStorageResponsePagination.md)
- - [AllOfListRoleAuditResponseLinks](docs/AllOfListRoleAuditResponseLinks.md)
- - [AllOfListRoleResponseLinks](docs/AllOfListRoleResponseLinks.md)
- - [AllOfListRoleResponsePagination](docs/AllOfListRoleResponsePagination.md)
- - [AllOfListSecretAuditResponseLinks](docs/AllOfListSecretAuditResponseLinks.md)
- - [AllOfListSecretAuditResponsePagination](docs/AllOfListSecretAuditResponsePagination.md)
- - [AllOfListSecretResponseLinks](docs/AllOfListSecretResponseLinks.md)
- - [AllOfListSecretResponsePagination](docs/AllOfListSecretResponsePagination.md)
- - [AllOfListSnapshotResponseLinks](docs/AllOfListSnapshotResponseLinks.md)
- - [AllOfListSnapshotResponsePagination](docs/AllOfListSnapshotResponsePagination.md)
- - [AllOfListSnapshotsAuditResponseLinks](docs/AllOfListSnapshotsAuditResponseLinks.md)
- - [AllOfListSnapshotsAuditResponsePagination](docs/AllOfListSnapshotsAuditResponsePagination.md)
- - [AllOfListTagAuditsResponseLinks](docs/AllOfListTagAuditsResponseLinks.md)
- - [AllOfListTagAuditsResponsePagination](docs/AllOfListTagAuditsResponsePagination.md)
- - [AllOfListTagResponseLinks](docs/AllOfListTagResponseLinks.md)
- - [AllOfListTagResponsePagination](docs/AllOfListTagResponsePagination.md)
- - [AllOfListUserAuditResponseLinks](docs/AllOfListUserAuditResponseLinks.md)
- - [AllOfListUserAuditResponsePagination](docs/AllOfListUserAuditResponsePagination.md)
- - [AllOfListUserResponseLinks](docs/AllOfListUserResponseLinks.md)
- - [AllOfListUserResponsePagination](docs/AllOfListUserResponsePagination.md)
- - [AllOfObjectStorageResponseAutoScaling](docs/AllOfObjectStorageResponseAutoScaling.md)
- - [AllOfObjectStoragesStatsResponseLinks](docs/AllOfObjectStoragesStatsResponseLinks.md)
- - [AllOfReinstallInstanceResponseLinks](docs/AllOfReinstallInstanceResponseLinks.md)
- - [AllOfRollbackSnapshotResponseLinks](docs/AllOfRollbackSnapshotResponseLinks.md)
- - [AllOfUpdateCustomImageResponseLinks](docs/AllOfUpdateCustomImageResponseLinks.md)
- - [AllOfUpdateObjectStorageResponseDataAutoScaling](docs/AllOfUpdateObjectStorageResponseDataAutoScaling.md)
- - [AllOfUpdateObjectStorageResponseLinks](docs/AllOfUpdateObjectStorageResponseLinks.md)
- - [AllOfUpdateRoleResponseLinks](docs/AllOfUpdateRoleResponseLinks.md)
- - [AllOfUpdateSecretResponseLinks](docs/AllOfUpdateSecretResponseLinks.md)
- - [AllOfUpdateSnapshotResponseLinks](docs/AllOfUpdateSnapshotResponseLinks.md)
- - [AllOfUpdateTagResponseLinks](docs/AllOfUpdateTagResponseLinks.md)
- - [AllOfUpdateUserResponseLinks](docs/AllOfUpdateUserResponseLinks.md)
- - [AllOfUpgradeObjectStorageRequestAutoScaling](docs/AllOfUpgradeObjectStorageRequestAutoScaling.md)
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
@@ -446,13 +321,36 @@ Class | Method | HTTP request | Description
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
 
+
 ## Documentation For Authorization
 
 
 ## bearer
 
+- **Type**: Bearer authentication (JWT)
 
 
 ## Author
 
 support@contabo.com
+
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in pfruck_contabo.apis and pfruck_contabo.models may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- `from pfruck_contabo.api.default_api import DefaultApi`
+- `from pfruck_contabo.model.pet import Pet`
+
+Solution 2:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import pfruck_contabo
+from pfruck_contabo.apis import *
+from pfruck_contabo.models import *
+```
+

@@ -1,5 +1,6 @@
 # CreateObjectStorageResponseData
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **object_storage_id** | **str** | Your object storage id | 
 **created_date** | **datetime** | Creation date for object storage. | 
 **cancel_date** | **date** | Cancellation date for object storage. | 
-**auto_scaling** | **AllOfCreateObjectStorageResponseDataAutoScaling** | Autoscaling settings | 
+**auto_scaling** | **bool, date, datetime, dict, float, int, list, str, none_type** | Autoscaling settings | 
 **data_center** | **str** | The data center of the storage | 
 **total_purchased_space_tb** | **float** | Amount of purchased / requested object storage in TB. | 
 **used_space_tb** | **float** | Currently used space in TB. | 
@@ -16,6 +17,8 @@ Name | Type | Description | Notes
 **s3_url** | **str** | S3 URL to connect to our S3 compatible object storage | 
 **s3_tenant_id** | **str** | Your S3 tenantId. Only required for public sharing. | 
 **status** | **str** | The object storage status | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

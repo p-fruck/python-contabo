@@ -389,6 +389,7 @@ class ObjectStoragesApi(object):
                     'size',
                     'order_by',
                     'data_center_name',
+                    's3_tenant_id',
                 ],
                 'required': [
                     'x_request_id',
@@ -430,6 +431,8 @@ class ObjectStoragesApi(object):
                         ([str],),
                     'data_center_name':
                         (str,),
+                    's3_tenant_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -438,6 +441,7 @@ class ObjectStoragesApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'data_center_name': 'dataCenterName',
+                    's3_tenant_id': 's3TenantId',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -446,6 +450,7 @@ class ObjectStoragesApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'data_center_name': 'query',
+                    's3_tenant_id': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -963,6 +968,7 @@ class ObjectStoragesApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             data_center_name (str): Filter for Object Storage locations.. [optional]
+            s3_tenant_id (str): Filter for Object Storage S3 tenantId.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

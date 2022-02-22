@@ -125,8 +125,6 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**retrieve_instances_list**](docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
 *InternalApi* | [**create_ticket**](docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
-*InternalApi* | [**get_object_storage_credentials**](docs/InternalApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get S3 compatible object storage credentials
-*InternalApi* | [**regenerate_credentials**](docs/InternalApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/credentials | Regenerates secret key of specified user for the S3 compatible object storages
 *InternalApi* | [**retrieve_user_is_password_set**](docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
 *ObjectStoragesApi* | [**cancel_object_storage**](docs/ObjectStoragesApi.md#cancel_object_storage) | **PATCH** /v1/object-storages/{objectStorageId}/cancel | Cancels the specified object storage at the next possible date
 *ObjectStoragesApi* | [**create_object_storage**](docs/ObjectStoragesApi.md#create_object_storage) | **POST** /v1/object-storages | Create a new object storage
@@ -170,6 +168,8 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
+*UsersApi* | [**get_object_storage_credentials**](docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get S3 compatible object storage credentials
+*UsersApi* | [**regenerate_credentials**](docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/credentials | Regenerates secret key of specified user for the S3 compatible object storages
 *UsersApi* | [**resend_email_verification**](docs/UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 *UsersApi* | [**reset_password**](docs/UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 *UsersApi* | [**retrieve_user**](docs/UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id

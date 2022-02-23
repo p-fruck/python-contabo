@@ -110,8 +110,8 @@ class AutoScalingTypeRequest(ModelNormal):
         """AutoScalingTypeRequest - a model defined in OpenAPI
 
         Args:
-            state (str): State of the auto scaling for the current object storage.
-            size_limit_tb (float): Auto-scaling size limit for the current object storage.
+            state (str): State of the autoscaling for the current object storage.
+            size_limit_tb (float): Autoscaling size limit for the current object storage.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -197,8 +197,8 @@ class AutoScalingTypeRequest(ModelNormal):
         """AutoScalingTypeRequest - a model defined in OpenAPI
 
         Args:
-            state (str): State of the auto scaling for the current object storage.
-            size_limit_tb (float): Auto-scaling size limit for the current object storage.
+            state (str): State of the autoscaling for the current object storage.
+            size_limit_tb (float): Autoscaling size limit for the current object storage.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -132,7 +132,7 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**retrieve_object_storage**](docs/ObjectStoragesApi.md#retrieve_object_storage) | **GET** /v1/object-storages/{objectStorageId} | Get specific object storage by its id
 *ObjectStoragesApi* | [**retrieve_object_storage_list**](docs/ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your Object Storages
 *ObjectStoragesApi* | [**retrieve_object_storages_stats**](docs/ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
-*ObjectStoragesApi* | [**upgrade_object_storage**](docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update auto scaling settings.
+*ObjectStoragesApi* | [**upgrade_object_storage**](docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
 *RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /v1/roles | Create a new role
 *RolesApi* | [**delete_role**](docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleId} | Delete existing role by id

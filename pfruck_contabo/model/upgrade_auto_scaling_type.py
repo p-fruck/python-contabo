@@ -140,8 +140,8 @@ class UpgradeAutoScalingType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state (str): State of the auto scaling for the current object storage.. [optional]  # noqa: E501
-            size_limit_tb (float): Auto-scaling size limit for the current object storage.. [optional]  # noqa: E501
+            state (str): State of the autoscaling for the current object storage.. [optional]  # noqa: E501
+            size_limit_tb (float): Autoscaling size limit for the current object storage.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,8 +223,8 @@ class UpgradeAutoScalingType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state (str): State of the auto scaling for the current object storage.. [optional]  # noqa: E501
-            size_limit_tb (float): Auto-scaling size limit for the current object storage.. [optional]  # noqa: E501
+            state (str): State of the autoscaling for the current object storage.. [optional]  # noqa: E501
+            size_limit_tb (float): Autoscaling size limit for the current object storage.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

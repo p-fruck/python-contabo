@@ -1119,9 +1119,9 @@ class ObjectStoragesApi(object):
         upgrade_object_storage_request,
         **kwargs
     ):
-        """Upgrade object storage size resp. update auto scaling settings.  # noqa: E501
+        """Upgrade object storage size resp. update autoscaling settings.  # noqa: E501
 
-        Upgrade object storage size. You can also adjust the auto scaling settings for your object storage. Auto-scaling allows you to automatically purchase storage capacity on a monthly basis up to the specified limit.  # noqa: E501
+        Upgrade object storage size. You can also adjust the autoscaling settings for your object storage. Autoscaling allows you to automatically purchase storage capacity on a monthly basis up to the specified limit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

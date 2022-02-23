@@ -142,7 +142,7 @@ class UpgradeObjectStorageRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): New monthly object storage size limit for auto-scaling if enabled.. [optional]  # noqa: E501
+            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): New monthly object storage size limit for autoscaling if enabled.. [optional]  # noqa: E501
             total_purchased_space_tb (float): New total object storage limit. If this number is larger than before you will also be billed for the added storage space. No downgrade possible.. [optional]  # noqa: E501
         """
 
@@ -225,7 +225,7 @@ class UpgradeObjectStorageRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): New monthly object storage size limit for auto-scaling if enabled.. [optional]  # noqa: E501
+            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): New monthly object storage size limit for autoscaling if enabled.. [optional]  # noqa: E501
             total_purchased_space_tb (float): New total object storage limit. If this number is larger than before you will also be billed for the added storage space. No downgrade possible.. [optional]  # noqa: E501
         """
 

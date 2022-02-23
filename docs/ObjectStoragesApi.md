@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**retrieve_object_storage**](ObjectStoragesApi.md#retrieve_object_storage) | **GET** /v1/object-storages/{objectStorageId} | Get specific object storage by its id
 [**retrieve_object_storage_list**](ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your Object Storages
 [**retrieve_object_storages_stats**](ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
-[**upgrade_object_storage**](ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update auto scaling settings.
+[**upgrade_object_storage**](ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 
 
 # **cancel_object_storage**
@@ -585,9 +585,9 @@ Name | Type | Description  | Notes
 # **upgrade_object_storage**
 > UpdateObjectStorageResponse upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request)
 
-Upgrade object storage size resp. update auto scaling settings.
+Upgrade object storage size resp. update autoscaling settings.
 
-Upgrade object storage size. You can also adjust the auto scaling settings for your object storage. Auto-scaling allows you to automatically purchase storage capacity on a monthly basis up to the specified limit.
+Upgrade object storage size. You can also adjust the autoscaling settings for your object storage. Autoscaling allows you to automatically purchase storage capacity on a monthly basis up to the specified limit.
 
 ### Example
 
@@ -630,7 +630,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Upgrade object storage size resp. update auto scaling settings.
+        # Upgrade object storage size resp. update autoscaling settings.
         api_response = api_instance.upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -639,7 +639,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Upgrade object storage size resp. update auto scaling settings.
+        # Upgrade object storage size resp. update autoscaling settings.
         api_response = api_instance.upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:

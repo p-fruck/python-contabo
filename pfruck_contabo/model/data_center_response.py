@@ -55,6 +55,8 @@ class DataCenterResponse(ModelNormal):
     """
 
     allowed_values = {
+        ('capabilities',): {
+        },
     }
 
     validations = {

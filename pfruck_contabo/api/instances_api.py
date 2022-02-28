@@ -188,7 +188,7 @@ class InstancesApi(object):
                 ],
                 'endpoint_path': '/v1/compute/instances/{instanceId}',
                 'operation_id': 'reinstall_instance',
-                'http_method': 'PATCH',
+                'http_method': 'PUT',
                 'servers': None,
             },
             params_map={

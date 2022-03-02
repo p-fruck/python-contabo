@@ -23,6 +23,8 @@ from pfruck_contabo.api.instances_audits_api import InstancesAuditsApi
 from pfruck_contabo.api.internal_api import InternalApi
 from pfruck_contabo.api.object_storages_api import ObjectStoragesApi
 from pfruck_contabo.api.object_storages_audits_api import ObjectStoragesAuditsApi
+from pfruck_contabo.api.private_networks_api import PrivateNetworksApi
+from pfruck_contabo.api.private_networks_audits_api import PrivateNetworksAuditsApi
 from pfruck_contabo.api.roles_api import RolesApi
 from pfruck_contabo.api.roles_audits_api import RolesAuditsApi
 from pfruck_contabo.api.secrets_api import SecretsApi

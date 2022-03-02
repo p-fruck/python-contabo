@@ -134,6 +134,12 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**retrieve_object_storages_stats**](docs/ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
 *ObjectStoragesApi* | [**upgrade_object_storage**](docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
+*PrivateNetworksApi* | [**assign_instance_private_network**](docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
+*PrivateNetworksApi* | [**create_private_network**](docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/virtual-private-cloud | Create a new private network
+*PrivateNetworksApi* | [**retrieve_private_network**](docs/PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/virtual-private-cloud/{privateNetworkId} | Get specific private network by id
+*PrivateNetworksApi* | [**retrieve_private_network_list**](docs/PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/virtual-private-cloud | List private networks
+*PrivateNetworksApi* | [**unassign_instance_private_network**](docs/PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
+*PrivateNetworksAuditsApi* | [**retrieve_private_network_audits_list**](docs/PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/virtual-private-cloud/audits | List history about your private networks (audit)
 *RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /v1/roles | Create a new role
 *RolesApi* | [**delete_role**](docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleId} | Delete existing role by id
 *RolesApi* | [**retrieve_api_permissions_list**](docs/RolesApi.md#retrieve_api_permissions_list) | **GET** /v1/roles/api-permissions | List of API permissions
@@ -183,6 +189,7 @@ Class | Method | HTTP request | Description
 
  - [AddOnResponse](docs/AddOnResponse.md)
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
+ - [AssignInstancePrivateNetworkReponse](docs/AssignInstancePrivateNetworkReponse.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
  - [AutoScalingTypeRequest](docs/AutoScalingTypeRequest.md)
@@ -204,6 +211,8 @@ Class | Method | HTTP request | Description
  - [CreateObjectStorageRequest](docs/CreateObjectStorageRequest.md)
  - [CreateObjectStorageResponse](docs/CreateObjectStorageResponse.md)
  - [CreateObjectStorageResponseData](docs/CreateObjectStorageResponseData.md)
+ - [CreatePrivateNetworkRequest](docs/CreatePrivateNetworkRequest.md)
+ - [CreatePrivateNetworkResponse](docs/CreatePrivateNetworkResponse.md)
  - [CreateRoleRequest](docs/CreateRoleRequest.md)
  - [CreateRoleResponse](docs/CreateRoleResponse.md)
  - [CreateRoleResponseData](docs/CreateRoleResponseData.md)
@@ -231,6 +240,7 @@ Class | Method | HTTP request | Description
  - [FindImageResponse](docs/FindImageResponse.md)
  - [FindInstanceResponse](docs/FindInstanceResponse.md)
  - [FindObjectStorageResponse](docs/FindObjectStorageResponse.md)
+ - [FindPrivateNetworkResponse](docs/FindPrivateNetworkResponse.md)
  - [FindRoleResponse](docs/FindRoleResponse.md)
  - [FindSecretResponse](docs/FindSecretResponse.md)
  - [FindSnapshotResponse](docs/FindSnapshotResponse.md)
@@ -241,6 +251,7 @@ Class | Method | HTTP request | Description
  - [ImageAuditResponse](docs/ImageAuditResponse.md)
  - [ImageAuditResponseData](docs/ImageAuditResponseData.md)
  - [ImageResponse](docs/ImageResponse.md)
+ - [InstanceAssignmentSelfLinks](docs/InstanceAssignmentSelfLinks.md)
  - [InstanceResponse](docs/InstanceResponse.md)
  - [InstanceRestartActionResponse](docs/InstanceRestartActionResponse.md)
  - [InstanceRestartActionResponseData](docs/InstanceRestartActionResponseData.md)
@@ -249,6 +260,7 @@ Class | Method | HTTP request | Description
  - [InstanceStatus](docs/InstanceStatus.md)
  - [InstanceStopActionResponse](docs/InstanceStopActionResponse.md)
  - [InstanceStopActionResponseData](docs/InstanceStopActionResponseData.md)
+ - [Instances](docs/Instances.md)
  - [InstancesActionsAuditResponse](docs/InstancesActionsAuditResponse.md)
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
  - [IpConfig](docs/IpConfig.md)
@@ -267,6 +279,9 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponseData](docs/ListInstancesResponseData.md)
  - [ListObjectStorageAuditResponse](docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageResponse](docs/ListObjectStorageResponse.md)
+ - [ListPrivateNetworkAuditResponse](docs/ListPrivateNetworkAuditResponse.md)
+ - [ListPrivateNetworkResponse](docs/ListPrivateNetworkResponse.md)
+ - [ListPrivateNetworkResponseData](docs/ListPrivateNetworkResponseData.md)
  - [ListRoleAuditResponse](docs/ListRoleAuditResponse.md)
  - [ListRoleResponse](docs/ListRoleResponse.md)
  - [ListSecretAuditResponse](docs/ListSecretAuditResponse.md)
@@ -284,6 +299,9 @@ Class | Method | HTTP request | Description
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
+ - [PrivateIpConfig](docs/PrivateIpConfig.md)
+ - [PrivateNetworkAuditResponse](docs/PrivateNetworkAuditResponse.md)
+ - [PrivateNetworkResponse](docs/PrivateNetworkResponse.md)
  - [ReinstallInstanceRequest](docs/ReinstallInstanceRequest.md)
  - [ReinstallInstanceResponse](docs/ReinstallInstanceResponse.md)
  - [ReinstallInstanceResponseData](docs/ReinstallInstanceResponseData.md)
@@ -300,6 +318,7 @@ Class | Method | HTTP request | Description
  - [TagAuditResponse](docs/TagAuditResponse.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagResponse1](docs/TagResponse1.md)
+ - [UnassignInstancePrivateNetworkReponse](docs/UnassignInstancePrivateNetworkReponse.md)
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)
  - [UpdateCustomImageResponseData](docs/UpdateCustomImageResponseData.md)

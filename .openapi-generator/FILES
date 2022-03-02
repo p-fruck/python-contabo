@@ -4,6 +4,7 @@
 README.md
 docs/AddOnResponse.md
 docs/ApiPermissionsResponse.md
+docs/AssignInstancePrivateNetworkReponse.md
 docs/AssignmentAuditResponse.md
 docs/AssignmentResponse.md
 docs/AutoScalingTypeRequest.md
@@ -25,6 +26,8 @@ docs/CreateInstanceResponseData.md
 docs/CreateObjectStorageRequest.md
 docs/CreateObjectStorageResponse.md
 docs/CreateObjectStorageResponseData.md
+docs/CreatePrivateNetworkRequest.md
+docs/CreatePrivateNetworkResponse.md
 docs/CreateRoleRequest.md
 docs/CreateRoleResponse.md
 docs/CreateRoleResponseData.md
@@ -52,6 +55,7 @@ docs/FindClientResponse.md
 docs/FindImageResponse.md
 docs/FindInstanceResponse.md
 docs/FindObjectStorageResponse.md
+docs/FindPrivateNetworkResponse.md
 docs/FindRoleResponse.md
 docs/FindSecretResponse.md
 docs/FindSnapshotResponse.md
@@ -66,6 +70,7 @@ docs/ImagesApi.md
 docs/ImagesAuditsApi.md
 docs/InstanceActionsApi.md
 docs/InstanceActionsAuditsApi.md
+docs/InstanceAssignmentSelfLinks.md
 docs/InstanceResponse.md
 docs/InstanceRestartActionResponse.md
 docs/InstanceRestartActionResponseData.md
@@ -74,6 +79,7 @@ docs/InstanceStartActionResponseData.md
 docs/InstanceStatus.md
 docs/InstanceStopActionResponse.md
 docs/InstanceStopActionResponseData.md
+docs/Instances.md
 docs/InstancesActionsAuditResponse.md
 docs/InstancesApi.md
 docs/InstancesAuditResponse.md
@@ -95,6 +101,9 @@ docs/ListInstancesResponse.md
 docs/ListInstancesResponseData.md
 docs/ListObjectStorageAuditResponse.md
 docs/ListObjectStorageResponse.md
+docs/ListPrivateNetworkAuditResponse.md
+docs/ListPrivateNetworkResponse.md
+docs/ListPrivateNetworkResponseData.md
 docs/ListRoleAuditResponse.md
 docs/ListRoleResponse.md
 docs/ListSecretAuditResponse.md
@@ -114,6 +123,11 @@ docs/ObjectStoragesStatsResponseData.md
 docs/PaginationMeta.md
 docs/PermissionRequest.md
 docs/PermissionResponse.md
+docs/PrivateIpConfig.md
+docs/PrivateNetworkAuditResponse.md
+docs/PrivateNetworkResponse.md
+docs/PrivateNetworksApi.md
+docs/PrivateNetworksAuditsApi.md
 docs/ReinstallInstanceRequest.md
 docs/ReinstallInstanceResponse.md
 docs/ReinstallInstanceResponseData.md
@@ -140,6 +154,7 @@ docs/TagResponse.md
 docs/TagResponse1.md
 docs/TagsApi.md
 docs/TagsAuditsApi.md
+docs/UnassignInstancePrivateNetworkReponse.md
 docs/UpdateCustomImageRequest.md
 docs/UpdateCustomImageResponse.md
 docs/UpdateCustomImageResponseData.md
@@ -173,6 +188,8 @@ pfruck_contabo/api/instances_audits_api.py
 pfruck_contabo/api/internal_api.py
 pfruck_contabo/api/object_storages_api.py
 pfruck_contabo/api/object_storages_audits_api.py
+pfruck_contabo/api/private_networks_api.py
+pfruck_contabo/api/private_networks_audits_api.py
 pfruck_contabo/api/roles_api.py
 pfruck_contabo/api/roles_audits_api.py
 pfruck_contabo/api/secrets_api.py
@@ -192,6 +209,7 @@ pfruck_contabo/exceptions.py
 pfruck_contabo/model/__init__.py
 pfruck_contabo/model/add_on_response.py
 pfruck_contabo/model/api_permissions_response.py
+pfruck_contabo/model/assign_instance_private_network_reponse.py
 pfruck_contabo/model/assignment_audit_response.py
 pfruck_contabo/model/assignment_response.py
 pfruck_contabo/model/auto_scaling_type_request.py
@@ -213,6 +231,8 @@ pfruck_contabo/model/create_instance_response_data.py
 pfruck_contabo/model/create_object_storage_request.py
 pfruck_contabo/model/create_object_storage_response.py
 pfruck_contabo/model/create_object_storage_response_data.py
+pfruck_contabo/model/create_private_network_request.py
+pfruck_contabo/model/create_private_network_response.py
 pfruck_contabo/model/create_role_request.py
 pfruck_contabo/model/create_role_response.py
 pfruck_contabo/model/create_role_response_data.py
@@ -240,6 +260,7 @@ pfruck_contabo/model/find_client_response.py
 pfruck_contabo/model/find_image_response.py
 pfruck_contabo/model/find_instance_response.py
 pfruck_contabo/model/find_object_storage_response.py
+pfruck_contabo/model/find_private_network_response.py
 pfruck_contabo/model/find_role_response.py
 pfruck_contabo/model/find_secret_response.py
 pfruck_contabo/model/find_snapshot_response.py
@@ -250,6 +271,7 @@ pfruck_contabo/model/generate_client_secret_response.py
 pfruck_contabo/model/image_audit_response.py
 pfruck_contabo/model/image_audit_response_data.py
 pfruck_contabo/model/image_response.py
+pfruck_contabo/model/instance_assignment_self_links.py
 pfruck_contabo/model/instance_response.py
 pfruck_contabo/model/instance_restart_action_response.py
 pfruck_contabo/model/instance_restart_action_response_data.py
@@ -258,6 +280,7 @@ pfruck_contabo/model/instance_start_action_response_data.py
 pfruck_contabo/model/instance_status.py
 pfruck_contabo/model/instance_stop_action_response.py
 pfruck_contabo/model/instance_stop_action_response_data.py
+pfruck_contabo/model/instances.py
 pfruck_contabo/model/instances_actions_audit_response.py
 pfruck_contabo/model/instances_audit_response.py
 pfruck_contabo/model/ip_config.py
@@ -276,6 +299,9 @@ pfruck_contabo/model/list_instances_response.py
 pfruck_contabo/model/list_instances_response_data.py
 pfruck_contabo/model/list_object_storage_audit_response.py
 pfruck_contabo/model/list_object_storage_response.py
+pfruck_contabo/model/list_private_network_audit_response.py
+pfruck_contabo/model/list_private_network_response.py
+pfruck_contabo/model/list_private_network_response_data.py
 pfruck_contabo/model/list_role_audit_response.py
 pfruck_contabo/model/list_role_response.py
 pfruck_contabo/model/list_secret_audit_response.py
@@ -293,6 +319,9 @@ pfruck_contabo/model/object_storages_stats_response_data.py
 pfruck_contabo/model/pagination_meta.py
 pfruck_contabo/model/permission_request.py
 pfruck_contabo/model/permission_response.py
+pfruck_contabo/model/private_ip_config.py
+pfruck_contabo/model/private_network_audit_response.py
+pfruck_contabo/model/private_network_response.py
 pfruck_contabo/model/reinstall_instance_request.py
 pfruck_contabo/model/reinstall_instance_response.py
 pfruck_contabo/model/reinstall_instance_response_data.py
@@ -309,6 +338,7 @@ pfruck_contabo/model/tag_assignment_self_links.py
 pfruck_contabo/model/tag_audit_response.py
 pfruck_contabo/model/tag_response.py
 pfruck_contabo/model/tag_response1.py
+pfruck_contabo/model/unassign_instance_private_network_reponse.py
 pfruck_contabo/model/update_custom_image_request.py
 pfruck_contabo/model/update_custom_image_response.py
 pfruck_contabo/model/update_custom_image_response_data.py
@@ -337,4 +367,19 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_assign_instance_private_network_reponse.py
+test/test_create_private_network_request.py
+test/test_create_private_network_response.py
+test/test_find_private_network_response.py
+test/test_instance_assignment_self_links.py
+test/test_instances.py
+test/test_list_private_network_audit_response.py
+test/test_list_private_network_response.py
+test/test_list_private_network_response_data.py
+test/test_private_ip_config.py
+test/test_private_network_audit_response.py
+test/test_private_network_response.py
+test/test_private_networks_api.py
+test/test_private_networks_audits_api.py
+test/test_unassign_instance_private_network_reponse.py
 tox.ini

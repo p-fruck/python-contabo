@@ -119,6 +119,7 @@ class ObjectStorageResponse(ModelNormal):
             's3_url': (str,),  # noqa: E501
             's3_tenant_id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -138,6 +139,7 @@ class ObjectStorageResponse(ModelNormal):
         's3_url': 's3Url',  # noqa: E501
         's3_tenant_id': 's3TenantId',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'region': 'region',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,7 +149,7 @@ class ObjectStorageResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, object_storage_id, created_date, cancel_date, auto_scaling, data_center, total_purchased_space_tb, s3_url, s3_tenant_id, status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, object_storage_id, created_date, cancel_date, auto_scaling, data_center, total_purchased_space_tb, s3_url, s3_tenant_id, status, region, *args, **kwargs):  # noqa: E501
         """ObjectStorageResponse - a model defined in OpenAPI
 
         Args:
@@ -162,6 +164,7 @@ class ObjectStorageResponse(ModelNormal):
             s3_url (str): S3 URL to connect to your S3 compatible object storage
             s3_tenant_id (str): Your S3 tenantId. Only required for public sharing.
             status (str): The object storage status
+            region (str): The region where your object storage is located
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,6 +235,7 @@ class ObjectStorageResponse(ModelNormal):
         self.s3_url = s3_url
         self.s3_tenant_id = s3_tenant_id
         self.status = status
+        self.region = region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -252,7 +256,7 @@ class ObjectStorageResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, object_storage_id, created_date, cancel_date, auto_scaling, data_center, total_purchased_space_tb, s3_url, s3_tenant_id, status, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, object_storage_id, created_date, cancel_date, auto_scaling, data_center, total_purchased_space_tb, s3_url, s3_tenant_id, status, region, *args, **kwargs):  # noqa: E501
         """ObjectStorageResponse - a model defined in OpenAPI
 
         Args:
@@ -267,6 +271,7 @@ class ObjectStorageResponse(ModelNormal):
             s3_url (str): S3 URL to connect to your S3 compatible object storage
             s3_tenant_id (str): Your S3 tenantId. Only required for public sharing.
             status (str): The object storage status
+            region (str): The region where your object storage is located
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -335,6 +340,7 @@ class ObjectStorageResponse(ModelNormal):
         self.s3_url = s3_url
         self.s3_tenant_id = s3_tenant_id
         self.status = status
+        self.region = region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

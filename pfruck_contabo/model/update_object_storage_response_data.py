@@ -114,6 +114,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
             's3_url': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'total_purchased_space_tb': (float,),  # noqa: E501
+            'region': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +132,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
         's3_url': 's3Url',  # noqa: E501
         'status': 'status',  # noqa: E501
         'total_purchased_space_tb': 'totalPurchasedSpaceTB',  # noqa: E501
+        'region': 'region',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,7 +142,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, object_storage_id, created_date, data_center, auto_scaling, s3_url, status, total_purchased_space_tb, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, object_storage_id, created_date, data_center, auto_scaling, s3_url, status, total_purchased_space_tb, region, *args, **kwargs):  # noqa: E501
         """UpdateObjectStorageResponseData - a model defined in OpenAPI
 
         Args:
@@ -153,6 +155,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
             s3_url (str): S3 URL to connect to your S3 compatible object storage
             status (str): The object storage status
             total_purchased_space_tb (float): Total purchased object storage space in TB.
+            region (str): The region where your object storage is located
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,6 +224,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
         self.s3_url = s3_url
         self.status = status
         self.total_purchased_space_tb = total_purchased_space_tb
+        self.region = region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -241,7 +245,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, object_storage_id, created_date, data_center, auto_scaling, s3_url, status, total_purchased_space_tb, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, object_storage_id, created_date, data_center, auto_scaling, s3_url, status, total_purchased_space_tb, region, *args, **kwargs):  # noqa: E501
         """UpdateObjectStorageResponseData - a model defined in OpenAPI
 
         Args:
@@ -254,6 +258,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
             s3_url (str): S3 URL to connect to your S3 compatible object storage
             status (str): The object storage status
             total_purchased_space_tb (float): Total purchased object storage space in TB.
+            region (str): The region where your object storage is located
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -320,6 +325,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
         self.s3_url = s3_url
         self.status = status
         self.total_purchased_space_tb = total_purchased_space_tb
+        self.region = region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

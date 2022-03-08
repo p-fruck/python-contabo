@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **s3_url** | **str** | S3 URL to connect to your S3 compatible object storage | 
 **status** | **str** | The object storage status | 
 **total_purchased_space_tb** | **float** | Total purchased object storage space in TB. | 
+**region** | **str** | The region where your object storage is located | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

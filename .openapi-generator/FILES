@@ -371,8 +371,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_assign_instance_private_network_response.py
-test/test_patch_private_network_request.py
-test/test_patch_private_network_response.py
-test/test_unassign_instance_private_network_response.py
 tox.ini

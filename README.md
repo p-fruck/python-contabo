@@ -84,14 +84,14 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = images_api.ImagesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-create_custom_image_request = CreateCustomImageRequest(
+    create_custom_image_request = CreateCustomImageRequest(
         name="Ubuntu Custom Image",
         description="Ubuntu Server 20.04.2 LTS",
         url="https://example.com/image.qcow2",
         os_type="Linux",
         version="20.04.2",
     ) # CreateCustomImageRequest | 
-x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     try:
         # Provide a custom image
@@ -136,6 +136,8 @@ Class | Method | HTTP request | Description
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
 *PrivateNetworksApi* | [**assign_instance_private_network**](docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
 *PrivateNetworksApi* | [**create_private_network**](docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/virtual-private-cloud | Create a new private network
+*PrivateNetworksApi* | [**delete_private_network**](docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/virtual-private-cloud/{privateNetworkId} | Delete existing private network by id
+*PrivateNetworksApi* | [**patch_private_network**](docs/PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/virtual-private-cloud/{privateNetworkId} | Update a private network by id
 *PrivateNetworksApi* | [**retrieve_private_network**](docs/PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/virtual-private-cloud/{privateNetworkId} | Get specific private network by id
 *PrivateNetworksApi* | [**retrieve_private_network_list**](docs/PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/virtual-private-cloud | List private networks
 *PrivateNetworksApi* | [**unassign_instance_private_network**](docs/PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
@@ -189,7 +191,7 @@ Class | Method | HTTP request | Description
 
  - [AddOnResponse](docs/AddOnResponse.md)
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
- - [AssignInstancePrivateNetworkReponse](docs/AssignInstancePrivateNetworkReponse.md)
+ - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
  - [AutoScalingTypeRequest](docs/AutoScalingTypeRequest.md)
@@ -297,6 +299,8 @@ Class | Method | HTTP request | Description
  - [ObjectStoragesStatsResponse](docs/ObjectStoragesStatsResponse.md)
  - [ObjectStoragesStatsResponseData](docs/ObjectStoragesStatsResponseData.md)
  - [PaginationMeta](docs/PaginationMeta.md)
+ - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
+ - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
  - [PrivateIpConfig](docs/PrivateIpConfig.md)
@@ -318,7 +322,7 @@ Class | Method | HTTP request | Description
  - [TagAuditResponse](docs/TagAuditResponse.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagResponse1](docs/TagResponse1.md)
- - [UnassignInstancePrivateNetworkReponse](docs/UnassignInstancePrivateNetworkReponse.md)
+ - [UnassignInstancePrivateNetworkResponse](docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)
  - [UpdateCustomImageResponseData](docs/UpdateCustomImageResponseData.md)

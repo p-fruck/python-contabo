@@ -4,7 +4,7 @@
 README.md
 docs/AddOnResponse.md
 docs/ApiPermissionsResponse.md
-docs/AssignInstancePrivateNetworkReponse.md
+docs/AssignInstancePrivateNetworkResponse.md
 docs/AssignmentAuditResponse.md
 docs/AssignmentResponse.md
 docs/AutoScalingTypeRequest.md
@@ -121,6 +121,8 @@ docs/ObjectStoragesAuditsApi.md
 docs/ObjectStoragesStatsResponse.md
 docs/ObjectStoragesStatsResponseData.md
 docs/PaginationMeta.md
+docs/PatchPrivateNetworkRequest.md
+docs/PatchPrivateNetworkResponse.md
 docs/PermissionRequest.md
 docs/PermissionResponse.md
 docs/PrivateIpConfig.md
@@ -154,7 +156,7 @@ docs/TagResponse.md
 docs/TagResponse1.md
 docs/TagsApi.md
 docs/TagsAuditsApi.md
-docs/UnassignInstancePrivateNetworkReponse.md
+docs/UnassignInstancePrivateNetworkResponse.md
 docs/UpdateCustomImageRequest.md
 docs/UpdateCustomImageResponse.md
 docs/UpdateCustomImageResponseData.md
@@ -209,7 +211,7 @@ pfruck_contabo/exceptions.py
 pfruck_contabo/model/__init__.py
 pfruck_contabo/model/add_on_response.py
 pfruck_contabo/model/api_permissions_response.py
-pfruck_contabo/model/assign_instance_private_network_reponse.py
+pfruck_contabo/model/assign_instance_private_network_response.py
 pfruck_contabo/model/assignment_audit_response.py
 pfruck_contabo/model/assignment_response.py
 pfruck_contabo/model/auto_scaling_type_request.py
@@ -317,6 +319,8 @@ pfruck_contabo/model/object_storage_response.py
 pfruck_contabo/model/object_storages_stats_response.py
 pfruck_contabo/model/object_storages_stats_response_data.py
 pfruck_contabo/model/pagination_meta.py
+pfruck_contabo/model/patch_private_network_request.py
+pfruck_contabo/model/patch_private_network_response.py
 pfruck_contabo/model/permission_request.py
 pfruck_contabo/model/permission_response.py
 pfruck_contabo/model/private_ip_config.py
@@ -338,7 +342,7 @@ pfruck_contabo/model/tag_assignment_self_links.py
 pfruck_contabo/model/tag_audit_response.py
 pfruck_contabo/model/tag_response.py
 pfruck_contabo/model/tag_response1.py
-pfruck_contabo/model/unassign_instance_private_network_reponse.py
+pfruck_contabo/model/unassign_instance_private_network_response.py
 pfruck_contabo/model/update_custom_image_request.py
 pfruck_contabo/model/update_custom_image_response.py
 pfruck_contabo/model/update_custom_image_response_data.py
@@ -367,4 +371,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_assign_instance_private_network_response.py
+test/test_patch_private_network_request.py
+test/test_patch_private_network_response.py
+test/test_unassign_instance_private_network_response.py
 tox.ini

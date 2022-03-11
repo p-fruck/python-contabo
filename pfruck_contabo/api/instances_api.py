@@ -347,6 +347,7 @@ class InstancesApi(object):
                     'region',
                     'instance_id',
                     'status',
+                    'add_on_ids',
                 ],
                 'required': [
                     'x_request_id',
@@ -373,7 +374,10 @@ class InstancesApi(object):
                     ('status',): {
 
                         "PROVISIONING": "provisioning",
-                        "UNINSTALLED": "uninstalled"
+                        "UNINSTALLED": "uninstalled",
+                        "ERROR": "error",
+                        "INSTALLING": "installing",
+                        "OTHER": "other"
                     },
                 },
                 'openapi_types': {
@@ -395,6 +399,8 @@ class InstancesApi(object):
                         (int,),
                     'status':
                         (str,),
+                    'add_on_ids':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -406,6 +412,7 @@ class InstancesApi(object):
                     'region': 'region',
                     'instance_id': 'instanceId',
                     'status': 'status',
+                    'add_on_ids': 'addOnIds',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -417,6 +424,7 @@ class InstancesApi(object):
                     'region': 'query',
                     'instance_id': 'query',
                     'status': 'query',
+                    'add_on_ids': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -793,6 +801,7 @@ class InstancesApi(object):
             region (str): The Region of the instance. [optional]
             instance_id (int): The identifier of the instance. [optional]
             status (str): The status of the instance. [optional]
+            add_on_ids (str): Identifiers of Addons the instances have. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

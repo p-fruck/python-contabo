@@ -448,7 +448,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     name = "vmd12345" # str | The name of the instance (optional)
     region = "EU" # str | The Region of the instance (optional)
     instance_id = 100 # int | The identifier of the instance (optional)
-    status = "provisioning" # str | The status of the instance (optional)
+    status = "provisioning,installing" # str | The status of the instance (optional)
+    add_on_ids = "1044,827" # str | Identifiers of Addons the instances have (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -462,7 +463,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List instances
-        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, status=status)
+        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, status=status, add_on_ids=add_on_ids)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling InstancesApi->retrieve_instances_list: %s\n" % e)
@@ -482,6 +483,7 @@ Name | Type | Description  | Notes
  **region** | **str**| The Region of the instance | [optional]
  **instance_id** | **int**| The identifier of the instance | [optional]
  **status** | **str**| The status of the instance | [optional]
+ **add_on_ids** | **str**| Identifiers of Addons the instances have | [optional]
 
 ### Return type
 

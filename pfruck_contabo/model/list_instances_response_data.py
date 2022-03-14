@@ -117,6 +117,7 @@ class ListInstancesResponseData(ModelNormal):
             'tenant_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
             'instance_id': (int,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'product_id': (str,),  # noqa: E501
@@ -146,6 +147,7 @@ class ListInstancesResponseData(ModelNormal):
         'tenant_id': 'tenantId',  # noqa: E501
         'customer_id': 'customerId',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'display_name': 'displayName',  # noqa: E501
         'instance_id': 'instanceId',  # noqa: E501
         'region': 'region',  # noqa: E501
         'product_id': 'productId',  # noqa: E501
@@ -173,13 +175,14 @@ class ListInstancesResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, name, instance_id, region, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Customer ID
             name (str): Instance Name
+            display_name (str): Instance display name
             instance_id (int): Instance ID
             region (str): Instance Region where the compute instance should be located.
             product_id (str): Product ID
@@ -233,7 +236,7 @@ class ListInstancesResponseData(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -264,6 +267,7 @@ class ListInstancesResponseData(ModelNormal):
         self.tenant_id = tenant_id
         self.customer_id = customer_id
         self.name = name
+        self.display_name = display_name
         self.instance_id = instance_id
         self.region = region
         self.product_id = product_id
@@ -301,13 +305,14 @@ class ListInstancesResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, name, instance_id, region, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Customer ID
             name (str): Instance Name
+            display_name (str): Instance display name
             instance_id (int): Instance ID
             region (str): Instance Region where the compute instance should be located.
             product_id (str): Product ID
@@ -390,6 +395,7 @@ class ListInstancesResponseData(ModelNormal):
         self.tenant_id = tenant_id
         self.customer_id = customer_id
         self.name = name
+        self.display_name = display_name
         self.instance_id = instance_id
         self.region = region
         self.product_id = product_id

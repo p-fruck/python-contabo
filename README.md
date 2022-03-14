@@ -120,6 +120,7 @@ Class | Method | HTTP request | Description
 *InstanceActionsAuditsApi* | [**retrieve_instances_actions_audits_list**](docs/InstanceActionsAuditsApi.md#retrieve_instances_actions_audits_list) | **GET** /v1/compute/instances/actions/audits | List history about your actions (audit) triggered via the API
 *InstancesApi* | [**cancel_instance**](docs/InstancesApi.md#cancel_instance) | **POST** /v1/compute/instances/{instanceId}/cancel | Cancel specific instance by id
 *InstancesApi* | [**create_instance**](docs/InstancesApi.md#create_instance) | **POST** /v1/compute/instances | Create a new instance
+*InstancesApi* | [**patch_instance**](docs/InstancesApi.md#patch_instance) | **PATCH** /v1/compute/instances/{instanceId} | Update specific instance
 *InstancesApi* | [**reinstall_instance**](docs/InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 *InstancesApi* | [**retrieve_instance**](docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
@@ -299,6 +300,9 @@ Class | Method | HTTP request | Description
  - [ObjectStoragesStatsResponse](docs/ObjectStoragesStatsResponse.md)
  - [ObjectStoragesStatsResponseData](docs/ObjectStoragesStatsResponseData.md)
  - [PaginationMeta](docs/PaginationMeta.md)
+ - [PatchInstanceRequest](docs/PatchInstanceRequest.md)
+ - [PatchInstanceResponse](docs/PatchInstanceResponse.md)
+ - [PatchInstanceResponseData](docs/PatchInstanceResponseData.md)
  - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
  - [PermissionRequest](docs/PermissionRequest.md)

@@ -98,6 +98,9 @@ class CreateInstanceRequest(ModelNormal):
         ('region',): {
             'min_length': 1,
         },
+        ('display_name',): {
+            'max_length': 255,
+        },
     }
 
     @cached_property
@@ -129,6 +132,7 @@ class CreateInstanceRequest(ModelNormal):
             'root_password': (int,),  # noqa: E501
             'user_data': (str,),  # noqa: E501
             'license': (str,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -145,6 +149,7 @@ class CreateInstanceRequest(ModelNormal):
         'root_password': 'rootPassword',  # noqa: E501
         'user_data': 'userData',  # noqa: E501
         'license': 'license',  # noqa: E501
+        'display_name': 'displayName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -198,6 +203,7 @@ class CreateInstanceRequest(ModelNormal):
             root_password (int): Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
             user_data (str): [Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.. [optional]  # noqa: E501
             license (str): Additional licence in order to enhance your chosen product, mainly needed for software licenses on your product (not needed for windows).. [optional]  # noqa: E501
+            display_name (str): The display name of the instance. [optional]  # noqa: E501
         """
 
         image_id = kwargs.get('image_id', "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90")
@@ -205,7 +211,7 @@ class CreateInstanceRequest(ModelNormal):
         region = kwargs.get('region', "EU")
         period = kwargs.get('period', 1)
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -301,6 +307,7 @@ class CreateInstanceRequest(ModelNormal):
             root_password (int): Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
             user_data (str): [Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.. [optional]  # noqa: E501
             license (str): Additional licence in order to enhance your chosen product, mainly needed for software licenses on your product (not needed for windows).. [optional]  # noqa: E501
+            display_name (str): The display name of the instance. [optional]  # noqa: E501
         """
 
         image_id = kwargs.get('image_id', "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90")

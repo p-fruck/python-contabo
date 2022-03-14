@@ -377,7 +377,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_patch_instance_request.py
-test/test_patch_instance_response.py
-test/test_patch_instance_response_data.py
 tox.ini

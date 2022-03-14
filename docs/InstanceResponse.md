@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **tenant_id** | **str** | Your customer tenant id | 
 **customer_id** | **str** | Customer ID | 
 **name** | **str** | Instance Name | 
+**display_name** | **str** | Instance display name | 
 **instance_id** | **int** | Instance ID | 
 **region** | **str** | Instance Region where the compute instance should be located. | 
 **product_id** | **str** | Product ID | 

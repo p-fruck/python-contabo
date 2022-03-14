@@ -121,6 +121,9 @@ docs/ObjectStoragesAuditsApi.md
 docs/ObjectStoragesStatsResponse.md
 docs/ObjectStoragesStatsResponseData.md
 docs/PaginationMeta.md
+docs/PatchInstanceRequest.md
+docs/PatchInstanceResponse.md
+docs/PatchInstanceResponseData.md
 docs/PatchPrivateNetworkRequest.md
 docs/PatchPrivateNetworkResponse.md
 docs/PermissionRequest.md
@@ -319,6 +322,9 @@ pfruck_contabo/model/object_storage_response.py
 pfruck_contabo/model/object_storages_stats_response.py
 pfruck_contabo/model/object_storages_stats_response_data.py
 pfruck_contabo/model/pagination_meta.py
+pfruck_contabo/model/patch_instance_request.py
+pfruck_contabo/model/patch_instance_response.py
+pfruck_contabo/model/patch_instance_response_data.py
 pfruck_contabo/model/patch_private_network_request.py
 pfruck_contabo/model/patch_private_network_response.py
 pfruck_contabo/model/permission_request.py

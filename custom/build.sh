@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This simple bash script utilizes the swagger-codegen container to generate an
+# This simple bash script utilizes the openapi-generator-cli container to generate an
 # API-client for python from Contabo's API documentation.
 #
 set -e
@@ -63,9 +63,14 @@ else
     cmd="docker"
 fi
 
+generator_image=openapitools/openapi-generator-cli
+
+# update local generator image
+${cmd} pull ${generator_image}
+
 $cmd run --rm \
     -v "${proj_dir}":/local:Z \
-    openapitools/openapi-generator-cli generate \
+    "${generator_image}" generate \
     -i https://api.contabo.com/api-v1.yaml \
     -g python \
     --git-user-id ${git_user_id} \
@@ -81,12 +86,6 @@ find . -name "*.py" -exec sed -i '/^\s\+# Introduction .*$/d' {} \;
 # Replace internal URI with the public one
 find . -name "*.py" -exec sed -i "s;contabo.intra;contabo.com;g" {} \;
 find . -name "*.md" -exec sed -i "s;contabo.intra;contabo.com;g" {} \;
-
-# # apply custom patches to source files
-# for patchfile in $(find custom/patches -type f)
-# do
-#     patch -p0 < "${patchfile}"
-# done
 
 # No functionality in unit-tests, they just validate that all files have valid syntax :)
 python -m unittest

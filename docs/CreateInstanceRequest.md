@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image_id** | **str** | ImageId to be used to setup the compute instance. Default is Ubuntu 20.04 | defaults to "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90"
-**product_id** | **str** | You can find &#x60;productId&#x60;s [here](https://contabo.com/en/product-list/?show_ids&#x3D;true). Default is V1 | defaults to "V1"
+**product_id** | **str** | Default is V1 | defaults to "V1"
 **region** | **str** | Instance Region where the compute instance should be located. Default is EU | defaults to "EU"
 **period** | **int** | Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month | defaults to 1
 **ssh_keys** | **[int]** | Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API. | [optional] 

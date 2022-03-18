@@ -166,7 +166,7 @@ class CreateInstanceRequest(ModelNormal):
 
         Keyword Args:
             image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 20.04. defaults to "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90"  # noqa: E501
-            product_id (str): You can find `productId`s [here](https://contabo.com/en/product-list/?show_ids=true). Default is V1. defaults to "V1"  # noqa: E501
+            product_id (str): Default is V1. defaults to "V1"  # noqa: E501
             region (str): Instance Region where the compute instance should be located. Default is EU. defaults to "EU", must be one of ["EU", "US-central", "US-east", "US-west", "SIN", ]  # noqa: E501
             period (int): Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month. defaults to 1  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
@@ -270,7 +270,7 @@ class CreateInstanceRequest(ModelNormal):
 
         Keyword Args:
             image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 20.04. defaults to "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90"  # noqa: E501
-            product_id (str): You can find `productId`s [here](https://contabo.com/en/product-list/?show_ids=true). Default is V1. defaults to "V1"  # noqa: E501
+            product_id (str): Default is V1. defaults to "V1"  # noqa: E501
             region (str): Instance Region where the compute instance should be located. Default is EU. defaults to "EU", must be one of ["EU", "US-central", "US-east", "US-west", "SIN", ]  # noqa: E501
             period (int): Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month. defaults to 1  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types

@@ -49,7 +49,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image`.
+    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
     resource_id = "d65ecf3b-30db-4dc2-9e88-dfc21a14a6bc" # str | The identifier of the resource id
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **tag_id** | **int**| The identifier of the tag. |
- **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image&#x60;. |
+ **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. |
  **resource_id** | **str**| The identifier of the resource id |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -142,7 +142,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image`.
+    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
     resource_id = "d65ecf3b-30db-4dc2-9e88-dfc21a14a6bc" # str | The identifier of the resource id
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **tag_id** | **int**| The identifier of the tag. |
- **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image&#x60;. |
+ **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. |
  **resource_id** | **str**| The identifier of the resource id |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -234,7 +234,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image`.
+    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
     resource_id = "d65ecf3b-30db-4dc2-9e88-dfc21a14a6bc" # str | The identifier of the resource id
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **tag_id** | **int**| The identifier of the tag. |
- **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image&#x60;. |
+ **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. |
  **resource_id** | **str**| The identifier of the resource id |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -334,7 +334,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    resource_type = "instance" # str | Filter as substring match for assignment resource type. Resource type is one of `instance|image`. (optional)
+    resource_type = "instance" # str | Filter as substring match for assignment resource type. Resource type is one of `instance|image|object-storage`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Number of page to be fetched. | [optional]
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **resource_type** | **str**| Filter as substring match for assignment resource type. Resource type is one of &#x60;instance|image&#x60;. | [optional]
+ **resource_type** | **str**| Filter as substring match for assignment resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | [optional]
 
 ### Return type
 

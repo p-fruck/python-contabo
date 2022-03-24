@@ -148,7 +148,7 @@ class AssignmentAuditResponse(ModelNormal):
             customer_id (str): Your customer number
             id (float): The identifier of the audit entry.
             resource_id (str): Resource's id
-            resource_type (str): Resource type. Resource type is one of `instance|image`.
+            resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
             tag_id (float): Tag's id
             action (str): Audit Action
             timestamp (datetime): Audit creation date
@@ -260,7 +260,7 @@ class AssignmentAuditResponse(ModelNormal):
             customer_id (str): Your customer number
             id (float): The identifier of the audit entry.
             resource_id (str): Resource's id
-            resource_type (str): Resource type. Resource type is one of `instance|image`.
+            resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
             tag_id (float): Tag's id
             action (str): Audit Action
             timestamp (datetime): Audit creation date

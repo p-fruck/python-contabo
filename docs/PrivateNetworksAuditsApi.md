@@ -4,7 +4,7 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_private_network_audits_list**](PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/virtual-private-cloud/audits | List history about your private networks (audit)
+[**retrieve_private_network_audits_list**](PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your private networks (audit)
 
 
 # **retrieve_private_network_audits_list**

@@ -41,7 +41,7 @@ class PrivateNetworksAuditsApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud/audits',
+                'endpoint_path': '/v1/private-networks/audits',
                 'operation_id': 'retrieve_private_network_audits_list',
                 'http_method': 'GET',
                 'servers': None,

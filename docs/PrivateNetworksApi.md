@@ -4,13 +4,13 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**assign_instance_private_network**](PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
-[**create_private_network**](PrivateNetworksApi.md#create_private_network) | **POST** /v1/virtual-private-cloud | Create a new private network
-[**delete_private_network**](PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/virtual-private-cloud/{privateNetworkId} | Delete existing private network by id
-[**patch_private_network**](PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/virtual-private-cloud/{privateNetworkId} | Update a private network by id
-[**retrieve_private_network**](PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/virtual-private-cloud/{privateNetworkId} | Get specific private network by id
-[**retrieve_private_network_list**](PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/virtual-private-cloud | List private networks
-[**unassign_instance_private_network**](PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
+[**assign_instance_private_network**](PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
+[**create_private_network**](PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new private network
+[**delete_private_network**](PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing private network by id
+[**patch_private_network**](PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a private network by id
+[**retrieve_private_network**](PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific private network by id
+[**retrieve_private_network_list**](PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List private networks
+[**unassign_instance_private_network**](PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
 
 
 # **assign_instance_private_network**

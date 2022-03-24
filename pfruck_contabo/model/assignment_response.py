@@ -139,7 +139,7 @@ class AssignmentResponse(ModelNormal):
             customer_id (str): Your customer number
             tag_id (float): Tag's id
             tag_name (str): Tag's name
-            resource_type (str): Resource type. Resource type is one of `instance|image`.
+            resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): Resource id
             resource_name (str): Resource name
 
@@ -240,7 +240,7 @@ class AssignmentResponse(ModelNormal):
             customer_id (str): Your customer number
             tag_id (float): Tag's id
             tag_name (str): Tag's name
-            resource_type (str): Resource type. Resource type is one of `instance|image`.
+            resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): Resource id
             resource_name (str): Resource name
 

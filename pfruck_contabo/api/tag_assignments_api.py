@@ -389,7 +389,7 @@ class TagAssignmentsApi(object):
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
             tag_id (int): The identifier of the tag.
-            resource_type (str): The identifier of the resource type. Resource type is one of `instance|image`.
+            resource_type (str): The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): The identifier of the resource id
 
         Keyword Args:
@@ -485,7 +485,7 @@ class TagAssignmentsApi(object):
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
             tag_id (int): The identifier of the tag.
-            resource_type (str): The identifier of the resource type. Resource type is one of `instance|image`.
+            resource_type (str): The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): The identifier of the resource id
 
         Keyword Args:
@@ -581,7 +581,7 @@ class TagAssignmentsApi(object):
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
             tag_id (int): The identifier of the tag.
-            resource_type (str): The identifier of the resource type. Resource type is one of `instance|image`.
+            resource_type (str): The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): The identifier of the resource id
 
         Keyword Args:
@@ -681,7 +681,7 @@ class TagAssignmentsApi(object):
             page (int): Number of page to be fetched.. [optional]
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
-            resource_type (str): Filter as substring match for assignment resource type. Resource type is one of `instance|image`.. [optional]
+            resource_type (str): Filter as substring match for assignment resource type. Resource type is one of `instance|image|object-storage`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

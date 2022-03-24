@@ -48,7 +48,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId}',
+                'endpoint_path': '/v1/private-networks/{privateNetworkId}/instances/{instanceId}',
                 'operation_id': 'assign_instance_private_network',
                 'http_method': 'POST',
                 'servers': None,
@@ -123,7 +123,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud',
+                'endpoint_path': '/v1/private-networks',
                 'operation_id': 'create_private_network',
                 'http_method': 'POST',
                 'servers': None,
@@ -193,7 +193,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud/{privateNetworkId}',
+                'endpoint_path': '/v1/private-networks/{privateNetworkId}',
                 'operation_id': 'delete_private_network',
                 'http_method': 'DELETE',
                 'servers': None,
@@ -260,7 +260,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud/{privateNetworkId}',
+                'endpoint_path': '/v1/private-networks/{privateNetworkId}',
                 'operation_id': 'patch_private_network',
                 'http_method': 'PATCH',
                 'servers': None,
@@ -336,7 +336,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud/{privateNetworkId}',
+                'endpoint_path': '/v1/private-networks/{privateNetworkId}',
                 'operation_id': 'retrieve_private_network',
                 'http_method': 'GET',
                 'servers': None,
@@ -405,7 +405,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud',
+                'endpoint_path': '/v1/private-networks',
                 'operation_id': 'retrieve_private_network_list',
                 'http_method': 'GET',
                 'servers': None,
@@ -489,7 +489,7 @@ class PrivateNetworksApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/virtual-private-cloud/{privateNetworkId}/instances/{instanceId}',
+                'endpoint_path': '/v1/private-networks/{privateNetworkId}/instances/{instanceId}',
                 'operation_id': 'unassign_instance_private_network',
                 'http_method': 'DELETE',
                 'servers': None,

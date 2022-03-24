@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **customer_id** | **str** | Your customer number | 
 **id** | **float** | The identifier of the audit entry. | 
 **resource_id** | **str** | Resource&#39;s id | 
-**resource_type** | **str** | Resource type. Resource type is one of &#x60;instance|image&#x60;. | 
+**resource_type** | **str** | Resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | 
 **tag_id** | **float** | Tag&#39;s id | 
 **action** | **str** | Audit Action | 
 **timestamp** | **datetime** | Audit creation date | 

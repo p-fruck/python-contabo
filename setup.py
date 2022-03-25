@@ -154,6 +154,7 @@ Class | Method | HTTP request | Description
 *ImagesApi* | [**update_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#update_image) | **PATCH** /v1/compute/images/{imageId} | Update custom image name by its id
 *ImagesAuditsApi* | [**retrieve_image_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesAuditsApi.md#retrieve_image_audits_list) | **GET** /v1/compute/images/audits | List history about your custom images (audit)
 *InstanceActionsApi* | [**restart**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Restart a compute instance / resource identified by its id
+*InstanceActionsApi* | [**shutdown**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#shutdown) | **POST** /v1/compute/instances/{instanceId}/actions/shutdown | Shutdown compute instance / resource by its id
 *InstanceActionsApi* | [**start**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#start) | **POST** /v1/compute/instances/{instanceId}/actions/start | Start a compute instance / resource identified by its id
 *InstanceActionsApi* | [**stop**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#stop) | **POST** /v1/compute/instances/{instanceId}/actions/stop | Stop compute instance / resource by its id
 *InstanceActionsAuditsApi* | [**retrieve_instances_actions_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsAuditsApi.md#retrieve_instances_actions_audits_list) | **GET** /v1/compute/instances/actions/audits | List history about your actions (audit) triggered via the API
@@ -297,6 +298,8 @@ Class | Method | HTTP request | Description
  - [InstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceResponse.md)
  - [InstanceRestartActionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceRestartActionResponse.md)
  - [InstanceRestartActionResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceRestartActionResponseData.md)
+ - [InstanceShutdownActionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceShutdownActionResponse.md)
+ - [InstanceShutdownActionResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceShutdownActionResponseData.md)
  - [InstanceStartActionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStartActionResponse.md)
  - [InstanceStartActionResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStartActionResponseData.md)
  - [InstanceStatus](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStatus.md)

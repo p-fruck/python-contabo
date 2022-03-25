@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
 *ImagesApi* | [**update_image**](docs/ImagesApi.md#update_image) | **PATCH** /v1/compute/images/{imageId} | Update custom image name by its id
 *ImagesAuditsApi* | [**retrieve_image_audits_list**](docs/ImagesAuditsApi.md#retrieve_image_audits_list) | **GET** /v1/compute/images/audits | List history about your custom images (audit)
 *InstanceActionsApi* | [**restart**](docs/InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Restart a compute instance / resource identified by its id
+*InstanceActionsApi* | [**shutdown**](docs/InstanceActionsApi.md#shutdown) | **POST** /v1/compute/instances/{instanceId}/actions/shutdown | Shutdown compute instance / resource by its id
 *InstanceActionsApi* | [**start**](docs/InstanceActionsApi.md#start) | **POST** /v1/compute/instances/{instanceId}/actions/start | Start a compute instance / resource identified by its id
 *InstanceActionsApi* | [**stop**](docs/InstanceActionsApi.md#stop) | **POST** /v1/compute/instances/{instanceId}/actions/stop | Stop compute instance / resource by its id
 *InstanceActionsAuditsApi* | [**retrieve_instances_actions_audits_list**](docs/InstanceActionsAuditsApi.md#retrieve_instances_actions_audits_list) | **GET** /v1/compute/instances/actions/audits | List history about your actions (audit) triggered via the API
@@ -258,6 +259,8 @@ Class | Method | HTTP request | Description
  - [InstanceResponse](docs/InstanceResponse.md)
  - [InstanceRestartActionResponse](docs/InstanceRestartActionResponse.md)
  - [InstanceRestartActionResponseData](docs/InstanceRestartActionResponseData.md)
+ - [InstanceShutdownActionResponse](docs/InstanceShutdownActionResponse.md)
+ - [InstanceShutdownActionResponseData](docs/InstanceShutdownActionResponseData.md)
  - [InstanceStartActionResponse](docs/InstanceStartActionResponse.md)
  - [InstanceStartActionResponseData](docs/InstanceStartActionResponseData.md)
  - [InstanceStatus](docs/InstanceStatus.md)

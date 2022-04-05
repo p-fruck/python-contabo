@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.images_api import ImagesApi
+#   from pfruck_contabo.api.images_api import ImagesApi
 #
 # or import this package, but before doing it, use:
 #

@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**reinstall_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 *InstancesApi* | [**retrieve_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
+*InstancesApi* | [**upgrade_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrade instance with the given list of addons
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
 *InternalApi* | [**create_ticket**](https://github.com/p-fruck/python-contabo/blob/main/docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
 *InternalApi* | [**retrieve_user_is_password_set**](https://github.com/p-fruck/python-contabo/blob/main/docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
@@ -385,6 +386,9 @@ Class | Method | HTTP request | Description
  - [UpdateUserRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateUserRequest.md)
  - [UpdateUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateUserResponse.md)
  - [UpgradeAutoScalingType](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeAutoScalingType.md)
+ - [UpgradeInstanceData](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeInstanceData.md)
+ - [UpgradeInstanceRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeInstanceRequest.md)
+ - [UpgradeInstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeInstanceResponse.md)
  - [UpgradeObjectStorageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageRequest.md)
  - [UserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserIsPasswordSetResponse.md)

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**reinstall_instance**](InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 [**retrieve_instance**](InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 [**retrieve_instances_list**](InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
+[**upgrade_instance**](InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrade instance with the given list of addons
 
 
 # **cancel_instance**
@@ -544,7 +545,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = "vmd12345" # str | The name of the instance (optional)
     region = "EU" # str | The Region of the instance (optional)
-    instance_id = 100 # int | The identifier of the instance (optional)
+    instance_id = 100 # int | The identifier of the instance (deprecated) (optional)
+    instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)
     status = "provisioning,installing" # str | The status of the instance (optional)
     add_on_ids = "1044,827" # str | Identifiers of Addons the instances have (optional)
 
@@ -560,7 +562,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List instances
-        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, status=status, add_on_ids=add_on_ids)
+        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling InstancesApi->retrieve_instances_list: %s\n" % e)
@@ -578,7 +580,8 @@ Name | Type | Description  | Notes
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **name** | **str**| The name of the instance | [optional]
  **region** | **str**| The Region of the instance | [optional]
- **instance_id** | **int**| The identifier of the instance | [optional]
+ **instance_id** | **int**| The identifier of the instance (deprecated) | [optional]
+ **instance_ids** | **str**| Comma separated instances identifiers | [optional]
  **status** | **str**| The status of the instance | [optional]
  **add_on_ids** | **str**| Identifiers of Addons the instances have | [optional]
 
@@ -601,6 +604,103 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The response will be a JSON object and contains a paginated list of instances. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upgrade_instance**
+> UpgradeInstanceResponse upgrade_instance(x_request_id, instance_id, upgrade_instance_request)
+
+Upgrade instance with the given list of addons
+
+You can upgrade instance with the given list of addons.
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import instances_api
+from pfruck_contabo.model.upgrade_instance_response import UpgradeInstanceResponse
+from pfruck_contabo.model.upgrade_instance_request import UpgradeInstanceRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = instances_api.InstancesApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    instance_id = 12345 # int | The identifier of the instance
+    upgrade_instance_request = UpgradeInstanceRequest(
+        add_ons=[
+            [123, 125],
+        ],
+    ) # UpgradeInstanceRequest | 
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Upgrade instance with the given list of addons
+        api_response = api_instance.upgrade_instance(x_request_id, instance_id, upgrade_instance_request)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling InstancesApi->upgrade_instance: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Upgrade instance with the given list of addons
+        api_response = api_instance.upgrade_instance(x_request_id, instance_id, upgrade_instance_request, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling InstancesApi->upgrade_instance: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **instance_id** | **int**| The identifier of the instance |
+ **upgrade_instance_request** | [**UpgradeInstanceRequest**](UpgradeInstanceRequest.md)|  |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+
+### Return type
+
+[**UpgradeInstanceResponse**](UpgradeInstanceResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response will be a JSON object and contains standard instance attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

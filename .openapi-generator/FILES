@@ -178,6 +178,9 @@ docs/UpdateTagResponse.md
 docs/UpdateUserRequest.md
 docs/UpdateUserResponse.md
 docs/UpgradeAutoScalingType.md
+docs/UpgradeInstanceData.md
+docs/UpgradeInstanceRequest.md
+docs/UpgradeInstanceResponse.md
 docs/UpgradeObjectStorageRequest.md
 docs/UserAuditResponse.md
 docs/UserIsPasswordSetResponse.md
@@ -369,6 +372,9 @@ pfruck_contabo/model/update_tag_response.py
 pfruck_contabo/model/update_user_request.py
 pfruck_contabo/model/update_user_response.py
 pfruck_contabo/model/upgrade_auto_scaling_type.py
+pfruck_contabo/model/upgrade_instance_data.py
+pfruck_contabo/model/upgrade_instance_request.py
+pfruck_contabo/model/upgrade_instance_response.py
 pfruck_contabo/model/upgrade_object_storage_request.py
 pfruck_contabo/model/user_audit_response.py
 pfruck_contabo/model/user_is_password_set_response.py
@@ -381,4 +387,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_upgrade_instance_data.py
+test/test_upgrade_instance_request.py
+test/test_upgrade_instance_response.py
 tox.ini

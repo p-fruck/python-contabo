@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**reinstall_instance**](docs/InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 *InstancesApi* | [**retrieve_instance**](docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
+*InstancesApi* | [**upgrade_instance**](docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrade instance with the given list of addons
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
 *InternalApi* | [**create_ticket**](docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
 *InternalApi* | [**retrieve_user_is_password_set**](docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
@@ -346,6 +347,9 @@ Class | Method | HTTP request | Description
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [UpdateUserResponse](docs/UpdateUserResponse.md)
  - [UpgradeAutoScalingType](docs/UpgradeAutoScalingType.md)
+ - [UpgradeInstanceData](docs/UpgradeInstanceData.md)
+ - [UpgradeInstanceRequest](docs/UpgradeInstanceRequest.md)
+ - [UpgradeInstanceResponse](docs/UpgradeInstanceResponse.md)
  - [UpgradeObjectStorageRequest](docs/UpgradeObjectStorageRequest.md)
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)

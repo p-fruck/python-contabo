@@ -387,7 +387,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_upgrade_instance_data.py
-test/test_upgrade_instance_request.py
-test/test_upgrade_instance_response.py
 tox.ini

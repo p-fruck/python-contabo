@@ -122,19 +122,19 @@ class ListInstancesResponseData(ModelNormal):
             'region': (str,),  # noqa: E501
             'product_id': (str,),  # noqa: E501
             'image_id': (str,),  # noqa: E501
-            'ip_config': (IpConfig,),  # noqa: E501
             'mac_address': (str,),  # noqa: E501
             'ram_mb': (float,),  # noqa: E501
             'cpu_cores': (int,),  # noqa: E501
             'os_type': (str,),  # noqa: E501
             'disk_mb': (float,),  # noqa: E501
-            'ssh_keys': ([str],),  # noqa: E501
+            'ssh_keys': ([int],),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'cancel_date': (date,),  # noqa: E501
             'status': (InstanceStatus,),  # noqa: E501
             'v_host_id': (int,),  # noqa: E501
             'add_ons': ([AddOnResponse],),  # noqa: E501
             'product_type': (str,),  # noqa: E501
+            'ip_config': (IpConfig,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
         }
 
@@ -152,7 +152,6 @@ class ListInstancesResponseData(ModelNormal):
         'region': 'region',  # noqa: E501
         'product_id': 'productId',  # noqa: E501
         'image_id': 'imageId',  # noqa: E501
-        'ip_config': 'ipConfig',  # noqa: E501
         'mac_address': 'macAddress',  # noqa: E501
         'ram_mb': 'ramMb',  # noqa: E501
         'cpu_cores': 'cpuCores',  # noqa: E501
@@ -165,6 +164,7 @@ class ListInstancesResponseData(ModelNormal):
         'v_host_id': 'vHostId',  # noqa: E501
         'add_ons': 'addOns',  # noqa: E501
         'product_type': 'productType',  # noqa: E501
+        'ip_config': 'ipConfig',  # noqa: E501
         'error_message': 'errorMessage',  # noqa: E501
     }
 
@@ -175,7 +175,7 @@ class ListInstancesResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -187,13 +187,12 @@ class ListInstancesResponseData(ModelNormal):
             region (str): Instance Region where the compute instance should be located.
             product_id (str): Product ID
             image_id (str): Image's id
-            ip_config (IpConfig):
             mac_address (str): MAC Address
             ram_mb (float): Image RAM size in MB
             cpu_cores (int): CPU core count
             os_type (str): Type of operating system (OS)
             disk_mb (float): Image Disk size in MB
-            ssh_keys ([str]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
+            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
             created_date (datetime): The creation date for the instance
             cancel_date (date): The date on which the instance will be cancelled
             status (InstanceStatus):
@@ -232,6 +231,7 @@ class ListInstancesResponseData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ip_config (IpConfig): [optional]  # noqa: E501
             error_message (str): Message in case of an error.. [optional]  # noqa: E501
         """
 
@@ -272,7 +272,6 @@ class ListInstancesResponseData(ModelNormal):
         self.region = region
         self.product_id = product_id
         self.image_id = image_id
-        self.ip_config = ip_config
         self.mac_address = mac_address
         self.ram_mb = ram_mb
         self.cpu_cores = cpu_cores
@@ -305,7 +304,7 @@ class ListInstancesResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -317,13 +316,12 @@ class ListInstancesResponseData(ModelNormal):
             region (str): Instance Region where the compute instance should be located.
             product_id (str): Product ID
             image_id (str): Image's id
-            ip_config (IpConfig):
             mac_address (str): MAC Address
             ram_mb (float): Image RAM size in MB
             cpu_cores (int): CPU core count
             os_type (str): Type of operating system (OS)
             disk_mb (float): Image Disk size in MB
-            ssh_keys ([str]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
+            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
             created_date (datetime): The creation date for the instance
             cancel_date (date): The date on which the instance will be cancelled
             status (InstanceStatus):
@@ -362,6 +360,7 @@ class ListInstancesResponseData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ip_config (IpConfig): [optional]  # noqa: E501
             error_message (str): Message in case of an error.. [optional]  # noqa: E501
         """
 
@@ -400,7 +399,6 @@ class ListInstancesResponseData(ModelNormal):
         self.region = region
         self.product_id = product_id
         self.image_id = image_id
-        self.ip_config = ip_config
         self.mac_address = mac_address
         self.ram_mb = ram_mb
         self.cpu_cores = cpu_cores

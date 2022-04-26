@@ -438,6 +438,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     data_center_name = "EU" # str | Filter for Object Storage locations. (optional)
     s3_tenant_id = "2cd2e5e1444a41b0bed16c6410ecaa84" # str | Filter for Object Storage S3 tenantId. (optional)
+    region = "EU" # str | Filter for Object Storage by regions. Available regions: EU, US-central, SIN (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -451,7 +452,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List all your Object Storages
-        api_response = api_instance.retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id)
+        api_response = api_instance.retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id, region=region)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling ObjectStoragesApi->retrieve_object_storage_list: %s\n" % e)
@@ -469,6 +470,7 @@ Name | Type | Description  | Notes
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **data_center_name** | **str**| Filter for Object Storage locations. | [optional]
  **s3_tenant_id** | **str**| Filter for Object Storage S3 tenantId. | [optional]
+ **region** | **str**| Filter for Object Storage by regions. Available regions: EU, US-central, SIN | [optional]
 
 ### Return type
 

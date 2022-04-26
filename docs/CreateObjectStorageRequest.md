@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total_purchased_space_tb** | **float** | Amount of purchased / requested object storage in TB. | 
-**region** | **str** | Region where the object storage should be located. Default is EU | defaults to "EU"
+**region** | **str** | Region where the object storage should be located. Default is EU. Available regions: EU, US-central, SIN | defaults to "EU"
 **auto_scaling** | **bool, date, datetime, dict, float, int, list, str, none_type** | Autoscaling settings | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

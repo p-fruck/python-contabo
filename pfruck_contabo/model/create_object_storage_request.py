@@ -120,7 +120,7 @@ class CreateObjectStorageRequest(ModelNormal):
             total_purchased_space_tb (float): Amount of purchased / requested object storage in TB.
 
         Keyword Args:
-            region (str): Region where the object storage should be located. Default is EU. defaults to "EU"  # noqa: E501
+            region (str): Region where the object storage should be located. Default is EU. Available regions: EU, US-central, SIN. defaults to "EU"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -213,7 +213,7 @@ class CreateObjectStorageRequest(ModelNormal):
             total_purchased_space_tb (float): Amount of purchased / requested object storage in TB.
 
         Keyword Args:
-            region (str): Region where the object storage should be located. Default is EU. defaults to "EU"  # noqa: E501
+            region (str): Region where the object storage should be located. Default is EU. Available regions: EU, US-central, SIN. defaults to "EU"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

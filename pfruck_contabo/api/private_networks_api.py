@@ -418,6 +418,7 @@ class PrivateNetworksApi(object):
                     'size',
                     'order_by',
                     'name',
+                    'instance_ids',
                 ],
                 'required': [
                     'x_request_id',
@@ -454,6 +455,8 @@ class PrivateNetworksApi(object):
                         ([str],),
                     'name':
                         (str,),
+                    'instance_ids':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -462,6 +465,7 @@ class PrivateNetworksApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'name': 'name',
+                    'instance_ids': 'instanceIds',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -470,6 +474,7 @@ class PrivateNetworksApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'name': 'query',
+                    'instance_ids': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -1030,6 +1035,7 @@ class PrivateNetworksApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             name (str): The name of the virtual private network. [optional]
+            instance_ids (str): Comma separated instances identifiers. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

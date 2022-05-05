@@ -73,6 +73,11 @@ class ListInstancesResponseData(ModelNormal):
             'VDS': "vds",
             'NVME': "nvme",
         },
+        ('default_user',): {
+            'ROOT': "root",
+            'ADMIN': "admin",
+            'ADMINISTRATOR': "administrator",
+        },
     }
 
     validations = {
@@ -134,6 +139,7 @@ class ListInstancesResponseData(ModelNormal):
             'v_host_id': (int,),  # noqa: E501
             'add_ons': ([AddOnResponse],),  # noqa: E501
             'product_type': (str,),  # noqa: E501
+            'default_user': (str,),  # noqa: E501
             'ip_config': (IpConfig,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
         }
@@ -164,6 +170,7 @@ class ListInstancesResponseData(ModelNormal):
         'v_host_id': 'vHostId',  # noqa: E501
         'add_ons': 'addOns',  # noqa: E501
         'product_type': 'productType',  # noqa: E501
+        'default_user': 'defaultUser',  # noqa: E501
         'ip_config': 'ipConfig',  # noqa: E501
         'error_message': 'errorMessage',  # noqa: E501
     }
@@ -175,7 +182,7 @@ class ListInstancesResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -192,13 +199,14 @@ class ListInstancesResponseData(ModelNormal):
             cpu_cores (int): CPU core count
             os_type (str): Type of operating system (OS)
             disk_mb (float): Image Disk size in MB
-            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
+            ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.
             created_date (datetime): The creation date for the instance
             cancel_date (date): The date on which the instance will be cancelled
             status (InstanceStatus):
             v_host_id (int): ID of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
+            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -284,6 +292,7 @@ class ListInstancesResponseData(ModelNormal):
         self.v_host_id = v_host_id
         self.add_ons = add_ons
         self.product_type = product_type
+        self.default_user = default_user
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -304,7 +313,7 @@ class ListInstancesResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -321,13 +330,14 @@ class ListInstancesResponseData(ModelNormal):
             cpu_cores (int): CPU core count
             os_type (str): Type of operating system (OS)
             disk_mb (float): Image Disk size in MB
-            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
+            ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.
             created_date (datetime): The creation date for the instance
             cancel_date (date): The date on which the instance will be cancelled
             status (InstanceStatus):
             v_host_id (int): ID of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
+            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -411,6 +421,7 @@ class ListInstancesResponseData(ModelNormal):
         self.v_host_id = v_host_id
         self.add_ons = add_ons
         self.product_type = product_type
+        self.default_user = default_user
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

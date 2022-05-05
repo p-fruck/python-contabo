@@ -54,6 +54,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user. (optional)
     request_id = "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" # str | The requestId of the API call which led to the change. (optional)
     changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | changedBy of the user which led to the change. (optional)
+    start_date = dateutil_parser('2021-01-01').date() # date | Start of search time range. (optional)
+    end_date = dateutil_parser('2021-01-01').date() # date | End of search time range. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -67,7 +69,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List history about your users (audit)
-        api_response = api_instance.retrieve_user_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, user_id=user_id, request_id=request_id, changed_by=changed_by)
+        api_response = api_instance.retrieve_user_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, user_id=user_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling UsersAuditsApi->retrieve_user_audits_list: %s\n" % e)
@@ -86,6 +88,8 @@ Name | Type | Description  | Notes
  **user_id** | **str**| The identifier of the user. | [optional]
  **request_id** | **str**| The requestId of the API call which led to the change. | [optional]
  **changed_by** | **str**| changedBy of the user which led to the change. | [optional]
+ **start_date** | **date**| Start of search time range. | [optional]
+ **end_date** | **date**| End of search time range. | [optional]
 
 ### Return type
 

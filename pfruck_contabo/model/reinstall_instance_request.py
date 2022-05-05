@@ -55,6 +55,11 @@ class ReinstallInstanceRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('default_user',): {
+            'ROOT': "root",
+            'ADMIN': "admin",
+            'ADMINISTRATOR': "administrator",
+        },
     }
 
     validations = {
@@ -85,6 +90,7 @@ class ReinstallInstanceRequest(ModelNormal):
             'ssh_keys': ([int],),  # noqa: E501
             'root_password': (int,),  # noqa: E501
             'user_data': (str,),  # noqa: E501
+            'default_user': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +103,7 @@ class ReinstallInstanceRequest(ModelNormal):
         'ssh_keys': 'sshKeys',  # noqa: E501
         'root_password': 'rootPassword',  # noqa: E501
         'user_data': 'userData',  # noqa: E501
+        'default_user': 'defaultUser',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,9 +150,10 @@ class ReinstallInstanceRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
-            root_password (int): Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
+            ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
+            root_password (int): `secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
             user_data (str): [Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.. [optional]  # noqa: E501
+            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.. [optional] if omitted the server will use the default value of "admin"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,9 +243,10 @@ class ReinstallInstanceRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
-            root_password (int): Password id for admin user with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
+            ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
+            root_password (int): `secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
             user_data (str): [Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.. [optional]  # noqa: E501
+            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.. [optional] if omitted the server will use the default value of "admin"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -54,6 +54,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     image_id = "e443eab5-647a-4bc3-b4f9-16f5a281224d" # str | The identifier of the image. (optional)
     request_id = "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" # str | The requestId of the API call which led to the change. (optional)
     changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | UserId of the user which led to the change. (optional)
+    start_date = dateutil_parser('2021-06-02').date() # date | Start of search time range. (optional)
+    end_date = dateutil_parser('2021-06-02').date() # date | End of search time range. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -67,7 +69,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List history about your custom images (audit)
-        api_response = api_instance.retrieve_image_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, image_id=image_id, request_id=request_id, changed_by=changed_by)
+        api_response = api_instance.retrieve_image_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, image_id=image_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling ImagesAuditsApi->retrieve_image_audits_list: %s\n" % e)
@@ -86,6 +88,8 @@ Name | Type | Description  | Notes
  **image_id** | **str**| The identifier of the image. | [optional]
  **request_id** | **str**| The requestId of the API call which led to the change. | [optional]
  **changed_by** | **str**| UserId of the user which led to the change. | [optional]
+ **start_date** | **date**| Start of search time range. | [optional]
+ **end_date** | **date**| End of search time range. | [optional]
 
 ### Return type
 

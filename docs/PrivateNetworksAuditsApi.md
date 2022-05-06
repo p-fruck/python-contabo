@@ -54,6 +54,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     private_network_id = 12345 # int | The identifier of the private network. (optional)
     request_id = "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" # str | The requestId of the API call which led to the change. (optional)
     changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | changedBy of the user which led to the change. (optional)
+    start_date = dateutil_parser('2021-01-01').date() # date | Start of search time range. (optional)
+    end_date = dateutil_parser('2021-01-01').date() # date | End of search time range. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -67,7 +69,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List history about your private networks (audit)
-        api_response = api_instance.retrieve_private_network_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, private_network_id=private_network_id, request_id=request_id, changed_by=changed_by)
+        api_response = api_instance.retrieve_private_network_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, private_network_id=private_network_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling PrivateNetworksAuditsApi->retrieve_private_network_audits_list: %s\n" % e)
@@ -86,6 +88,8 @@ Name | Type | Description  | Notes
  **private_network_id** | **int**| The identifier of the private network. | [optional]
  **request_id** | **str**| The requestId of the API call which led to the change. | [optional]
  **changed_by** | **str**| changedBy of the user which led to the change. | [optional]
+ **start_date** | **date**| Start of search time range. | [optional]
+ **end_date** | **date**| End of search time range. | [optional]
 
 ### Return type
 

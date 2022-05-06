@@ -158,6 +158,7 @@ chpasswd:
         license="PleskHost",
         period=6,
         display_name="VPS",
+        default_user="root",
     ) # CreateInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -356,6 +357,7 @@ user: admin
 timezone: Europe/Berlin
 chpasswd:
  expire: False''',
+        default_user="root",
     ) # ReinstallInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 

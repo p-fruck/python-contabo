@@ -148,7 +148,7 @@ class CreateInstanceResponseData(ModelNormal):
             add_ons ([AddOnResponse]):
             os_type (str): Type of operating system (OS)
             status (InstanceStatus):
-            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
+            ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -257,7 +257,7 @@ class CreateInstanceResponseData(ModelNormal):
             add_ons ([AddOnResponse]):
             os_type (str): Type of operating system (OS)
             status (InstanceStatus):
-            ssh_keys ([int]): Array of ids of public SSH Keys in order to access as admin user with root privileges (via sudo). Applies to Linux/BSD systems. Please refer to Secrets Management API.
+            ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -57,6 +57,8 @@ class TagAssignmentsAuditsApi(object):
                     'resource_id',
                     'request_id',
                     'changed_by',
+                    'start_date',
+                    'end_date',
                 ],
                 'required': [
                     'x_request_id',
@@ -99,6 +101,10 @@ class TagAssignmentsAuditsApi(object):
                         (str,),
                     'changed_by':
                         (str,),
+                    'start_date':
+                        (date,),
+                    'end_date':
+                        (date,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -110,6 +116,8 @@ class TagAssignmentsAuditsApi(object):
                     'resource_id': 'resourceId',
                     'request_id': 'requestId',
                     'changed_by': 'changedBy',
+                    'start_date': 'startDate',
+                    'end_date': 'endDate',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -121,6 +129,8 @@ class TagAssignmentsAuditsApi(object):
                     'resource_id': 'query',
                     'request_id': 'query',
                     'changed_by': 'query',
+                    'start_date': 'query',
+                    'end_date': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -161,6 +171,8 @@ class TagAssignmentsAuditsApi(object):
             resource_id (str): The identifier of the resource.. [optional]
             request_id (str): The requestId of the API call which led to the change.. [optional]
             changed_by (str): UserId of the user which led to the change.. [optional]
+            start_date (date): Start of search time range.. [optional]
+            end_date (date): End of search time range.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

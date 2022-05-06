@@ -65,6 +65,8 @@ class Instances(ModelNormal):
             'OK': "ok",
             'RESTART': "restart",
             'REINSTALL': "reinstall",
+            'REINSTALLATION_FAILED': "reinstallation failed",
+            'INSTALLING': "installing",
         },
     }
 

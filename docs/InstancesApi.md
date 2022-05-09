@@ -551,6 +551,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)
     status = "provisioning,installing" # str | The status of the instance (optional)
     add_on_ids = "1044,827" # str | Identifiers of Addons the instances have (optional)
+    product_types = "ssd, hdd, nvme" # str | Comma separated instance's category depending on Product Id (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -564,7 +565,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List instances
-        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids)
+        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling InstancesApi->retrieve_instances_list: %s\n" % e)
@@ -586,6 +587,7 @@ Name | Type | Description  | Notes
  **instance_ids** | **str**| Comma separated instances identifiers | [optional]
  **status** | **str**| The status of the instance | [optional]
  **add_on_ids** | **str**| Identifiers of Addons the instances have | [optional]
+ **product_types** | **str**| Comma separated instance&#39;s category depending on Product Id | [optional]
 
 ### Return type
 

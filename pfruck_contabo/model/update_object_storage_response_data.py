@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.auto_scaling_type_response import AutoScalingTypeResponse
-    globals()['AutoScalingTypeResponse'] = AutoScalingTypeResponse
+    from pfruck_contabo.model.update_object_storage_response_data_auto_scaling import UpdateObjectStorageResponseDataAutoScaling
+    globals()['UpdateObjectStorageResponseDataAutoScaling'] = UpdateObjectStorageResponseDataAutoScaling
 
 
 class UpdateObjectStorageResponseData(ModelNormal):
@@ -110,7 +110,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
             'object_storage_id': (str,),  # noqa: E501
             'created_date': (str,),  # noqa: E501
             'data_center': (str,),  # noqa: E501
-            'auto_scaling': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'auto_scaling': (UpdateObjectStorageResponseDataAutoScaling,),  # noqa: E501
             's3_url': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'total_purchased_space_tb': (float,),  # noqa: E501
@@ -151,7 +151,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
             object_storage_id (str): Object storage id
             created_date (str): Creation date for object storage.
             data_center (str): Data center of the object storage.
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): The autoscaling limit of the object storage.
+            auto_scaling (UpdateObjectStorageResponseDataAutoScaling):
             s3_url (str): S3 URL to connect to your S3 compatible object storage
             status (str): The object storage status
             total_purchased_space_tb (float): Total purchased object storage space in TB.
@@ -258,7 +258,7 @@ class UpdateObjectStorageResponseData(ModelNormal):
             object_storage_id (str): Object storage id
             created_date (str): Creation date for object storage.
             data_center (str): Data center of the object storage.
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): The autoscaling limit of the object storage.
+            auto_scaling (UpdateObjectStorageResponseDataAutoScaling):
             s3_url (str): S3 URL to connect to your S3 compatible object storage
             status (str): The object storage status
             total_purchased_space_tb (float): Total purchased object storage space in TB.

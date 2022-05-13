@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pfruck_contabo.model.create_private_network_response_links import CreatePrivateNetworkResponseLinks
     from pfruck_contabo.model.private_network_response import PrivateNetworkResponse
-    from pfruck_contabo.model.self_links import SelfLinks
+    globals()['CreatePrivateNetworkResponseLinks'] = CreatePrivateNetworkResponseLinks
     globals()['PrivateNetworkResponse'] = PrivateNetworkResponse
-    globals()['SelfLinks'] = SelfLinks
 
 
 class CreatePrivateNetworkResponse(ModelNormal):
@@ -90,7 +90,7 @@ class CreatePrivateNetworkResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([PrivateNetworkResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreatePrivateNetworkResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class CreatePrivateNetworkResponse(ModelNormal):
 
         Args:
             data ([PrivateNetworkResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreatePrivateNetworkResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class CreatePrivateNetworkResponse(ModelNormal):
 
         Args:
             data ([PrivateNetworkResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreatePrivateNetworkResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

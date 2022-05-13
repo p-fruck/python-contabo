@@ -30,12 +30,12 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
+    from pfruck_contabo.model.list_secret_response_links import ListSecretResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     from pfruck_contabo.model.secret_response import SecretResponse
-    from pfruck_contabo.model.self_links import SelfLinks
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ListSecretResponseLinks'] = ListSecretResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
     globals()['SecretResponse'] = SecretResponse
-    globals()['SelfLinks'] = SelfLinks
 
 
 class ListSecretResponse(ModelNormal):
@@ -91,9 +91,9 @@ class ListSecretResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([SecretResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ListSecretResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ListSecretResponse(ModelNormal):
         """ListSecretResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([SecretResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListSecretResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ListSecretResponse(ModelNormal):
         """ListSecretResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([SecretResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListSecretResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

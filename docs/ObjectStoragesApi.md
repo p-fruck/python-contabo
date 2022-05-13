@@ -144,7 +144,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     create_object_storage_request = CreateObjectStorageRequest(
         region="EU",
-        auto_scaling=None,
+        auto_scaling=CreateObjectStorageRequestAutoScaling(None),
         total_purchased_space_tb=6,
     ) # CreateObjectStorageRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
@@ -625,7 +625,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
     upgrade_object_storage_request = UpgradeObjectStorageRequest(
-        auto_scaling=None,
+        auto_scaling=UpgradeObjectStorageRequestAutoScaling(None),
         total_purchased_space_tb=8,
     ) # UpgradeObjectStorageRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)

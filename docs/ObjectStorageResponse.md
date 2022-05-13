@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **object_storage_id** | **str** | Your object storage id | 
 **created_date** | **datetime** | Creation date for object storage. | 
 **cancel_date** | **date** | Cancellation date for object storage. | 
-**auto_scaling** | **bool, date, datetime, dict, float, int, list, str, none_type** | Autoscaling settings | 
+**auto_scaling** | [**ObjectStorageResponseAutoScaling**](ObjectStorageResponseAutoScaling.md) |  | 
 **data_center** | **str** | Data center your object storage is located | 
 **total_purchased_space_tb** | **float** | Amount of purchased / requested object storage in TB. | 
 **s3_url** | **str** | S3 URL to connect to your S3 compatible object storage | 

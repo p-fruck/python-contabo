@@ -30,9 +30,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.find_instance_response_links import FindInstanceResponseLinks
     from pfruck_contabo.model.upgrade_instance_data import UpgradeInstanceData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['FindInstanceResponseLinks'] = FindInstanceResponseLinks
     globals()['UpgradeInstanceData'] = UpgradeInstanceData
 
 
@@ -90,7 +90,7 @@ class UpgradeInstanceResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([UpgradeInstanceData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (FindInstanceResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class UpgradeInstanceResponse(ModelNormal):
 
         Args:
             data ([UpgradeInstanceData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (FindInstanceResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class UpgradeInstanceResponse(ModelNormal):
 
         Args:
             data ([UpgradeInstanceData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (FindInstanceResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

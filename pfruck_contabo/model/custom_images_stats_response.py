@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.custom_images_stats_response_data import CustomImagesStatsResponseData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.custom_images_stats_response_links import CustomImagesStatsResponseLinks
     globals()['CustomImagesStatsResponseData'] = CustomImagesStatsResponseData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['CustomImagesStatsResponseLinks'] = CustomImagesStatsResponseLinks
 
 
 class CustomImagesStatsResponse(ModelNormal):
@@ -90,7 +90,7 @@ class CustomImagesStatsResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([CustomImagesStatsResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CustomImagesStatsResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class CustomImagesStatsResponse(ModelNormal):
 
         Args:
             data ([CustomImagesStatsResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CustomImagesStatsResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class CustomImagesStatsResponse(ModelNormal):
 
         Args:
             data ([CustomImagesStatsResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CustomImagesStatsResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

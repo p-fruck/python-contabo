@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.create_ticket_response_data import CreateTicketResponseData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.create_ticket_response_links import CreateTicketResponseLinks
     globals()['CreateTicketResponseData'] = CreateTicketResponseData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['CreateTicketResponseLinks'] = CreateTicketResponseLinks
 
 
 class CreateTicketResponse(ModelNormal):
@@ -90,7 +90,7 @@ class CreateTicketResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([CreateTicketResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateTicketResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class CreateTicketResponse(ModelNormal):
 
         Args:
             data ([CreateTicketResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateTicketResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class CreateTicketResponse(ModelNormal):
 
         Args:
             data ([CreateTicketResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateTicketResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

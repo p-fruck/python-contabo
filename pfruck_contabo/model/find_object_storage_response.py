@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pfruck_contabo.model.create_object_storage_response_links import CreateObjectStorageResponseLinks
     from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
-    from pfruck_contabo.model.self_links import SelfLinks
+    globals()['CreateObjectStorageResponseLinks'] = CreateObjectStorageResponseLinks
     globals()['ObjectStorageResponse'] = ObjectStorageResponse
-    globals()['SelfLinks'] = SelfLinks
 
 
 class FindObjectStorageResponse(ModelNormal):
@@ -90,7 +90,7 @@ class FindObjectStorageResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([ObjectStorageResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateObjectStorageResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class FindObjectStorageResponse(ModelNormal):
 
         Args:
             data ([ObjectStorageResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateObjectStorageResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class FindObjectStorageResponse(ModelNormal):
 
         Args:
             data ([ObjectStorageResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateObjectStorageResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

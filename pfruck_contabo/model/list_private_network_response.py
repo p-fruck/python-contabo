@@ -30,12 +30,12 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.links import Links
     from pfruck_contabo.model.list_private_network_response_data import ListPrivateNetworkResponseData
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
-    globals()['Links'] = Links
+    from pfruck_contabo.model.list_private_network_response_links import ListPrivateNetworkResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['ListPrivateNetworkResponseData'] = ListPrivateNetworkResponseData
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ListPrivateNetworkResponseLinks'] = ListPrivateNetworkResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ListPrivateNetworkResponse(ModelNormal):
@@ -91,9 +91,9 @@ class ListPrivateNetworkResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([ListPrivateNetworkResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ListPrivateNetworkResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ListPrivateNetworkResponse(ModelNormal):
         """ListPrivateNetworkResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([ListPrivateNetworkResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListPrivateNetworkResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ListPrivateNetworkResponse(ModelNormal):
         """ListPrivateNetworkResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([ListPrivateNetworkResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListPrivateNetworkResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

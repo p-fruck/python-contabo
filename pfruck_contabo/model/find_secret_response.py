@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pfruck_contabo.model.create_secret_response_links import CreateSecretResponseLinks
     from pfruck_contabo.model.secret_response import SecretResponse
-    from pfruck_contabo.model.self_links import SelfLinks
+    globals()['CreateSecretResponseLinks'] = CreateSecretResponseLinks
     globals()['SecretResponse'] = SecretResponse
-    globals()['SelfLinks'] = SelfLinks
 
 
 class FindSecretResponse(ModelNormal):
@@ -90,7 +90,7 @@ class FindSecretResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([SecretResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateSecretResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class FindSecretResponse(ModelNormal):
 
         Args:
             data ([SecretResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateSecretResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class FindSecretResponse(ModelNormal):
 
         Args:
             data ([SecretResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateSecretResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

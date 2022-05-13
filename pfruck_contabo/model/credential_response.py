@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.credential_data import CredentialData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.credential_response_links import CredentialResponseLinks
     globals()['CredentialData'] = CredentialData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['CredentialResponseLinks'] = CredentialResponseLinks
 
 
 class CredentialResponse(ModelNormal):
@@ -90,7 +90,7 @@ class CredentialResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([CredentialData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CredentialResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class CredentialResponse(ModelNormal):
 
         Args:
             data ([CredentialData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CredentialResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class CredentialResponse(ModelNormal):
 
         Args:
             data ([CredentialData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CredentialResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

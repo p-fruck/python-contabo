@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.instance_shutdown_action_response_data import InstanceShutdownActionResponseData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.instance_shutdown_action_response_links import InstanceShutdownActionResponseLinks
     globals()['InstanceShutdownActionResponseData'] = InstanceShutdownActionResponseData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['InstanceShutdownActionResponseLinks'] = InstanceShutdownActionResponseLinks
 
 
 class InstanceShutdownActionResponse(ModelNormal):
@@ -90,7 +90,7 @@ class InstanceShutdownActionResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([InstanceShutdownActionResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (InstanceShutdownActionResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class InstanceShutdownActionResponse(ModelNormal):
 
         Args:
             data ([InstanceShutdownActionResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (InstanceShutdownActionResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class InstanceShutdownActionResponse(ModelNormal):
 
         Args:
             data ([InstanceShutdownActionResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (InstanceShutdownActionResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

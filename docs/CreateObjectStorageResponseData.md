@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **object_storage_id** | **str** | Your object storage id | 
 **created_date** | **datetime** | Creation date for object storage. | 
 **cancel_date** | **date** | Cancellation date for object storage. | 
-**auto_scaling** | **bool, date, datetime, dict, float, int, list, str, none_type** | Autoscaling settings | 
+**auto_scaling** | [**ObjectStorageResponseAutoScaling**](ObjectStorageResponseAutoScaling.md) |  | 
 **data_center** | **str** | The data center of the storage | 
 **total_purchased_space_tb** | **float** | Amount of purchased / requested object storage in TB. | 
 **used_space_tb** | **float** | Currently used space in TB. | 

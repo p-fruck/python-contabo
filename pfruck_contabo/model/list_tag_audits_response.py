@@ -30,11 +30,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.links import Links
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
+    from pfruck_contabo.model.list_tag_audits_response_links import ListTagAuditsResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     from pfruck_contabo.model.tag_audit_response import TagAuditResponse
-    globals()['Links'] = Links
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ListTagAuditsResponseLinks'] = ListTagAuditsResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
     globals()['TagAuditResponse'] = TagAuditResponse
 
 
@@ -91,9 +91,9 @@ class ListTagAuditsResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([TagAuditResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ListTagAuditsResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ListTagAuditsResponse(ModelNormal):
         """ListTagAuditsResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([TagAuditResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListTagAuditsResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ListTagAuditsResponse(ModelNormal):
         """ListTagAuditsResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([TagAuditResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListTagAuditsResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

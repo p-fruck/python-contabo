@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.self_links import SelfLinks
-    globals()['SelfLinks'] = SelfLinks
+    from pfruck_contabo.model.update_tag_response_links import UpdateTagResponseLinks
+    globals()['UpdateTagResponseLinks'] = UpdateTagResponseLinks
 
 
 class UpdateTagResponse(ModelNormal):
@@ -87,7 +87,7 @@ class UpdateTagResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (UpdateTagResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class UpdateTagResponse(ModelNormal):
         """UpdateTagResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type): Links for easy navigation.
+            links (UpdateTagResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class UpdateTagResponse(ModelNormal):
         """UpdateTagResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type): Links for easy navigation.
+            links (UpdateTagResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

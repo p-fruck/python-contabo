@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.assignment_response import AssignmentResponse
-    from pfruck_contabo.model.tag_assignment_self_links import TagAssignmentSelfLinks
+    from pfruck_contabo.model.find_assignment_response_links import FindAssignmentResponseLinks
     globals()['AssignmentResponse'] = AssignmentResponse
-    globals()['TagAssignmentSelfLinks'] = TagAssignmentSelfLinks
+    globals()['FindAssignmentResponseLinks'] = FindAssignmentResponseLinks
 
 
 class FindAssignmentResponse(ModelNormal):
@@ -90,7 +90,7 @@ class FindAssignmentResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([AssignmentResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (FindAssignmentResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class FindAssignmentResponse(ModelNormal):
 
         Args:
             data ([AssignmentResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (FindAssignmentResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class FindAssignmentResponse(ModelNormal):
 
         Args:
             data ([AssignmentResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (FindAssignmentResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

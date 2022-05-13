@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.tag_assignment_self_links import TagAssignmentSelfLinks
-    globals()['TagAssignmentSelfLinks'] = TagAssignmentSelfLinks
+    from pfruck_contabo.model.create_assignment_response_links import CreateAssignmentResponseLinks
+    globals()['CreateAssignmentResponseLinks'] = CreateAssignmentResponseLinks
 
 
 class CreateAssignmentResponse(ModelNormal):
@@ -87,7 +87,7 @@ class CreateAssignmentResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateAssignmentResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class CreateAssignmentResponse(ModelNormal):
         """CreateAssignmentResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type): Links for easy navigation.
+            links (CreateAssignmentResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class CreateAssignmentResponse(ModelNormal):
         """CreateAssignmentResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type): Links for easy navigation.
+            links (CreateAssignmentResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

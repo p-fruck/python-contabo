@@ -31,11 +31,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.assignment_response import AssignmentResponse
-    from pfruck_contabo.model.links import Links
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
+    from pfruck_contabo.model.list_assignment_response_links import ListAssignmentResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['AssignmentResponse'] = AssignmentResponse
-    globals()['Links'] = Links
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ListAssignmentResponseLinks'] = ListAssignmentResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ListAssignmentResponse(ModelNormal):
@@ -91,9 +91,9 @@ class ListAssignmentResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([AssignmentResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ListAssignmentResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ListAssignmentResponse(ModelNormal):
         """ListAssignmentResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([AssignmentResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListAssignmentResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ListAssignmentResponse(ModelNormal):
         """ListAssignmentResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([AssignmentResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListAssignmentResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

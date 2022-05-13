@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.create_role_response_data import CreateRoleResponseData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.create_role_response_links import CreateRoleResponseLinks
     globals()['CreateRoleResponseData'] = CreateRoleResponseData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['CreateRoleResponseLinks'] = CreateRoleResponseLinks
 
 
 class CreateRoleResponse(ModelNormal):
@@ -90,7 +90,7 @@ class CreateRoleResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([CreateRoleResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateRoleResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class CreateRoleResponse(ModelNormal):
 
         Args:
             data ([CreateRoleResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateRoleResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class CreateRoleResponse(ModelNormal):
 
         Args:
             data ([CreateRoleResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateRoleResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

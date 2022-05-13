@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.auto_scaling_type_request import AutoScalingTypeRequest
-    globals()['AutoScalingTypeRequest'] = AutoScalingTypeRequest
+    from pfruck_contabo.model.create_object_storage_request_auto_scaling import CreateObjectStorageRequestAutoScaling
+    globals()['CreateObjectStorageRequestAutoScaling'] = CreateObjectStorageRequestAutoScaling
 
 
 class CreateObjectStorageRequest(ModelNormal):
@@ -92,7 +92,7 @@ class CreateObjectStorageRequest(ModelNormal):
         return {
             'region': (str,),  # noqa: E501
             'total_purchased_space_tb': (float,),  # noqa: E501
-            'auto_scaling': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'auto_scaling': (CreateObjectStorageRequestAutoScaling,),  # noqa: E501
         }
 
     @cached_property
@@ -151,7 +151,7 @@ class CreateObjectStorageRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): Autoscaling settings. [optional]  # noqa: E501
+            auto_scaling (CreateObjectStorageRequestAutoScaling): [optional]  # noqa: E501
         """
 
         region = kwargs.get('region', "EU")
@@ -244,7 +244,7 @@ class CreateObjectStorageRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): Autoscaling settings. [optional]  # noqa: E501
+            auto_scaling (CreateObjectStorageRequestAutoScaling): [optional]  # noqa: E501
         """
 
         region = kwargs.get('region', "EU")

@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.auto_scaling_type_response import AutoScalingTypeResponse
-    globals()['AutoScalingTypeResponse'] = AutoScalingTypeResponse
+    from pfruck_contabo.model.object_storage_response_auto_scaling import ObjectStorageResponseAutoScaling
+    globals()['ObjectStorageResponseAutoScaling'] = ObjectStorageResponseAutoScaling
 
 
 class CreateObjectStorageResponseData(ModelNormal):
@@ -117,7 +117,7 @@ class CreateObjectStorageResponseData(ModelNormal):
             'object_storage_id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'cancel_date': (date,),  # noqa: E501
-            'auto_scaling': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'auto_scaling': (ObjectStorageResponseAutoScaling,),  # noqa: E501
             'data_center': (str,),  # noqa: E501
             'total_purchased_space_tb': (float,),  # noqa: E501
             'used_space_tb': (float,),  # noqa: E501
@@ -166,7 +166,7 @@ class CreateObjectStorageResponseData(ModelNormal):
             object_storage_id (str): Your object storage id
             created_date (datetime): Creation date for object storage.
             cancel_date (date): Cancellation date for object storage.
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): Autoscaling settings
+            auto_scaling (ObjectStorageResponseAutoScaling):
             data_center (str): The data center of the storage
             total_purchased_space_tb (float): Amount of purchased / requested object storage in TB.
             used_space_tb (float): Currently used space in TB.
@@ -281,7 +281,7 @@ class CreateObjectStorageResponseData(ModelNormal):
             object_storage_id (str): Your object storage id
             created_date (datetime): Creation date for object storage.
             cancel_date (date): Cancellation date for object storage.
-            auto_scaling (bool, date, datetime, dict, float, int, list, str, none_type): Autoscaling settings
+            auto_scaling (ObjectStorageResponseAutoScaling):
             data_center (str): The data center of the storage
             total_purchased_space_tb (float): Amount of purchased / requested object storage in TB.
             used_space_tb (float): Currently used space in TB.

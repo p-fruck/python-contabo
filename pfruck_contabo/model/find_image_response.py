@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pfruck_contabo.model.create_custom_image_response_links import CreateCustomImageResponseLinks
     from pfruck_contabo.model.image_response import ImageResponse
-    from pfruck_contabo.model.self_links import SelfLinks
+    globals()['CreateCustomImageResponseLinks'] = CreateCustomImageResponseLinks
     globals()['ImageResponse'] = ImageResponse
-    globals()['SelfLinks'] = SelfLinks
 
 
 class FindImageResponse(ModelNormal):
@@ -90,7 +90,7 @@ class FindImageResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([ImageResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateCustomImageResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class FindImageResponse(ModelNormal):
 
         Args:
             data ([ImageResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateCustomImageResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class FindImageResponse(ModelNormal):
 
         Args:
             data ([ImageResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateCustomImageResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

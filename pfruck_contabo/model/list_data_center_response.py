@@ -31,11 +31,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.data_center_response import DataCenterResponse
-    from pfruck_contabo.model.links import Links
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
+    from pfruck_contabo.model.list_data_center_response_links import ListDataCenterResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['DataCenterResponse'] = DataCenterResponse
-    globals()['Links'] = Links
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ListDataCenterResponseLinks'] = ListDataCenterResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ListDataCenterResponse(ModelNormal):
@@ -91,9 +91,9 @@ class ListDataCenterResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([DataCenterResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ListDataCenterResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ListDataCenterResponse(ModelNormal):
         """ListDataCenterResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([DataCenterResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListDataCenterResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ListDataCenterResponse(ModelNormal):
         """ListDataCenterResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([DataCenterResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListDataCenterResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

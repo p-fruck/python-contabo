@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.instance_stop_action_response_data import InstanceStopActionResponseData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.instance_stop_action_response_links import InstanceStopActionResponseLinks
     globals()['InstanceStopActionResponseData'] = InstanceStopActionResponseData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['InstanceStopActionResponseLinks'] = InstanceStopActionResponseLinks
 
 
 class InstanceStopActionResponse(ModelNormal):
@@ -90,7 +90,7 @@ class InstanceStopActionResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([InstanceStopActionResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (InstanceStopActionResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class InstanceStopActionResponse(ModelNormal):
 
         Args:
             data ([InstanceStopActionResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (InstanceStopActionResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class InstanceStopActionResponse(ModelNormal):
 
         Args:
             data ([InstanceStopActionResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (InstanceStopActionResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

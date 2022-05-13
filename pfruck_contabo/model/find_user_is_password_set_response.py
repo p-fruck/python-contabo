@@ -30,9 +30,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.find_user_is_password_set_response_links import FindUserIsPasswordSetResponseLinks
     from pfruck_contabo.model.user_is_password_set_response import UserIsPasswordSetResponse
-    globals()['SelfLinks'] = SelfLinks
+    globals()['FindUserIsPasswordSetResponseLinks'] = FindUserIsPasswordSetResponseLinks
     globals()['UserIsPasswordSetResponse'] = UserIsPasswordSetResponse
 
 
@@ -90,7 +90,7 @@ class FindUserIsPasswordSetResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([UserIsPasswordSetResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (FindUserIsPasswordSetResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class FindUserIsPasswordSetResponse(ModelNormal):
 
         Args:
             data ([UserIsPasswordSetResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (FindUserIsPasswordSetResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class FindUserIsPasswordSetResponse(ModelNormal):
 
         Args:
             data ([UserIsPasswordSetResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (FindUserIsPasswordSetResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

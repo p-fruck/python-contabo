@@ -31,11 +31,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.image_audit_response_data import ImageAuditResponseData
-    from pfruck_contabo.model.links import Links
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
+    from pfruck_contabo.model.image_audit_response_links import ImageAuditResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['ImageAuditResponseData'] = ImageAuditResponseData
-    globals()['Links'] = Links
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ImageAuditResponseLinks'] = ImageAuditResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ImageAuditResponse(ModelNormal):
@@ -91,9 +91,9 @@ class ImageAuditResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([ImageAuditResponseData],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ImageAuditResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ImageAuditResponse(ModelNormal):
         """ImageAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([ImageAuditResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ImageAuditResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ImageAuditResponse(ModelNormal):
         """ImageAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([ImageAuditResponseData]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ImageAuditResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

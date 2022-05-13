@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.instance_assignment_self_links import InstanceAssignmentSelfLinks
-    globals()['InstanceAssignmentSelfLinks'] = InstanceAssignmentSelfLinks
+    from pfruck_contabo.model.assign_instance_private_network_response_links import AssignInstancePrivateNetworkResponseLinks
+    globals()['AssignInstancePrivateNetworkResponseLinks'] = AssignInstancePrivateNetworkResponseLinks
 
 
 class UnassignInstancePrivateNetworkResponse(ModelNormal):
@@ -87,7 +87,7 @@ class UnassignInstancePrivateNetworkResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (AssignInstancePrivateNetworkResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class UnassignInstancePrivateNetworkResponse(ModelNormal):
         """UnassignInstancePrivateNetworkResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type): Links for easy navigation.
+            links (AssignInstancePrivateNetworkResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class UnassignInstancePrivateNetworkResponse(ModelNormal):
         """UnassignInstancePrivateNetworkResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type): Links for easy navigation.
+            links (AssignInstancePrivateNetworkResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

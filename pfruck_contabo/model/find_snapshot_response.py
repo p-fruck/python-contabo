@@ -30,9 +30,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.create_snapshot_response_links import CreateSnapshotResponseLinks
     from pfruck_contabo.model.snapshot_response import SnapshotResponse
-    globals()['SelfLinks'] = SelfLinks
+    globals()['CreateSnapshotResponseLinks'] = CreateSnapshotResponseLinks
     globals()['SnapshotResponse'] = SnapshotResponse
 
 
@@ -90,7 +90,7 @@ class FindSnapshotResponse(ModelNormal):
         lazy_import()
         return {
             'data': ([SnapshotResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (CreateSnapshotResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class FindSnapshotResponse(ModelNormal):
 
         Args:
             data ([SnapshotResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateSnapshotResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class FindSnapshotResponse(ModelNormal):
 
         Args:
             data ([SnapshotResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (CreateSnapshotResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

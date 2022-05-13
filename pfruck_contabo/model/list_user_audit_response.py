@@ -30,11 +30,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.links import Links
-    from pfruck_contabo.model.pagination_meta import PaginationMeta
+    from pfruck_contabo.model.list_user_audit_response_links import ListUserAuditResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     from pfruck_contabo.model.user_audit_response import UserAuditResponse
-    globals()['Links'] = Links
-    globals()['PaginationMeta'] = PaginationMeta
+    globals()['ListUserAuditResponseLinks'] = ListUserAuditResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
     globals()['UserAuditResponse'] = UserAuditResponse
 
 
@@ -91,9 +91,9 @@ class ListUserAuditResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([UserAuditResponse],),  # noqa: E501
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (ListUserAuditResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -118,9 +118,9 @@ class ListUserAuditResponse(ModelNormal):
         """ListUserAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([UserAuditResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListUserAuditResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -211,9 +211,9 @@ class ListUserAuditResponse(ModelNormal):
         """ListUserAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (bool, date, datetime, dict, float, int, list, str, none_type): Data about pagination like how many results, pages, page size.
+            pagination (ListUserResponsePagination):
             data ([UserAuditResponse]):
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (ListUserAuditResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

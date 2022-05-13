@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.cancel_object_storage_response_data import CancelObjectStorageResponseData
-    from pfruck_contabo.model.self_links import SelfLinks
+    from pfruck_contabo.model.update_object_storage_response_links import UpdateObjectStorageResponseLinks
     globals()['CancelObjectStorageResponseData'] = CancelObjectStorageResponseData
-    globals()['SelfLinks'] = SelfLinks
+    globals()['UpdateObjectStorageResponseLinks'] = UpdateObjectStorageResponseLinks
 
 
 class CancelObjectStorageResponse(ModelNormal):
@@ -89,7 +89,7 @@ class CancelObjectStorageResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'links': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'links': (UpdateObjectStorageResponseLinks,),  # noqa: E501
             'data': ([CancelObjectStorageResponseData],),  # noqa: E501
         }
 
@@ -114,7 +114,7 @@ class CancelObjectStorageResponse(ModelNormal):
         """CancelObjectStorageResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (UpdateObjectStorageResponseLinks):
             data ([CancelObjectStorageResponseData]):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class CancelObjectStorageResponse(ModelNormal):
         """CancelObjectStorageResponse - a model defined in OpenAPI
 
         Args:
-            links (bool, date, datetime, dict, float, int, list, str, none_type):
+            links (UpdateObjectStorageResponseLinks):
             data ([CancelObjectStorageResponseData]):
 
         Keyword Args:

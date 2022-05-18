@@ -523,14 +523,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_customer_address.py
-test/test_customer_api.py
-test/test_customer_email.py
-test/test_customer_phone.py
-test/test_customer_response.py
-test/test_customer_type_business.py
-test/test_customer_type_private.py
-test/test_find_customer_response.py
-test/test_find_customer_response_links.py
-test/test_payment_method_response.py
 tox.ini

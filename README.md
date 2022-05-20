@@ -53,9 +53,15 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import pfruck_contabo
 from pprint import pprint
-from pfruck_contabo.api import customer_api
-from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.payment_method_response import PaymentMethodResponse
+from pfruck_contabo.api import images_api
+from pfruck_contabo.model.create_custom_image_fail_response import CreateCustomImageFailResponse
+from pfruck_contabo.model.create_custom_image_request import CreateCustomImageRequest
+from pfruck_contabo.model.create_custom_image_response import CreateCustomImageResponse
+from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
+from pfruck_contabo.model.find_image_response import FindImageResponse
+from pfruck_contabo.model.list_image_response import ListImageResponse
+from pfruck_contabo.model.update_custom_image_request import UpdateCustomImageRequest
+from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -76,16 +82,23 @@ configuration = pfruck_contabo.Configuration(
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = customer_api.CustomerApi(api_client)
+    api_instance = images_api.ImagesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    create_custom_image_request = CreateCustomImageRequest(
+        name="Ubuntu Custom Image",
+        description="Ubuntu Server 20.04.2 LTS",
+        url="https://example.com/image.qcow2",
+        os_type="Linux",
+        version="20.04.2",
+    ) # CreateCustomImageRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     try:
-        # Get customer info
-        api_response = api_instance.retrieve_customer(x_request_id, x_trace_id=x_trace_id)
+        # Provide a custom image
+        api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
-        print("Exception when calling CustomerApi->retrieve_customer: %s\n" % e)
+        print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -94,8 +107,6 @@ All URIs are relative to *https://api.contabo.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CustomerApi* | [**retrieve_customer**](docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
-*CustomerApi* | [**retrieve_payment_method**](docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
 *ImagesApi* | [**create_custom_image**](docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
 *ImagesApi* | [**retrieve_custom_images_stats**](docs/ImagesApi.md#retrieve_custom_images_stats) | **GET** /v1/compute/images/stats | List statistics regarding the customer&#39;s custom images
@@ -242,19 +253,11 @@ Class | Method | HTTP request | Description
  - [CustomImagesStatsResponse](docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](docs/CustomImagesStatsResponseLinks.md)
- - [CustomerAddress](docs/CustomerAddress.md)
- - [CustomerEmail](docs/CustomerEmail.md)
- - [CustomerPhone](docs/CustomerPhone.md)
- - [CustomerResponse](docs/CustomerResponse.md)
- - [CustomerTypeBusiness](docs/CustomerTypeBusiness.md)
- - [CustomerTypePrivate](docs/CustomerTypePrivate.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)
  - [FindClientResponseLinks](docs/FindClientResponseLinks.md)
- - [FindCustomerResponse](docs/FindCustomerResponse.md)
- - [FindCustomerResponseLinks](docs/FindCustomerResponseLinks.md)
  - [FindImageResponse](docs/FindImageResponse.md)
  - [FindInstanceResponse](docs/FindInstanceResponse.md)
  - [FindInstanceResponseLinks](docs/FindInstanceResponseLinks.md)
@@ -356,7 +359,6 @@ Class | Method | HTTP request | Description
  - [PatchInstanceResponseLinks](docs/PatchInstanceResponseLinks.md)
  - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
- - [PaymentMethodResponse](docs/PaymentMethodResponse.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
  - [PrivateIpConfig](docs/PrivateIpConfig.md)

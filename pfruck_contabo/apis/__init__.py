@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from pfruck_contabo.api.customer_api import CustomerApi
+#   from pfruck_contabo.api.images_api import ImagesApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,7 +14,6 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from pfruck_contabo.api.customer_api import CustomerApi
 from pfruck_contabo.api.images_api import ImagesApi
 from pfruck_contabo.api.images_audits_api import ImagesAuditsApi
 from pfruck_contabo.api.instance_actions_api import InstanceActionsApi

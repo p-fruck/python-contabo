@@ -4,15 +4,15 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_private_network_audits_list**](PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your private networks (audit)
+[**retrieve_private_network_audits_list**](PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your Private Networks (audit)
 
 
 # **retrieve_private_network_audits_list**
 > ListPrivateNetworkAuditResponse retrieve_private_network_audits_list(x_request_id)
 
-List history about your private networks (audit)
+List history about your Private Networks (audit)
 
-List and filters the history about your private networks.
+List and filters the history about your Private Networks.
 
 ### Example
 
@@ -51,15 +51,15 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    private_network_id = 12345 # int | The identifier of the private network. (optional)
+    private_network_id = 12345 # int | The identifier of the Private Network. (optional)
     request_id = "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" # str | The requestId of the API call which led to the change. (optional)
-    changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | changedBy of the user which led to the change. (optional)
+    changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | User name which did the change. (optional)
     start_date = dateutil_parser('2021-01-01').date() # date | Start of search time range. (optional)
     end_date = dateutil_parser('2021-01-01').date() # date | End of search time range. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # List history about your private networks (audit)
+        # List history about your Private Networks (audit)
         api_response = api_instance.retrieve_private_network_audits_list(x_request_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -68,7 +68,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List history about your private networks (audit)
+        # List history about your Private Networks (audit)
         api_response = api_instance.retrieve_private_network_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, private_network_id=private_network_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -85,9 +85,9 @@ Name | Type | Description  | Notes
  **page** | **int**| Number of page to be fetched. | [optional]
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **private_network_id** | **int**| The identifier of the private network. | [optional]
+ **private_network_id** | **int**| The identifier of the Private Network. | [optional]
  **request_id** | **str**| The requestId of the API call which led to the change. | [optional]
- **changed_by** | **str**| changedBy of the user which led to the change. | [optional]
+ **changed_by** | **str**| User name which did the change. | [optional]
  **start_date** | **date**| Start of search time range. | [optional]
  **end_date** | **date**| End of search time range. | [optional]
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains a paginated list of private networks audits. |  -  |
+**200** | The response will be a JSON object and contains a paginated list of Private Networks audits. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

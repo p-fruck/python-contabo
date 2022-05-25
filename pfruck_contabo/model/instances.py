@@ -133,13 +133,13 @@ class Instances(ModelNormal):
         """Instances - a model defined in OpenAPI
 
         Args:
-            instance_id (int): Instance ID
+            instance_id (int): Instance id
             display_name (str): Instance display name
             name (str): Instance name
-            product_id (str): Product ID
+            product_id (str): Product id
             private_ip_config (PrivateIpConfig):
             ip_config (IpConfig):
-            status (str): State of the instance in the virtual private network
+            status (str): State of the instance in the Private Network
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,13 +235,13 @@ class Instances(ModelNormal):
         """Instances - a model defined in OpenAPI
 
         Args:
-            instance_id (int): Instance ID
+            instance_id (int): Instance id
             display_name (str): Instance display name
             name (str): Instance name
-            product_id (str): Product ID
+            product_id (str): Product id
             private_ip_config (PrivateIpConfig):
             ip_config (IpConfig):
-            status (str): State of the instance in the virtual private network
+            status (str): State of the instance in the Private Network
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -571,9 +571,9 @@ class PrivateNetworksApi(object):
         instance_id,
         **kwargs
     ):
-        """Add instance to a private network  # noqa: E501
+        """Add instance to a Private Network  # noqa: E501
 
-        Add a specific instance to a private network  # noqa: E501
+        Add a specific instance to a Private Network  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -582,7 +582,7 @@ class PrivateNetworksApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            private_network_id (int): The identifier of the privateNetwork
+            private_network_id (int): The identifier of the Private Network
             instance_id (int): The identifier of the instance
 
         Keyword Args:
@@ -662,9 +662,9 @@ class PrivateNetworksApi(object):
         create_private_network_request,
         **kwargs
     ):
-        """Create a new private network  # noqa: E501
+        """Create a new Private Network  # noqa: E501
 
-        Create a new private network in your account.  # noqa: E501
+        Create a new Private Network in your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -750,9 +750,9 @@ class PrivateNetworksApi(object):
         private_network_id,
         **kwargs
     ):
-        """Delete existing private network by id  # noqa: E501
+        """Delete existing Private Network by id  # noqa: E501
 
-        Delete existing private network by id and automatically unassign all instances from it  # noqa: E501
+        Delete existing Private Network by id and automatically unassign all instances from it  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -761,7 +761,7 @@ class PrivateNetworksApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            private_network_id (int): The identifier of the private network
+            private_network_id (int): The identifier of the Private Network
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -839,9 +839,9 @@ class PrivateNetworksApi(object):
         patch_private_network_request,
         **kwargs
     ):
-        """Update a private network by id  # noqa: E501
+        """Update a Private Network by id  # noqa: E501
 
-        Update a private network by id in your account.  # noqa: E501
+        Update a Private Network by id in your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -850,7 +850,7 @@ class PrivateNetworksApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            private_network_id (int): The identifier of the private network
+            private_network_id (int): The identifier of the Private Network
             patch_private_network_request (PatchPrivateNetworkRequest):
 
         Keyword Args:
@@ -930,9 +930,9 @@ class PrivateNetworksApi(object):
         private_network_id,
         **kwargs
     ):
-        """Get specific private network by id  # noqa: E501
+        """Get specific Private Network by id  # noqa: E501
 
-        Get attributes values to a specific private network on your account.  # noqa: E501
+        Get attributes values to a specific Private Network on your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -941,7 +941,7 @@ class PrivateNetworksApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            private_network_id (int): The identifier of the private network
+            private_network_id (int): The identifier of the Private Network
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1017,9 +1017,9 @@ class PrivateNetworksApi(object):
         x_request_id,
         **kwargs
     ):
-        """List private networks  # noqa: E501
+        """List Private Networks  # noqa: E501
 
-        List and filter all private networks in your account  # noqa: E501
+        List and filter all Private Networks in your account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1034,7 +1034,7 @@ class PrivateNetworksApi(object):
             page (int): Number of page to be fetched.. [optional]
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
-            name (str): The name of the virtual private network. [optional]
+            name (str): The name of the Private Network. [optional]
             instance_ids (str): Comma separated instances identifiers. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1108,9 +1108,9 @@ class PrivateNetworksApi(object):
         instance_id,
         **kwargs
     ):
-        """Remove instance from a private network  # noqa: E501
+        """Remove instance from a Private Network  # noqa: E501
 
-        Remove a specific instance from a private network  # noqa: E501
+        Remove a specific instance from a Private Network  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1119,7 +1119,7 @@ class PrivateNetworksApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            private_network_id (int): The identifier of the privateNetwork
+            private_network_id (int): The identifier of the Private Network
             instance_id (int): The identifier of the instance
 
         Keyword Args:

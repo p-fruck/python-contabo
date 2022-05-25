@@ -113,7 +113,7 @@ class AssignInstancePrivateNetworkResponseLinks(ModelComposed):
 
         Keyword Args:
             _self (str): Link to current resource.
-            virtual_private_cloud (str): Link to related virtual private cloud.
+            virtual_private_cloud (str): Link to related Private Network.
             instance (str): Link to assigned instance.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -219,7 +219,7 @@ class AssignInstancePrivateNetworkResponseLinks(ModelComposed):
 
         Keyword Args:
             _self (str): Link to current resource.
-            virtual_private_cloud (str): Link to related virtual private cloud.
+            virtual_private_cloud (str): Link to related Private Network.
             instance (str): Link to assigned instance.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

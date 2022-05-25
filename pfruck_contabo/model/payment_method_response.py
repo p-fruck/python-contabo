@@ -55,6 +55,15 @@ class PaymentMethodResponse(ModelNormal):
     """
 
     allowed_values = {
+        ('payment_type',): {
+            'SEPA': "SEPA",
+            'BANK_TRANSFER': "Bank transfer",
+            'CREDIT_CARD': "Credit Card",
+            'PAYPAL': "Paypal",
+            'PAYPAL_(AUTOMATIC)': "Paypal (Automatic)",
+            'SKRILL': "Skrill",
+            'WESTERN_UNION': "Western Union",
+        },
     }
 
     validations = {

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**reinstall_instance**](InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 [**retrieve_instance**](InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 [**retrieve_instances_list**](InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
-[**upgrade_instance**](InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrade instance with the given list of addons
+[**upgrade_instance**](InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrading instance capabilities
 
 
 # **cancel_instance**
@@ -614,9 +614,9 @@ Name | Type | Description  | Notes
 # **upgrade_instance**
 > UpgradeInstanceResponse upgrade_instance(x_request_id, instance_id, upgrade_instance_request)
 
-Upgrade instance with the given list of addons
+Upgrading instance capabilities
 
-You can upgrade instance with the given list of addons.
+In order enhance your instance with additional features you can purchase add-ons. Currently only private network addon is allowed.      <table>         <tr><th>`addonId`</th><th>Type</th><th>Description</th></tr>         <tr><td>1477</td><td>VPS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         <tr><td>1489</td><td>VDS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         </table>
 
 ### Example
 
@@ -653,14 +653,14 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     instance_id = 12345 # int | The identifier of the instance
     upgrade_instance_request = UpgradeInstanceRequest(
         add_ons=[
-            [123, 125],
+            [1477],
         ],
     ) # UpgradeInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Upgrade instance with the given list of addons
+        # Upgrading instance capabilities
         api_response = api_instance.upgrade_instance(x_request_id, instance_id, upgrade_instance_request)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -669,7 +669,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Upgrade instance with the given list of addons
+        # Upgrading instance capabilities
         api_response = api_instance.upgrade_instance(x_request_id, instance_id, upgrade_instance_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:

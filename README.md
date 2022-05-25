@@ -53,15 +53,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import pfruck_contabo
 from pprint import pprint
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.create_custom_image_fail_response import CreateCustomImageFailResponse
-from pfruck_contabo.model.create_custom_image_request import CreateCustomImageRequest
-from pfruck_contabo.model.create_custom_image_response import CreateCustomImageResponse
-from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
-from pfruck_contabo.model.find_image_response import FindImageResponse
-from pfruck_contabo.model.list_image_response import ListImageResponse
-from pfruck_contabo.model.update_custom_image_request import UpdateCustomImageRequest
-from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
+from pfruck_contabo.api import customer_api
+from pfruck_contabo.model.find_customer_response import FindCustomerResponse
+from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -82,23 +76,16 @@ configuration = pfruck_contabo.Configuration(
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
+    api_instance = customer_api.CustomerApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    create_custom_image_request = CreateCustomImageRequest(
-        name="Ubuntu Custom Image",
-        description="Ubuntu Server 20.04.2 LTS",
-        url="https://example.com/image.qcow2",
-        os_type="Linux",
-        version="20.04.2",
-    ) # CreateCustomImageRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     try:
-        # Provide a custom image
-        api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
+        # Get customer info
+        api_response = api_instance.retrieve_customer(x_request_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
+        print("Exception when calling CustomerApi->retrieve_customer: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -107,6 +94,8 @@ All URIs are relative to *https://api.contabo.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CustomerApi* | [**retrieve_customer**](docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
+*CustomerApi* | [**retrieve_payment_method**](docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
 *ImagesApi* | [**create_custom_image**](docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
 *ImagesApi* | [**retrieve_custom_images_stats**](docs/ImagesApi.md#retrieve_custom_images_stats) | **GET** /v1/compute/images/stats | List statistics regarding the customer&#39;s custom images
@@ -125,10 +114,13 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**reinstall_instance**](docs/InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 *InstancesApi* | [**retrieve_instance**](docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
-*InstancesApi* | [**upgrade_instance**](docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrade instance with the given list of addons
+*InstancesApi* | [**upgrade_instance**](docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrading instance capabilities
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
 *InternalApi* | [**create_ticket**](docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
 *InternalApi* | [**retrieve_user_is_password_set**](docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
+*InvoicesApi* | [**get_file**](docs/InvoicesApi.md#get_file) | **GET** /v1/invoices/{invoiceId} | Download invoice
+*InvoicesApi* | [**retrieve_invoice_number_list**](docs/InvoicesApi.md#retrieve_invoice_number_list) | **GET** /v1/invoices | List invoices
+*LedgerApi* | [**retrieve_ledger_entries_list**](docs/LedgerApi.md#retrieve_ledger_entries_list) | **GET** /v1/ledger/ledger-entries | List ledger entries
 *ObjectStoragesApi* | [**cancel_object_storage**](docs/ObjectStoragesApi.md#cancel_object_storage) | **PATCH** /v1/object-storages/{objectStorageId}/cancel | Cancels the specified object storage at the next possible date
 *ObjectStoragesApi* | [**create_object_storage**](docs/ObjectStoragesApi.md#create_object_storage) | **POST** /v1/object-storages | Create a new object storage
 *ObjectStoragesApi* | [**retrieve_data_center_list**](docs/ObjectStoragesApi.md#retrieve_data_center_list) | **GET** /v1/data-centers | List data centers
@@ -137,14 +129,15 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**retrieve_object_storages_stats**](docs/ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
 *ObjectStoragesApi* | [**upgrade_object_storage**](docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
-*PrivateNetworksApi* | [**assign_instance_private_network**](docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
-*PrivateNetworksApi* | [**create_private_network**](docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new private network
-*PrivateNetworksApi* | [**delete_private_network**](docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing private network by id
-*PrivateNetworksApi* | [**patch_private_network**](docs/PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a private network by id
-*PrivateNetworksApi* | [**retrieve_private_network**](docs/PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific private network by id
-*PrivateNetworksApi* | [**retrieve_private_network_list**](docs/PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List private networks
-*PrivateNetworksApi* | [**unassign_instance_private_network**](docs/PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
-*PrivateNetworksAuditsApi* | [**retrieve_private_network_audits_list**](docs/PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your private networks (audit)
+*PaymentMethodsApi* | [**retrieve_payment_method_list**](docs/PaymentMethodsApi.md#retrieve_payment_method_list) | **GET** /v1/payment-methods | List payment methods
+*PrivateNetworksApi* | [**assign_instance_private_network**](docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Private Network
+*PrivateNetworksApi* | [**create_private_network**](docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new Private Network
+*PrivateNetworksApi* | [**delete_private_network**](docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing Private Network by id
+*PrivateNetworksApi* | [**patch_private_network**](docs/PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a Private Network by id
+*PrivateNetworksApi* | [**retrieve_private_network**](docs/PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific Private Network by id
+*PrivateNetworksApi* | [**retrieve_private_network_list**](docs/PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List Private Networks
+*PrivateNetworksApi* | [**unassign_instance_private_network**](docs/PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a Private Network
+*PrivateNetworksAuditsApi* | [**retrieve_private_network_audits_list**](docs/PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your Private Networks (audit)
 *RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /v1/roles | Create a new role
 *RolesApi* | [**delete_role**](docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleId} | Delete existing role by id
 *RolesApi* | [**retrieve_api_permissions_list**](docs/RolesApi.md#retrieve_api_permissions_list) | **GET** /v1/roles/api-permissions | List of API permissions
@@ -253,11 +246,19 @@ Class | Method | HTTP request | Description
  - [CustomImagesStatsResponse](docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](docs/CustomImagesStatsResponseLinks.md)
+ - [CustomerAddress](docs/CustomerAddress.md)
+ - [CustomerEmail](docs/CustomerEmail.md)
+ - [CustomerPhone](docs/CustomerPhone.md)
+ - [CustomerResponse](docs/CustomerResponse.md)
+ - [CustomerTypeBusiness](docs/CustomerTypeBusiness.md)
+ - [CustomerTypePrivate](docs/CustomerTypePrivate.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)
  - [FindClientResponseLinks](docs/FindClientResponseLinks.md)
+ - [FindCustomerResponse](docs/FindCustomerResponse.md)
+ - [FindCustomerResponseLinks](docs/FindCustomerResponseLinks.md)
  - [FindImageResponse](docs/FindImageResponse.md)
  - [FindInstanceResponse](docs/FindInstanceResponse.md)
  - [FindInstanceResponseLinks](docs/FindInstanceResponseLinks.md)
@@ -294,9 +295,11 @@ Class | Method | HTTP request | Description
  - [Instances](docs/Instances.md)
  - [InstancesActionsAuditResponse](docs/InstancesActionsAuditResponse.md)
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
+ - [InvoiceResponse](docs/InvoiceResponse.md)
  - [IpConfig](docs/IpConfig.md)
  - [IpV4](docs/IpV4.md)
  - [IpV6](docs/IpV6.md)
+ - [LedgerEntryResponse](docs/LedgerEntryResponse.md)
  - [Links](docs/Links.md)
  - [ListApiPermissionResponse](docs/ListApiPermissionResponse.md)
  - [ListApiPermissionResponseLinks](docs/ListApiPermissionResponseLinks.md)
@@ -316,10 +319,18 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](docs/ListInstancesResponseLinks.md)
+ - [ListInvoiceResponse](docs/ListInvoiceResponse.md)
+ - [ListInvoiceResponseLinks](docs/ListInvoiceResponseLinks.md)
+ - [ListLedgerEntriesReponse](docs/ListLedgerEntriesReponse.md)
+ - [ListLedgerEntriesReponseLinks](docs/ListLedgerEntriesReponseLinks.md)
  - [ListObjectStorageAuditResponse](docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](docs/ListObjectStorageResponse.md)
  - [ListObjectStorageResponseLinks](docs/ListObjectStorageResponseLinks.md)
+ - [ListPaymentMethodResponse](docs/ListPaymentMethodResponse.md)
+ - [ListPaymentMethodResponse1](docs/ListPaymentMethodResponse1.md)
+ - [ListPaymentMethodResponse1Links](docs/ListPaymentMethodResponse1Links.md)
+ - [ListPaymentMethodResponseLinks](docs/ListPaymentMethodResponseLinks.md)
  - [ListPrivateNetworkAuditResponse](docs/ListPrivateNetworkAuditResponse.md)
  - [ListPrivateNetworkAuditResponseLinks](docs/ListPrivateNetworkAuditResponseLinks.md)
  - [ListPrivateNetworkResponse](docs/ListPrivateNetworkResponse.md)
@@ -359,6 +370,8 @@ Class | Method | HTTP request | Description
  - [PatchInstanceResponseLinks](docs/PatchInstanceResponseLinks.md)
  - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
+ - [PaymentMethodResponse](docs/PaymentMethodResponse.md)
+ - [PaymentMethodResponse1](docs/PaymentMethodResponse1.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
  - [PrivateIpConfig](docs/PrivateIpConfig.md)

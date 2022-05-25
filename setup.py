@@ -92,15 +92,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import pfruck_contabo
 from pprint import pprint
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.create_custom_image_fail_response import CreateCustomImageFailResponse
-from pfruck_contabo.model.create_custom_image_request import CreateCustomImageRequest
-from pfruck_contabo.model.create_custom_image_response import CreateCustomImageResponse
-from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
-from pfruck_contabo.model.find_image_response import FindImageResponse
-from pfruck_contabo.model.list_image_response import ListImageResponse
-from pfruck_contabo.model.update_custom_image_request import UpdateCustomImageRequest
-from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
+from pfruck_contabo.api import customer_api
+from pfruck_contabo.model.find_customer_response import FindCustomerResponse
+from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -121,23 +115,16 @@ configuration = pfruck_contabo.Configuration(
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
+    api_instance = customer_api.CustomerApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    create_custom_image_request = CreateCustomImageRequest(
-        name="Ubuntu Custom Image",
-        description="This is an UNOFFICIAL Python API client for Contabo",
-        url="https://example.com/image.qcow2",
-        os_type="Linux",
-        version="20.04.2",
-    ) # CreateCustomImageRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     try:
-        # Provide a custom image
-        api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
+        # Get customer info
+        api_response = api_instance.retrieve_customer(x_request_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->create_custom_image: %s\\n" % e)
+        print("Exception when calling CustomerApi->retrieve_customer: %s\\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -146,6 +133,8 @@ All URIs are relative to *https://api.contabo.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CustomerApi* | [**retrieve_customer**](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
+*CustomerApi* | [**retrieve_payment_method**](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
 *ImagesApi* | [**create_custom_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
 *ImagesApi* | [**retrieve_custom_images_stats**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#retrieve_custom_images_stats) | **GET** /v1/compute/images/stats | List statistics regarding the customer&#39;s custom images
@@ -164,10 +153,13 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**reinstall_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#reinstall_instance) | **PUT** /v1/compute/instances/{instanceId} | Reinstall specific instance
 *InstancesApi* | [**retrieve_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
-*InstancesApi* | [**upgrade_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrade instance with the given list of addons
+*InstancesApi* | [**upgrade_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrading instance capabilities
 *InstancesAuditsApi* | [**retrieve_instances_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit) triggered via the API
 *InternalApi* | [**create_ticket**](https://github.com/p-fruck/python-contabo/blob/main/docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
 *InternalApi* | [**retrieve_user_is_password_set**](https://github.com/p-fruck/python-contabo/blob/main/docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
+*InvoicesApi* | [**get_file**](https://github.com/p-fruck/python-contabo/blob/main/docs/InvoicesApi.md#get_file) | **GET** /v1/invoices/{invoiceId} | Download invoice
+*InvoicesApi* | [**retrieve_invoice_number_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InvoicesApi.md#retrieve_invoice_number_list) | **GET** /v1/invoices | List invoices
+*LedgerApi* | [**retrieve_ledger_entries_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/LedgerApi.md#retrieve_ledger_entries_list) | **GET** /v1/ledger/ledger-entries | List ledger entries
 *ObjectStoragesApi* | [**cancel_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#cancel_object_storage) | **PATCH** /v1/object-storages/{objectStorageId}/cancel | Cancels the specified object storage at the next possible date
 *ObjectStoragesApi* | [**create_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#create_object_storage) | **POST** /v1/object-storages | Create a new object storage
 *ObjectStoragesApi* | [**retrieve_data_center_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_data_center_list) | **GET** /v1/data-centers | List data centers
@@ -176,14 +168,15 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**retrieve_object_storages_stats**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
 *ObjectStoragesApi* | [**upgrade_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
-*PrivateNetworksApi* | [**assign_instance_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
-*PrivateNetworksApi* | [**create_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new private network
-*PrivateNetworksApi* | [**delete_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing private network by id
-*PrivateNetworksApi* | [**patch_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a private network by id
-*PrivateNetworksApi* | [**retrieve_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific private network by id
-*PrivateNetworksApi* | [**retrieve_private_network_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List private networks
-*PrivateNetworksApi* | [**unassign_instance_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
-*PrivateNetworksAuditsApi* | [**retrieve_private_network_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your private networks (audit)
+*PaymentMethodsApi* | [**retrieve_payment_method_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodsApi.md#retrieve_payment_method_list) | **GET** /v1/payment-methods | List payment methods
+*PrivateNetworksApi* | [**assign_instance_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Private Network
+*PrivateNetworksApi* | [**create_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new Private Network
+*PrivateNetworksApi* | [**delete_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing Private Network by id
+*PrivateNetworksApi* | [**patch_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a Private Network by id
+*PrivateNetworksApi* | [**retrieve_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific Private Network by id
+*PrivateNetworksApi* | [**retrieve_private_network_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List Private Networks
+*PrivateNetworksApi* | [**unassign_instance_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a Private Network
+*PrivateNetworksAuditsApi* | [**retrieve_private_network_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksAuditsApi.md#retrieve_private_network_audits_list) | **GET** /v1/private-networks/audits | List history about your Private Networks (audit)
 *RolesApi* | [**create_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#create_role) | **POST** /v1/roles | Create a new role
 *RolesApi* | [**delete_role**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#delete_role) | **DELETE** /v1/roles/{roleId} | Delete existing role by id
 *RolesApi* | [**retrieve_api_permissions_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/RolesApi.md#retrieve_api_permissions_list) | **GET** /v1/roles/api-permissions | List of API permissions
@@ -292,11 +285,19 @@ Class | Method | HTTP request | Description
  - [CustomImagesStatsResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponseLinks.md)
+ - [CustomerAddress](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerAddress.md)
+ - [CustomerEmail](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerEmail.md)
+ - [CustomerPhone](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerPhone.md)
+ - [CustomerResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerResponse.md)
+ - [CustomerTypeBusiness](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerTypeBusiness.md)
+ - [CustomerTypePrivate](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerTypePrivate.md)
  - [DataCenterResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/DataCenterResponse.md)
  - [FindAssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindClientResponse.md)
  - [FindClientResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindClientResponseLinks.md)
+ - [FindCustomerResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindCustomerResponse.md)
+ - [FindCustomerResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindCustomerResponseLinks.md)
  - [FindImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindImageResponse.md)
  - [FindInstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindInstanceResponse.md)
  - [FindInstanceResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindInstanceResponseLinks.md)
@@ -333,9 +334,11 @@ Class | Method | HTTP request | Description
  - [Instances](https://github.com/p-fruck/python-contabo/blob/main/docs/Instances.md)
  - [InstancesActionsAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesActionsAuditResponse.md)
  - [InstancesAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditResponse.md)
+ - [InvoiceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InvoiceResponse.md)
  - [IpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig.md)
  - [IpV4](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV4.md)
  - [IpV6](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV6.md)
+ - [LedgerEntryResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/LedgerEntryResponse.md)
  - [Links](https://github.com/p-fruck/python-contabo/blob/main/docs/Links.md)
  - [ListApiPermissionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListApiPermissionResponse.md)
  - [ListApiPermissionResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListApiPermissionResponseLinks.md)
@@ -355,10 +358,18 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseLinks.md)
+ - [ListInvoiceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInvoiceResponse.md)
+ - [ListInvoiceResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInvoiceResponseLinks.md)
+ - [ListLedgerEntriesReponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListLedgerEntriesReponse.md)
+ - [ListLedgerEntriesReponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListLedgerEntriesReponseLinks.md)
  - [ListObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageResponse.md)
  - [ListObjectStorageResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageResponseLinks.md)
+ - [ListPaymentMethodResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponse.md)
+ - [ListPaymentMethodResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponse1.md)
+ - [ListPaymentMethodResponse1Links](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponse1Links.md)
+ - [ListPaymentMethodResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponseLinks.md)
  - [ListPrivateNetworkAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPrivateNetworkAuditResponse.md)
  - [ListPrivateNetworkAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPrivateNetworkAuditResponseLinks.md)
  - [ListPrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPrivateNetworkResponse.md)
@@ -398,6 +409,8 @@ Class | Method | HTTP request | Description
  - [PatchInstanceResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchInstanceResponseLinks.md)
  - [PatchPrivateNetworkRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchPrivateNetworkResponse.md)
+ - [PaymentMethodResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodResponse.md)
+ - [PaymentMethodResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodResponse1.md)
  - [PermissionRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PermissionRequest.md)
  - [PermissionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PermissionResponse.md)
  - [PrivateIpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateIpConfig.md)

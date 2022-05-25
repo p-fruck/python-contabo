@@ -118,10 +118,10 @@ class CreatePrivateNetworkRequest(ModelNormal):
         """CreatePrivateNetworkRequest - a model defined in OpenAPI
 
         Args:
-            name (str): The name of the virtual private network. Virtual private networks may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per virtual private network.
+            name (str): The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per Private Network name.
 
         Keyword Args:
-            region (str): Region where the virtual private network should be located. Default is EU. defaults to "EU"  # noqa: E501
+            region (str): Region where the Private Network should be located. Default is `EU`. defaults to "EU"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,7 +152,7 @@ class CreatePrivateNetworkRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): The description of the virtual private network. There is a limit of 255 characters per virtual private network.. [optional]  # noqa: E501
+            description (str): The description of the Private Network. There is a limit of 255 characters per Private Network description.. [optional]  # noqa: E501
         """
 
         region = kwargs.get('region', "EU")
@@ -211,10 +211,10 @@ class CreatePrivateNetworkRequest(ModelNormal):
         """CreatePrivateNetworkRequest - a model defined in OpenAPI
 
         Args:
-            name (str): The name of the virtual private network. Virtual private networks may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per virtual private network.
+            name (str): The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per Private Network name.
 
         Keyword Args:
-            region (str): Region where the virtual private network should be located. Default is EU. defaults to "EU"  # noqa: E501
+            region (str): Region where the Private Network should be located. Default is `EU`. defaults to "EU"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -245,7 +245,7 @@ class CreatePrivateNetworkRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): The description of the virtual private network. There is a limit of 255 characters per virtual private network.. [optional]  # noqa: E501
+            description (str): The description of the Private Network. There is a limit of 255 characters per Private Network description.. [optional]  # noqa: E501
         """
 
         region = kwargs.get('region', "EU")

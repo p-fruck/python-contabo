@@ -122,7 +122,7 @@ class UpgradeInstanceData(ModelNormal):
             customer_id (str): Your customer number
             instance_id (int): Instance's id
             created_date (datetime): Creation date for instance
-            addons_ids ([int]):
+            addons_ids ([int]): List (Array) of addons as `addonId` added to instance.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -219,7 +219,7 @@ class UpgradeInstanceData(ModelNormal):
             customer_id (str): Your customer number
             instance_id (int): Instance's id
             created_date (datetime): Creation date for instance
-            addons_ids ([int]):
+            addons_ids ([int]): List (Array) of addons as `addonId` added to instance.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

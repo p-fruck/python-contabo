@@ -4,21 +4,21 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**assign_instance_private_network**](PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a private network
-[**create_private_network**](PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new private network
-[**delete_private_network**](PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing private network by id
-[**patch_private_network**](PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a private network by id
-[**retrieve_private_network**](PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific private network by id
-[**retrieve_private_network_list**](PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List private networks
-[**unassign_instance_private_network**](PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a private network
+[**assign_instance_private_network**](PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Private Network
+[**create_private_network**](PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new Private Network
+[**delete_private_network**](PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing Private Network by id
+[**patch_private_network**](PrivateNetworksApi.md#patch_private_network) | **PATCH** /v1/private-networks/{privateNetworkId} | Update a Private Network by id
+[**retrieve_private_network**](PrivateNetworksApi.md#retrieve_private_network) | **GET** /v1/private-networks/{privateNetworkId} | Get specific Private Network by id
+[**retrieve_private_network_list**](PrivateNetworksApi.md#retrieve_private_network_list) | **GET** /v1/private-networks | List Private Networks
+[**unassign_instance_private_network**](PrivateNetworksApi.md#unassign_instance_private_network) | **DELETE** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove instance from a Private Network
 
 
 # **assign_instance_private_network**
 > AssignInstancePrivateNetworkResponse assign_instance_private_network(x_request_id, private_network_id, instance_id)
 
-Add instance to a private network
+Add instance to a Private Network
 
-Add a specific instance to a private network
+Add a specific instance to a Private Network
 
 ### Example
 
@@ -51,13 +51,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = private_networks_api.PrivateNetworksApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    private_network_id = 12345 # int | The identifier of the privateNetwork
+    private_network_id = 12345 # int | The identifier of the Private Network
     instance_id = 100 # int | The identifier of the instance
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Add instance to a private network
+        # Add instance to a Private Network
         api_response = api_instance.assign_instance_private_network(x_request_id, private_network_id, instance_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -66,7 +66,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Add instance to a private network
+        # Add instance to a Private Network
         api_response = api_instance.assign_instance_private_network(x_request_id, private_network_id, instance_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -79,7 +79,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **private_network_id** | **int**| The identifier of the privateNetwork |
+ **private_network_id** | **int**| The identifier of the Private Network |
  **instance_id** | **int**| The identifier of the instance |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -101,16 +101,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The instance will be added to the private network |  -  |
+**201** | The instance will be added to the Private Network |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_private_network**
 > CreatePrivateNetworkResponse create_private_network(x_request_id, create_private_network_request)
 
-Create a new private network
+Create a new Private Network
 
-Create a new private network in your account.
+Create a new Private Network in your account.
 
 ### Example
 
@@ -146,14 +146,14 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     create_private_network_request = CreatePrivateNetworkRequest(
         region="EU",
-        name="VPN",
-        description="VPN Description",
+        name="myPrivateNetwork",
+        description="myPrivateNetwork Description",
     ) # CreatePrivateNetworkRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Create a new private network
+        # Create a new Private Network
         api_response = api_instance.create_private_network(x_request_id, create_private_network_request)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -162,7 +162,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create a new private network
+        # Create a new Private Network
         api_response = api_instance.create_private_network(x_request_id, create_private_network_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -196,16 +196,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The response will be a JSON object and contains standard private network attributes. |  -  |
+**201** | The response will be a JSON object and contains standard Private Network attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_private_network**
 > delete_private_network(x_request_id, private_network_id)
 
-Delete existing private network by id
+Delete existing Private Network by id
 
-Delete existing private network by id and automatically unassign all instances from it
+Delete existing Private Network by id and automatically unassign all instances from it
 
 ### Example
 
@@ -237,12 +237,12 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = private_networks_api.PrivateNetworksApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    private_network_id = 12345 # int | The identifier of the private network
+    private_network_id = 12345 # int | The identifier of the Private Network
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete existing private network by id
+        # Delete existing Private Network by id
         api_instance.delete_private_network(x_request_id, private_network_id)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling PrivateNetworksApi->delete_private_network: %s\n" % e)
@@ -250,7 +250,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Delete existing private network by id
+        # Delete existing Private Network by id
         api_instance.delete_private_network(x_request_id, private_network_id, x_trace_id=x_trace_id)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling PrivateNetworksApi->delete_private_network: %s\n" % e)
@@ -262,7 +262,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **private_network_id** | **int**| The identifier of the private network |
+ **private_network_id** | **int**| The identifier of the Private Network |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -290,9 +290,9 @@ void (empty response body)
 # **patch_private_network**
 > PatchPrivateNetworkResponse patch_private_network(x_request_id, private_network_id, patch_private_network_request)
 
-Update a private network by id
+Update a Private Network by id
 
-Update a private network by id in your account.
+Update a Private Network by id in your account.
 
 ### Example
 
@@ -326,16 +326,16 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = private_networks_api.PrivateNetworksApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    private_network_id = 12345 # int | The identifier of the private network
+    private_network_id = 12345 # int | The identifier of the Private Network
     patch_private_network_request = PatchPrivateNetworkRequest(
-        name="VPN",
-        description="VPN Description",
+        name="myPrivateNetwork",
+        description="myPrivateNetwork Description",
     ) # PatchPrivateNetworkRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Update a private network by id
+        # Update a Private Network by id
         api_response = api_instance.patch_private_network(x_request_id, private_network_id, patch_private_network_request)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -344,7 +344,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Update a private network by id
+        # Update a Private Network by id
         api_response = api_instance.patch_private_network(x_request_id, private_network_id, patch_private_network_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -357,7 +357,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **private_network_id** | **int**| The identifier of the private network |
+ **private_network_id** | **int**| The identifier of the Private Network |
  **patch_private_network_request** | [**PatchPrivateNetworkRequest**](PatchPrivateNetworkRequest.md)|  |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -379,16 +379,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains standard private network attributes. |  -  |
+**200** | The response will be a JSON object and contains standard Private Network attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_private_network**
 > FindPrivateNetworkResponse retrieve_private_network(x_request_id, private_network_id)
 
-Get specific private network by id
+Get specific Private Network by id
 
-Get attributes values to a specific private network on your account.
+Get attributes values to a specific Private Network on your account.
 
 ### Example
 
@@ -421,12 +421,12 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = private_networks_api.PrivateNetworksApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    private_network_id = 12345 # int | The identifier of the private network
+    private_network_id = 12345 # int | The identifier of the Private Network
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Get specific private network by id
+        # Get specific Private Network by id
         api_response = api_instance.retrieve_private_network(x_request_id, private_network_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -435,7 +435,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get specific private network by id
+        # Get specific Private Network by id
         api_response = api_instance.retrieve_private_network(x_request_id, private_network_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -448,7 +448,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **private_network_id** | **int**| The identifier of the private network |
+ **private_network_id** | **int**| The identifier of the Private Network |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -469,16 +469,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains standard private network attributes. |  -  |
+**200** | The response will be a JSON object and contains standard Private Network attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_private_network_list**
 > ListPrivateNetworkResponse retrieve_private_network_list(x_request_id)
 
-List private networks
+List Private Networks
 
-List and filter all private networks in your account
+List and filter all Private Networks in your account
 
 ### Example
 
@@ -517,12 +517,12 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    name = "VPN" # str | The name of the virtual private network (optional)
+    name = "myPrivateNetwork" # str | The name of the Private Network (optional)
     instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # List private networks
+        # List Private Networks
         api_response = api_instance.retrieve_private_network_list(x_request_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -531,7 +531,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List private networks
+        # List Private Networks
         api_response = api_instance.retrieve_private_network_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, instance_ids=instance_ids)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Number of page to be fetched. | [optional]
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **name** | **str**| The name of the virtual private network | [optional]
+ **name** | **str**| The name of the Private Network | [optional]
  **instance_ids** | **str**| Comma separated instances identifiers | [optional]
 
 ### Return type
@@ -569,16 +569,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains a paginated list of private networks. |  -  |
+**200** | The response will be a JSON object and contains a paginated list of Private Networks. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unassign_instance_private_network**
 > UnassignInstancePrivateNetworkResponse unassign_instance_private_network(x_request_id, private_network_id, instance_id)
 
-Remove instance from a private network
+Remove instance from a Private Network
 
-Remove a specific instance from a private network
+Remove a specific instance from a Private Network
 
 ### Example
 
@@ -611,13 +611,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = private_networks_api.PrivateNetworksApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    private_network_id = 12345 # int | The identifier of the privateNetwork
+    private_network_id = 12345 # int | The identifier of the Private Network
     instance_id = 100 # int | The identifier of the instance
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Remove instance from a private network
+        # Remove instance from a Private Network
         api_response = api_instance.unassign_instance_private_network(x_request_id, private_network_id, instance_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -626,7 +626,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Remove instance from a private network
+        # Remove instance from a Private Network
         api_response = api_instance.unassign_instance_private_network(x_request_id, private_network_id, instance_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -639,7 +639,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **private_network_id** | **int**| The identifier of the privateNetwork |
+ **private_network_id** | **int**| The identifier of the Private Network |
  **instance_id** | **int**| The identifier of the instance |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The instance will be removed from the private network |  -  |
+**201** | The instance will be removed from the Private Network |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

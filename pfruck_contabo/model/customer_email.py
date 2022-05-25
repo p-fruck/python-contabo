@@ -57,12 +57,6 @@ class CustomerEmail(ModelNormal):
     allowed_values = {
         ('type',): {
             'DEFAULT': "default",
-            'TECHNICAL': "technical",
-            'BILLING': "billing",
-            'BILLINGPAYPAL': "billingPaypal",
-            'BILLINGSKRILL': "billingSkrill",
-            'INVOICE': "invoice",
-            'FULL': "full",
         },
     }
 
@@ -111,14 +105,14 @@ class CustomerEmail(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, email, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, email, *args, **kwargs):  # noqa: E501
         """CustomerEmail - a model defined in OpenAPI
 
         Args:
-            type (str): Customer email type
             email (str): Customer email address
 
         Keyword Args:
+            type (str): Customer email type. defaults to "default", must be one of ["default", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -151,6 +145,7 @@ class CustomerEmail(ModelNormal):
                                 _visited_composed_classes = (Animal,)
         """
 
+        type = kwargs.get('type', "default")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -202,14 +197,14 @@ class CustomerEmail(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, email, *args, **kwargs):  # noqa: E501
+    def __init__(self, email, *args, **kwargs):  # noqa: E501
         """CustomerEmail - a model defined in OpenAPI
 
         Args:
-            type (str): Customer email type
             email (str): Customer email address
 
         Keyword Args:
+            type (str): Customer email type. defaults to "default", must be one of ["default", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -242,6 +237,7 @@ class CustomerEmail(ModelNormal):
                                 _visited_composed_classes = (Animal,)
         """
 
+        type = kwargs.get('type', "default")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())

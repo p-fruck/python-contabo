@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_payment_method**
-> PaymentMethodResponse retrieve_payment_method(x_request_id)
+> ListPaymentMethodResponse retrieve_payment_method(x_request_id)
 
 List current payment method
 
@@ -111,7 +111,7 @@ List current payment method
 import time
 import pfruck_contabo
 from pfruck_contabo.api import customer_api
-from pfruck_contabo.model.payment_method_response import PaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -135,6 +135,11 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = customer_api.CustomerApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    page = 1 # int | Number of page to be fetched. (optional)
+    size = 10 # int | Number of elements per page. (optional)
+    order_by = [
+        "name:asc",
+    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -148,7 +153,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List current payment method
-        api_response = api_instance.retrieve_payment_method(x_request_id, x_trace_id=x_trace_id)
+        api_response = api_instance.retrieve_payment_method(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling CustomerApi->retrieve_payment_method: %s\n" % e)
@@ -161,10 +166,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **page** | **int**| Number of page to be fetched. | [optional]
+ **size** | **int**| Number of elements per page. | [optional]
+ **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
 
 ### Return type
 
-[**PaymentMethodResponse**](PaymentMethodResponse.md)
+[**ListPaymentMethodResponse**](ListPaymentMethodResponse.md)
 
 ### Authorization
 
@@ -180,7 +188,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains an object containint the current payment method details. |  -  |
+**200** | The response will be a JSON object and contains the current payment method details. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

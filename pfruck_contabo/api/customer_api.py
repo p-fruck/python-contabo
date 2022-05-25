@@ -22,7 +22,7 @@ from pfruck_contabo.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.payment_method_response import PaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
 
 
 class CustomerApi(object):
@@ -101,7 +101,7 @@ class CustomerApi(object):
         )
         self.retrieve_payment_method_endpoint = _Endpoint(
             settings={
-                'response_type': (PaymentMethodResponse,),
+                'response_type': (ListPaymentMethodResponse,),
                 'auth': [
                     'bearer'
                 ],
@@ -114,6 +114,9 @@ class CustomerApi(object):
                 'all': [
                     'x_request_id',
                     'x_trace_id',
+                    'page',
+                    'size',
+                    'order_by',
                 ],
                 'required': [
                     'x_request_id',
@@ -142,16 +145,29 @@ class CustomerApi(object):
                         (str,),
                     'x_trace_id':
                         (str,),
+                    'page':
+                        (int,),
+                    'size':
+                        (int,),
+                    'order_by':
+                        ([str],),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
                     'x_trace_id': 'x-trace-id',
+                    'page': 'page',
+                    'size': 'size',
+                    'order_by': 'orderBy',
                 },
                 'location_map': {
                     'x_request_id': 'header',
                     'x_trace_id': 'header',
+                    'page': 'query',
+                    'size': 'query',
+                    'order_by': 'query',
                 },
                 'collection_format_map': {
+                    'order_by': 'multi',
                 }
             },
             headers_map={
@@ -266,6 +282,9 @@ class CustomerApi(object):
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
+            page (int): Number of page to be fetched.. [optional]
+            size (int): Number of elements per page.. [optional]
+            order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -298,7 +317,7 @@ class CustomerApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            PaymentMethodResponse
+            ListPaymentMethodResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

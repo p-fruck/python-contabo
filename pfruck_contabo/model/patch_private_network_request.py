@@ -143,8 +143,8 @@ class PatchPrivateNetworkRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the virtual private network. Virtual private networks may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per virtual private network.. [optional]  # noqa: E501
-            description (str): The description of the virtual private network. There is a limit of 255 characters per virtual private network.. [optional]  # noqa: E501
+            name (str): The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per Private Network.. [optional]  # noqa: E501
+            description (str): The description of the Private Network. There is a limit of 255 characters per Private Network.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +230,8 @@ class PatchPrivateNetworkRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the virtual private network. Virtual private networks may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per virtual private network.. [optional]  # noqa: E501
-            description (str): The description of the virtual private network. There is a limit of 255 characters per virtual private network.. [optional]  # noqa: E501
+            name (str): The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per Private Network.. [optional]  # noqa: E501
+            description (str): The description of the Private Network. There is a limit of 255 characters per Private Network.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

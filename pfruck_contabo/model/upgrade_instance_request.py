@@ -104,7 +104,7 @@ class UpgradeInstanceRequest(ModelNormal):
         """UpgradeInstanceRequest - a model defined in OpenAPI
 
         Args:
-            add_ons ([int]): Array of ids of the addOns you want to add to the instance.
+            add_ons ([int]): List (Array) of addons as `addonId` to be added to instance.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -193,7 +193,7 @@ class UpgradeInstanceRequest(ModelNormal):
         """UpgradeInstanceRequest - a model defined in OpenAPI
 
         Args:
-            add_ons ([int]): Array of ids of the addOns you want to add to the instance.
+            add_ons ([int]): List (Array) of addons as `addonId` to be added to instance.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

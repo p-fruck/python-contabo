@@ -139,13 +139,13 @@ class ListPrivateNetworkResponseData(ModelNormal):
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
             private_network_id (int): Private Network's id
-            data_center (str): The data center where your virtual private network is located
-            region (str): The region where your virtual private network is located
-            name (str): The name of the virtual private network
-            description (str): The description of the virtual private network
-            cidr (str): The cidr range of the virtual private network
-            available_ips (int): The total available IPs of the virtual private network
-            created_date (datetime): The creation date of the private network
+            data_center (str): The data center where your Private Network is located
+            region (str): The region where your Private Network is located
+            name (str): The name of the Private Network
+            description (str): The description of the Private Network
+            cidr (str): The cidr range of the Private Network
+            available_ips (int): The total available IPs of the Private Network
+            created_date (datetime): The creation date of the Private Network
             instances ([Instances]):
 
         Keyword Args:
@@ -248,13 +248,13 @@ class ListPrivateNetworkResponseData(ModelNormal):
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
             private_network_id (int): Private Network's id
-            data_center (str): The data center where your virtual private network is located
-            region (str): The region where your virtual private network is located
-            name (str): The name of the virtual private network
-            description (str): The description of the virtual private network
-            cidr (str): The cidr range of the virtual private network
-            available_ips (int): The total available IPs of the virtual private network
-            created_date (datetime): The creation date of the private network
+            data_center (str): The data center where your Private Network is located
+            region (str): The region where your Private Network is located
+            name (str): The name of the Private Network
+            description (str): The description of the Private Network
+            cidr (str): The cidr range of the Private Network
+            available_ips (int): The total available IPs of the Private Network
+            created_date (datetime): The creation date of the Private Network
             instances ([Instances]):
 
         Keyword Args:

@@ -1154,9 +1154,9 @@ class InstancesApi(object):
         upgrade_instance_request,
         **kwargs
     ):
-        """Upgrade instance with the given list of addons  # noqa: E501
+        """Upgrading instance capabilities  # noqa: E501
 
-        You can upgrade instance with the given list of addons.  # noqa: E501
+        In order enhance your instance with additional features you can purchase add-ons. Currently only private network addon is allowed.      <table>         <tr><th>`addonId`</th><th>Type</th><th>Description</th></tr>         <tr><td>1477</td><td>VPS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         <tr><td>1489</td><td>VDS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         </table>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

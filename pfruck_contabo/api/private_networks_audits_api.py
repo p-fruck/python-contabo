@@ -145,9 +145,9 @@ class PrivateNetworksAuditsApi(object):
         x_request_id,
         **kwargs
     ):
-        """List history about your private networks (audit)  # noqa: E501
+        """List history about your Private Networks (audit)  # noqa: E501
 
-        List and filters the history about your private networks.  # noqa: E501
+        List and filters the history about your Private Networks.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -162,9 +162,9 @@ class PrivateNetworksAuditsApi(object):
             page (int): Number of page to be fetched.. [optional]
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
-            private_network_id (int): The identifier of the private network.. [optional]
+            private_network_id (int): The identifier of the Private Network.. [optional]
             request_id (str): The requestId of the API call which led to the change.. [optional]
-            changed_by (str): changedBy of the user which led to the change.. [optional]
+            changed_by (str): User name which did the change.. [optional]
             start_date (date): Start of search time range.. [optional]
             end_date (date): End of search time range.. [optional]
             _return_http_data_only (bool): response data without head status

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **customer_id** | **str** | Your customer number | 
 **instance_id** | **int** | Instance&#39;s id | 
 **created_date** | **datetime** | Creation date for instance | 
-**addons_ids** | **[int]** |  | 
+**addons_ids** | **[int]** | List (Array) of addons as &#x60;addonId&#x60; added to instance. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

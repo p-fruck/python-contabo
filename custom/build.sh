@@ -63,7 +63,7 @@ else
     cmd="docker"
 fi
 
-generator_image=openapitools/openapi-generator-cli
+generator_image=openapitools/openapi-generator-cli:latest-release
 
 # update local generator image
 ${cmd} pull ${generator_image}

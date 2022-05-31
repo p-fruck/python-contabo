@@ -89,6 +89,8 @@ docs/FindTagResponse.md
 docs/FindUserIsPasswordSetResponse.md
 docs/FindUserIsPasswordSetResponseLinks.md
 docs/FindUserResponse.md
+docs/FindZeropsSignInResponse.md
+docs/FindZeropsUserResponse.md
 docs/GenerateClientSecretResponse.md
 docs/GenerateClientSecretResponseLinks.md
 docs/ImageAuditResponse.md
@@ -269,6 +271,9 @@ docs/UserIsPasswordSetResponse.md
 docs/UserResponse.md
 docs/UsersApi.md
 docs/UsersAuditsApi.md
+docs/ZeropsApi.md
+docs/ZeropsSignInResponse.md
+docs/ZeropsUserResponse.md
 pfruck_contabo/__init__.py
 pfruck_contabo/api/__init__.py
 pfruck_contabo/api/customer_api.py
@@ -298,6 +303,7 @@ pfruck_contabo/api/tags_api.py
 pfruck_contabo/api/tags_audits_api.py
 pfruck_contabo/api/users_api.py
 pfruck_contabo/api/users_audits_api.py
+pfruck_contabo/api/zerops_api.py
 pfruck_contabo/api_client.py
 pfruck_contabo/apis/__init__.py
 pfruck_contabo/configuration.py
@@ -389,6 +395,8 @@ pfruck_contabo/model/find_tag_response.py
 pfruck_contabo/model/find_user_is_password_set_response.py
 pfruck_contabo/model/find_user_is_password_set_response_links.py
 pfruck_contabo/model/find_user_response.py
+pfruck_contabo/model/find_zerops_sign_in_response.py
+pfruck_contabo/model/find_zerops_user_response.py
 pfruck_contabo/model/generate_client_secret_response.py
 pfruck_contabo/model/generate_client_secret_response_links.py
 pfruck_contabo/model/image_audit_response.py
@@ -543,6 +551,8 @@ pfruck_contabo/model/upgrade_object_storage_request_auto_scaling.py
 pfruck_contabo/model/user_audit_response.py
 pfruck_contabo/model/user_is_password_set_response.py
 pfruck_contabo/model/user_response.py
+pfruck_contabo/model/zerops_sign_in_response.py
+pfruck_contabo/model/zerops_user_response.py
 pfruck_contabo/model_utils.py
 pfruck_contabo/models/__init__.py
 pfruck_contabo/rest.py
@@ -551,4 +561,9 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_find_zerops_sign_in_response.py
+test/test_find_zerops_user_response.py
+test/test_zerops_api.py
+test/test_zerops_sign_in_response.py
+test/test_zerops_user_response.py
 tox.ini

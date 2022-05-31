@@ -220,6 +220,8 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*ZeropsApi* | [**retrieve_zerops_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
+*ZeropsApi* | [**sign_in_zerops**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
 
 ## Documentation For Models
@@ -310,6 +312,8 @@ Class | Method | HTTP request | Description
  - [FindUserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponseLinks.md)
  - [FindUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserResponse.md)
+ - [FindZeropsSignInResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindZeropsSignInResponse.md)
+ - [FindZeropsUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindZeropsUserResponse.md)
  - [GenerateClientSecretResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/GenerateClientSecretResponse.md)
  - [GenerateClientSecretResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/GenerateClientSecretResponseLinks.md)
  - [ImageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ImageAuditResponse.md)
@@ -464,6 +468,8 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserIsPasswordSetResponse.md)
  - [UserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserResponse.md)
+ - [ZeropsSignInResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsSignInResponse.md)
+ - [ZeropsUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsUserResponse.md)
 
 
 ## Documentation For Authorization

@@ -561,9 +561,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_find_zerops_sign_in_response.py
-test/test_find_zerops_user_response.py
-test/test_zerops_api.py
-test/test_zerops_sign_in_response.py
-test/test_zerops_user_response.py
 tox.ini

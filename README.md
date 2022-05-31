@@ -181,6 +181,8 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*ZeropsApi* | [**retrieve_zerops_user**](docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
+*ZeropsApi* | [**sign_in_zerops**](docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
 
 ## Documentation For Models
@@ -271,6 +273,8 @@ Class | Method | HTTP request | Description
  - [FindUserIsPasswordSetResponse](docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](docs/FindUserIsPasswordSetResponseLinks.md)
  - [FindUserResponse](docs/FindUserResponse.md)
+ - [FindZeropsSignInResponse](docs/FindZeropsSignInResponse.md)
+ - [FindZeropsUserResponse](docs/FindZeropsUserResponse.md)
  - [GenerateClientSecretResponse](docs/GenerateClientSecretResponse.md)
  - [GenerateClientSecretResponseLinks](docs/GenerateClientSecretResponseLinks.md)
  - [ImageAuditResponse](docs/ImageAuditResponse.md)
@@ -425,6 +429,8 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
+ - [ZeropsSignInResponse](docs/ZeropsSignInResponse.md)
+ - [ZeropsUserResponse](docs/ZeropsUserResponse.md)
 
 
 ## Documentation For Authorization

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the data center | 
 **slug** | **str** | Slug of the data center | 
-**capabilities** | **[str]** | Available capabilites in this data center | 
+**capabilities** | [**[DatacenterCapabilities]**](DatacenterCapabilities.md) |  | 
 **s3_url** | **str** | S3 URL of the data center | 
 **region_name** | **str** | Name of the region | 
 **region_slug** | **str** | Slug of the region | 

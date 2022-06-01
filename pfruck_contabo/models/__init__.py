@@ -77,6 +77,7 @@ from pfruck_contabo.model.customer_response import CustomerResponse
 from pfruck_contabo.model.customer_type_business import CustomerTypeBusiness
 from pfruck_contabo.model.customer_type_private import CustomerTypePrivate
 from pfruck_contabo.model.data_center_response import DataCenterResponse
+from pfruck_contabo.model.datacenter_capabilities import DatacenterCapabilities
 from pfruck_contabo.model.find_assignment_response import FindAssignmentResponse
 from pfruck_contabo.model.find_assignment_response_links import FindAssignmentResponseLinks
 from pfruck_contabo.model.find_client_response import FindClientResponse

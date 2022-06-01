@@ -255,6 +255,7 @@ Class | Method | HTTP request | Description
  - [CustomerTypeBusiness](docs/CustomerTypeBusiness.md)
  - [CustomerTypePrivate](docs/CustomerTypePrivate.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
+ - [DatacenterCapabilities](docs/DatacenterCapabilities.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)

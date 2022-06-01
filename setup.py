@@ -294,6 +294,7 @@ Class | Method | HTTP request | Description
  - [CustomerTypeBusiness](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerTypeBusiness.md)
  - [CustomerTypePrivate](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerTypePrivate.md)
  - [DataCenterResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/DataCenterResponse.md)
+ - [DatacenterCapabilities](https://github.com/p-fruck/python-contabo/blob/main/docs/DatacenterCapabilities.md)
  - [FindAssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindClientResponse.md)

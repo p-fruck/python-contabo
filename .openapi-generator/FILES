@@ -71,6 +71,7 @@ docs/CustomerResponse.md
 docs/CustomerTypeBusiness.md
 docs/CustomerTypePrivate.md
 docs/DataCenterResponse.md
+docs/DatacenterCapabilities.md
 docs/FindAssignmentResponse.md
 docs/FindAssignmentResponseLinks.md
 docs/FindClientResponse.md
@@ -377,6 +378,7 @@ pfruck_contabo/model/customer_response.py
 pfruck_contabo/model/customer_type_business.py
 pfruck_contabo/model/customer_type_private.py
 pfruck_contabo/model/data_center_response.py
+pfruck_contabo/model/datacenter_capabilities.py
 pfruck_contabo/model/find_assignment_response.py
 pfruck_contabo/model/find_assignment_response_links.py
 pfruck_contabo/model/find_client_response.py
@@ -561,4 +563,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_datacenter_capabilities.py
 tox.ini

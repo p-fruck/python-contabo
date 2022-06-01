@@ -563,5 +563,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_datacenter_capabilities.py
 tox.ini

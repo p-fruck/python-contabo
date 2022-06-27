@@ -587,16 +587,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_find_vip_response.py
-test/test_find_vip_response_links.py
-test/test_ip_config1.py
-test/test_ip_v41.py
-test/test_ip_v42.py
-test/test_ip_v61.py
-test/test_ip_v62.py
-test/test_list_vip_response.py
-test/test_list_vip_response_data.py
-test/test_list_vip_response_links.py
-test/test_vip_api.py
-test/test_vip_response.py
 tox.ini

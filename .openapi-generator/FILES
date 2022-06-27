@@ -90,6 +90,8 @@ docs/FindTagResponse.md
 docs/FindUserIsPasswordSetResponse.md
 docs/FindUserIsPasswordSetResponseLinks.md
 docs/FindUserResponse.md
+docs/FindVipResponse.md
+docs/FindVipResponseLinks.md
 docs/FindZeropsSignInResponse.md
 docs/FindZeropsUserResponse.md
 docs/GenerateClientSecretResponse.md
@@ -126,8 +128,13 @@ docs/InternalApi.md
 docs/InvoiceResponse.md
 docs/InvoicesApi.md
 docs/IpConfig.md
+docs/IpConfig1.md
 docs/IpV4.md
+docs/IpV41.md
+docs/IpV42.md
 docs/IpV6.md
+docs/IpV61.md
+docs/IpV62.md
 docs/LedgerApi.md
 docs/LedgerEntryResponse.md
 docs/Links.md
@@ -187,6 +194,9 @@ docs/ListUserAuditResponseLinks.md
 docs/ListUserResponse.md
 docs/ListUserResponseLinks.md
 docs/ListUserResponsePagination.md
+docs/ListVipResponse.md
+docs/ListVipResponseData.md
+docs/ListVipResponseLinks.md
 docs/ObjectStorageAuditResponse.md
 docs/ObjectStorageResponse.md
 docs/ObjectStorageResponseAutoScaling.md
@@ -272,6 +282,8 @@ docs/UserIsPasswordSetResponse.md
 docs/UserResponse.md
 docs/UsersApi.md
 docs/UsersAuditsApi.md
+docs/VIPApi.md
+docs/VipResponse.md
 docs/ZeropsApi.md
 docs/ZeropsSignInResponse.md
 docs/ZeropsUserResponse.md
@@ -304,6 +316,7 @@ pfruck_contabo/api/tags_api.py
 pfruck_contabo/api/tags_audits_api.py
 pfruck_contabo/api/users_api.py
 pfruck_contabo/api/users_audits_api.py
+pfruck_contabo/api/vip_api.py
 pfruck_contabo/api/zerops_api.py
 pfruck_contabo/api_client.py
 pfruck_contabo/apis/__init__.py
@@ -397,6 +410,8 @@ pfruck_contabo/model/find_tag_response.py
 pfruck_contabo/model/find_user_is_password_set_response.py
 pfruck_contabo/model/find_user_is_password_set_response_links.py
 pfruck_contabo/model/find_user_response.py
+pfruck_contabo/model/find_vip_response.py
+pfruck_contabo/model/find_vip_response_links.py
 pfruck_contabo/model/find_zerops_sign_in_response.py
 pfruck_contabo/model/find_zerops_user_response.py
 pfruck_contabo/model/generate_client_secret_response.py
@@ -425,8 +440,13 @@ pfruck_contabo/model/instances_actions_audit_response.py
 pfruck_contabo/model/instances_audit_response.py
 pfruck_contabo/model/invoice_response.py
 pfruck_contabo/model/ip_config.py
+pfruck_contabo/model/ip_config1.py
 pfruck_contabo/model/ip_v4.py
+pfruck_contabo/model/ip_v41.py
+pfruck_contabo/model/ip_v42.py
 pfruck_contabo/model/ip_v6.py
+pfruck_contabo/model/ip_v61.py
+pfruck_contabo/model/ip_v62.py
 pfruck_contabo/model/ledger_entry_response.py
 pfruck_contabo/model/links.py
 pfruck_contabo/model/list_api_permission_response.py
@@ -485,6 +505,9 @@ pfruck_contabo/model/list_user_audit_response_links.py
 pfruck_contabo/model/list_user_response.py
 pfruck_contabo/model/list_user_response_links.py
 pfruck_contabo/model/list_user_response_pagination.py
+pfruck_contabo/model/list_vip_response.py
+pfruck_contabo/model/list_vip_response_data.py
+pfruck_contabo/model/list_vip_response_links.py
 pfruck_contabo/model/object_storage_audit_response.py
 pfruck_contabo/model/object_storage_response.py
 pfruck_contabo/model/object_storage_response_auto_scaling.py
@@ -553,6 +576,7 @@ pfruck_contabo/model/upgrade_object_storage_request_auto_scaling.py
 pfruck_contabo/model/user_audit_response.py
 pfruck_contabo/model/user_is_password_set_response.py
 pfruck_contabo/model/user_response.py
+pfruck_contabo/model/vip_response.py
 pfruck_contabo/model/zerops_sign_in_response.py
 pfruck_contabo/model/zerops_user_response.py
 pfruck_contabo/model_utils.py
@@ -563,4 +587,16 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_find_vip_response.py
+test/test_find_vip_response_links.py
+test/test_ip_config1.py
+test/test_ip_v41.py
+test/test_ip_v42.py
+test/test_ip_v61.py
+test/test_ip_v62.py
+test/test_list_vip_response.py
+test/test_list_vip_response_data.py
+test/test_list_vip_response_links.py
+test/test_vip_api.py
+test/test_vip_response.py
 tox.ini

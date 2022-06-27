@@ -220,6 +220,8 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VIPApi* | [**retrieve_vip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{vipId} | Get specific VIP by id
+*VIPApi* | [**retrieve_vip_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
 *ZeropsApi* | [**retrieve_zerops_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
 *ZeropsApi* | [**sign_in_zerops**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
@@ -313,6 +315,8 @@ Class | Method | HTTP request | Description
  - [FindUserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponseLinks.md)
  - [FindUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserResponse.md)
+ - [FindVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindVipResponse.md)
+ - [FindVipResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindVipResponseLinks.md)
  - [FindZeropsSignInResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindZeropsSignInResponse.md)
  - [FindZeropsUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindZeropsUserResponse.md)
  - [GenerateClientSecretResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/GenerateClientSecretResponse.md)
@@ -341,8 +345,13 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditResponse.md)
  - [InvoiceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InvoiceResponse.md)
  - [IpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig.md)
+ - [IpConfig1](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig1.md)
  - [IpV4](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV4.md)
+ - [IpV41](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV41.md)
+ - [IpV42](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV42.md)
  - [IpV6](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV6.md)
+ - [IpV61](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV61.md)
+ - [IpV62](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV62.md)
  - [LedgerEntryResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/LedgerEntryResponse.md)
  - [Links](https://github.com/p-fruck/python-contabo/blob/main/docs/Links.md)
  - [ListApiPermissionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListApiPermissionResponse.md)
@@ -401,6 +410,9 @@ Class | Method | HTTP request | Description
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
  - [ListUserResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponsePagination.md)
+ - [ListVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponse.md)
+ - [ListVipResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseData.md)
+ - [ListVipResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseLinks.md)
  - [ObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponse.md)
  - [ObjectStorageResponseAutoScaling](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponseAutoScaling.md)
@@ -469,6 +481,7 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserIsPasswordSetResponse.md)
  - [UserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserResponse.md)
+ - [VipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/VipResponse.md)
  - [ZeropsSignInResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsSignInResponse.md)
  - [ZeropsUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsUserResponse.md)
 

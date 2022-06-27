@@ -32,10 +32,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 def lazy_import():
     from pfruck_contabo.model.add_on_response import AddOnResponse
     from pfruck_contabo.model.instance_status import InstanceStatus
-    from pfruck_contabo.model.ip_config import IpConfig
+    from pfruck_contabo.model.ip_config1 import IpConfig1
     globals()['AddOnResponse'] = AddOnResponse
     globals()['InstanceStatus'] = InstanceStatus
-    globals()['IpConfig'] = IpConfig
+    globals()['IpConfig1'] = IpConfig1
 
 
 class InstanceResponse(ModelNormal):
@@ -140,7 +140,7 @@ class InstanceResponse(ModelNormal):
             'add_ons': ([AddOnResponse],),  # noqa: E501
             'product_type': (str,),  # noqa: E501
             'default_user': (str,),  # noqa: E501
-            'ip_config': (IpConfig,),  # noqa: E501
+            'ip_config': (IpConfig1,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
         }
 
@@ -239,7 +239,7 @@ class InstanceResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ip_config (IpConfig): [optional]  # noqa: E501
+            ip_config (IpConfig1): [optional]  # noqa: E501
             error_message (str): Message in case of an error.. [optional]  # noqa: E501
         """
 
@@ -370,7 +370,7 @@ class InstanceResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ip_config (IpConfig): [optional]  # noqa: E501
+            ip_config (IpConfig1): [optional]  # noqa: E501
             error_message (str): Message in case of an error.. [optional]  # noqa: E501
         """
 

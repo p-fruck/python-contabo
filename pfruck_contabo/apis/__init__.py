@@ -41,4 +41,5 @@ from pfruck_contabo.api.tags_api import TagsApi
 from pfruck_contabo.api.tags_audits_api import TagsAuditsApi
 from pfruck_contabo.api.users_api import UsersApi
 from pfruck_contabo.api.users_audits_api import UsersAuditsApi
+from pfruck_contabo.api.vip_api import VIPApi
 from pfruck_contabo.api.zerops_api import ZeropsApi

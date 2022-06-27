@@ -181,6 +181,8 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VIPApi* | [**retrieve_vip**](docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{vipId} | Get specific VIP by id
+*VIPApi* | [**retrieve_vip_list**](docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
 *ZeropsApi* | [**retrieve_zerops_user**](docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
 *ZeropsApi* | [**sign_in_zerops**](docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
@@ -274,6 +276,8 @@ Class | Method | HTTP request | Description
  - [FindUserIsPasswordSetResponse](docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](docs/FindUserIsPasswordSetResponseLinks.md)
  - [FindUserResponse](docs/FindUserResponse.md)
+ - [FindVipResponse](docs/FindVipResponse.md)
+ - [FindVipResponseLinks](docs/FindVipResponseLinks.md)
  - [FindZeropsSignInResponse](docs/FindZeropsSignInResponse.md)
  - [FindZeropsUserResponse](docs/FindZeropsUserResponse.md)
  - [GenerateClientSecretResponse](docs/GenerateClientSecretResponse.md)
@@ -302,8 +306,13 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
  - [InvoiceResponse](docs/InvoiceResponse.md)
  - [IpConfig](docs/IpConfig.md)
+ - [IpConfig1](docs/IpConfig1.md)
  - [IpV4](docs/IpV4.md)
+ - [IpV41](docs/IpV41.md)
+ - [IpV42](docs/IpV42.md)
  - [IpV6](docs/IpV6.md)
+ - [IpV61](docs/IpV61.md)
+ - [IpV62](docs/IpV62.md)
  - [LedgerEntryResponse](docs/LedgerEntryResponse.md)
  - [Links](docs/Links.md)
  - [ListApiPermissionResponse](docs/ListApiPermissionResponse.md)
@@ -362,6 +371,9 @@ Class | Method | HTTP request | Description
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
  - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
+ - [ListVipResponse](docs/ListVipResponse.md)
+ - [ListVipResponseData](docs/ListVipResponseData.md)
+ - [ListVipResponseLinks](docs/ListVipResponseLinks.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
  - [ObjectStorageResponseAutoScaling](docs/ObjectStorageResponseAutoScaling.md)
@@ -430,6 +442,7 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
+ - [VipResponse](docs/VipResponse.md)
  - [ZeropsSignInResponse](docs/ZeropsSignInResponse.md)
  - [ZeropsUserResponse](docs/ZeropsUserResponse.md)
 

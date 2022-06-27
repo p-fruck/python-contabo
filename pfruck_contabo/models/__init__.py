@@ -96,6 +96,8 @@ from pfruck_contabo.model.find_tag_response import FindTagResponse
 from pfruck_contabo.model.find_user_is_password_set_response import FindUserIsPasswordSetResponse
 from pfruck_contabo.model.find_user_is_password_set_response_links import FindUserIsPasswordSetResponseLinks
 from pfruck_contabo.model.find_user_response import FindUserResponse
+from pfruck_contabo.model.find_vip_response import FindVipResponse
+from pfruck_contabo.model.find_vip_response_links import FindVipResponseLinks
 from pfruck_contabo.model.find_zerops_sign_in_response import FindZeropsSignInResponse
 from pfruck_contabo.model.find_zerops_user_response import FindZeropsUserResponse
 from pfruck_contabo.model.generate_client_secret_response import GenerateClientSecretResponse
@@ -124,8 +126,13 @@ from pfruck_contabo.model.instances_actions_audit_response import InstancesActio
 from pfruck_contabo.model.instances_audit_response import InstancesAuditResponse
 from pfruck_contabo.model.invoice_response import InvoiceResponse
 from pfruck_contabo.model.ip_config import IpConfig
+from pfruck_contabo.model.ip_config1 import IpConfig1
 from pfruck_contabo.model.ip_v4 import IpV4
+from pfruck_contabo.model.ip_v41 import IpV41
+from pfruck_contabo.model.ip_v42 import IpV42
 from pfruck_contabo.model.ip_v6 import IpV6
+from pfruck_contabo.model.ip_v61 import IpV61
+from pfruck_contabo.model.ip_v62 import IpV62
 from pfruck_contabo.model.ledger_entry_response import LedgerEntryResponse
 from pfruck_contabo.model.links import Links
 from pfruck_contabo.model.list_api_permission_response import ListApiPermissionResponse
@@ -184,6 +191,9 @@ from pfruck_contabo.model.list_user_audit_response_links import ListUserAuditRes
 from pfruck_contabo.model.list_user_response import ListUserResponse
 from pfruck_contabo.model.list_user_response_links import ListUserResponseLinks
 from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
+from pfruck_contabo.model.list_vip_response import ListVipResponse
+from pfruck_contabo.model.list_vip_response_data import ListVipResponseData
+from pfruck_contabo.model.list_vip_response_links import ListVipResponseLinks
 from pfruck_contabo.model.object_storage_audit_response import ObjectStorageAuditResponse
 from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
 from pfruck_contabo.model.object_storage_response_auto_scaling import ObjectStorageResponseAutoScaling
@@ -252,5 +262,6 @@ from pfruck_contabo.model.upgrade_object_storage_request_auto_scaling import Upg
 from pfruck_contabo.model.user_audit_response import UserAuditResponse
 from pfruck_contabo.model.user_is_password_set_response import UserIsPasswordSetResponse
 from pfruck_contabo.model.user_response import UserResponse
+from pfruck_contabo.model.vip_response import VipResponse
 from pfruck_contabo.model.zerops_sign_in_response import ZeropsSignInResponse
 from pfruck_contabo.model.zerops_user_response import ZeropsUserResponse

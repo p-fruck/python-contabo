@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **add_ons** | [**[AddOnResponse]**](AddOnResponse.md) |  | 
 **product_type** | **str** | Instance&#39;s category depending on Product Id | 
 **default_user** | **str** | Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are &#x60;admin&#x60; (use sudo to apply administrative privileges like root) or &#x60;root&#x60;. Allowed values for Windows are &#x60;admin&#x60; (has administrative privileges like administrator) or &#x60;administrator&#x60;. | 
-**ip_config** | [**IpConfig1**](IpConfig1.md) |  | [optional] 
+**ip_config** | [**IpConfig2**](IpConfig2.md) |  | [optional] 
 **error_message** | **str** | Message in case of an error. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

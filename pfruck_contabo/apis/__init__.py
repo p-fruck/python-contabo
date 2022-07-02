@@ -15,6 +15,8 @@
 
 # Import APIs into API package:
 from pfruck_contabo.api.customer_api import CustomerApi
+from pfruck_contabo.api.firewalls_api import FirewallsApi
+from pfruck_contabo.api.firewalls_audits_api import FirewallsAuditsApi
 from pfruck_contabo.api.images_api import ImagesApi
 from pfruck_contabo.api.images_audits_api import ImagesAuditsApi
 from pfruck_contabo.api.instance_actions_api import InstanceActionsApi

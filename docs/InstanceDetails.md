@@ -1,4 +1,4 @@
-# Instances
+# InstanceDetails
 
 
 ## Properties
@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **display_name** | **str** | Instance display name | 
 **name** | **str** | Instance name | 
 **product_id** | **str** | Product id | 
-**private_ip_config** | [**PrivateIpConfig**](PrivateIpConfig.md) |  | 
-**ip_config** | [**IpConfig1**](IpConfig1.md) |  | 
+**ip_config** | [**IpConfig**](IpConfig.md) |  | 
 **status** | **str** | State of the instance in the Private Network | 
+**region** | **str** | Region where the instance is located. | 
 **error_message** | **str** | Message in case of an error. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

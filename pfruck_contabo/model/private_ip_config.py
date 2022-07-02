@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.ip_v41 import IpV41
-    globals()['IpV41'] = IpV41
+    from pfruck_contabo.model.ip_v42 import IpV42
+    globals()['IpV42'] = IpV42
 
 
 class PrivateIpConfig(ModelNormal):
@@ -87,7 +87,7 @@ class PrivateIpConfig(ModelNormal):
         """
         lazy_import()
         return {
-            'v4': ([IpV41],),  # noqa: E501
+            'v4': ([IpV42],),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class PrivateIpConfig(ModelNormal):
         """PrivateIpConfig - a model defined in OpenAPI
 
         Args:
-            v4 ([IpV41]):
+            v4 ([IpV42]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class PrivateIpConfig(ModelNormal):
         """PrivateIpConfig - a model defined in OpenAPI
 
         Args:
-            v4 ([IpV41]):
+            v4 ([IpV42]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

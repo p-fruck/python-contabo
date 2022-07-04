@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.ip_v43 import IpV43
-    from pfruck_contabo.model.ip_v63 import IpV63
+    from pfruck_contabo.model.ip_v6 import IpV6
     globals()['IpV43'] = IpV43
-    globals()['IpV63'] = IpV63
+    globals()['IpV6'] = IpV6
 
 
 class IpConfig2(ModelNormal):
@@ -90,7 +90,7 @@ class IpConfig2(ModelNormal):
         lazy_import()
         return {
             'v4': (IpV43,),  # noqa: E501
-            'v6': (IpV63,),  # noqa: E501
+            'v6': (IpV6,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +115,7 @@ class IpConfig2(ModelNormal):
 
         Args:
             v4 (IpV43):
-            v6 (IpV63):
+            v6 (IpV6):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -206,7 +206,7 @@ class IpConfig2(ModelNormal):
 
         Args:
             v4 (IpV43):
-            v6 (IpV63):
+            v6 (IpV6):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

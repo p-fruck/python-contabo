@@ -42,7 +42,7 @@ class VIPApi(object):
                 'auth': [
                     'bearer'
                 ],
-                'endpoint_path': '/v1/vips/{vipId}',
+                'endpoint_path': '/v1/vips/{ip}',
                 'operation_id': 'retrieve_vip',
                 'http_method': 'GET',
                 'servers': None,
@@ -50,12 +50,12 @@ class VIPApi(object):
             params_map={
                 'all': [
                     'x_request_id',
-                    'vip_id',
+                    'ip',
                     'x_trace_id',
                 ],
                 'required': [
                     'x_request_id',
-                    'vip_id',
+                    'ip',
                 ],
                 'nullable': [
                 ],
@@ -79,19 +79,19 @@ class VIPApi(object):
                 'openapi_types': {
                     'x_request_id':
                         (str,),
-                    'vip_id':
+                    'ip':
                         (str,),
                     'x_trace_id':
                         (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
-                    'vip_id': 'vipId',
+                    'ip': 'ip',
                     'x_trace_id': 'x-trace-id',
                 },
                 'location_map': {
                     'x_request_id': 'header',
-                    'vip_id': 'path',
+                    'ip': 'path',
                     'x_trace_id': 'header',
                 },
                 'collection_format_map': {
@@ -128,6 +128,7 @@ class VIPApi(object):
                     'resource_name',
                     'resource_display_name',
                     'ip_version',
+                    'ips',
                     'ip',
                     'type',
                     'data_center',
@@ -161,18 +162,16 @@ class VIPApi(object):
 
                         "INSTANCE": "instance",
                         "BARE-METAL": "bare-metal",
-                        "NULL": "null",
-                        "FLOATING": "floating"
+                        "NULL": "null"
                     },
                     ('ip_version',): {
 
-                        "V4": "v4",
-                        "V6": "v6"
+                        "V4": "v4"
                     },
                     ('type',): {
 
-                        "FIXED": "fixed",
-                        "ADDITIONAL": "additional"
+                        "ADDITIONAL": "additional",
+                        "FLOATING": "floating"
                     },
                 },
                 'openapi_types': {
@@ -196,6 +195,8 @@ class VIPApi(object):
                         (str,),
                     'ip_version':
                         (str,),
+                    'ips':
+                        (str,),
                     'ip':
                         (str,),
                     'type':
@@ -216,6 +217,7 @@ class VIPApi(object):
                     'resource_name': 'resourceName',
                     'resource_display_name': 'resourceDisplayName',
                     'ip_version': 'ipVersion',
+                    'ips': 'ips',
                     'ip': 'ip',
                     'type': 'type',
                     'data_center': 'dataCenter',
@@ -232,6 +234,7 @@ class VIPApi(object):
                     'resource_name': 'query',
                     'resource_display_name': 'query',
                     'ip_version': 'query',
+                    'ips': 'query',
                     'ip': 'query',
                     'type': 'query',
                     'data_center': 'query',
@@ -253,21 +256,21 @@ class VIPApi(object):
     def retrieve_vip(
         self,
         x_request_id,
-        vip_id,
+        ip,
         **kwargs
     ):
-        """Get specific VIP by id  # noqa: E501
+        """Get specific VIP by ip  # noqa: E501
 
         Get attributes values to a specific VIP on your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.retrieve_vip(x_request_id, vip_id, async_req=True)
+        >>> thread = api.retrieve_vip(x_request_id, ip, async_req=True)
         >>> result = thread.get()
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            vip_id (str): The identifier of the VIP
+            ip (str): The ip of the VIP
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -334,8 +337,8 @@ class VIPApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['x_request_id'] = \
             x_request_id
-        kwargs['vip_id'] = \
-            vip_id
+        kwargs['ip'] = \
+            ip
         return self.retrieve_vip_endpoint.call_with_http_info(**kwargs)
 
     def retrieve_vip_list(
@@ -364,8 +367,9 @@ class VIPApi(object):
             resource_type (str): The resourceType using the VIP.. [optional]
             resource_name (str): The name of the resource.. [optional]
             resource_display_name (str): The display name of the resource.. [optional]
-            ip_version (str): The VIP version.. [optional]
-            ip (str): The ip of the VIP.. [optional]
+            ip_version (str): The VIP version.. [optional] if omitted the server will use the default value of "v4"
+            ips (str): Comma separated IPs. [optional]
+            ip (str): The ip of the VIP. [optional]
             type (str): The VIP type.. [optional]
             data_center (str): The dataCenter of the VIP.. [optional]
             region (str): The region of the VIP.. [optional]

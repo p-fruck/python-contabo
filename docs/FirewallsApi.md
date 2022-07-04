@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_firewall**](FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
 [**retrieve_firewall**](FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 [**retrieve_firewall_list**](FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
+[**set_default_firewall**](FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
 
 
 # **create_firewall**
@@ -397,6 +398,96 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The response will be a JSON object which will contain a paginated list of Firewalls. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_default_firewall**
+> SetDefaultFirewallResponse set_default_firewall(x_request_id, firewall_id)
+
+Set specific firewall to be default
+
+Set a specific firewall to be the default
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import firewalls_api
+from pfruck_contabo.model.set_default_firewall_response import SetDefaultFirewallResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = firewalls_api.FirewallsApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the firewall
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Set specific firewall to be default
+        api_response = api_instance.set_default_firewall(x_request_id, firewall_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling FirewallsApi->set_default_firewall: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Set specific firewall to be default
+        api_response = api_instance.set_default_firewall(x_request_id, firewall_id, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling FirewallsApi->set_default_firewall: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **firewall_id** | **str**| The identifier of the firewall |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+
+### Return type
+
+[**SetDefaultFirewallResponse**](SetDefaultFirewallResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response will be a JSON object which will contain a details of a firewall. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

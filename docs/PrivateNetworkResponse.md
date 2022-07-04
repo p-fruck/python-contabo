@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **customer_id** | **str** | Your customer number | 
 **private_network_id** | **int** | Private Network&#39;s id | 
 **data_center** | **str** | The data center where your Private Network is located | 
-**region** | **str** | The region where your Private Network is located | 
+**region** | **str** | The slug of the region where your Private Network is located | 
+**region_name** | **str** | The region where your Private Network is located | 
 **name** | **str** | The name of the Private Network | 
 **description** | **str** | The description of the Private Network | 
 **cidr** | **str** | The cidr range of the Private Network | 

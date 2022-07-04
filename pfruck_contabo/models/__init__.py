@@ -142,9 +142,6 @@ from pfruck_contabo.model.ip_v41 import IpV41
 from pfruck_contabo.model.ip_v42 import IpV42
 from pfruck_contabo.model.ip_v43 import IpV43
 from pfruck_contabo.model.ip_v6 import IpV6
-from pfruck_contabo.model.ip_v61 import IpV61
-from pfruck_contabo.model.ip_v62 import IpV62
-from pfruck_contabo.model.ip_v63 import IpV63
 from pfruck_contabo.model.ledger_entry_response import LedgerEntryResponse
 from pfruck_contabo.model.links import Links
 from pfruck_contabo.model.list_api_permission_response import ListApiPermissionResponse
@@ -242,6 +239,7 @@ from pfruck_contabo.model.rules import Rules
 from pfruck_contabo.model.secret_audit_response import SecretAuditResponse
 from pfruck_contabo.model.secret_response import SecretResponse
 from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.set_default_firewall_response import SetDefaultFirewallResponse
 from pfruck_contabo.model.snapshot_response import SnapshotResponse
 from pfruck_contabo.model.snapshots_audit_response import SnapshotsAuditResponse
 from pfruck_contabo.model.src_cidr import SrcCidr

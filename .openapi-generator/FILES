@@ -146,9 +146,6 @@ docs/IpV41.md
 docs/IpV42.md
 docs/IpV43.md
 docs/IpV6.md
-docs/IpV61.md
-docs/IpV62.md
-docs/IpV63.md
 docs/LedgerApi.md
 docs/LedgerEntryResponse.md
 docs/Links.md
@@ -256,6 +253,7 @@ docs/SecretResponse.md
 docs/SecretsApi.md
 docs/SecretsAuditsApi.md
 docs/SelfLinks.md
+docs/SetDefaultFirewallResponse.md
 docs/SnapshotResponse.md
 docs/SnapshotsApi.md
 docs/SnapshotsAuditResponse.md
@@ -479,9 +477,6 @@ pfruck_contabo/model/ip_v41.py
 pfruck_contabo/model/ip_v42.py
 pfruck_contabo/model/ip_v43.py
 pfruck_contabo/model/ip_v6.py
-pfruck_contabo/model/ip_v61.py
-pfruck_contabo/model/ip_v62.py
-pfruck_contabo/model/ip_v63.py
 pfruck_contabo/model/ledger_entry_response.py
 pfruck_contabo/model/links.py
 pfruck_contabo/model/list_api_permission_response.py
@@ -579,6 +574,7 @@ pfruck_contabo/model/rules.py
 pfruck_contabo/model/secret_audit_response.py
 pfruck_contabo/model/secret_response.py
 pfruck_contabo/model/self_links.py
+pfruck_contabo/model/set_default_firewall_response.py
 pfruck_contabo/model/snapshot_response.py
 pfruck_contabo/model/snapshots_audit_response.py
 pfruck_contabo/model/src_cidr.py
@@ -629,4 +625,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_set_default_firewall_response.py
 tox.ini

@@ -4,14 +4,14 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_vip**](VIPApi.md#retrieve_vip) | **GET** /v1/vips/{vipId} | Get specific VIP by id
+[**retrieve_vip**](VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 [**retrieve_vip_list**](VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
 
 
 # **retrieve_vip**
-> FindVipResponse retrieve_vip(x_request_id, vip_id)
+> FindVipResponse retrieve_vip(x_request_id, ip)
 
-Get specific VIP by id
+Get specific VIP by ip
 
 Get attributes values to a specific VIP on your account.
 
@@ -46,13 +46,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = vip_api.VIPApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    vip_id = "a846c6cc-731c-45dc-b653-bc8232e88d9c" # str | The identifier of the VIP
+    ip = "10.214.121.145" # str | The ip of the VIP
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Get specific VIP by id
-        api_response = api_instance.retrieve_vip(x_request_id, vip_id)
+        # Get specific VIP by ip
+        api_response = api_instance.retrieve_vip(x_request_id, ip)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling VIPApi->retrieve_vip: %s\n" % e)
@@ -60,8 +60,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get specific VIP by id
-        api_response = api_instance.retrieve_vip(x_request_id, vip_id, x_trace_id=x_trace_id)
+        # Get specific VIP by ip
+        api_response = api_instance.retrieve_vip(x_request_id, ip, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling VIPApi->retrieve_vip: %s\n" % e)
@@ -73,7 +73,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **vip_id** | **str**| The identifier of the VIP |
+ **ip** | **str**| The ip of the VIP |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -146,9 +146,10 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     resource_type = "instance" # str | The resourceType using the VIP. (optional)
     resource_name = "vmi100101" # str | The name of the resource. (optional)
     resource_display_name = "my instance" # str | The display name of the resource. (optional)
-    ip_version = "v4" # str | The VIP version. (optional)
-    ip = "192.168.1.1" # str | The ip of the VIP. (optional)
-    type = "fixed" # str | The VIP type. (optional)
+    ip_version = "v4" # str | The VIP version. (optional) if omitted the server will use the default value of "v4"
+    ips = "10.214.121.145, 10.214.121.1, 10.214.121.11" # str | Comma separated IPs (optional)
+    ip = "10.214.121.145" # str | The ip of the VIP (optional)
+    type = "additional" # str | The VIP type. (optional)
     data_center = "European Union (Germany) 3" # str | The dataCenter of the VIP. (optional)
     region = "European Union (Germany)" # str | The region of the VIP. (optional)
 
@@ -164,7 +165,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List VIPs
-        api_response = api_instance.retrieve_vip_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, resource_id=resource_id, resource_type=resource_type, resource_name=resource_name, resource_display_name=resource_display_name, ip_version=ip_version, ip=ip, type=type, data_center=data_center, region=region)
+        api_response = api_instance.retrieve_vip_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, resource_id=resource_id, resource_type=resource_type, resource_name=resource_name, resource_display_name=resource_display_name, ip_version=ip_version, ips=ips, ip=ip, type=type, data_center=data_center, region=region)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling VIPApi->retrieve_vip_list: %s\n" % e)
@@ -184,8 +185,9 @@ Name | Type | Description  | Notes
  **resource_type** | **str**| The resourceType using the VIP. | [optional]
  **resource_name** | **str**| The name of the resource. | [optional]
  **resource_display_name** | **str**| The display name of the resource. | [optional]
- **ip_version** | **str**| The VIP version. | [optional]
- **ip** | **str**| The ip of the VIP. | [optional]
+ **ip_version** | **str**| The VIP version. | [optional] if omitted the server will use the default value of "v4"
+ **ips** | **str**| Comma separated IPs | [optional]
+ **ip** | **str**| The ip of the VIP | [optional]
  **type** | **str**| The VIP type. | [optional]
  **data_center** | **str**| The dataCenter of the VIP. | [optional]
  **region** | **str**| The region of the VIP. | [optional]

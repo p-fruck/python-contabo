@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *FirewallsApi* | [**delete_firewall**](docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
 *FirewallsApi* | [**retrieve_firewall**](docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 *FirewallsApi* | [**retrieve_firewall_list**](docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
+*FirewallsApi* | [**set_default_firewall**](docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
 *FirewallsAuditsApi* | [**retrieve_firewall_audits_list**](docs/FirewallsAuditsApi.md#retrieve_firewall_audits_list) | **GET** /v1/firewalls/audits | List history about your Firewalls (audit)
 *ImagesApi* | [**create_custom_image**](docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
@@ -186,7 +187,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
-*VIPApi* | [**retrieve_vip**](docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{vipId} | Get specific VIP by id
+*VIPApi* | [**retrieve_vip**](docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 *VIPApi* | [**retrieve_vip_list**](docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
 *ZeropsApi* | [**retrieve_zerops_user**](docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
 *ZeropsApi* | [**sign_in_zerops**](docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
@@ -327,9 +328,6 @@ Class | Method | HTTP request | Description
  - [IpV42](docs/IpV42.md)
  - [IpV43](docs/IpV43.md)
  - [IpV6](docs/IpV6.md)
- - [IpV61](docs/IpV61.md)
- - [IpV62](docs/IpV62.md)
- - [IpV63](docs/IpV63.md)
  - [LedgerEntryResponse](docs/LedgerEntryResponse.md)
  - [Links](docs/Links.md)
  - [ListApiPermissionResponse](docs/ListApiPermissionResponse.md)
@@ -427,6 +425,7 @@ Class | Method | HTTP request | Description
  - [SecretAuditResponse](docs/SecretAuditResponse.md)
  - [SecretResponse](docs/SecretResponse.md)
  - [SelfLinks](docs/SelfLinks.md)
+ - [SetDefaultFirewallResponse](docs/SetDefaultFirewallResponse.md)
  - [SnapshotResponse](docs/SnapshotResponse.md)
  - [SnapshotsAuditResponse](docs/SnapshotsAuditResponse.md)
  - [SrcCidr](docs/SrcCidr.md)

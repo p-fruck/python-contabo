@@ -31,9 +31,7 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.ip_v4 import IpV4
-    from pfruck_contabo.model.ip_v6 import IpV6
     globals()['IpV4'] = IpV4
-    globals()['IpV6'] = IpV6
 
 
 class VipResponse(ModelNormal):
@@ -63,11 +61,15 @@ class VipResponse(ModelNormal):
     allowed_values = {
         ('ip_version',): {
             'V4': "v4",
-            'V6': "v6",
+        },
+        ('resource_type',): {
+            'INSTANCE': "instance",
+            'BARE-METAL': "bare-metal",
+            'NULL': "null",
         },
         ('type',): {
-            'FIXED': "fixed",
             'ADDITIONAL': "additional",
+            'FLOATING': "floating",
         },
     }
 
@@ -109,13 +111,12 @@ class VipResponse(ModelNormal):
             'data_center': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'resource_id': (str,),  # noqa: E501
-            'resource_type': (str,),  # noqa: E501
             'resource_name': (str,),  # noqa: E501
             'resource_display_name': (str,),  # noqa: E501
             'ip_version': (str,),  # noqa: E501
+            'resource_type': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'v4': (IpV4,),  # noqa: E501
-            'v6': (IpV6,),  # noqa: E501
         }
 
     @cached_property
@@ -130,13 +131,12 @@ class VipResponse(ModelNormal):
         'data_center': 'dataCenter',  # noqa: E501
         'region': 'region',  # noqa: E501
         'resource_id': 'resourceId',  # noqa: E501
-        'resource_type': 'resourceType',  # noqa: E501
         'resource_name': 'resourceName',  # noqa: E501
         'resource_display_name': 'resourceDisplayName',  # noqa: E501
         'ip_version': 'ipVersion',  # noqa: E501
+        'resource_type': 'resourceType',  # noqa: E501
         'type': 'type',  # noqa: E501
         'v4': 'v4',  # noqa: E501
-        'v6': 'v6',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,7 +146,7 @@ class VipResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, vip_id, data_center, region, resource_id, resource_type, resource_name, resource_display_name, ip_version, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, vip_id, data_center, region, resource_id, resource_name, resource_display_name, *args, **kwargs):  # noqa: E501
         """VipResponse - a model defined in OpenAPI
 
         Args:
@@ -156,13 +156,11 @@ class VipResponse(ModelNormal):
             data_center (str): data center.
             region (str): Region
             resource_id (str): Resource Id.
-            resource_type (str): Resource type.
             resource_name (str): Resource name.
             resource_display_name (str): Resource display name.
-            ip_version (str): Version of Ip.
-            type (str): Type of Ip.
 
         Keyword Args:
+            ip_version (str): Version of Ip.. defaults to "v4", must be one of ["v4", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -193,10 +191,12 @@ class VipResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            resource_type (str): The resourceType using the VIP.. [optional]  # noqa: E501
+            type (str): The VIP type.. [optional]  # noqa: E501
             v4 (IpV4): [optional]  # noqa: E501
-            v6 (IpV6): [optional]  # noqa: E501
         """
 
+        ip_version = kwargs.get('ip_version', "v4")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -232,11 +232,9 @@ class VipResponse(ModelNormal):
         self.data_center = data_center
         self.region = region
         self.resource_id = resource_id
-        self.resource_type = resource_type
         self.resource_name = resource_name
         self.resource_display_name = resource_display_name
         self.ip_version = ip_version
-        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -257,7 +255,7 @@ class VipResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, vip_id, data_center, region, resource_id, resource_type, resource_name, resource_display_name, ip_version, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, vip_id, data_center, region, resource_id, resource_name, resource_display_name, *args, **kwargs):  # noqa: E501
         """VipResponse - a model defined in OpenAPI
 
         Args:
@@ -267,13 +265,11 @@ class VipResponse(ModelNormal):
             data_center (str): data center.
             region (str): Region
             resource_id (str): Resource Id.
-            resource_type (str): Resource type.
             resource_name (str): Resource name.
             resource_display_name (str): Resource display name.
-            ip_version (str): Version of Ip.
-            type (str): Type of Ip.
 
         Keyword Args:
+            ip_version (str): Version of Ip.. defaults to "v4", must be one of ["v4", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -304,10 +300,12 @@ class VipResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            resource_type (str): The resourceType using the VIP.. [optional]  # noqa: E501
+            type (str): The VIP type.. [optional]  # noqa: E501
             v4 (IpV4): [optional]  # noqa: E501
-            v6 (IpV6): [optional]  # noqa: E501
         """
 
+        ip_version = kwargs.get('ip_version', "v4")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -341,11 +339,9 @@ class VipResponse(ModelNormal):
         self.data_center = data_center
         self.region = region
         self.resource_id = resource_id
-        self.resource_type = resource_type
         self.resource_name = resource_name
         self.resource_display_name = resource_display_name
         self.ip_version = ip_version
-        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

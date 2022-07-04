@@ -98,6 +98,7 @@ class ListPrivateNetworkResponseData(ModelNormal):
             'private_network_id': (int,),  # noqa: E501
             'data_center': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
+            'region_name': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'cidr': (str,),  # noqa: E501
@@ -117,6 +118,7 @@ class ListPrivateNetworkResponseData(ModelNormal):
         'private_network_id': 'privateNetworkId',  # noqa: E501
         'data_center': 'dataCenter',  # noqa: E501
         'region': 'region',  # noqa: E501
+        'region_name': 'regionName',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'cidr': 'cidr',  # noqa: E501
@@ -132,7 +134,7 @@ class ListPrivateNetworkResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, private_network_id, data_center, region, name, description, cidr, available_ips, created_date, instances, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, private_network_id, data_center, region, region_name, name, description, cidr, available_ips, created_date, instances, *args, **kwargs):  # noqa: E501
         """ListPrivateNetworkResponseData - a model defined in OpenAPI
 
         Args:
@@ -140,7 +142,8 @@ class ListPrivateNetworkResponseData(ModelNormal):
             customer_id (str): Your customer number
             private_network_id (int): Private Network's id
             data_center (str): The data center where your Private Network is located
-            region (str): The region where your Private Network is located
+            region (str): The slug of the region where your Private Network is located
+            region_name (str): The region where your Private Network is located
             name (str): The name of the Private Network
             description (str): The description of the Private Network
             cidr (str): The cidr range of the Private Network
@@ -215,6 +218,7 @@ class ListPrivateNetworkResponseData(ModelNormal):
         self.private_network_id = private_network_id
         self.data_center = data_center
         self.region = region
+        self.region_name = region_name
         self.name = name
         self.description = description
         self.cidr = cidr
@@ -241,7 +245,7 @@ class ListPrivateNetworkResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, private_network_id, data_center, region, name, description, cidr, available_ips, created_date, instances, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, private_network_id, data_center, region, region_name, name, description, cidr, available_ips, created_date, instances, *args, **kwargs):  # noqa: E501
         """ListPrivateNetworkResponseData - a model defined in OpenAPI
 
         Args:
@@ -249,7 +253,8 @@ class ListPrivateNetworkResponseData(ModelNormal):
             customer_id (str): Your customer number
             private_network_id (int): Private Network's id
             data_center (str): The data center where your Private Network is located
-            region (str): The region where your Private Network is located
+            region (str): The slug of the region where your Private Network is located
+            region_name (str): The region where your Private Network is located
             name (str): The name of the Private Network
             description (str): The description of the Private Network
             cidr (str): The cidr range of the Private Network
@@ -322,6 +327,7 @@ class ListPrivateNetworkResponseData(ModelNormal):
         self.private_network_id = private_network_id
         self.data_center = data_center
         self.region = region
+        self.region_name = region_name
         self.name = name
         self.description = description
         self.cidr = cidr

@@ -631,7 +631,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_additional_ip.py
-test/test_patch_firewall_request.py
-test/test_patch_firewall_response.py
 tox.ini

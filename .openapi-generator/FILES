@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 docs/AddOnResponse.md
+docs/AdditionalIp.md
 docs/ApiPermissionsResponse.md
 docs/AssignInstancePrivateNetworkResponse.md
 docs/AssignInstancePrivateNetworkResponseLinks.md
@@ -222,6 +223,8 @@ docs/ObjectStoragesStatsResponse.md
 docs/ObjectStoragesStatsResponseData.md
 docs/ObjectStoragesStatsResponseLinks.md
 docs/PaginationMeta.md
+docs/PatchFirewallRequest.md
+docs/PatchFirewallResponse.md
 docs/PatchInstanceRequest.md
 docs/PatchInstanceResponse.md
 docs/PatchInstanceResponseData.md
@@ -345,6 +348,7 @@ pfruck_contabo/configuration.py
 pfruck_contabo/exceptions.py
 pfruck_contabo/model/__init__.py
 pfruck_contabo/model/add_on_response.py
+pfruck_contabo/model/additional_ip.py
 pfruck_contabo/model/api_permissions_response.py
 pfruck_contabo/model/assign_instance_private_network_response.py
 pfruck_contabo/model/assign_instance_private_network_response_links.py
@@ -550,6 +554,8 @@ pfruck_contabo/model/object_storages_stats_response.py
 pfruck_contabo/model/object_storages_stats_response_data.py
 pfruck_contabo/model/object_storages_stats_response_links.py
 pfruck_contabo/model/pagination_meta.py
+pfruck_contabo/model/patch_firewall_request.py
+pfruck_contabo/model/patch_firewall_response.py
 pfruck_contabo/model/patch_instance_request.py
 pfruck_contabo/model/patch_instance_response.py
 pfruck_contabo/model/patch_instance_response_data.py
@@ -625,4 +631,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_additional_ip.py
+test/test_patch_firewall_request.py
+test/test_patch_firewall_response.py
 tox.ini

@@ -10,6 +10,7 @@
 # sys.setrecursionlimit(n)
 
 from pfruck_contabo.model.add_on_response import AddOnResponse
+from pfruck_contabo.model.additional_ip import AdditionalIp
 from pfruck_contabo.model.api_permissions_response import ApiPermissionsResponse
 from pfruck_contabo.model.assign_instance_private_network_response import AssignInstancePrivateNetworkResponse
 from pfruck_contabo.model.assign_instance_private_network_response_links import AssignInstancePrivateNetworkResponseLinks
@@ -215,6 +216,8 @@ from pfruck_contabo.model.object_storages_stats_response import ObjectStoragesSt
 from pfruck_contabo.model.object_storages_stats_response_data import ObjectStoragesStatsResponseData
 from pfruck_contabo.model.object_storages_stats_response_links import ObjectStoragesStatsResponseLinks
 from pfruck_contabo.model.pagination_meta import PaginationMeta
+from pfruck_contabo.model.patch_firewall_request import PatchFirewallRequest
+from pfruck_contabo.model.patch_firewall_response import PatchFirewallResponse
 from pfruck_contabo.model.patch_instance_request import PatchInstanceRequest
 from pfruck_contabo.model.patch_instance_response import PatchInstanceResponse
 from pfruck_contabo.model.patch_instance_response_data import PatchInstanceResponseData

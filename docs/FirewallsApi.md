@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_firewall**](FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
 [**delete_firewall**](FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
+[**patch_firewall**](FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
 [**retrieve_firewall**](FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 [**retrieve_firewall_list**](FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
 [**set_default_firewall**](FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
@@ -210,6 +211,103 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Response body has no content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **patch_firewall**
+> PatchFirewallResponse patch_firewall(x_request_id, firewall_id, patch_firewall_request)
+
+Update a Firewall by id
+
+Update a Firewall by id in your account.
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import firewalls_api
+from pfruck_contabo.model.patch_firewall_response import PatchFirewallResponse
+from pfruck_contabo.model.patch_firewall_request import PatchFirewallRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = firewalls_api.FirewallsApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the firewall
+    patch_firewall_request = PatchFirewallRequest(
+        name="My Firewall",
+        status="active",
+        description="Firewall description",
+    ) # PatchFirewallRequest | 
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a Firewall by id
+        api_response = api_instance.patch_firewall(x_request_id, firewall_id, patch_firewall_request)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling FirewallsApi->patch_firewall: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update a Firewall by id
+        api_response = api_instance.patch_firewall(x_request_id, firewall_id, patch_firewall_request, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling FirewallsApi->patch_firewall: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **firewall_id** | **str**| The identifier of the firewall |
+ **patch_firewall_request** | [**PatchFirewallRequest**](PatchFirewallRequest.md)|  |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+
+### Return type
+
+[**PatchFirewallResponse**](PatchFirewallResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response will be a JSON object and contains standard Firewall attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

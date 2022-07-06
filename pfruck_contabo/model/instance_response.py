@@ -31,9 +31,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.add_on_response import AddOnResponse
+    from pfruck_contabo.model.additional_ip import AdditionalIp
     from pfruck_contabo.model.instance_status import InstanceStatus
     from pfruck_contabo.model.ip_config2 import IpConfig2
     globals()['AddOnResponse'] = AddOnResponse
+    globals()['AdditionalIp'] = AdditionalIp
     globals()['InstanceStatus'] = InstanceStatus
     globals()['IpConfig2'] = IpConfig2
 
@@ -121,6 +123,7 @@ class InstanceResponse(ModelNormal):
         return {
             'tenant_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
+            'additional_ips': ([AdditionalIp],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'instance_id': (int,),  # noqa: E501
@@ -152,6 +155,7 @@ class InstanceResponse(ModelNormal):
     attribute_map = {
         'tenant_id': 'tenantId',  # noqa: E501
         'customer_id': 'customerId',  # noqa: E501
+        'additional_ips': 'additionalIps',  # noqa: E501
         'name': 'name',  # noqa: E501
         'display_name': 'displayName',  # noqa: E501
         'instance_id': 'instanceId',  # noqa: E501
@@ -182,12 +186,13 @@ class InstanceResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
         """InstanceResponse - a model defined in OpenAPI
 
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Customer ID
+            additional_ips ([AdditionalIp]):
             name (str): Instance Name
             display_name (str): Instance display name
             instance_id (int): Instance ID
@@ -274,6 +279,7 @@ class InstanceResponse(ModelNormal):
 
         self.tenant_id = tenant_id
         self.customer_id = customer_id
+        self.additional_ips = additional_ips
         self.name = name
         self.display_name = display_name
         self.instance_id = instance_id
@@ -313,12 +319,13 @@ class InstanceResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
         """InstanceResponse - a model defined in OpenAPI
 
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Customer ID
+            additional_ips ([AdditionalIp]):
             name (str): Instance Name
             display_name (str): Instance display name
             instance_id (int): Instance ID
@@ -403,6 +410,7 @@ class InstanceResponse(ModelNormal):
 
         self.tenant_id = tenant_id
         self.customer_id = customer_id
+        self.additional_ips = additional_ips
         self.name = name
         self.display_name = display_name
         self.instance_id = instance_id

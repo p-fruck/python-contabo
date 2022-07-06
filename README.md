@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**retrieve_payment_method**](docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
 *FirewallsApi* | [**create_firewall**](docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
 *FirewallsApi* | [**delete_firewall**](docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
+*FirewallsApi* | [**patch_firewall**](docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
 *FirewallsApi* | [**retrieve_firewall**](docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 *FirewallsApi* | [**retrieve_firewall_list**](docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
 *FirewallsApi* | [**set_default_firewall**](docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
@@ -196,6 +197,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AddOnResponse](docs/AddOnResponse.md)
+ - [AdditionalIp](docs/AdditionalIp.md)
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
  - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](docs/AssignInstancePrivateNetworkResponseLinks.md)
@@ -401,6 +403,8 @@ Class | Method | HTTP request | Description
  - [ObjectStoragesStatsResponseData](docs/ObjectStoragesStatsResponseData.md)
  - [ObjectStoragesStatsResponseLinks](docs/ObjectStoragesStatsResponseLinks.md)
  - [PaginationMeta](docs/PaginationMeta.md)
+ - [PatchFirewallRequest](docs/PatchFirewallRequest.md)
+ - [PatchFirewallResponse](docs/PatchFirewallResponse.md)
  - [PatchInstanceRequest](docs/PatchInstanceRequest.md)
  - [PatchInstanceResponse](docs/PatchInstanceResponse.md)
  - [PatchInstanceResponseData](docs/PatchInstanceResponseData.md)

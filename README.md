@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *FirewallsApi* | [**create_firewall**](docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
 *FirewallsApi* | [**delete_firewall**](docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
 *FirewallsApi* | [**patch_firewall**](docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
+*FirewallsApi* | [**put_firewall**](docs/FirewallsApi.md#put_firewall) | **PUT** /v1/firewalls/{firewallId} | Update specific firewall rules
 *FirewallsApi* | [**retrieve_firewall**](docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 *FirewallsApi* | [**retrieve_firewall_list**](docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
 *FirewallsApi* | [**set_default_firewall**](docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
@@ -137,6 +138,7 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**upgrade_object_storage**](docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
 *PaymentMethodsApi* | [**retrieve_payment_method_list**](docs/PaymentMethodsApi.md#retrieve_payment_method_list) | **GET** /v1/payment-methods | List payment methods
+*PresetRulesApi* | [**retrieve_preset_rules**](docs/PresetRulesApi.md#retrieve_preset_rules) | **GET** /v1/firewalls/preset-rules | Get all preset rules
 *PrivateNetworksApi* | [**assign_instance_private_network**](docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Private Network
 *PrivateNetworksApi* | [**create_private_network**](docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new Private Network
 *PrivateNetworksApi* | [**delete_private_network**](docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing Private Network by id
@@ -367,6 +369,8 @@ Class | Method | HTTP request | Description
  - [ListPaymentMethodResponse1](docs/ListPaymentMethodResponse1.md)
  - [ListPaymentMethodResponse1Links](docs/ListPaymentMethodResponse1Links.md)
  - [ListPaymentMethodResponseLinks](docs/ListPaymentMethodResponseLinks.md)
+ - [ListPresetRulesResponse](docs/ListPresetRulesResponse.md)
+ - [ListPresetRulesResponseLinks](docs/ListPresetRulesResponseLinks.md)
  - [ListPrivateNetworkAuditResponse](docs/ListPrivateNetworkAuditResponse.md)
  - [ListPrivateNetworkAuditResponseLinks](docs/ListPrivateNetworkAuditResponseLinks.md)
  - [ListPrivateNetworkResponse](docs/ListPrivateNetworkResponse.md)
@@ -415,9 +419,12 @@ Class | Method | HTTP request | Description
  - [PaymentMethodResponse1](docs/PaymentMethodResponse1.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
+ - [PresetRulesResponse](docs/PresetRulesResponse.md)
  - [PrivateIpConfig](docs/PrivateIpConfig.md)
  - [PrivateNetworkAuditResponse](docs/PrivateNetworkAuditResponse.md)
  - [PrivateNetworkResponse](docs/PrivateNetworkResponse.md)
+ - [PutFirewallRequest](docs/PutFirewallRequest.md)
+ - [PutFirewallResponse](docs/PutFirewallResponse.md)
  - [ReinstallInstanceRequest](docs/ReinstallInstanceRequest.md)
  - [ReinstallInstanceResponse](docs/ReinstallInstanceResponse.md)
  - [ReinstallInstanceResponseData](docs/ReinstallInstanceResponseData.md)

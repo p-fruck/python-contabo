@@ -643,10 +643,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_list_preset_rules_response.py
-test/test_list_preset_rules_response_links.py
-test/test_preset_rules_api.py
-test/test_preset_rules_response.py
-test/test_put_firewall_request.py
-test/test_put_firewall_response.py
 tox.ini

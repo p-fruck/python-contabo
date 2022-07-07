@@ -29,6 +29,7 @@ from pfruck_contabo.api.ledger_api import LedgerApi
 from pfruck_contabo.api.object_storages_api import ObjectStoragesApi
 from pfruck_contabo.api.object_storages_audits_api import ObjectStoragesAuditsApi
 from pfruck_contabo.api.payment_methods_api import PaymentMethodsApi
+from pfruck_contabo.api.preset_rules_api import PresetRulesApi
 from pfruck_contabo.api.private_networks_api import PrivateNetworksApi
 from pfruck_contabo.api.private_networks_audits_api import PrivateNetworksAuditsApi
 from pfruck_contabo.api.roles_api import RolesApi

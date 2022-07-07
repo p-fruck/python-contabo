@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
 *FirewallsApi* | [**create_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
 *FirewallsApi* | [**delete_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
 *FirewallsApi* | [**patch_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
+*FirewallsApi* | [**put_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#put_firewall) | **PUT** /v1/firewalls/{firewallId} | Update specific firewall rules
 *FirewallsApi* | [**retrieve_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 *FirewallsApi* | [**retrieve_firewall_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
 *FirewallsApi* | [**set_default_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
@@ -176,6 +177,7 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**upgrade_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
 *PaymentMethodsApi* | [**retrieve_payment_method_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodsApi.md#retrieve_payment_method_list) | **GET** /v1/payment-methods | List payment methods
+*PresetRulesApi* | [**retrieve_preset_rules**](https://github.com/p-fruck/python-contabo/blob/main/docs/PresetRulesApi.md#retrieve_preset_rules) | **GET** /v1/firewalls/preset-rules | Get all preset rules
 *PrivateNetworksApi* | [**assign_instance_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#assign_instance_private_network) | **POST** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Private Network
 *PrivateNetworksApi* | [**create_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#create_private_network) | **POST** /v1/private-networks | Create a new Private Network
 *PrivateNetworksApi* | [**delete_private_network**](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworksApi.md#delete_private_network) | **DELETE** /v1/private-networks/{privateNetworkId} | Delete existing Private Network by id
@@ -406,6 +408,8 @@ Class | Method | HTTP request | Description
  - [ListPaymentMethodResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponse1.md)
  - [ListPaymentMethodResponse1Links](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponse1Links.md)
  - [ListPaymentMethodResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPaymentMethodResponseLinks.md)
+ - [ListPresetRulesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPresetRulesResponse.md)
+ - [ListPresetRulesResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPresetRulesResponseLinks.md)
  - [ListPrivateNetworkAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPrivateNetworkAuditResponse.md)
  - [ListPrivateNetworkAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPrivateNetworkAuditResponseLinks.md)
  - [ListPrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListPrivateNetworkResponse.md)
@@ -454,9 +458,12 @@ Class | Method | HTTP request | Description
  - [PaymentMethodResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodResponse1.md)
  - [PermissionRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PermissionRequest.md)
  - [PermissionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PermissionResponse.md)
+ - [PresetRulesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PresetRulesResponse.md)
  - [PrivateIpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateIpConfig.md)
  - [PrivateNetworkAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworkAuditResponse.md)
  - [PrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PrivateNetworkResponse.md)
+ - [PutFirewallRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PutFirewallRequest.md)
+ - [PutFirewallResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PutFirewallResponse.md)
  - [ReinstallInstanceRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/ReinstallInstanceRequest.md)
  - [ReinstallInstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ReinstallInstanceResponse.md)
  - [ReinstallInstanceResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ReinstallInstanceResponseData.md)

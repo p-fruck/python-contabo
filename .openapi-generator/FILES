@@ -185,6 +185,8 @@ docs/ListPaymentMethodResponse.md
 docs/ListPaymentMethodResponse1.md
 docs/ListPaymentMethodResponse1Links.md
 docs/ListPaymentMethodResponseLinks.md
+docs/ListPresetRulesResponse.md
+docs/ListPresetRulesResponseLinks.md
 docs/ListPrivateNetworkAuditResponse.md
 docs/ListPrivateNetworkAuditResponseLinks.md
 docs/ListPrivateNetworkResponse.md
@@ -236,11 +238,15 @@ docs/PaymentMethodResponse1.md
 docs/PaymentMethodsApi.md
 docs/PermissionRequest.md
 docs/PermissionResponse.md
+docs/PresetRulesApi.md
+docs/PresetRulesResponse.md
 docs/PrivateIpConfig.md
 docs/PrivateNetworkAuditResponse.md
 docs/PrivateNetworkResponse.md
 docs/PrivateNetworksApi.md
 docs/PrivateNetworksAuditsApi.md
+docs/PutFirewallRequest.md
+docs/PutFirewallResponse.md
 docs/ReinstallInstanceRequest.md
 docs/ReinstallInstanceResponse.md
 docs/ReinstallInstanceResponseData.md
@@ -326,6 +332,7 @@ pfruck_contabo/api/ledger_api.py
 pfruck_contabo/api/object_storages_api.py
 pfruck_contabo/api/object_storages_audits_api.py
 pfruck_contabo/api/payment_methods_api.py
+pfruck_contabo/api/preset_rules_api.py
 pfruck_contabo/api/private_networks_api.py
 pfruck_contabo/api/private_networks_audits_api.py
 pfruck_contabo/api/roles_api.py
@@ -518,6 +525,8 @@ pfruck_contabo/model/list_payment_method_response.py
 pfruck_contabo/model/list_payment_method_response1.py
 pfruck_contabo/model/list_payment_method_response1_links.py
 pfruck_contabo/model/list_payment_method_response_links.py
+pfruck_contabo/model/list_preset_rules_response.py
+pfruck_contabo/model/list_preset_rules_response_links.py
 pfruck_contabo/model/list_private_network_audit_response.py
 pfruck_contabo/model/list_private_network_audit_response_links.py
 pfruck_contabo/model/list_private_network_response.py
@@ -566,9 +575,12 @@ pfruck_contabo/model/payment_method_response.py
 pfruck_contabo/model/payment_method_response1.py
 pfruck_contabo/model/permission_request.py
 pfruck_contabo/model/permission_response.py
+pfruck_contabo/model/preset_rules_response.py
 pfruck_contabo/model/private_ip_config.py
 pfruck_contabo/model/private_network_audit_response.py
 pfruck_contabo/model/private_network_response.py
+pfruck_contabo/model/put_firewall_request.py
+pfruck_contabo/model/put_firewall_response.py
 pfruck_contabo/model/reinstall_instance_request.py
 pfruck_contabo/model/reinstall_instance_response.py
 pfruck_contabo/model/reinstall_instance_response_data.py
@@ -631,4 +643,10 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_list_preset_rules_response.py
+test/test_list_preset_rules_response_links.py
+test/test_preset_rules_api.py
+test/test_preset_rules_response.py
+test/test_put_firewall_request.py
+test/test_put_firewall_response.py
 tox.ini

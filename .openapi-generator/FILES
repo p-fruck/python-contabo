@@ -651,8 +651,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_assign_instance_firewall_response.py
-test/test_assign_instance_firewall_response_links.py
-test/test_instance_assignment_self_links1.py
-test/test_unassign_instance_firewall_response.py
 tox.ini

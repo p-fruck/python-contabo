@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CustomerApi* | [**retrieve_customer**](docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
 *CustomerApi* | [**retrieve_payment_method**](docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
+*FirewallsApi* | [**assign_instance_firewall**](docs/FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a Firewall
 *FirewallsApi* | [**create_firewall**](docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
 *FirewallsApi* | [**delete_firewall**](docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
 *FirewallsApi* | [**patch_firewall**](docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
@@ -103,6 +104,7 @@ Class | Method | HTTP request | Description
 *FirewallsApi* | [**retrieve_firewall**](docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 *FirewallsApi* | [**retrieve_firewall_list**](docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
 *FirewallsApi* | [**set_default_firewall**](docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
+*FirewallsApi* | [**unassign_instance_firewall**](docs/FirewallsApi.md#unassign_instance_firewall) | **DELETE** /v1/firewalls/{firewallId}/instances/{instanceId} | Remove instance from a Firewall
 *FirewallsAuditsApi* | [**retrieve_firewall_audits_list**](docs/FirewallsAuditsApi.md#retrieve_firewall_audits_list) | **GET** /v1/firewalls/audits | List history about your Firewalls (audit)
 *ImagesApi* | [**create_custom_image**](docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
@@ -201,6 +203,8 @@ Class | Method | HTTP request | Description
  - [AddOnResponse](docs/AddOnResponse.md)
  - [AdditionalIp](docs/AdditionalIp.md)
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
+ - [AssignInstanceFirewallResponse](docs/AssignInstanceFirewallResponse.md)
+ - [AssignInstanceFirewallResponseLinks](docs/AssignInstanceFirewallResponseLinks.md)
  - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](docs/AssignInstancePrivateNetworkResponseLinks.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
@@ -305,6 +309,7 @@ Class | Method | HTTP request | Description
  - [ImageResponse](docs/ImageResponse.md)
  - [InboundRule](docs/InboundRule.md)
  - [InstanceAssignmentSelfLinks](docs/InstanceAssignmentSelfLinks.md)
+ - [InstanceAssignmentSelfLinks1](docs/InstanceAssignmentSelfLinks1.md)
  - [InstanceDetails](docs/InstanceDetails.md)
  - [InstanceResponse](docs/InstanceResponse.md)
  - [InstanceRestartActionResponse](docs/InstanceRestartActionResponse.md)
@@ -444,6 +449,7 @@ Class | Method | HTTP request | Description
  - [TagAuditResponse](docs/TagAuditResponse.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagResponse1](docs/TagResponse1.md)
+ - [UnassignInstanceFirewallResponse](docs/UnassignInstanceFirewallResponse.md)
  - [UnassignInstancePrivateNetworkResponse](docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)

@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CustomerApi* | [**retrieve_customer**](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
 *CustomerApi* | [**retrieve_payment_method**](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
+*FirewallsApi* | [**assign_instance_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a Firewall
 *FirewallsApi* | [**create_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
 *FirewallsApi* | [**delete_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
 *FirewallsApi* | [**patch_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
@@ -142,6 +143,7 @@ Class | Method | HTTP request | Description
 *FirewallsApi* | [**retrieve_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
 *FirewallsApi* | [**retrieve_firewall_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
 *FirewallsApi* | [**set_default_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
+*FirewallsApi* | [**unassign_instance_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#unassign_instance_firewall) | **DELETE** /v1/firewalls/{firewallId}/instances/{instanceId} | Remove instance from a Firewall
 *FirewallsAuditsApi* | [**retrieve_firewall_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsAuditsApi.md#retrieve_firewall_audits_list) | **GET** /v1/firewalls/audits | List history about your Firewalls (audit)
 *ImagesApi* | [**create_custom_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id
@@ -240,6 +242,8 @@ Class | Method | HTTP request | Description
  - [AddOnResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnResponse.md)
  - [AdditionalIp](https://github.com/p-fruck/python-contabo/blob/main/docs/AdditionalIp.md)
  - [ApiPermissionsResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ApiPermissionsResponse.md)
+ - [AssignInstanceFirewallResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstanceFirewallResponse.md)
+ - [AssignInstanceFirewallResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstanceFirewallResponseLinks.md)
  - [AssignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponseLinks.md)
  - [AssignmentAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentAuditResponse.md)
@@ -344,6 +348,7 @@ Class | Method | HTTP request | Description
  - [ImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ImageResponse.md)
  - [InboundRule](https://github.com/p-fruck/python-contabo/blob/main/docs/InboundRule.md)
  - [InstanceAssignmentSelfLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceAssignmentSelfLinks.md)
+ - [InstanceAssignmentSelfLinks1](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceAssignmentSelfLinks1.md)
  - [InstanceDetails](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceDetails.md)
  - [InstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceResponse.md)
  - [InstanceRestartActionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceRestartActionResponse.md)
@@ -483,6 +488,7 @@ Class | Method | HTTP request | Description
  - [TagAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAuditResponse.md)
  - [TagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse.md)
  - [TagResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse1.md)
+ - [UnassignInstanceFirewallResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignInstanceFirewallResponse.md)
  - [UnassignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponse.md)

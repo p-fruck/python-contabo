@@ -5,6 +5,8 @@ README.md
 docs/AddOnResponse.md
 docs/AdditionalIp.md
 docs/ApiPermissionsResponse.md
+docs/AssignInstanceFirewallResponse.md
+docs/AssignInstanceFirewallResponseLinks.md
 docs/AssignInstancePrivateNetworkResponse.md
 docs/AssignInstancePrivateNetworkResponseLinks.md
 docs/AssignmentAuditResponse.md
@@ -116,6 +118,7 @@ docs/InboundRule.md
 docs/InstanceActionsApi.md
 docs/InstanceActionsAuditsApi.md
 docs/InstanceAssignmentSelfLinks.md
+docs/InstanceAssignmentSelfLinks1.md
 docs/InstanceDetails.md
 docs/InstanceResponse.md
 docs/InstanceRestartActionResponse.md
@@ -276,6 +279,7 @@ docs/TagResponse.md
 docs/TagResponse1.md
 docs/TagsApi.md
 docs/TagsAuditsApi.md
+docs/UnassignInstanceFirewallResponse.md
 docs/UnassignInstancePrivateNetworkResponse.md
 docs/UpdateCustomImageRequest.md
 docs/UpdateCustomImageResponse.md
@@ -357,6 +361,8 @@ pfruck_contabo/model/__init__.py
 pfruck_contabo/model/add_on_response.py
 pfruck_contabo/model/additional_ip.py
 pfruck_contabo/model/api_permissions_response.py
+pfruck_contabo/model/assign_instance_firewall_response.py
+pfruck_contabo/model/assign_instance_firewall_response_links.py
 pfruck_contabo/model/assign_instance_private_network_response.py
 pfruck_contabo/model/assign_instance_private_network_response_links.py
 pfruck_contabo/model/assignment_audit_response.py
@@ -461,6 +467,7 @@ pfruck_contabo/model/image_audit_response_links.py
 pfruck_contabo/model/image_response.py
 pfruck_contabo/model/inbound_rule.py
 pfruck_contabo/model/instance_assignment_self_links.py
+pfruck_contabo/model/instance_assignment_self_links1.py
 pfruck_contabo/model/instance_details.py
 pfruck_contabo/model/instance_response.py
 pfruck_contabo/model/instance_restart_action_response.py
@@ -600,6 +607,7 @@ pfruck_contabo/model/tag_assignment_self_links.py
 pfruck_contabo/model/tag_audit_response.py
 pfruck_contabo/model/tag_response.py
 pfruck_contabo/model/tag_response1.py
+pfruck_contabo/model/unassign_instance_firewall_response.py
 pfruck_contabo/model/unassign_instance_private_network_response.py
 pfruck_contabo/model/update_custom_image_request.py
 pfruck_contabo/model/update_custom_image_response.py
@@ -643,4 +651,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_assign_instance_firewall_response.py
+test/test_assign_instance_firewall_response_links.py
+test/test_instance_assignment_self_links1.py
+test/test_unassign_instance_firewall_response.py
 tox.ini

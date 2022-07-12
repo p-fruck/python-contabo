@@ -1,5 +1,6 @@
-# InstanceAssignmentSelfLinks
+# AssignInstanceFirewallResponseLinks
 
+Links for easy navigation.
 
 ## Properties
 Name | Type | Description | Notes

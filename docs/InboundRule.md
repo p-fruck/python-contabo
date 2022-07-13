@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **protocol** | **str** | Protocol for defining the connection type. | 
-**src_ports** | **[str]** | Ports for which the rules will be applied | 
+**dest_ports** | **[str]** | Ports for which the rules will be applied | 
 **src_cidr** | [**SrcCidr**](SrcCidr.md) |  | 
 **action** | **str** | Actions to be applied to the incoming connections. | 
 **status** | **str** | Status of the inbound rule. | 

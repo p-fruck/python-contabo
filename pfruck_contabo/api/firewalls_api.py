@@ -497,6 +497,7 @@ class FirewallsApi(object):
                     'size',
                     'order_by',
                     'name',
+                    'customer_id',
                 ],
                 'required': [
                     'x_request_id',
@@ -533,6 +534,8 @@ class FirewallsApi(object):
                         ([str],),
                     'name':
                         (str,),
+                    'customer_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -541,6 +544,7 @@ class FirewallsApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'name': 'name',
+                    'customer_id': 'customerId',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -549,6 +553,7 @@ class FirewallsApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'name': 'query',
+                    'customer_id': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -1270,6 +1275,7 @@ class FirewallsApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             name (str): The name of the Firewall. [optional]
+            customer_id (str): The customer ID. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

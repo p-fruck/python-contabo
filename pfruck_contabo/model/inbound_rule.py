@@ -101,7 +101,7 @@ class InboundRule(ModelNormal):
         lazy_import()
         return {
             'protocol': (str,),  # noqa: E501
-            'src_ports': ([str],),  # noqa: E501
+            'dest_ports': ([str],),  # noqa: E501
             'src_cidr': (SrcCidr,),  # noqa: E501
             'action': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
@@ -114,7 +114,7 @@ class InboundRule(ModelNormal):
 
     attribute_map = {
         'protocol': 'protocol',  # noqa: E501
-        'src_ports': 'srcPorts',  # noqa: E501
+        'dest_ports': 'destPorts',  # noqa: E501
         'src_cidr': 'srcCidr',  # noqa: E501
         'action': 'action',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -127,12 +127,12 @@ class InboundRule(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, protocol, src_ports, src_cidr, action, status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, protocol, dest_ports, src_cidr, action, status, *args, **kwargs):  # noqa: E501
         """InboundRule - a model defined in OpenAPI
 
         Args:
             protocol (str): Protocol for defining the connection type.
-            src_ports ([str]): Ports for which the rules will be applied
+            dest_ports ([str]): Ports for which the rules will be applied
             src_cidr (SrcCidr):
             action (str): Actions to be applied to the incoming connections.
             status (str): Status of the inbound rule.
@@ -200,7 +200,7 @@ class InboundRule(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.protocol = protocol
-        self.src_ports = src_ports
+        self.dest_ports = dest_ports
         self.src_cidr = src_cidr
         self.action = action
         self.status = status
@@ -224,12 +224,12 @@ class InboundRule(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, protocol, src_ports, src_cidr, action, status, *args, **kwargs):  # noqa: E501
+    def __init__(self, protocol, dest_ports, src_cidr, action, status, *args, **kwargs):  # noqa: E501
         """InboundRule - a model defined in OpenAPI
 
         Args:
             protocol (str): Protocol for defining the connection type.
-            src_ports ([str]): Ports for which the rules will be applied
+            dest_ports ([str]): Ports for which the rules will be applied
             src_cidr (SrcCidr):
             action (str): Actions to be applied to the incoming connections.
             status (str): Status of the inbound rule.
@@ -295,7 +295,7 @@ class InboundRule(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.protocol = protocol
-        self.src_ports = src_ports
+        self.dest_ports = dest_ports
         self.src_cidr = src_cidr
         self.action = action
         self.status = status

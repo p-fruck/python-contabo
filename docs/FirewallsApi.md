@@ -154,7 +154,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
             inbound=[
                 InboundRule(
                     protocol="tcp",
-                    src_ports=[
+                    dest_ports=[
                         "["80", "80-90"]",
                     ],
                     src_cidr=SrcCidr(
@@ -447,7 +447,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
             inbound=[
                 InboundRule(
                     protocol="tcp",
-                    src_ports=[
+                    dest_ports=[
                         "["80", "80-90"]",
                     ],
                     src_cidr=SrcCidr(
@@ -647,6 +647,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = "myFirewall" # str | The name of the Firewall (optional)
+    customer_id = "54321" # str | The customer ID (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -660,7 +661,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List firewalls
-        api_response = api_instance.retrieve_firewall_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name)
+        api_response = api_instance.retrieve_firewall_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, customer_id=customer_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling FirewallsApi->retrieve_firewall_list: %s\n" % e)
@@ -677,6 +678,7 @@ Name | Type | Description  | Notes
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **name** | **str**| The name of the Firewall | [optional]
+ **customer_id** | **str**| The customer ID | [optional]
 
 ### Return type
 

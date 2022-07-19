@@ -436,7 +436,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    data_center_name = "EU" # str | Filter for Object Storage locations. (optional)
+    data_center_name = "European Union (Germany) 2" # str | Filter for Object Storage locations. (optional)
     s3_tenant_id = "2cd2e5e1444a41b0bed16c6410ecaa84" # str | Filter for Object Storage S3 tenantId. (optional)
     region = "EU" # str | Filter for Object Storage by regions. Available regions: EU, US-central, SIN (optional)
 

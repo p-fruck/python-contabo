@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.rules import Rules
-    globals()['Rules'] = Rules
+    from pfruck_contabo.model.rules_request import RulesRequest
+    globals()['RulesRequest'] = RulesRequest
 
 
 class CreateFirewallRequest(ModelNormal):
@@ -100,7 +100,7 @@ class CreateFirewallRequest(ModelNormal):
             'name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'rules': (Rules,),  # noqa: E501
+            'rules': (RulesRequest,),  # noqa: E501
         }
 
     @cached_property
@@ -161,7 +161,7 @@ class CreateFirewallRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): The description of the firewall.. [optional]  # noqa: E501
-            rules (Rules): [optional]  # noqa: E501
+            rules (RulesRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,7 +254,7 @@ class CreateFirewallRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): The description of the firewall.. [optional]  # noqa: E501
-            rules (Rules): [optional]  # noqa: E501
+            rules (RulesRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

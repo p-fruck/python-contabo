@@ -150,9 +150,9 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         name="My Firewall",
         description="This is the firewall for instance 1, 2, 3.",
         status="active",
-        rules=Rules(
+        rules=RulesRequest(
             inbound=[
-                InboundRule(
+                FirewallRuleRequest(
                     protocol="tcp",
                     dest_ports=[
                         "["80", "80-90"]",
@@ -443,9 +443,9 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the firewall
     put_firewall_request = PutFirewallRequest(
-        rules=Rules(
+        rules=RulesRequest(
             inbound=[
-                InboundRule(
+                FirewallRuleRequest(
                     protocol="tcp",
                     dest_ports=[
                         "["80", "80-90"]",

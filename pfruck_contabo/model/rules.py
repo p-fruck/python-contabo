@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.inbound_rule import InboundRule
-    globals()['InboundRule'] = InboundRule
+    from pfruck_contabo.model.firewall_rule_response import FirewallRuleResponse
+    globals()['FirewallRuleResponse'] = FirewallRuleResponse
 
 
 class Rules(ModelNormal):
@@ -87,7 +87,7 @@ class Rules(ModelNormal):
         """
         lazy_import()
         return {
-            'inbound': ([InboundRule],),  # noqa: E501
+            'inbound': ([FirewallRuleResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class Rules(ModelNormal):
         """Rules - a model defined in OpenAPI
 
         Args:
-            inbound ([InboundRule]):
+            inbound ([FirewallRuleResponse]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class Rules(ModelNormal):
         """Rules - a model defined in OpenAPI
 
         Args:
-            inbound ([InboundRule]):
+            inbound ([FirewallRuleResponse]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

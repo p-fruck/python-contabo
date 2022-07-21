@@ -104,6 +104,8 @@ docs/FindZeropsSignInResponse.md
 docs/FindZeropsUserResponse.md
 docs/FirewallAuditResponse.md
 docs/FirewallResponse.md
+docs/FirewallRuleRequest.md
+docs/FirewallRuleResponse.md
 docs/FirewallsApi.md
 docs/FirewallsAuditsApi.md
 docs/GenerateClientSecretResponse.md
@@ -114,7 +116,6 @@ docs/ImageAuditResponseLinks.md
 docs/ImageResponse.md
 docs/ImagesApi.md
 docs/ImagesAuditsApi.md
-docs/InboundRule.md
 docs/InstanceActionsApi.md
 docs/InstanceActionsAuditsApi.md
 docs/InstanceAssignmentSelfLinks.md
@@ -260,6 +261,7 @@ docs/RolesApi.md
 docs/RolesAuditsApi.md
 docs/RollbackSnapshotResponse.md
 docs/Rules.md
+docs/RulesRequest.md
 docs/SecretAuditResponse.md
 docs/SecretResponse.md
 docs/SecretsApi.md
@@ -459,13 +461,14 @@ pfruck_contabo/model/find_zerops_sign_in_response.py
 pfruck_contabo/model/find_zerops_user_response.py
 pfruck_contabo/model/firewall_audit_response.py
 pfruck_contabo/model/firewall_response.py
+pfruck_contabo/model/firewall_rule_request.py
+pfruck_contabo/model/firewall_rule_response.py
 pfruck_contabo/model/generate_client_secret_response.py
 pfruck_contabo/model/generate_client_secret_response_links.py
 pfruck_contabo/model/image_audit_response.py
 pfruck_contabo/model/image_audit_response_data.py
 pfruck_contabo/model/image_audit_response_links.py
 pfruck_contabo/model/image_response.py
-pfruck_contabo/model/inbound_rule.py
 pfruck_contabo/model/instance_assignment_self_links.py
 pfruck_contabo/model/instance_assignment_self_links1.py
 pfruck_contabo/model/instance_details.py
@@ -596,6 +599,7 @@ pfruck_contabo/model/role_audit_response.py
 pfruck_contabo/model/role_response.py
 pfruck_contabo/model/rollback_snapshot_response.py
 pfruck_contabo/model/rules.py
+pfruck_contabo/model/rules_request.py
 pfruck_contabo/model/secret_audit_response.py
 pfruck_contabo/model/secret_response.py
 pfruck_contabo/model/self_links.py
@@ -651,4 +655,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_firewall_rule_request.py
+test/test_firewall_rule_response.py
+test/test_rules_request.py
 tox.ini

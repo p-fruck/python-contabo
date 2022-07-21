@@ -110,13 +110,14 @@ from pfruck_contabo.model.find_zerops_sign_in_response import FindZeropsSignInRe
 from pfruck_contabo.model.find_zerops_user_response import FindZeropsUserResponse
 from pfruck_contabo.model.firewall_audit_response import FirewallAuditResponse
 from pfruck_contabo.model.firewall_response import FirewallResponse
+from pfruck_contabo.model.firewall_rule_request import FirewallRuleRequest
+from pfruck_contabo.model.firewall_rule_response import FirewallRuleResponse
 from pfruck_contabo.model.generate_client_secret_response import GenerateClientSecretResponse
 from pfruck_contabo.model.generate_client_secret_response_links import GenerateClientSecretResponseLinks
 from pfruck_contabo.model.image_audit_response import ImageAuditResponse
 from pfruck_contabo.model.image_audit_response_data import ImageAuditResponseData
 from pfruck_contabo.model.image_audit_response_links import ImageAuditResponseLinks
 from pfruck_contabo.model.image_response import ImageResponse
-from pfruck_contabo.model.inbound_rule import InboundRule
 from pfruck_contabo.model.instance_assignment_self_links import InstanceAssignmentSelfLinks
 from pfruck_contabo.model.instance_assignment_self_links1 import InstanceAssignmentSelfLinks1
 from pfruck_contabo.model.instance_details import InstanceDetails
@@ -247,6 +248,7 @@ from pfruck_contabo.model.role_audit_response import RoleAuditResponse
 from pfruck_contabo.model.role_response import RoleResponse
 from pfruck_contabo.model.rollback_snapshot_response import RollbackSnapshotResponse
 from pfruck_contabo.model.rules import Rules
+from pfruck_contabo.model.rules_request import RulesRequest
 from pfruck_contabo.model.secret_audit_response import SecretAuditResponse
 from pfruck_contabo.model.secret_response import SecretResponse
 from pfruck_contabo.model.self_links import SelfLinks

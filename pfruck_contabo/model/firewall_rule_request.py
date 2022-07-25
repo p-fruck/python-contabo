@@ -63,6 +63,7 @@ class FirewallRuleRequest(ModelNormal):
             'TCP': "tcp",
             'UDP': "udp",
             'ICMP': "icmp",
+            'EMPTY': "",
         },
         ('action',): {
             'ACCEPT': "accept",

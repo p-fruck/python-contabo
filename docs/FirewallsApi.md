@@ -648,6 +648,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = "myFirewall" # str | The name of the Firewall (optional)
     customer_id = "54321" # str | The customer ID (optional)
+    is_default = True # bool | Whether the firewall is default or not (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -661,7 +662,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List firewalls
-        api_response = api_instance.retrieve_firewall_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, customer_id=customer_id)
+        api_response = api_instance.retrieve_firewall_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, customer_id=customer_id, is_default=is_default)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling FirewallsApi->retrieve_firewall_list: %s\n" % e)
@@ -679,6 +680,7 @@ Name | Type | Description  | Notes
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **name** | **str**| The name of the Firewall | [optional]
  **customer_id** | **str**| The customer ID | [optional]
+ **is_default** | **bool**| Whether the firewall is default or not | [optional]
 
 ### Return type
 

@@ -657,5 +657,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_instance_status_representation.py
 tox.ini

@@ -132,6 +132,7 @@ docs/InstanceStartActionResponse.md
 docs/InstanceStartActionResponseData.md
 docs/InstanceStartActionResponseLinks.md
 docs/InstanceStatus.md
+docs/InstanceStatusRepresentation.md
 docs/InstanceStopActionResponse.md
 docs/InstanceStopActionResponseData.md
 docs/InstanceStopActionResponseLinks.md
@@ -483,6 +484,7 @@ pfruck_contabo/model/instance_start_action_response.py
 pfruck_contabo/model/instance_start_action_response_data.py
 pfruck_contabo/model/instance_start_action_response_links.py
 pfruck_contabo/model/instance_status.py
+pfruck_contabo/model/instance_status_representation.py
 pfruck_contabo/model/instance_stop_action_response.py
 pfruck_contabo/model/instance_stop_action_response_data.py
 pfruck_contabo/model/instance_stop_action_response_links.py
@@ -655,4 +657,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_instance_status_representation.py
 tox.ini

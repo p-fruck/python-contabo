@@ -362,6 +362,7 @@ Class | Method | HTTP request | Description
  - [InstanceStartActionResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStartActionResponseData.md)
  - [InstanceStartActionResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStartActionResponseLinks.md)
  - [InstanceStatus](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStatus.md)
+ - [InstanceStatusRepresentation](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStatusRepresentation.md)
  - [InstanceStopActionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStopActionResponse.md)
  - [InstanceStopActionResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStopActionResponseData.md)
  - [InstanceStopActionResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceStopActionResponseLinks.md)

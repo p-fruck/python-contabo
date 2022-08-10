@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **str** | The name of the firewall. | 
 **description** | **str** | The description of the firewall. | 
 **status** | **str** | Status of the firewall. | 
+**instance_status** | [**[InstanceStatusRepresentation]**](InstanceStatusRepresentation.md) |  | 
 **instances** | [**[InstanceDetails]**](InstanceDetails.md) |  | 
 **rules** | [**Rules**](Rules.md) |  | 
 **is_default** | **bool** | Specifies whether a firewall is default or not. | 

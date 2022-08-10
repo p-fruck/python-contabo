@@ -31,8 +31,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.instance_details import InstanceDetails
+    from pfruck_contabo.model.instance_status_representation import InstanceStatusRepresentation
     from pfruck_contabo.model.rules import Rules
     globals()['InstanceDetails'] = InstanceDetails
+    globals()['InstanceStatusRepresentation'] = InstanceStatusRepresentation
     globals()['Rules'] = Rules
 
 
@@ -114,6 +116,7 @@ class FirewallResponse(ModelNormal):
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'instance_status': ([InstanceStatusRepresentation],),  # noqa: E501
             'instances': ([InstanceDetails],),  # noqa: E501
             'rules': (Rules,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -133,6 +136,7 @@ class FirewallResponse(ModelNormal):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'instance_status': 'instanceStatus',  # noqa: E501
         'instances': 'instances',  # noqa: E501
         'rules': 'rules',  # noqa: E501
         'is_default': 'isDefault',  # noqa: E501
@@ -147,7 +151,7 @@ class FirewallResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, firewall_id, name, description, status, instances, rules, is_default, created_date, updated_date, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, firewall_id, name, description, status, instance_status, instances, rules, is_default, created_date, updated_date, *args, **kwargs):  # noqa: E501
         """FirewallResponse - a model defined in OpenAPI
 
         Args:
@@ -157,6 +161,7 @@ class FirewallResponse(ModelNormal):
             name (str): The name of the firewall.
             description (str): The description of the firewall.
             status (str): Status of the firewall.
+            instance_status ([InstanceStatusRepresentation]):
             instances ([InstanceDetails]):
             rules (Rules):
             is_default (bool): Specifies whether a firewall is default or not.
@@ -231,6 +236,7 @@ class FirewallResponse(ModelNormal):
         self.name = name
         self.description = description
         self.status = status
+        self.instance_status = instance_status
         self.instances = instances
         self.rules = rules
         self.is_default = is_default
@@ -256,7 +262,7 @@ class FirewallResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, firewall_id, name, description, status, instances, rules, is_default, created_date, updated_date, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, firewall_id, name, description, status, instance_status, instances, rules, is_default, created_date, updated_date, *args, **kwargs):  # noqa: E501
         """FirewallResponse - a model defined in OpenAPI
 
         Args:
@@ -266,6 +272,7 @@ class FirewallResponse(ModelNormal):
             name (str): The name of the firewall.
             description (str): The description of the firewall.
             status (str): Status of the firewall.
+            instance_status ([InstanceStatusRepresentation]):
             instances ([InstanceDetails]):
             rules (Rules):
             is_default (bool): Specifies whether a firewall is default or not.
@@ -338,6 +345,7 @@ class FirewallResponse(ModelNormal):
         self.name = name
         self.description = description
         self.status = status
+        self.instance_status = instance_status
         self.instances = instances
         self.rules = rules
         self.is_default = is_default

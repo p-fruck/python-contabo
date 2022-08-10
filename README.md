@@ -323,6 +323,7 @@ Class | Method | HTTP request | Description
  - [InstanceStartActionResponseData](docs/InstanceStartActionResponseData.md)
  - [InstanceStartActionResponseLinks](docs/InstanceStartActionResponseLinks.md)
  - [InstanceStatus](docs/InstanceStatus.md)
+ - [InstanceStatusRepresentation](docs/InstanceStatusRepresentation.md)
  - [InstanceStopActionResponse](docs/InstanceStopActionResponse.md)
  - [InstanceStopActionResponseData](docs/InstanceStopActionResponseData.md)
  - [InstanceStopActionResponseLinks](docs/InstanceStopActionResponseLinks.md)

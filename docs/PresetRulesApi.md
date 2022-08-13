@@ -44,6 +44,12 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = preset_rules_api.PresetRulesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    page = 1 # int | Number of page to be fetched. (optional)
+    size = 10 # int | Number of elements per page. (optional)
+    order_by = [
+        "name:asc",
+    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    name = "SSH" # str | The name of preset rule (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -57,7 +63,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get all preset rules
-        api_response = api_instance.retrieve_preset_rules(x_request_id, x_trace_id=x_trace_id)
+        api_response = api_instance.retrieve_preset_rules(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling PresetRulesApi->retrieve_preset_rules: %s\n" % e)
@@ -70,6 +76,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **page** | **int**| Number of page to be fetched. | [optional]
+ **size** | **int**| Number of elements per page. | [optional]
+ **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
+ **name** | **str**| The name of preset rule | [optional]
 
 ### Return type
 

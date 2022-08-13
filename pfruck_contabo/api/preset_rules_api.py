@@ -50,6 +50,10 @@ class PresetRulesApi(object):
                 'all': [
                     'x_request_id',
                     'x_trace_id',
+                    'page',
+                    'size',
+                    'order_by',
+                    'name',
                 ],
                 'required': [
                     'x_request_id',
@@ -78,16 +82,33 @@ class PresetRulesApi(object):
                         (str,),
                     'x_trace_id':
                         (str,),
+                    'page':
+                        (int,),
+                    'size':
+                        (int,),
+                    'order_by':
+                        ([str],),
+                    'name':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
                     'x_trace_id': 'x-trace-id',
+                    'page': 'page',
+                    'size': 'size',
+                    'order_by': 'orderBy',
+                    'name': 'name',
                 },
                 'location_map': {
                     'x_request_id': 'header',
                     'x_trace_id': 'header',
+                    'page': 'query',
+                    'size': 'query',
+                    'order_by': 'query',
+                    'name': 'query',
                 },
                 'collection_format_map': {
+                    'order_by': 'multi',
                 }
             },
             headers_map={
@@ -117,6 +138,10 @@ class PresetRulesApi(object):
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
+            page (int): Number of page to be fetched.. [optional]
+            size (int): Number of elements per page.. [optional]
+            order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
+            name (str): The name of preset rule. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

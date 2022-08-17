@@ -115,8 +115,8 @@ class InstanceStatusRepresentation(ModelNormal):
         """InstanceStatusRepresentation - a model defined in OpenAPI
 
         Args:
-            instance_id (int): Instance id
-            status (str): Instance Status in Firewall
+            instance_id (int): Instance id which is assigned to the firewall.
+            status (str): Instance status in firewall can be:<br/> `ok` - instance was successfully assigned <br/> `processing` -  creating firewall rules <br/> `deleting` - deleting firewall rules <br/> `error_processing` - error occurred while creating firewall rules <br/>  `error_deleting` - error occurred while deleting firewall rules
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -149,7 +149,7 @@ class InstanceStatusRepresentation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            error_message (str): Error Message incase of error. [optional]  # noqa: E501
+            error_message (str): More detailed error message in case of error status.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -207,8 +207,8 @@ class InstanceStatusRepresentation(ModelNormal):
         """InstanceStatusRepresentation - a model defined in OpenAPI
 
         Args:
-            instance_id (int): Instance id
-            status (str): Instance Status in Firewall
+            instance_id (int): Instance id which is assigned to the firewall.
+            status (str): Instance status in firewall can be:<br/> `ok` - instance was successfully assigned <br/> `processing` -  creating firewall rules <br/> `deleting` - deleting firewall rules <br/> `error_processing` - error occurred while creating firewall rules <br/>  `error_deleting` - error occurred while deleting firewall rules
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -241,7 +241,7 @@ class InstanceStatusRepresentation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            error_message (str): Error Message incase of error. [optional]  # noqa: E501
+            error_message (str): More detailed error message in case of error status.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -132,11 +132,11 @@ class FirewallRuleRequest(ModelNormal):
         """FirewallRuleRequest - a model defined in OpenAPI
 
         Args:
-            protocol (str): Protocol for defining the connection type.
-            dest_ports ([str]): Ports for which the rules will be applied
+            protocol (str): Protocol for incoming traffic to be allowed. ‘tcp‘, ´udp´, ´icmp´ or ´´ empty value are allowed. Empty means any traffic.
+            dest_ports ([str]): Ports to specify allowed traffic. Not available for protocol `ICMP`. Port ranges can specified like in example.
             src_cidr (SrcCidr):
-            action (str): Actions to be applied to the incoming connections.
-            status (str): Status of the inbound rule.
+            action (str): Currently only `accept` is supported.
+            status (str): Status of the inbound rule. An inactive rule is removed from all assigned instances.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,11 +229,11 @@ class FirewallRuleRequest(ModelNormal):
         """FirewallRuleRequest - a model defined in OpenAPI
 
         Args:
-            protocol (str): Protocol for defining the connection type.
-            dest_ports ([str]): Ports for which the rules will be applied
+            protocol (str): Protocol for incoming traffic to be allowed. ‘tcp‘, ´udp´, ´icmp´ or ´´ empty value are allowed. Empty means any traffic.
+            dest_ports ([str]): Ports to specify allowed traffic. Not available for protocol `ICMP`. Port ranges can specified like in example.
             src_cidr (SrcCidr):
-            action (str): Actions to be applied to the incoming connections.
-            status (str): Status of the inbound rule.
+            action (str): Currently only `accept` is supported.
+            status (str): Status of the inbound rule. An inactive rule is removed from all assigned instances.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

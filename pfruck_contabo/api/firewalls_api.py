@@ -497,7 +497,6 @@ class FirewallsApi(object):
                     'size',
                     'order_by',
                     'name',
-                    'customer_id',
                     'is_default',
                 ],
                 'required': [
@@ -535,8 +534,6 @@ class FirewallsApi(object):
                         ([str],),
                     'name':
                         (str,),
-                    'customer_id':
-                        (str,),
                     'is_default':
                         (bool,),
                 },
@@ -547,7 +544,6 @@ class FirewallsApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'name': 'name',
-                    'customer_id': 'customerId',
                     'is_default': 'isDefault',
                 },
                 'location_map': {
@@ -557,7 +553,6 @@ class FirewallsApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'name': 'query',
-                    'customer_id': 'query',
                     'is_default': 'query',
                 },
                 'collection_format_map': {
@@ -724,9 +719,9 @@ class FirewallsApi(object):
         instance_id,
         **kwargs
     ):
-        """Add instance to a Firewall  # noqa: E501
+        """Add instance to a firewall  # noqa: E501
 
-        Add a specific instance to a Firewall  # noqa: E501
+        Add a specific instance to a firewall  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -735,7 +730,7 @@ class FirewallsApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            firewall_id (str): The identifier of the Firewall
+            firewall_id (str): The identifier of the firewall
             instance_id (int): The identifier of the instance
 
         Keyword Args:
@@ -815,9 +810,9 @@ class FirewallsApi(object):
         create_firewall_request,
         **kwargs
     ):
-        """Create a new firewall  # noqa: E501
+        """Create a new firewall definition  # noqa: E501
 
-        Create a firewall for you account with the provided setup.  # noqa: E501
+        Create a new firewall definition by specifying its name and a set of rules. The status of the firewall determines whether the rules are active or not.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -903,9 +898,9 @@ class FirewallsApi(object):
         firewall_id,
         **kwargs
     ):
-        """Delete existing Firewall by id  # noqa: E501
+        """Delete existing firewall by id  # noqa: E501
 
-        Delete existing Firewall by id. A firewall cannot be deleted if there are instances attached to it.  # noqa: E501
+        Delete existing firewall by id. A firewall cannot be deleted if there are instances attached to it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -992,9 +987,9 @@ class FirewallsApi(object):
         patch_firewall_request,
         **kwargs
     ):
-        """Update a Firewall by id  # noqa: E501
+        """Update a firewall by id  # noqa: E501
 
-        Update a Firewall by id in your account.  # noqa: E501
+        Update a firewall by id in your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1086,7 +1081,7 @@ class FirewallsApi(object):
     ):
         """Update specific firewall rules  # noqa: E501
 
-        Set rules for a specific firewall  # noqa: E501
+        Set rules for a specific firewall. Currently only inbound rules are allowed to be configured.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1262,9 +1257,9 @@ class FirewallsApi(object):
         x_request_id,
         **kwargs
     ):
-        """List firewalls  # noqa: E501
+        """List all firewalls  # noqa: E501
 
-        List and filter all Firewalls in your account  # noqa: E501
+        List and filter all firewalls on your account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1279,9 +1274,8 @@ class FirewallsApi(object):
             page (int): Number of page to be fetched.. [optional]
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
-            name (str): The name of the Firewall. [optional]
-            customer_id (str): The customer ID. [optional]
-            is_default (bool): Whether the firewall is default or not. [optional]
+            name (str): The name of the firewall. [optional]
+            is_default (bool): The default firewall rules are assigned by default to newly created instances with Firewall Add-On if not specified otherwise. Exactly one firewall can be set as default.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1355,7 +1349,7 @@ class FirewallsApi(object):
     ):
         """Set specific firewall to be default  # noqa: E501
 
-        Set a specific firewall to be the default  # noqa: E501
+        Only one firewall can be spicified as default. Newly-added VPS/VDS with a Firewall Add-on will be automatically assigned to the default firewall.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1442,9 +1436,9 @@ class FirewallsApi(object):
         instance_id,
         **kwargs
     ):
-        """Remove instance from a Firewall  # noqa: E501
+        """Remove instance from a firewall  # noqa: E501
 
-        Remove a specific instance from a Firewall  # noqa: E501
+        Remove a specific instance from a firewall  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1453,7 +1447,7 @@ class FirewallsApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            firewall_id (str): The identifier of the Firewall
+            firewall_id (str): The identifier of the firewall
             instance_id (int): The identifier of the instance
 
         Keyword Args:

@@ -135,15 +135,15 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CustomerApi* | [**retrieve_customer**](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
 *CustomerApi* | [**retrieve_payment_method**](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
-*FirewallsApi* | [**assign_instance_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a Firewall
-*FirewallsApi* | [**create_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
-*FirewallsApi* | [**delete_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
-*FirewallsApi* | [**patch_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
+*FirewallsApi* | [**assign_instance_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a firewall
+*FirewallsApi* | [**create_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall definition
+*FirewallsApi* | [**delete_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing firewall by id
+*FirewallsApi* | [**patch_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a firewall by id
 *FirewallsApi* | [**put_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#put_firewall) | **PUT** /v1/firewalls/{firewallId} | Update specific firewall rules
 *FirewallsApi* | [**retrieve_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
-*FirewallsApi* | [**retrieve_firewall_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
+*FirewallsApi* | [**retrieve_firewall_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List all firewalls
 *FirewallsApi* | [**set_default_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
-*FirewallsApi* | [**unassign_instance_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#unassign_instance_firewall) | **DELETE** /v1/firewalls/{firewallId}/instances/{instanceId} | Remove instance from a Firewall
+*FirewallsApi* | [**unassign_instance_firewall**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsApi.md#unassign_instance_firewall) | **DELETE** /v1/firewalls/{firewallId}/instances/{instanceId} | Remove instance from a firewall
 *FirewallsAuditsApi* | [**retrieve_firewall_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallsAuditsApi.md#retrieve_firewall_audits_list) | **GET** /v1/firewalls/audits | List history about your Firewalls (audit)
 *ImagesApi* | [**create_custom_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#create_custom_image) | **POST** /v1/compute/images | Provide a custom image
 *ImagesApi* | [**delete_image**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesApi.md#delete_image) | **DELETE** /v1/compute/images/{imageId} | Delete an uploaded custom image by its id

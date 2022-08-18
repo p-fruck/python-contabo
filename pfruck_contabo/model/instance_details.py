@@ -93,7 +93,6 @@ class InstanceDetails(ModelNormal):
             'product_id': (str,),  # noqa: E501
             'ip_config': (IpConfig,),  # noqa: E501
             'region': (str,),  # noqa: E501
-            'error_message': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -108,7 +107,6 @@ class InstanceDetails(ModelNormal):
         'product_id': 'productId',  # noqa: E501
         'ip_config': 'ipConfig',  # noqa: E501
         'region': 'region',  # noqa: E501
-        'error_message': 'errorMessage',  # noqa: E501
     }
 
     read_only_vars = {
@@ -122,7 +120,7 @@ class InstanceDetails(ModelNormal):
         """InstanceDetails - a model defined in OpenAPI
 
         Args:
-            instance_id (int): Instance id
+            instance_id (int): Instance id which is assigned to firewall
             display_name (str): Instance display name
             name (str): Instance name
             product_id (str): Product id
@@ -160,7 +158,6 @@ class InstanceDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            error_message (str): Message in case of an error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,7 +219,7 @@ class InstanceDetails(ModelNormal):
         """InstanceDetails - a model defined in OpenAPI
 
         Args:
-            instance_id (int): Instance id
+            instance_id (int): Instance id which is assigned to firewall
             display_name (str): Instance display name
             name (str): Instance name
             product_id (str): Product id
@@ -260,7 +257,6 @@ class InstanceDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            error_message (str): Message in case of an error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

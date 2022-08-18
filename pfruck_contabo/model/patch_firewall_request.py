@@ -146,9 +146,9 @@ class PatchFirewallRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the Firewall. [optional]  # noqa: E501
-            status (str): The status of the Firewall. It can be either \"active\" or \"inactive\". [optional]  # noqa: E501
-            description (str): The description of the Firewall.. [optional]  # noqa: E501
+            name (str): The name of the firewall. [optional]  # noqa: E501
+            status (str): Active status of the firewall enables all rules, thus filtering traffic. Inactive status does not filter any traffic.. [optional]  # noqa: E501
+            description (str): The description of the firewall.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,9 +234,9 @@ class PatchFirewallRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the Firewall. [optional]  # noqa: E501
-            status (str): The status of the Firewall. It can be either \"active\" or \"inactive\". [optional]  # noqa: E501
-            description (str): The description of the Firewall.. [optional]  # noqa: E501
+            name (str): The name of the firewall. [optional]  # noqa: E501
+            status (str): Active status of the firewall enables all rules, thus filtering traffic. Inactive status does not filter any traffic.. [optional]  # noqa: E501
+            description (str): The description of the firewall.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

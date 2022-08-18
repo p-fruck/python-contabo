@@ -160,11 +160,11 @@ class FirewallResponse(ModelNormal):
             firewall_id (str): Your firewall id.
             name (str): The name of the firewall.
             description (str): The description of the firewall.
-            status (str): Status of the firewall.
+            status (str): Inactive status means no rules of this firewall are set for all assigned instances.
             instance_status ([InstanceStatusRepresentation]):
             instances ([InstanceDetails]):
             rules (Rules):
-            is_default (bool): Specifies whether a firewall is default or not.
+            is_default (bool): The default firewall rules are assigned by default to newly created instances with Firewall Add-On if not specified otherwise. Exactly one firewall can be set as default.
             created_date (datetime): The creation date time for the firewall
             updated_date (datetime): The update date time for the firewall
 
@@ -271,11 +271,11 @@ class FirewallResponse(ModelNormal):
             firewall_id (str): Your firewall id.
             name (str): The name of the firewall.
             description (str): The description of the firewall.
-            status (str): Status of the firewall.
+            status (str): Inactive status means no rules of this firewall are set for all assigned instances.
             instance_status ([InstanceStatusRepresentation]):
             instances ([InstanceDetails]):
             rules (Rules):
-            is_default (bool): Specifies whether a firewall is default or not.
+            is_default (bool): The default firewall rules are assigned by default to newly created instances with Firewall Add-On if not specified otherwise. Exactly one firewall can be set as default.
             created_date (datetime): The creation date time for the firewall
             updated_date (datetime): The update date time for the firewall
 

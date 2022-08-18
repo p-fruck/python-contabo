@@ -113,7 +113,7 @@ class AssignInstanceFirewallResponseLinks(ModelComposed):
 
         Keyword Args:
             _self (str): Link to current resource.
-            firewall (str): Link to related Firewall.
+            firewall (str): Link to related firewall.
             instance (str): Link to assigned instance.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -219,7 +219,7 @@ class AssignInstanceFirewallResponseLinks(ModelComposed):
 
         Keyword Args:
             _self (str): Link to current resource.
-            firewall (str): Link to related Firewall.
+            firewall (str): Link to related firewall.
             instance (str): Link to assigned instance.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

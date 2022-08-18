@@ -127,7 +127,7 @@ class CreateFirewallRequest(ModelNormal):
 
         Args:
             name (str): The name of the firewall.
-            status (str): Status of the firewall.
+            status (str): The status of the firewall determines whether the rules are active or not.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -220,7 +220,7 @@ class CreateFirewallRequest(ModelNormal):
 
         Args:
             name (str): The name of the firewall.
-            status (str): Status of the firewall.
+            status (str): The status of the firewall determines whether the rules are active or not.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

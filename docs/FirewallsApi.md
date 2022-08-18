@@ -4,23 +4,23 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**assign_instance_firewall**](FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a Firewall
-[**create_firewall**](FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall
-[**delete_firewall**](FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing Firewall by id
-[**patch_firewall**](FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a Firewall by id
+[**assign_instance_firewall**](FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a firewall
+[**create_firewall**](FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall definition
+[**delete_firewall**](FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing firewall by id
+[**patch_firewall**](FirewallsApi.md#patch_firewall) | **PATCH** /v1/firewalls/{firewallId} | Update a firewall by id
 [**put_firewall**](FirewallsApi.md#put_firewall) | **PUT** /v1/firewalls/{firewallId} | Update specific firewall rules
 [**retrieve_firewall**](FirewallsApi.md#retrieve_firewall) | **GET** /v1/firewalls/{firewallId} | Get specific firewall by its id
-[**retrieve_firewall_list**](FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List firewalls
+[**retrieve_firewall_list**](FirewallsApi.md#retrieve_firewall_list) | **GET** /v1/firewalls | List all firewalls
 [**set_default_firewall**](FirewallsApi.md#set_default_firewall) | **PUT** /v1/firewalls/{firewallId}/default | Set specific firewall to be default
-[**unassign_instance_firewall**](FirewallsApi.md#unassign_instance_firewall) | **DELETE** /v1/firewalls/{firewallId}/instances/{instanceId} | Remove instance from a Firewall
+[**unassign_instance_firewall**](FirewallsApi.md#unassign_instance_firewall) | **DELETE** /v1/firewalls/{firewallId}/instances/{instanceId} | Remove instance from a firewall
 
 
 # **assign_instance_firewall**
 > AssignInstanceFirewallResponse assign_instance_firewall(x_request_id, firewall_id, instance_id)
 
-Add instance to a Firewall
+Add instance to a firewall
 
-Add a specific instance to a Firewall
+Add a specific instance to a firewall
 
 ### Example
 
@@ -53,13 +53,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = firewalls_api.FirewallsApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the Firewall
+    firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the firewall
     instance_id = 100 # int | The identifier of the instance
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Add instance to a Firewall
+        # Add instance to a firewall
         api_response = api_instance.assign_instance_firewall(x_request_id, firewall_id, instance_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -68,7 +68,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Add instance to a Firewall
+        # Add instance to a firewall
         api_response = api_instance.assign_instance_firewall(x_request_id, firewall_id, instance_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -81,7 +81,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **firewall_id** | **str**| The identifier of the Firewall |
+ **firewall_id** | **str**| The identifier of the firewall |
  **instance_id** | **int**| The identifier of the instance |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -103,16 +103,16 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The instance will be added to the Firewall |  -  |
+**201** | The instance will be added to the firewall |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_firewall**
 > CreateFirewallResponse create_firewall(x_request_id, create_firewall_request)
 
-Create a new firewall
+Create a new firewall definition
 
-Create a firewall for you account with the provided setup.
+Create a new firewall definition by specifying its name and a set of rules. The status of the firewall determines whether the rules are active or not.
 
 ### Example
 
@@ -148,7 +148,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     create_firewall_request = CreateFirewallRequest(
         name="My Firewall",
-        description="This is the firewall for instance 1, 2, 3.",
+        description="Allowing incoming HTTP traffic.",
         status="active",
         rules=RulesRequest(
             inbound=[
@@ -171,7 +171,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create a new firewall
+        # Create a new firewall definition
         api_response = api_instance.create_firewall(x_request_id, create_firewall_request)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -180,7 +180,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create a new firewall
+        # Create a new firewall definition
         api_response = api_instance.create_firewall(x_request_id, create_firewall_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -221,9 +221,9 @@ Name | Type | Description  | Notes
 # **delete_firewall**
 > delete_firewall(x_request_id, firewall_id)
 
-Delete existing Firewall by id
+Delete existing firewall by id
 
-Delete existing Firewall by id. A firewall cannot be deleted if there are instances attached to it.
+Delete existing firewall by id. A firewall cannot be deleted if there are instances attached to it.
 
 ### Example
 
@@ -260,7 +260,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete existing Firewall by id
+        # Delete existing firewall by id
         api_instance.delete_firewall(x_request_id, firewall_id)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling FirewallsApi->delete_firewall: %s\n" % e)
@@ -268,7 +268,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Delete existing Firewall by id
+        # Delete existing firewall by id
         api_instance.delete_firewall(x_request_id, firewall_id, x_trace_id=x_trace_id)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling FirewallsApi->delete_firewall: %s\n" % e)
@@ -308,9 +308,9 @@ void (empty response body)
 # **patch_firewall**
 > PatchFirewallResponse patch_firewall(x_request_id, firewall_id, patch_firewall_request)
 
-Update a Firewall by id
+Update a firewall by id
 
-Update a Firewall by id in your account.
+Update a firewall by id in your account.
 
 ### Example
 
@@ -348,13 +348,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     patch_firewall_request = PatchFirewallRequest(
         name="My Firewall",
         status="active",
-        description="Firewall description",
+        description="Allowing incoming HTTP traffic.",
     ) # PatchFirewallRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Update a Firewall by id
+        # Update a firewall by id
         api_response = api_instance.patch_firewall(x_request_id, firewall_id, patch_firewall_request)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -363,7 +363,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Update a Firewall by id
+        # Update a firewall by id
         api_response = api_instance.patch_firewall(x_request_id, firewall_id, patch_firewall_request, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains standard Firewall attributes. |  -  |
+**200** | The response will be a JSON object and contains standard firewall attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 Update specific firewall rules
 
-Set rules for a specific firewall
+Set rules for a specific firewall. Currently only inbound rules are allowed to be configured.
 
 ### Example
 
@@ -605,9 +605,9 @@ Name | Type | Description  | Notes
 # **retrieve_firewall_list**
 > ListFirewallResponse retrieve_firewall_list(x_request_id)
 
-List firewalls
+List all firewalls
 
-List and filter all Firewalls in your account
+List and filter all firewalls on your account
 
 ### Example
 
@@ -646,13 +646,12 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    name = "myFirewall" # str | The name of the Firewall (optional)
-    customer_id = "54321" # str | The customer ID (optional)
-    is_default = True # bool | Whether the firewall is default or not (optional)
+    name = "My Firewall" # str | The name of the firewall (optional)
+    is_default = True # bool | The default firewall rules are assigned by default to newly created instances with Firewall Add-On if not specified otherwise. Exactly one firewall can be set as default. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # List firewalls
+        # List all firewalls
         api_response = api_instance.retrieve_firewall_list(x_request_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -661,8 +660,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List firewalls
-        api_response = api_instance.retrieve_firewall_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, customer_id=customer_id, is_default=is_default)
+        # List all firewalls
+        api_response = api_instance.retrieve_firewall_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, is_default=is_default)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling FirewallsApi->retrieve_firewall_list: %s\n" % e)
@@ -678,9 +677,8 @@ Name | Type | Description  | Notes
  **page** | **int**| Number of page to be fetched. | [optional]
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **name** | **str**| The name of the Firewall | [optional]
- **customer_id** | **str**| The customer ID | [optional]
- **is_default** | **bool**| Whether the firewall is default or not | [optional]
+ **name** | **str**| The name of the firewall | [optional]
+ **is_default** | **bool**| The default firewall rules are assigned by default to newly created instances with Firewall Add-On if not specified otherwise. Exactly one firewall can be set as default. | [optional]
 
 ### Return type
 
@@ -709,7 +707,7 @@ Name | Type | Description  | Notes
 
 Set specific firewall to be default
 
-Set a specific firewall to be the default
+Only one firewall can be spicified as default. Newly-added VPS/VDS with a Firewall Add-on will be automatically assigned to the default firewall.
 
 ### Example
 
@@ -797,9 +795,9 @@ Name | Type | Description  | Notes
 # **unassign_instance_firewall**
 > UnassignInstanceFirewallResponse unassign_instance_firewall(x_request_id, firewall_id, instance_id)
 
-Remove instance from a Firewall
+Remove instance from a firewall
 
-Remove a specific instance from a Firewall
+Remove a specific instance from a firewall
 
 ### Example
 
@@ -832,13 +830,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = firewalls_api.FirewallsApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the Firewall
+    firewall_id = "b943b25a-c8b5-4570-9135-4bbaa7615b81" # str | The identifier of the firewall
     instance_id = 100 # int | The identifier of the instance
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Remove instance from a Firewall
+        # Remove instance from a firewall
         api_response = api_instance.unassign_instance_firewall(x_request_id, firewall_id, instance_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -847,7 +845,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Remove instance from a Firewall
+        # Remove instance from a firewall
         api_response = api_instance.unassign_instance_firewall(x_request_id, firewall_id, instance_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -860,7 +858,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **firewall_id** | **str**| The identifier of the Firewall |
+ **firewall_id** | **str**| The identifier of the firewall |
  **instance_id** | **int**| The identifier of the instance |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -882,7 +880,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The instance will be removed from the Firewall |  -  |
+**200** | The instance will be removed from the firewall |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

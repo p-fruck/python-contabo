@@ -109,7 +109,7 @@ class InstanceAssignmentSelfLinks(ModelNormal):
 
         Args:
             _self (str): Link to current resource.
-            firewall (str): Link to related Firewall.
+            firewall (str): Link to related firewall.
             instance (str): Link to assigned instance.
 
         Keyword Args:
@@ -202,7 +202,7 @@ class InstanceAssignmentSelfLinks(ModelNormal):
 
         Args:
             _self (str): Link to current resource.
-            firewall (str): Link to related Firewall.
+            firewall (str): Link to related firewall.
             instance (str): Link to assigned instance.
 
         Keyword Args:

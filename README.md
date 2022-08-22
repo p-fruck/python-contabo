@@ -192,8 +192,10 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VIPApi* | [**assign_ip**](docs/VIPApi.md#assign_ip) | **POST** /v1/vips/{ip}/instances/{instanceId} | Assign a VIP to a VPS/VDS
 *VIPApi* | [**retrieve_vip**](docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 *VIPApi* | [**retrieve_vip_list**](docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
+*VIPApi* | [**unassign_ip**](docs/VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/instances/{instanceId} | Unassign a VIP from a VPS/VDS
 *ZeropsApi* | [**retrieve_zerops_user**](docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
 *ZeropsApi* | [**sign_in_zerops**](docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
@@ -207,6 +209,8 @@ Class | Method | HTTP request | Description
  - [AssignInstanceFirewallResponseLinks](docs/AssignInstanceFirewallResponseLinks.md)
  - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](docs/AssignInstancePrivateNetworkResponseLinks.md)
+ - [AssignVipResponse](docs/AssignVipResponse.md)
+ - [AssignVipResponseLinks](docs/AssignVipResponseLinks.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
  - [AutoScalingTypeRequest](docs/AutoScalingTypeRequest.md)
@@ -454,6 +458,7 @@ Class | Method | HTTP request | Description
  - [TagResponse1](docs/TagResponse1.md)
  - [UnassignInstanceFirewallResponse](docs/UnassignInstanceFirewallResponse.md)
  - [UnassignInstancePrivateNetworkResponse](docs/UnassignInstancePrivateNetworkResponse.md)
+ - [UnassignVipResponse](docs/UnassignVipResponse.md)
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)
  - [UpdateCustomImageResponseData](docs/UpdateCustomImageResponseData.md)

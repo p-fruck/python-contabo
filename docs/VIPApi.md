@@ -4,9 +4,103 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**assign_ip**](VIPApi.md#assign_ip) | **POST** /v1/vips/{ip}/instances/{instanceId} | Assign a VIP to a VPS/VDS
 [**retrieve_vip**](VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 [**retrieve_vip_list**](VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
+[**unassign_ip**](VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/instances/{instanceId} | Unassign a VIP from a VPS/VDS
 
+
+# **assign_ip**
+> AssignVipResponse assign_ip(x_request_id, instance_id, ip)
+
+Assign a VIP to a VPS/VDS
+
+Assign a VIP to a VPS/VDS using the machine id.
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import vip_api
+from pfruck_contabo.model.assign_vip_response import AssignVipResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vip_api.VIPApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    instance_id = 12345 # int | The identifier of the instance
+    ip = "127.0.0.1" # str | The ip you want to add the instance to
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Assign a VIP to a VPS/VDS
+        api_response = api_instance.assign_ip(x_request_id, instance_id, ip)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling VIPApi->assign_ip: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Assign a VIP to a VPS/VDS
+        api_response = api_instance.assign_ip(x_request_id, instance_id, ip, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling VIPApi->assign_ip: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **instance_id** | **int**| The identifier of the instance |
+ **ip** | **str**| The ip you want to add the instance to |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+
+### Return type
+
+[**AssignVipResponse**](AssignVipResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response will be a JSON object and contains standard VIP attributes. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_vip**
 > FindVipResponse retrieve_vip(x_request_id, ip)
@@ -211,6 +305,98 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The response will be a JSON object and contains a paginated list of Vips. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unassign_ip**
+> UnassignVipResponse unassign_ip(x_request_id, instance_id, ip)
+
+Unassign a VIP from a VPS/VDS
+
+Unassign a VIP from a VPS/VDS using the machine id.
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import vip_api
+from pfruck_contabo.model.unassign_vip_response import UnassignVipResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = vip_api.VIPApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    instance_id = 12345 # int | The identifier of the instance
+    ip = "127.0.0.1" # str | The ip you want to add the instance to
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Unassign a VIP from a VPS/VDS
+        api_response = api_instance.unassign_ip(x_request_id, instance_id, ip)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling VIPApi->unassign_ip: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Unassign a VIP from a VPS/VDS
+        api_response = api_instance.unassign_ip(x_request_id, instance_id, ip, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling VIPApi->unassign_ip: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **instance_id** | **int**| The identifier of the instance |
+ **ip** | **str**| The ip you want to add the instance to |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+
+### Return type
+
+[**UnassignVipResponse**](UnassignVipResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The response will be a JSON object and contains standard VIP attributes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

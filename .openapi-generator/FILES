@@ -9,6 +9,8 @@ docs/AssignInstanceFirewallResponse.md
 docs/AssignInstanceFirewallResponseLinks.md
 docs/AssignInstancePrivateNetworkResponse.md
 docs/AssignInstancePrivateNetworkResponseLinks.md
+docs/AssignVipResponse.md
+docs/AssignVipResponseLinks.md
 docs/AssignmentAuditResponse.md
 docs/AssignmentResponse.md
 docs/AutoScalingTypeRequest.md
@@ -284,6 +286,7 @@ docs/TagsApi.md
 docs/TagsAuditsApi.md
 docs/UnassignInstanceFirewallResponse.md
 docs/UnassignInstancePrivateNetworkResponse.md
+docs/UnassignVipResponse.md
 docs/UpdateCustomImageRequest.md
 docs/UpdateCustomImageResponse.md
 docs/UpdateCustomImageResponseData.md
@@ -368,6 +371,8 @@ pfruck_contabo/model/assign_instance_firewall_response.py
 pfruck_contabo/model/assign_instance_firewall_response_links.py
 pfruck_contabo/model/assign_instance_private_network_response.py
 pfruck_contabo/model/assign_instance_private_network_response_links.py
+pfruck_contabo/model/assign_vip_response.py
+pfruck_contabo/model/assign_vip_response_links.py
 pfruck_contabo/model/assignment_audit_response.py
 pfruck_contabo/model/assignment_response.py
 pfruck_contabo/model/auto_scaling_type_request.py
@@ -615,6 +620,7 @@ pfruck_contabo/model/tag_response.py
 pfruck_contabo/model/tag_response1.py
 pfruck_contabo/model/unassign_instance_firewall_response.py
 pfruck_contabo/model/unassign_instance_private_network_response.py
+pfruck_contabo/model/unassign_vip_response.py
 pfruck_contabo/model/update_custom_image_request.py
 pfruck_contabo/model/update_custom_image_response.py
 pfruck_contabo/model/update_custom_image_response_data.py
@@ -657,4 +663,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_assign_vip_response.py
+test/test_assign_vip_response_links.py
+test/test_unassign_vip_response.py
 tox.ini

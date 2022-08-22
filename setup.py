@@ -231,8 +231,10 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VIPApi* | [**assign_ip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#assign_ip) | **POST** /v1/vips/{ip}/instances/{instanceId} | Assign a VIP to a VPS/VDS
 *VIPApi* | [**retrieve_vip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 *VIPApi* | [**retrieve_vip_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
+*VIPApi* | [**unassign_ip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/instances/{instanceId} | Unassign a VIP from a VPS/VDS
 *ZeropsApi* | [**retrieve_zerops_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
 *ZeropsApi* | [**sign_in_zerops**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
@@ -246,6 +248,8 @@ Class | Method | HTTP request | Description
  - [AssignInstanceFirewallResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstanceFirewallResponseLinks.md)
  - [AssignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponseLinks.md)
+ - [AssignVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignVipResponse.md)
+ - [AssignVipResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignVipResponseLinks.md)
  - [AssignmentAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentResponse.md)
  - [AutoScalingTypeRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/AutoScalingTypeRequest.md)
@@ -493,6 +497,7 @@ Class | Method | HTTP request | Description
  - [TagResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse1.md)
  - [UnassignInstanceFirewallResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignInstanceFirewallResponse.md)
  - [UnassignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignInstancePrivateNetworkResponse.md)
+ - [UnassignVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignVipResponse.md)
  - [UpdateCustomImageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponse.md)
  - [UpdateCustomImageResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponseData.md)

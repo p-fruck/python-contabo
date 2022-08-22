@@ -21,8 +21,10 @@ from pfruck_contabo.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from pfruck_contabo.model.assign_vip_response import AssignVipResponse
 from pfruck_contabo.model.find_vip_response import FindVipResponse
 from pfruck_contabo.model.list_vip_response import ListVipResponse
+from pfruck_contabo.model.unassign_vip_response import UnassignVipResponse
 
 
 class VIPApi(object):
@@ -36,6 +38,81 @@ class VIPApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.assign_ip_endpoint = _Endpoint(
+            settings={
+                'response_type': (AssignVipResponse,),
+                'auth': [
+                    'bearer'
+                ],
+                'endpoint_path': '/v1/vips/{ip}/instances/{instanceId}',
+                'operation_id': 'assign_ip',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_request_id',
+                    'instance_id',
+                    'ip',
+                    'x_trace_id',
+                ],
+                'required': [
+                    'x_request_id',
+                    'instance_id',
+                    'ip',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-5][0-9A-Fa-f]{3}-[089abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_request_id':
+                        (str,),
+                    'instance_id':
+                        (int,),
+                    'ip':
+                        (str,),
+                    'x_trace_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_request_id': 'x-request-id',
+                    'instance_id': 'instanceId',
+                    'ip': 'ip',
+                    'x_trace_id': 'x-trace-id',
+                },
+                'location_map': {
+                    'x_request_id': 'header',
+                    'instance_id': 'path',
+                    'ip': 'path',
+                    'x_trace_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.retrieve_vip_endpoint = _Endpoint(
             settings={
                 'response_type': (FindVipResponse,),
@@ -252,6 +329,173 @@ class VIPApi(object):
             },
             api_client=api_client
         )
+        self.unassign_ip_endpoint = _Endpoint(
+            settings={
+                'response_type': (UnassignVipResponse,),
+                'auth': [
+                    'bearer'
+                ],
+                'endpoint_path': '/v1/vips/{ip}/instances/{instanceId}',
+                'operation_id': 'unassign_ip',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_request_id',
+                    'instance_id',
+                    'ip',
+                    'x_trace_id',
+                ],
+                'required': [
+                    'x_request_id',
+                    'instance_id',
+                    'ip',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-5][0-9A-Fa-f]{3}-[089abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_request_id':
+                        (str,),
+                    'instance_id':
+                        (int,),
+                    'ip':
+                        (str,),
+                    'x_trace_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_request_id': 'x-request-id',
+                    'instance_id': 'instanceId',
+                    'ip': 'ip',
+                    'x_trace_id': 'x-trace-id',
+                },
+                'location_map': {
+                    'x_request_id': 'header',
+                    'instance_id': 'path',
+                    'ip': 'path',
+                    'x_trace_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+    def assign_ip(
+        self,
+        x_request_id,
+        instance_id,
+        ip,
+        **kwargs
+    ):
+        """Assign a VIP to a VPS/VDS  # noqa: E501
+
+        Assign a VIP to a VPS/VDS using the machine id.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.assign_ip(x_request_id, instance_id, ip, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+            instance_id (int): The identifier of the instance
+            ip (str): The ip you want to add the instance to
+
+        Keyword Args:
+            x_trace_id (str): Identifier to trace group of requests.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AssignVipResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['x_request_id'] = \
+            x_request_id
+        kwargs['instance_id'] = \
+            instance_id
+        kwargs['ip'] = \
+            ip
+        return self.assign_ip_endpoint.call_with_http_info(**kwargs)
 
     def retrieve_vip(
         self,
@@ -437,4 +681,96 @@ class VIPApi(object):
         kwargs['x_request_id'] = \
             x_request_id
         return self.retrieve_vip_list_endpoint.call_with_http_info(**kwargs)
+
+    def unassign_ip(
+        self,
+        x_request_id,
+        instance_id,
+        ip,
+        **kwargs
+    ):
+        """Unassign a VIP from a VPS/VDS  # noqa: E501
+
+        Unassign a VIP from a VPS/VDS using the machine id.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.unassign_ip(x_request_id, instance_id, ip, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+            instance_id (int): The identifier of the instance
+            ip (str): The ip you want to add the instance to
+
+        Keyword Args:
+            x_trace_id (str): Identifier to trace group of requests.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            UnassignVipResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['x_request_id'] = \
+            x_request_id
+        kwargs['instance_id'] = \
+            instance_id
+        kwargs['ip'] = \
+            ip
+        return self.unassign_ip_endpoint.call_with_http_info(**kwargs)
 

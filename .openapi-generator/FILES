@@ -663,7 +663,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_assign_vip_response.py
-test/test_assign_vip_response_links.py
-test/test_unassign_vip_response.py
 tox.ini

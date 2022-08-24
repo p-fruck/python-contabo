@@ -663,6 +663,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_firewalling_upgrade_request.py
-test/test_upgrade_instance_request_firewalling.py
 tox.ini

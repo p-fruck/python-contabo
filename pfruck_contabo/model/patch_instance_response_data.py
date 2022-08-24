@@ -119,7 +119,7 @@ class PatchInstanceResponseData(ModelNormal):
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
             instance_id (int): Instance's id
-            created_date (datetime): Creation date for instance
+            created_date (datetime): Creation date of the instance
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,7 +214,7 @@ class PatchInstanceResponseData(ModelNormal):
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
             instance_id (int): Instance's id
-            created_date (datetime): Creation date for instance
+            created_date (datetime): Creation date of the instance
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

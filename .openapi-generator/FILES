@@ -108,6 +108,7 @@ docs/FirewallAuditResponse.md
 docs/FirewallResponse.md
 docs/FirewallRuleRequest.md
 docs/FirewallRuleResponse.md
+docs/FirewallingUpgradeRequest.md
 docs/FirewallsApi.md
 docs/FirewallsAuditsApi.md
 docs/GenerateClientSecretResponse.md
@@ -310,9 +311,8 @@ docs/UpdateUserRequest.md
 docs/UpdateUserResponse.md
 docs/UpdateUserResponseLinks.md
 docs/UpgradeAutoScalingType.md
-docs/UpgradeInstanceData.md
 docs/UpgradeInstanceRequest.md
-docs/UpgradeInstanceResponse.md
+docs/UpgradeInstanceRequestFirewalling.md
 docs/UpgradeObjectStorageRequest.md
 docs/UpgradeObjectStorageRequestAutoScaling.md
 docs/UserAuditResponse.md
@@ -469,6 +469,7 @@ pfruck_contabo/model/firewall_audit_response.py
 pfruck_contabo/model/firewall_response.py
 pfruck_contabo/model/firewall_rule_request.py
 pfruck_contabo/model/firewall_rule_response.py
+pfruck_contabo/model/firewalling_upgrade_request.py
 pfruck_contabo/model/generate_client_secret_response.py
 pfruck_contabo/model/generate_client_secret_response_links.py
 pfruck_contabo/model/image_audit_response.py
@@ -644,9 +645,8 @@ pfruck_contabo/model/update_user_request.py
 pfruck_contabo/model/update_user_response.py
 pfruck_contabo/model/update_user_response_links.py
 pfruck_contabo/model/upgrade_auto_scaling_type.py
-pfruck_contabo/model/upgrade_instance_data.py
 pfruck_contabo/model/upgrade_instance_request.py
-pfruck_contabo/model/upgrade_instance_response.py
+pfruck_contabo/model/upgrade_instance_request_firewalling.py
 pfruck_contabo/model/upgrade_object_storage_request.py
 pfruck_contabo/model/upgrade_object_storage_request_auto_scaling.py
 pfruck_contabo/model/user_audit_response.py
@@ -663,4 +663,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_firewalling_upgrade_request.py
+test/test_upgrade_instance_request_firewalling.py
 tox.ini

@@ -31,7 +31,6 @@ from pfruck_contabo.model.patch_instance_response import PatchInstanceResponse
 from pfruck_contabo.model.reinstall_instance_request import ReinstallInstanceRequest
 from pfruck_contabo.model.reinstall_instance_response import ReinstallInstanceResponse
 from pfruck_contabo.model.upgrade_instance_request import UpgradeInstanceRequest
-from pfruck_contabo.model.upgrade_instance_response import UpgradeInstanceResponse
 
 
 class InstancesApi(object):
@@ -530,7 +529,7 @@ class InstancesApi(object):
         )
         self.upgrade_instance_endpoint = _Endpoint(
             settings={
-                'response_type': (UpgradeInstanceResponse,),
+                'response_type': (PatchInstanceResponse,),
                 'auth': [
                     'bearer'
                 ],
@@ -1156,7 +1155,7 @@ class InstancesApi(object):
     ):
         """Upgrading instance capabilities  # noqa: E501
 
-        In order enhance your instance with additional features you can purchase add-ons. Currently only private network addon is allowed.      <table>         <tr><th>`addonId`</th><th>Type</th><th>Description</th></tr>         <tr><td>1477</td><td>VPS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         <tr><td>1489</td><td>VDS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         </table>  # noqa: E501
+        In order to enhance your instance with additional features you can purchase add-ons. Currently only firewalling and private network addon is allowed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1202,7 +1201,7 @@ class InstancesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            UpgradeInstanceResponse
+            PatchInstanceResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

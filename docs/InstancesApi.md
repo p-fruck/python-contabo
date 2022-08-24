@@ -612,11 +612,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upgrade_instance**
-> UpgradeInstanceResponse upgrade_instance(x_request_id, instance_id, upgrade_instance_request)
+> PatchInstanceResponse upgrade_instance(x_request_id, instance_id, upgrade_instance_request)
 
 Upgrading instance capabilities
 
-In order enhance your instance with additional features you can purchase add-ons. Currently only private network addon is allowed.      <table>         <tr><th>`addonId`</th><th>Type</th><th>Description</th></tr>         <tr><td>1477</td><td>VPS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         <tr><td>1489</td><td>VDS</td><td>Enabled Private Networking / Virtual Private Cloud (VPC)</td></tr>         </table>
+In order to enhance your instance with additional features you can purchase add-ons. Currently only firewalling and private network addon is allowed.
 
 ### Example
 
@@ -626,7 +626,7 @@ In order enhance your instance with additional features you can purchase add-ons
 import time
 import pfruck_contabo
 from pfruck_contabo.api import instances_api
-from pfruck_contabo.model.upgrade_instance_response import UpgradeInstanceResponse
+from pfruck_contabo.model.patch_instance_response import PatchInstanceResponse
 from pfruck_contabo.model.upgrade_instance_request import UpgradeInstanceRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
@@ -652,9 +652,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     instance_id = 12345 # int | The identifier of the instance
     upgrade_instance_request = UpgradeInstanceRequest(
-        add_ons=[
-            [1477],
-        ],
+        firewalling=UpgradeInstanceRequestFirewalling(None),
+        private_networking=None,
     ) # UpgradeInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -688,7 +687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpgradeInstanceResponse**](UpgradeInstanceResponse.md)
+[**PatchInstanceResponse**](PatchInstanceResponse.md)
 
 ### Authorization
 

@@ -92,7 +92,10 @@ class InstanceDetails(ModelNormal):
             'name': (str,),  # noqa: E501
             'product_id': (str,),  # noqa: E501
             'ip_config': (IpConfig,),  # noqa: E501
-            'region': (str,),  # noqa: E501
+            'region_slug': (str,),  # noqa: E501
+            'region_name': (str,),  # noqa: E501
+            'data_center_slug': (str,),  # noqa: E501
+            'data_center_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,7 +109,10 @@ class InstanceDetails(ModelNormal):
         'name': 'name',  # noqa: E501
         'product_id': 'productId',  # noqa: E501
         'ip_config': 'ipConfig',  # noqa: E501
-        'region': 'region',  # noqa: E501
+        'region_slug': 'regionSlug',  # noqa: E501
+        'region_name': 'regionName',  # noqa: E501
+        'data_center_slug': 'dataCenterSlug',  # noqa: E501
+        'data_center_name': 'dataCenterName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -116,7 +122,7 @@ class InstanceDetails(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, instance_id, display_name, name, product_id, ip_config, region, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, instance_id, display_name, name, product_id, ip_config, region_slug, region_name, data_center_slug, data_center_name, *args, **kwargs):  # noqa: E501
         """InstanceDetails - a model defined in OpenAPI
 
         Args:
@@ -125,7 +131,10 @@ class InstanceDetails(ModelNormal):
             name (str): Instance name
             product_id (str): Product id
             ip_config (IpConfig):
-            region (str): Region where the instance is located.
+            region_slug (str): Slug of the region where the instance is located.
+            region_name (str): Name of the region where the instance is located.
+            data_center_slug (str): Slug of the data center where the instance is located.
+            data_center_name (str): Name of the data center where the instance is located.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +203,10 @@ class InstanceDetails(ModelNormal):
         self.name = name
         self.product_id = product_id
         self.ip_config = ip_config
-        self.region = region
+        self.region_slug = region_slug
+        self.region_name = region_name
+        self.data_center_slug = data_center_slug
+        self.data_center_name = data_center_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -215,7 +227,7 @@ class InstanceDetails(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, instance_id, display_name, name, product_id, ip_config, region, *args, **kwargs):  # noqa: E501
+    def __init__(self, instance_id, display_name, name, product_id, ip_config, region_slug, region_name, data_center_slug, data_center_name, *args, **kwargs):  # noqa: E501
         """InstanceDetails - a model defined in OpenAPI
 
         Args:
@@ -224,7 +236,10 @@ class InstanceDetails(ModelNormal):
             name (str): Instance name
             product_id (str): Product id
             ip_config (IpConfig):
-            region (str): Region where the instance is located.
+            region_slug (str): Slug of the region where the instance is located.
+            region_name (str): Name of the region where the instance is located.
+            data_center_slug (str): Slug of the data center where the instance is located.
+            data_center_name (str): Name of the data center where the instance is located.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -291,7 +306,10 @@ class InstanceDetails(ModelNormal):
         self.name = name
         self.product_id = product_id
         self.ip_config = ip_config
-        self.region = region
+        self.region_slug = region_slug
+        self.region_name = region_name
+        self.data_center_slug = data_center_slug
+        self.data_center_name = data_center_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

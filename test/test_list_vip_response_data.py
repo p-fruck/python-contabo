@@ -13,9 +13,7 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.ip_v4 import IpV4
-from pfruck_contabo.model.ip_v6 import IpV6
 globals()['IpV4'] = IpV4
-globals()['IpV6'] = IpV6
 from pfruck_contabo.model.list_vip_response_data import ListVipResponseData
 
 

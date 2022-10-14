@@ -12,9 +12,9 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.create_custom_image_response_links import CreateCustomImageResponseLinks
 from pfruck_contabo.model.update_custom_image_response_data import UpdateCustomImageResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['CreateCustomImageResponseLinks'] = CreateCustomImageResponseLinks
 globals()['UpdateCustomImageResponseData'] = UpdateCustomImageResponseData
 from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
 

@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.auto_scaling_type_response import AutoScalingTypeResponse
-globals()['AutoScalingTypeResponse'] = AutoScalingTypeResponse
+from pfruck_contabo.model.object_storage_response_auto_scaling import ObjectStorageResponseAutoScaling
+globals()['ObjectStorageResponseAutoScaling'] = ObjectStorageResponseAutoScaling
 from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
 
 

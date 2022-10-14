@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.client_secret_response import ClientSecretResponse
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.generate_client_secret_response_links import GenerateClientSecretResponseLinks
 globals()['ClientSecretResponse'] = ClientSecretResponse
-globals()['SelfLinks'] = SelfLinks
+globals()['GenerateClientSecretResponseLinks'] = GenerateClientSecretResponseLinks
 from pfruck_contabo.model.generate_client_secret_response import GenerateClientSecretResponse
 
 

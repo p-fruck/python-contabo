@@ -23,10 +23,17 @@ class TestVIPApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_assign_ip(self):
+        """Test case for assign_ip
+
+        Assign a VIP to a VPS/VDS  # noqa: E501
+        """
+        pass
+
     def test_retrieve_vip(self):
         """Test case for retrieve_vip
 
-        Get specific VIP by id  # noqa: E501
+        Get specific VIP by ip  # noqa: E501
         """
         pass
 
@@ -34,6 +41,13 @@ class TestVIPApi(unittest.TestCase):
         """Test case for retrieve_vip_list
 
         List VIPs  # noqa: E501
+        """
+        pass
+
+    def test_unassign_ip(self):
+        """Test case for unassign_ip
+
+        Unassign a VIP from a VPS/VDS  # noqa: E501
         """
         pass
 

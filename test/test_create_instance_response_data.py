@@ -12,6 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.add_on_response import AddOnResponse
+from pfruck_contabo.model.instance_status import InstanceStatus
+globals()['AddOnResponse'] = AddOnResponse
+globals()['InstanceStatus'] = InstanceStatus
 from pfruck_contabo.model.create_instance_response_data import CreateInstanceResponseData
 
 

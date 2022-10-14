@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.create_instance_response_data import CreateInstanceResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.patch_instance_response_links import PatchInstanceResponseLinks
 globals()['CreateInstanceResponseData'] = CreateInstanceResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['PatchInstanceResponseLinks'] = PatchInstanceResponseLinks
 from pfruck_contabo.model.create_instance_response import CreateInstanceResponse
 
 

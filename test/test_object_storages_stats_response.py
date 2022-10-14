@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.object_storages_stats_response_data import ObjectStoragesStatsResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.object_storages_stats_response_links import ObjectStoragesStatsResponseLinks
 globals()['ObjectStoragesStatsResponseData'] = ObjectStoragesStatsResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['ObjectStoragesStatsResponseLinks'] = ObjectStoragesStatsResponseLinks
 from pfruck_contabo.model.object_storages_stats_response import ObjectStoragesStatsResponse
 
 

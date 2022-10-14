@@ -26,7 +26,7 @@ class TestPrivateNetworksAuditsApi(unittest.TestCase):
     def test_retrieve_private_network_audits_list(self):
         """Test case for retrieve_private_network_audits_list
 
-        List history about your private networks (audit)  # noqa: E501
+        List history about your Private Networks (audit)  # noqa: E501
         """
         pass
 

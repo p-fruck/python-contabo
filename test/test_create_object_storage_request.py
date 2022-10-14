@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.auto_scaling_type_request import AutoScalingTypeRequest
-globals()['AutoScalingTypeRequest'] = AutoScalingTypeRequest
+from pfruck_contabo.model.create_object_storage_request_auto_scaling import CreateObjectStorageRequestAutoScaling
+globals()['CreateObjectStorageRequestAutoScaling'] = CreateObjectStorageRequestAutoScaling
 from pfruck_contabo.model.create_object_storage_request import CreateObjectStorageRequest
 
 

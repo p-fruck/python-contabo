@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.api_permissions_response import ApiPermissionsResponse
-from pfruck_contabo.model.links import Links
+from pfruck_contabo.model.list_api_permission_response_links import ListApiPermissionResponseLinks
 globals()['ApiPermissionsResponse'] = ApiPermissionsResponse
-globals()['Links'] = Links
+globals()['ListApiPermissionResponseLinks'] = ListApiPermissionResponseLinks
 from pfruck_contabo.model.list_api_permission_response import ListApiPermissionResponse
 
 

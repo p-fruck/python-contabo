@@ -12,12 +12,12 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.links import Links
+from pfruck_contabo.model.list_object_storage_response_links import ListObjectStorageResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
-from pfruck_contabo.model.pagination_meta import PaginationMeta
-globals()['Links'] = Links
+globals()['ListObjectStorageResponseLinks'] = ListObjectStorageResponseLinks
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 globals()['ObjectStorageResponse'] = ObjectStorageResponse
-globals()['PaginationMeta'] = PaginationMeta
 from pfruck_contabo.model.list_object_storage_response import ListObjectStorageResponse
 
 

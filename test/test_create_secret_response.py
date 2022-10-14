@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.create_secret_response_links import CreateSecretResponseLinks
 from pfruck_contabo.model.secret_response import SecretResponse
-from pfruck_contabo.model.self_links import SelfLinks
+globals()['CreateSecretResponseLinks'] = CreateSecretResponseLinks
 globals()['SecretResponse'] = SecretResponse
-globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.create_secret_response import CreateSecretResponse
 
 

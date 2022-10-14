@@ -8,6 +8,7 @@ set -e
 git_user_id=p-fruck
 git_repo_id=python-contabo
 proj_dir="$(readlink -f $(dirname $0))/.." # root directory of the project
+generator_version=v6.1.0 # version of the openapi-generator-cli
 
 function customize_readme() {
     mv README.md README.md.gen
@@ -63,7 +64,7 @@ else
     cmd="docker"
 fi
 
-generator_image=openapitools/openapi-generator-cli:latest-release
+generator_image=openapitools/openapi-generator-cli:${generator_version}
 
 # update local generator image
 ${cmd} pull ${generator_image}
@@ -86,9 +87,6 @@ find . -name "*.py" -exec sed -i '/^\s\+# Introduction .*$/d' {} \;
 # Replace internal URI with the public one
 find . -name "*.py" -exec sed -i "s;contabo.intra;contabo.com;g" {} \;
 find . -name "*.md" -exec sed -i "s;contabo.intra;contabo.com;g" {} \;
-
-# No functionality in unit-tests, they just validate that all files have valid syntax :)
-python -m unittest
 
 customize_readme
 

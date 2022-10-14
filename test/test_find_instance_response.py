@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.find_instance_response_links import FindInstanceResponseLinks
 from pfruck_contabo.model.instance_response import InstanceResponse
-from pfruck_contabo.model.self_links import SelfLinks
+globals()['FindInstanceResponseLinks'] = FindInstanceResponseLinks
 globals()['InstanceResponse'] = InstanceResponse
-globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.find_instance_response import FindInstanceResponse
 
 

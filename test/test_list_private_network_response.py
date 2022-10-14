@@ -12,12 +12,12 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.links import Links
 from pfruck_contabo.model.list_private_network_response_data import ListPrivateNetworkResponseData
-from pfruck_contabo.model.pagination_meta import PaginationMeta
-globals()['Links'] = Links
+from pfruck_contabo.model.list_private_network_response_links import ListPrivateNetworkResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['ListPrivateNetworkResponseData'] = ListPrivateNetworkResponseData
-globals()['PaginationMeta'] = PaginationMeta
+globals()['ListPrivateNetworkResponseLinks'] = ListPrivateNetworkResponseLinks
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_private_network_response import ListPrivateNetworkResponse
 
 

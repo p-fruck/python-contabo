@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.rules import Rules
-globals()['Rules'] = Rules
+from pfruck_contabo.model.rules_request import RulesRequest
+globals()['RulesRequest'] = RulesRequest
 from pfruck_contabo.model.create_firewall_request import CreateFirewallRequest
 
 

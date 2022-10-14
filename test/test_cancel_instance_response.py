@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.cancel_instance_response_data import CancelInstanceResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.patch_instance_response_links import PatchInstanceResponseLinks
 globals()['CancelInstanceResponseData'] = CancelInstanceResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['PatchInstanceResponseLinks'] = PatchInstanceResponseLinks
 from pfruck_contabo.model.cancel_instance_response import CancelInstanceResponse
 
 

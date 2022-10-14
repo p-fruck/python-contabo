@@ -13,8 +13,10 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.instance_details import InstanceDetails
+from pfruck_contabo.model.instance_status_representation import InstanceStatusRepresentation
 from pfruck_contabo.model.rules import Rules
 globals()['InstanceDetails'] = InstanceDetails
+globals()['InstanceStatusRepresentation'] = InstanceStatusRepresentation
 globals()['Rules'] = Rules
 from pfruck_contabo.model.firewall_response import FirewallResponse
 

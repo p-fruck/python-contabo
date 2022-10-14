@@ -12,9 +12,9 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.links import Links
+from pfruck_contabo.model.list_role_audit_response_links import ListRoleAuditResponseLinks
 from pfruck_contabo.model.role_audit_response import RoleAuditResponse
-globals()['Links'] = Links
+globals()['ListRoleAuditResponseLinks'] = ListRoleAuditResponseLinks
 globals()['RoleAuditResponse'] = RoleAuditResponse
 from pfruck_contabo.model.list_role_audit_response import ListRoleAuditResponse
 

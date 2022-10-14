@@ -12,9 +12,9 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.find_user_is_password_set_response_links import FindUserIsPasswordSetResponseLinks
 from pfruck_contabo.model.user_is_password_set_response import UserIsPasswordSetResponse
-globals()['SelfLinks'] = SelfLinks
+globals()['FindUserIsPasswordSetResponseLinks'] = FindUserIsPasswordSetResponseLinks
 globals()['UserIsPasswordSetResponse'] = UserIsPasswordSetResponse
 from pfruck_contabo.model.find_user_is_password_set_response import FindUserIsPasswordSetResponse
 

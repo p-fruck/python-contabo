@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.self_links import SelfLinks
-globals()['SelfLinks'] = SelfLinks
+from pfruck_contabo.model.update_secret_response_links import UpdateSecretResponseLinks
+globals()['UpdateSecretResponseLinks'] = UpdateSecretResponseLinks
 from pfruck_contabo.model.update_secret_response import UpdateSecretResponse
 
 

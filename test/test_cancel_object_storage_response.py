@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.cancel_object_storage_response_data import CancelObjectStorageResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.update_object_storage_response_links import UpdateObjectStorageResponseLinks
 globals()['CancelObjectStorageResponseData'] = CancelObjectStorageResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['UpdateObjectStorageResponseLinks'] = UpdateObjectStorageResponseLinks
 from pfruck_contabo.model.cancel_object_storage_response import CancelObjectStorageResponse
 
 

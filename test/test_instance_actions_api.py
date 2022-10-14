@@ -30,6 +30,13 @@ class TestInstanceActionsApi(unittest.TestCase):
         """
         pass
 
+    def test_shutdown(self):
+        """Test case for shutdown
+
+        Shutdown compute instance / resource by its id  # noqa: E501
+        """
+        pass
+
     def test_start(self):
         """Test case for start
 

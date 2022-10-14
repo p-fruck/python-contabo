@@ -13,11 +13,11 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.data_center_response import DataCenterResponse
-from pfruck_contabo.model.links import Links
-from pfruck_contabo.model.pagination_meta import PaginationMeta
+from pfruck_contabo.model.list_data_center_response_links import ListDataCenterResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['DataCenterResponse'] = DataCenterResponse
-globals()['Links'] = Links
-globals()['PaginationMeta'] = PaginationMeta
+globals()['ListDataCenterResponseLinks'] = ListDataCenterResponseLinks
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_data_center_response import ListDataCenterResponse
 
 

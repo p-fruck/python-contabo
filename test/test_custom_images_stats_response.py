@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.custom_images_stats_response_data import CustomImagesStatsResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.custom_images_stats_response_links import CustomImagesStatsResponseLinks
 globals()['CustomImagesStatsResponseData'] = CustomImagesStatsResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['CustomImagesStatsResponseLinks'] = CustomImagesStatsResponseLinks
 from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
 
 

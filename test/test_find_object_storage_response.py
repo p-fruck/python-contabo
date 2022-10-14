@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.create_object_storage_response_links import CreateObjectStorageResponseLinks
 from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
-from pfruck_contabo.model.self_links import SelfLinks
+globals()['CreateObjectStorageResponseLinks'] = CreateObjectStorageResponseLinks
 globals()['ObjectStorageResponse'] = ObjectStorageResponse
-globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.find_object_storage_response import FindObjectStorageResponse
 
 

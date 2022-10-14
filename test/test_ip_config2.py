@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.ip_v43 import IpV43
-from pfruck_contabo.model.ip_v63 import IpV63
+from pfruck_contabo.model.ip_v6 import IpV6
 globals()['IpV43'] = IpV43
-globals()['IpV63'] = IpV63
+globals()['IpV6'] = IpV6
 from pfruck_contabo.model.ip_config2 import IpConfig2
 
 

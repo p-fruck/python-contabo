@@ -23,17 +23,38 @@ class TestFirewallsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_assign_instance_firewall(self):
+        """Test case for assign_instance_firewall
+
+        Add instance to a firewall  # noqa: E501
+        """
+        pass
+
     def test_create_firewall(self):
         """Test case for create_firewall
 
-        Create a new firewall  # noqa: E501
+        Create a new firewall definition  # noqa: E501
         """
         pass
 
     def test_delete_firewall(self):
         """Test case for delete_firewall
 
-        Delete existing Firewall by id  # noqa: E501
+        Delete existing firewall by id  # noqa: E501
+        """
+        pass
+
+    def test_patch_firewall(self):
+        """Test case for patch_firewall
+
+        Update a firewall by id  # noqa: E501
+        """
+        pass
+
+    def test_put_firewall(self):
+        """Test case for put_firewall
+
+        Update specific firewall rules  # noqa: E501
         """
         pass
 
@@ -47,7 +68,21 @@ class TestFirewallsApi(unittest.TestCase):
     def test_retrieve_firewall_list(self):
         """Test case for retrieve_firewall_list
 
-        List firewalls  # noqa: E501
+        List all firewalls  # noqa: E501
+        """
+        pass
+
+    def test_set_default_firewall(self):
+        """Test case for set_default_firewall
+
+        Set specific firewall to be default  # noqa: E501
+        """
+        pass
+
+    def test_unassign_instance_firewall(self):
+        """Test case for unassign_instance_firewall
+
+        Remove instance from a firewall  # noqa: E501
         """
         pass
 

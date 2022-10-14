@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.instance_shutdown_action_response_data import InstanceShutdownActionResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.instance_shutdown_action_response_links import InstanceShutdownActionResponseLinks
 globals()['InstanceShutdownActionResponseData'] = InstanceShutdownActionResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['InstanceShutdownActionResponseLinks'] = InstanceShutdownActionResponseLinks
 from pfruck_contabo.model.instance_shutdown_action_response import InstanceShutdownActionResponse
 
 

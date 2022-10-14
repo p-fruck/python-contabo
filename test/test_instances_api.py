@@ -37,6 +37,13 @@ class TestInstancesApi(unittest.TestCase):
         """
         pass
 
+    def test_patch_instance(self):
+        """Test case for patch_instance
+
+        Update specific instance  # noqa: E501
+        """
+        pass
+
     def test_reinstall_instance(self):
         """Test case for reinstall_instance
 
@@ -55,6 +62,13 @@ class TestInstancesApi(unittest.TestCase):
         """Test case for retrieve_instances_list
 
         List instances  # noqa: E501
+        """
+        pass
+
+    def test_upgrade_instance(self):
+        """Test case for upgrade_instance
+
+        Upgrading instance capabilities  # noqa: E501
         """
         pass
 

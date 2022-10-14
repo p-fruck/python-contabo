@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.tag_assignment_self_links import TagAssignmentSelfLinks
-globals()['TagAssignmentSelfLinks'] = TagAssignmentSelfLinks
+from pfruck_contabo.model.create_assignment_response_links import CreateAssignmentResponseLinks
+globals()['CreateAssignmentResponseLinks'] = CreateAssignmentResponseLinks
 from pfruck_contabo.model.create_assignment_response import CreateAssignmentResponse
 
 

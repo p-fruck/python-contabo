@@ -12,12 +12,12 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.pagination_meta import PaginationMeta
+from pfruck_contabo.model.list_secret_response_links import ListSecretResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.secret_response import SecretResponse
-from pfruck_contabo.model.self_links import SelfLinks
-globals()['PaginationMeta'] = PaginationMeta
+globals()['ListSecretResponseLinks'] = ListSecretResponseLinks
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 globals()['SecretResponse'] = SecretResponse
-globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.list_secret_response import ListSecretResponse
 
 

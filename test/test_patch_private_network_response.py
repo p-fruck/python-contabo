@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.create_private_network_response_links import CreatePrivateNetworkResponseLinks
 from pfruck_contabo.model.private_network_response import PrivateNetworkResponse
-from pfruck_contabo.model.self_links import SelfLinks
+globals()['CreatePrivateNetworkResponseLinks'] = CreatePrivateNetworkResponseLinks
 globals()['PrivateNetworkResponse'] = PrivateNetworkResponse
-globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.patch_private_network_response import PatchPrivateNetworkResponse
 
 

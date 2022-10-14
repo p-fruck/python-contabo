@@ -68,7 +68,7 @@ class TestObjectStoragesApi(unittest.TestCase):
     def test_upgrade_object_storage(self):
         """Test case for upgrade_object_storage
 
-        Upgrade object storage size resp. update auto scaling settings.  # noqa: E501
+        Upgrade object storage size resp. update autoscaling settings.  # noqa: E501
         """
         pass
 

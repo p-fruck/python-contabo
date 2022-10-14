@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.instance_restart_action_response_data import InstanceRestartActionResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.instance_restart_action_response_links import InstanceRestartActionResponseLinks
 globals()['InstanceRestartActionResponseData'] = InstanceRestartActionResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['InstanceRestartActionResponseLinks'] = InstanceRestartActionResponseLinks
 from pfruck_contabo.model.instance_restart_action_response import InstanceRestartActionResponse
 
 

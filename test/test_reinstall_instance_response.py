@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.patch_instance_response_links import PatchInstanceResponseLinks
 from pfruck_contabo.model.reinstall_instance_response_data import ReinstallInstanceResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+globals()['PatchInstanceResponseLinks'] = PatchInstanceResponseLinks
 globals()['ReinstallInstanceResponseData'] = ReinstallInstanceResponseData
-globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.reinstall_instance_response import ReinstallInstanceResponse
 
 

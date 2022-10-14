@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.inbound_rule import InboundRule
-globals()['InboundRule'] = InboundRule
+from pfruck_contabo.model.firewall_rule_response import FirewallRuleResponse
+globals()['FirewallRuleResponse'] = FirewallRuleResponse
 from pfruck_contabo.model.rules import Rules
 
 

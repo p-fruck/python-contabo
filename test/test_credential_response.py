@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.credential_data import CredentialData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.credential_response_links import CredentialResponseLinks
 globals()['CredentialData'] = CredentialData
-globals()['SelfLinks'] = SelfLinks
+globals()['CredentialResponseLinks'] = CredentialResponseLinks
 from pfruck_contabo.model.credential_response import CredentialResponse
 
 

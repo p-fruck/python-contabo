@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.create_snapshot_response_data import CreateSnapshotResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.create_snapshot_response_links import CreateSnapshotResponseLinks
 globals()['CreateSnapshotResponseData'] = CreateSnapshotResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['CreateSnapshotResponseLinks'] = CreateSnapshotResponseLinks
 from pfruck_contabo.model.create_snapshot_response import CreateSnapshotResponse
 
 

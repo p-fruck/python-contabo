@@ -26,35 +26,49 @@ class TestPrivateNetworksApi(unittest.TestCase):
     def test_assign_instance_private_network(self):
         """Test case for assign_instance_private_network
 
-        Add instance to a private network  # noqa: E501
+        Add instance to a Private Network  # noqa: E501
         """
         pass
 
     def test_create_private_network(self):
         """Test case for create_private_network
 
-        Create a new private network  # noqa: E501
+        Create a new Private Network  # noqa: E501
+        """
+        pass
+
+    def test_delete_private_network(self):
+        """Test case for delete_private_network
+
+        Delete existing Private Network by id  # noqa: E501
+        """
+        pass
+
+    def test_patch_private_network(self):
+        """Test case for patch_private_network
+
+        Update a Private Network by id  # noqa: E501
         """
         pass
 
     def test_retrieve_private_network(self):
         """Test case for retrieve_private_network
 
-        Get specific private network by id  # noqa: E501
+        Get specific Private Network by id  # noqa: E501
         """
         pass
 
     def test_retrieve_private_network_list(self):
         """Test case for retrieve_private_network_list
 
-        List private networks  # noqa: E501
+        List Private Networks  # noqa: E501
         """
         pass
 
     def test_unassign_instance_private_network(self):
         """Test case for unassign_instance_private_network
 
-        Remove instance from a private network  # noqa: E501
+        Remove instance from a Private Network  # noqa: E501
         """
         pass
 

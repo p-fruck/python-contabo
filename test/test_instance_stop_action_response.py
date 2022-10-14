@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.instance_stop_action_response_data import InstanceStopActionResponseData
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.instance_stop_action_response_links import InstanceStopActionResponseLinks
 globals()['InstanceStopActionResponseData'] = InstanceStopActionResponseData
-globals()['SelfLinks'] = SelfLinks
+globals()['InstanceStopActionResponseLinks'] = InstanceStopActionResponseLinks
 from pfruck_contabo.model.instance_stop_action_response import InstanceStopActionResponse
 
 

@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.client_response import ClientResponse
-from pfruck_contabo.model.self_links import SelfLinks
+from pfruck_contabo.model.find_client_response_links import FindClientResponseLinks
 globals()['ClientResponse'] = ClientResponse
-globals()['SelfLinks'] = SelfLinks
+globals()['FindClientResponseLinks'] = FindClientResponseLinks
 from pfruck_contabo.model.find_client_response import FindClientResponse
 
 

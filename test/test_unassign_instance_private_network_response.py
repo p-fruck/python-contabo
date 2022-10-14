@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.instance_assignment_self_links import InstanceAssignmentSelfLinks
-globals()['InstanceAssignmentSelfLinks'] = InstanceAssignmentSelfLinks
+from pfruck_contabo.model.assign_instance_private_network_response_links import AssignInstancePrivateNetworkResponseLinks
+globals()['AssignInstancePrivateNetworkResponseLinks'] = AssignInstancePrivateNetworkResponseLinks
 from pfruck_contabo.model.unassign_instance_private_network_response import UnassignInstancePrivateNetworkResponse
 
 

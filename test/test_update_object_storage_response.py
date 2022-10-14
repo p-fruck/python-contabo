@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.self_links import SelfLinks
 from pfruck_contabo.model.update_object_storage_response_data import UpdateObjectStorageResponseData
-globals()['SelfLinks'] = SelfLinks
+from pfruck_contabo.model.update_object_storage_response_links import UpdateObjectStorageResponseLinks
 globals()['UpdateObjectStorageResponseData'] = UpdateObjectStorageResponseData
+globals()['UpdateObjectStorageResponseLinks'] = UpdateObjectStorageResponseLinks
 from pfruck_contabo.model.update_object_storage_response import UpdateObjectStorageResponse
 
 

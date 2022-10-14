@@ -12,6 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.upgrade_instance_request_firewalling import UpgradeInstanceRequestFirewalling
+globals()['UpgradeInstanceRequestFirewalling'] = UpgradeInstanceRequestFirewalling
 from pfruck_contabo.model.upgrade_instance_request import UpgradeInstanceRequest
 
 

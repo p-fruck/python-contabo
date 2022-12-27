@@ -96,6 +96,15 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CustomerApi* | [**retrieve_customer**](docs/CustomerApi.md#retrieve_customer) | **GET** /v1/customer | Get customer info
 *CustomerApi* | [**retrieve_payment_method**](docs/CustomerApi.md#retrieve_payment_method) | **GET** /v1/customer/payment-method | List current payment method
+*DPASApi* | [**conclude_dpa**](docs/DPASApi.md#conclude_dpa) | **POST** /v1/dpas/{dpaId}/conclude | Concludes a data processing agreement
+*DPASApi* | [**create_dpa**](docs/DPASApi.md#create_dpa) | **POST** /v1/dpas | Create a new data processing agreement
+*DPASApi* | [**download_dpa_file**](docs/DPASApi.md#download_dpa_file) | **GET** /v1/dpas/{dpaId}/download | Download concluded DPA PDF file
+*DPASApi* | [**download_preview_dpa**](docs/DPASApi.md#download_preview_dpa) | **GET** /v1/dpas/{dpaId}/preview | Download preview version of DPA
+*DPASApi* | [**list_dpa_services**](docs/DPASApi.md#list_dpa_services) | **GET** /v1/dpas/services | List services
+*DPASApi* | [**retrieve_dpa**](docs/DPASApi.md#retrieve_dpa) | **GET** /v1/dpas/{dpaId} | Get specific Dpa by it&#39;s dpaId
+*DPASApi* | [**retrieve_dpa_list**](docs/DPASApi.md#retrieve_dpa_list) | **GET** /v1/dpas | List all Dpas
+*DPASApi* | [**terminate_dpa**](docs/DPASApi.md#terminate_dpa) | **POST** /v1/dpas/{dpaId}/terminate | Terminate an existing DPA by id
+*DpaAuditsApi* | [**retrieve_dpa_audits_list**](docs/DpaAuditsApi.md#retrieve_dpa_audits_list) | **GET** /v1/dpas/audits | List history about your Dpas (audit)
 *FirewallsApi* | [**assign_instance_firewall**](docs/FirewallsApi.md#assign_instance_firewall) | **POST** /v1/firewalls/{firewallId}/instances/{instanceId} | Add instance to a firewall
 *FirewallsApi* | [**create_firewall**](docs/FirewallsApi.md#create_firewall) | **POST** /v1/firewalls | Create a new firewall definition
 *FirewallsApi* | [**delete_firewall**](docs/FirewallsApi.md#delete_firewall) | **DELETE** /v1/firewalls/{firewallId} | Delete existing firewall by id
@@ -204,6 +213,8 @@ Class | Method | HTTP request | Description
 
  - [AddOnResponse](docs/AddOnResponse.md)
  - [AdditionalIp](docs/AdditionalIp.md)
+ - [Address](docs/Address.md)
+ - [AffectedPersons](docs/AffectedPersons.md)
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
  - [AssignInstanceFirewallResponse](docs/AssignInstanceFirewallResponse.md)
  - [AssignInstanceFirewallResponseLinks](docs/AssignInstanceFirewallResponseLinks.md)
@@ -228,6 +239,7 @@ Class | Method | HTTP request | Description
  - [CreateCustomImageResponse](docs/CreateCustomImageResponse.md)
  - [CreateCustomImageResponseData](docs/CreateCustomImageResponseData.md)
  - [CreateCustomImageResponseLinks](docs/CreateCustomImageResponseLinks.md)
+ - [CreateDpaRequest](docs/CreateDpaRequest.md)
  - [CreateFirewallRequest](docs/CreateFirewallRequest.md)
  - [CreateFirewallResponse](docs/CreateFirewallResponse.md)
  - [CreateFirewallResponseLinks](docs/CreateFirewallResponseLinks.md)
@@ -278,7 +290,14 @@ Class | Method | HTTP request | Description
  - [CustomerTypeBusiness](docs/CustomerTypeBusiness.md)
  - [CustomerTypePrivate](docs/CustomerTypePrivate.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
+ - [DataProtectionOfficerRequest](docs/DataProtectionOfficerRequest.md)
+ - [DataProtectionOfficerRequestAddress](docs/DataProtectionOfficerRequestAddress.md)
  - [DatacenterCapabilities](docs/DatacenterCapabilities.md)
+ - [DpaAuditResponse](docs/DpaAuditResponse.md)
+ - [DpaResponse](docs/DpaResponse.md)
+ - [DpaResponseData](docs/DpaResponseData.md)
+ - [DpaResponseLinks](docs/DpaResponseLinks.md)
+ - [DpaServiceResponse](docs/DpaServiceResponse.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)
@@ -354,6 +373,12 @@ Class | Method | HTTP request | Description
  - [ListAssignmentResponseLinks](docs/ListAssignmentResponseLinks.md)
  - [ListDataCenterResponse](docs/ListDataCenterResponse.md)
  - [ListDataCenterResponseLinks](docs/ListDataCenterResponseLinks.md)
+ - [ListDpaAuditResponse](docs/ListDpaAuditResponse.md)
+ - [ListDpaAuditResponseLinks](docs/ListDpaAuditResponseLinks.md)
+ - [ListDpaResponse](docs/ListDpaResponse.md)
+ - [ListDpaResponseLinks](docs/ListDpaResponseLinks.md)
+ - [ListDpaServicesResponse](docs/ListDpaServicesResponse.md)
+ - [ListDpaServicesResponseLinks](docs/ListDpaServicesResponseLinks.md)
  - [ListFirewallAuditResponse](docs/ListFirewallAuditResponse.md)
  - [ListFirewallAuditResponseLinks](docs/ListFirewallAuditResponseLinks.md)
  - [ListFirewallResponse](docs/ListFirewallResponse.md)
@@ -418,6 +443,7 @@ Class | Method | HTTP request | Description
  - [ObjectStoragesStatsResponse](docs/ObjectStoragesStatsResponse.md)
  - [ObjectStoragesStatsResponseData](docs/ObjectStoragesStatsResponseData.md)
  - [ObjectStoragesStatsResponseLinks](docs/ObjectStoragesStatsResponseLinks.md)
+ - [OtherData](docs/OtherData.md)
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PatchFirewallRequest](docs/PatchFirewallRequest.md)
  - [PatchFirewallResponse](docs/PatchFirewallResponse.md)
@@ -431,10 +457,12 @@ Class | Method | HTTP request | Description
  - [PaymentMethodResponse1](docs/PaymentMethodResponse1.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
+ - [PersonalData](docs/PersonalData.md)
  - [PresetRulesResponse](docs/PresetRulesResponse.md)
  - [PrivateIpConfig](docs/PrivateIpConfig.md)
  - [PrivateNetworkAuditResponse](docs/PrivateNetworkAuditResponse.md)
  - [PrivateNetworkResponse](docs/PrivateNetworkResponse.md)
+ - [ProcessedDataType](docs/ProcessedDataType.md)
  - [PutFirewallRequest](docs/PutFirewallRequest.md)
  - [PutFirewallResponse](docs/PutFirewallResponse.md)
  - [ReinstallInstanceRequest](docs/ReinstallInstanceRequest.md)

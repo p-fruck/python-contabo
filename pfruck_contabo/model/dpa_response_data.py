@@ -123,6 +123,7 @@ class DpaResponseData(ModelNormal):
             'service_name': (str,),  # noqa: E501
             'service_cancel_date': (datetime,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'service_display_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -146,6 +147,7 @@ class DpaResponseData(ModelNormal):
         'service_name': 'serviceName',  # noqa: E501
         'service_cancel_date': 'serviceCancelDate',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'service_display_name': 'serviceDisplayName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,7 +157,7 @@ class DpaResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, dpa_id, processed_data_type, personal_data, affected_persons, data_protection_officer, dpa_service_id, created_date, concluded_date, invalid_date, archived_date, service_name, service_cancel_date, status, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, dpa_id, processed_data_type, personal_data, affected_persons, data_protection_officer, dpa_service_id, created_date, concluded_date, invalid_date, archived_date, service_name, service_cancel_date, status, service_display_name, *args, **kwargs):  # noqa: E501
         """DpaResponseData - a model defined in OpenAPI
 
         Args:
@@ -174,6 +176,7 @@ class DpaResponseData(ModelNormal):
             service_name (str): The service name and subscriptionId
             service_cancel_date (datetime): The cancel date time for the service the dpa covers
             status (str): The status of the dpa
+            service_display_name (str): The display name of the service
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -252,6 +255,7 @@ class DpaResponseData(ModelNormal):
         self.service_name = service_name
         self.service_cancel_date = service_cancel_date
         self.status = status
+        self.service_display_name = service_display_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -272,7 +276,7 @@ class DpaResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, dpa_id, processed_data_type, personal_data, affected_persons, data_protection_officer, dpa_service_id, created_date, concluded_date, invalid_date, archived_date, service_name, service_cancel_date, status, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, dpa_id, processed_data_type, personal_data, affected_persons, data_protection_officer, dpa_service_id, created_date, concluded_date, invalid_date, archived_date, service_name, service_cancel_date, status, service_display_name, *args, **kwargs):  # noqa: E501
         """DpaResponseData - a model defined in OpenAPI
 
         Args:
@@ -291,6 +295,7 @@ class DpaResponseData(ModelNormal):
             service_name (str): The service name and subscriptionId
             service_cancel_date (datetime): The cancel date time for the service the dpa covers
             status (str): The status of the dpa
+            service_display_name (str): The display name of the service
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -367,6 +372,7 @@ class DpaResponseData(ModelNormal):
         self.service_name = service_name
         self.service_cancel_date = service_cancel_date
         self.status = status
+        self.service_display_name = service_display_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

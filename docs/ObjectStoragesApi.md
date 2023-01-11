@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**create_object_storage**](ObjectStoragesApi.md#create_object_storage) | **POST** /v1/object-storages | Create a new object storage
 [**retrieve_data_center_list**](ObjectStoragesApi.md#retrieve_data_center_list) | **GET** /v1/data-centers | List data centers
 [**retrieve_object_storage**](ObjectStoragesApi.md#retrieve_object_storage) | **GET** /v1/object-storages/{objectStorageId} | Get specific object storage by its id
-[**retrieve_object_storage_list**](ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your Object Storages
+[**retrieve_object_storage_list**](ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your object storages
 [**retrieve_object_storages_stats**](ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
+[**update_object_storage**](ObjectStoragesApi.md#update_object_storage) | **PATCH** /v1/object-storages/{objectStorageId} | Modifies the display name of object storage
 [**upgrade_object_storage**](ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 
 
@@ -146,6 +147,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         region="EU",
         auto_scaling=CreateObjectStorageRequestAutoScaling(None),
         total_purchased_space_tb=6,
+        display_name="Object storage 1",
     ) # CreateObjectStorageRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -395,9 +397,9 @@ Name | Type | Description  | Notes
 # **retrieve_object_storage_list**
 > ListObjectStorageResponse retrieve_object_storage_list(x_request_id)
 
-List all your Object Storages
+List all your object storages
 
-List and filter all Object Storages in your account
+List and filter all object storages in your account
 
 ### Example
 
@@ -442,7 +444,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List all your Object Storages
+        # List all your object storages
         api_response = api_instance.retrieve_object_storage_list(x_request_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -451,7 +453,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List all your Object Storages
+        # List all your object storages
         api_response = api_instance.retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id, region=region)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -584,8 +586,103 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_object_storage**
+> CancelObjectStorageResponse update_object_storage(x_request_id, object_storage_id, patch_object_storage_request)
+
+Modifies the display name of object storage
+
+Modifies the display name of object storage. Display name must be unique.
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import object_storages_api
+from pfruck_contabo.model.patch_object_storage_request import PatchObjectStorageRequest
+from pfruck_contabo.model.cancel_object_storage_response import CancelObjectStorageResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_storages_api.ObjectStoragesApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
+    patch_object_storage_request = PatchObjectStorageRequest(
+        display_name="Object storage 1",
+    ) # PatchObjectStorageRequest | 
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Modifies the display name of object storage
+        api_response = api_instance.update_object_storage(x_request_id, object_storage_id, patch_object_storage_request)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling ObjectStoragesApi->update_object_storage: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Modifies the display name of object storage
+        api_response = api_instance.update_object_storage(x_request_id, object_storage_id, patch_object_storage_request, x_trace_id=x_trace_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling ObjectStoragesApi->update_object_storage: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **object_storage_id** | **str**| The identifier of the object storage |
+ **patch_object_storage_request** | [**PatchObjectStorageRequest**](PatchObjectStorageRequest.md)|  |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+
+### Return type
+
+[**CancelObjectStorageResponse**](CancelObjectStorageResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response will be a JSON object and contains the object storage with updated display name. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **upgrade_object_storage**
-> UpdateObjectStorageResponse upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request)
+> UpgradeObjectStorageResponse upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request)
 
 Upgrade object storage size resp. update autoscaling settings.
 
@@ -600,7 +697,7 @@ import time
 import pfruck_contabo
 from pfruck_contabo.api import object_storages_api
 from pfruck_contabo.model.upgrade_object_storage_request import UpgradeObjectStorageRequest
-from pfruck_contabo.model.update_object_storage_response import UpdateObjectStorageResponse
+from pfruck_contabo.model.upgrade_object_storage_response import UpgradeObjectStorageResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -660,7 +757,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateObjectStorageResponse**](UpdateObjectStorageResponse.md)
+[**UpgradeObjectStorageResponse**](UpgradeObjectStorageResponse.md)
 
 ### Authorization
 

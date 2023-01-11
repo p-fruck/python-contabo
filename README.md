@@ -144,8 +144,9 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**create_object_storage**](docs/ObjectStoragesApi.md#create_object_storage) | **POST** /v1/object-storages | Create a new object storage
 *ObjectStoragesApi* | [**retrieve_data_center_list**](docs/ObjectStoragesApi.md#retrieve_data_center_list) | **GET** /v1/data-centers | List data centers
 *ObjectStoragesApi* | [**retrieve_object_storage**](docs/ObjectStoragesApi.md#retrieve_object_storage) | **GET** /v1/object-storages/{objectStorageId} | Get specific object storage by its id
-*ObjectStoragesApi* | [**retrieve_object_storage_list**](docs/ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your Object Storages
+*ObjectStoragesApi* | [**retrieve_object_storage_list**](docs/ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your object storages
 *ObjectStoragesApi* | [**retrieve_object_storages_stats**](docs/ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
+*ObjectStoragesApi* | [**update_object_storage**](docs/ObjectStoragesApi.md#update_object_storage) | **PATCH** /v1/object-storages/{objectStorageId} | Modifies the display name of object storage
 *ObjectStoragesApi* | [**upgrade_object_storage**](docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
 *PaymentMethodsApi* | [**retrieve_payment_method_list**](docs/PaymentMethodsApi.md#retrieve_payment_method_list) | **GET** /v1/payment-methods | List payment methods
@@ -192,8 +193,9 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
-*UsersApi* | [**get_object_storage_credentials**](docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get S3 compatible object storage credentials
-*UsersApi* | [**regenerate_credentials**](docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/credentials | Regenerates secret key of specified user for the S3 compatible object storages
+*UsersApi* | [**get_object_storage_credentials**](docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials
+*UsersApi* | [**list_object_storage_credentials**](docs/UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user
+*UsersApi* | [**regenerate_credentials**](docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages
 *UsersApi* | [**resend_email_verification**](docs/UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 *UsersApi* | [**reset_password**](docs/UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 *UsersApi* | [**retrieve_user**](docs/UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
@@ -278,8 +280,6 @@ Class | Method | HTTP request | Description
  - [CreateUserResponseData](docs/CreateUserResponseData.md)
  - [CreateUserResponseLinks](docs/CreateUserResponseLinks.md)
  - [CredentialData](docs/CredentialData.md)
- - [CredentialResponse](docs/CredentialResponse.md)
- - [CredentialResponseLinks](docs/CredentialResponseLinks.md)
  - [CustomImagesStatsResponse](docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](docs/CustomImagesStatsResponseLinks.md)
@@ -302,6 +302,8 @@ Class | Method | HTTP request | Description
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)
  - [FindClientResponseLinks](docs/FindClientResponseLinks.md)
+ - [FindCredentialResponse](docs/FindCredentialResponse.md)
+ - [FindCredentialResponseLinks](docs/FindCredentialResponseLinks.md)
  - [FindCustomerResponse](docs/FindCustomerResponse.md)
  - [FindCustomerResponseLinks](docs/FindCustomerResponseLinks.md)
  - [FindFirewallResponse](docs/FindFirewallResponse.md)
@@ -371,6 +373,8 @@ Class | Method | HTTP request | Description
  - [ListAssignmentAuditsResponseLinks](docs/ListAssignmentAuditsResponseLinks.md)
  - [ListAssignmentResponse](docs/ListAssignmentResponse.md)
  - [ListAssignmentResponseLinks](docs/ListAssignmentResponseLinks.md)
+ - [ListCredentialResponse](docs/ListCredentialResponse.md)
+ - [ListCredentialResponseLinks](docs/ListCredentialResponseLinks.md)
  - [ListDataCenterResponse](docs/ListDataCenterResponse.md)
  - [ListDataCenterResponseLinks](docs/ListDataCenterResponseLinks.md)
  - [ListDpaAuditResponse](docs/ListDpaAuditResponse.md)
@@ -451,6 +455,7 @@ Class | Method | HTTP request | Description
  - [PatchInstanceResponse](docs/PatchInstanceResponse.md)
  - [PatchInstanceResponseData](docs/PatchInstanceResponseData.md)
  - [PatchInstanceResponseLinks](docs/PatchInstanceResponseLinks.md)
+ - [PatchObjectStorageRequest](docs/PatchObjectStorageRequest.md)
  - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
  - [PaymentMethodResponse](docs/PaymentMethodResponse.md)
@@ -491,10 +496,6 @@ Class | Method | HTTP request | Description
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)
  - [UpdateCustomImageResponseData](docs/UpdateCustomImageResponseData.md)
- - [UpdateObjectStorageResponse](docs/UpdateObjectStorageResponse.md)
- - [UpdateObjectStorageResponseData](docs/UpdateObjectStorageResponseData.md)
- - [UpdateObjectStorageResponseDataAutoScaling](docs/UpdateObjectStorageResponseDataAutoScaling.md)
- - [UpdateObjectStorageResponseLinks](docs/UpdateObjectStorageResponseLinks.md)
  - [UpdateRoleRequest](docs/UpdateRoleRequest.md)
  - [UpdateRoleResponse](docs/UpdateRoleResponse.md)
  - [UpdateRoleResponseLinks](docs/UpdateRoleResponseLinks.md)
@@ -515,6 +516,10 @@ Class | Method | HTTP request | Description
  - [UpgradeInstanceRequestFirewalling](docs/UpgradeInstanceRequestFirewalling.md)
  - [UpgradeObjectStorageRequest](docs/UpgradeObjectStorageRequest.md)
  - [UpgradeObjectStorageRequestAutoScaling](docs/UpgradeObjectStorageRequestAutoScaling.md)
+ - [UpgradeObjectStorageResponse](docs/UpgradeObjectStorageResponse.md)
+ - [UpgradeObjectStorageResponseData](docs/UpgradeObjectStorageResponseData.md)
+ - [UpgradeObjectStorageResponseDataAutoScaling](docs/UpgradeObjectStorageResponseDataAutoScaling.md)
+ - [UpgradeObjectStorageResponseLinks](docs/UpgradeObjectStorageResponseLinks.md)
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)

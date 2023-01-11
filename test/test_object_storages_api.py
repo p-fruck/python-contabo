@@ -54,7 +54,7 @@ class TestObjectStoragesApi(unittest.TestCase):
     def test_retrieve_object_storage_list(self):
         """Test case for retrieve_object_storage_list
 
-        List all your Object Storages  # noqa: E501
+        List all your object storages  # noqa: E501
         """
         pass
 
@@ -62,6 +62,13 @@ class TestObjectStoragesApi(unittest.TestCase):
         """Test case for retrieve_object_storages_stats
 
         List usage statistics about the specified object storage  # noqa: E501
+        """
+        pass
+
+    def test_update_object_storage(self):
+        """Test case for update_object_storage
+
+        Modifies the display name of object storage  # noqa: E501
         """
         pass
 

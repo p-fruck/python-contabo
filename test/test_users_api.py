@@ -51,6 +51,13 @@ class TestUsersApi(unittest.TestCase):
         """
         pass
 
+    def test_list_object_storage_credentials(self):
+        """Test case for list_object_storage_credentials
+
+        Get list of S3 compatible object storage credentials for user  # noqa: E501
+        """
+        pass
+
     def test_regenerate_credentials(self):
         """Test case for regenerate_credentials
 

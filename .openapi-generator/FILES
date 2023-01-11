@@ -69,8 +69,6 @@ docs/CreateUserResponse.md
 docs/CreateUserResponseData.md
 docs/CreateUserResponseLinks.md
 docs/CredentialData.md
-docs/CredentialResponse.md
-docs/CredentialResponseLinks.md
 docs/CustomImagesStatsResponse.md
 docs/CustomImagesStatsResponseData.md
 docs/CustomImagesStatsResponseLinks.md
@@ -96,6 +94,8 @@ docs/FindAssignmentResponse.md
 docs/FindAssignmentResponseLinks.md
 docs/FindClientResponse.md
 docs/FindClientResponseLinks.md
+docs/FindCredentialResponse.md
+docs/FindCredentialResponseLinks.md
 docs/FindCustomerResponse.md
 docs/FindCustomerResponseLinks.md
 docs/FindFirewallResponse.md
@@ -176,6 +176,8 @@ docs/ListAssignmentAuditsResponse.md
 docs/ListAssignmentAuditsResponseLinks.md
 docs/ListAssignmentResponse.md
 docs/ListAssignmentResponseLinks.md
+docs/ListCredentialResponse.md
+docs/ListCredentialResponseLinks.md
 docs/ListDataCenterResponse.md
 docs/ListDataCenterResponseLinks.md
 docs/ListDpaAuditResponse.md
@@ -258,6 +260,7 @@ docs/PatchInstanceRequest.md
 docs/PatchInstanceResponse.md
 docs/PatchInstanceResponseData.md
 docs/PatchInstanceResponseLinks.md
+docs/PatchObjectStorageRequest.md
 docs/PatchPrivateNetworkRequest.md
 docs/PatchPrivateNetworkResponse.md
 docs/PaymentMethodResponse.md
@@ -312,10 +315,6 @@ docs/UnassignVipResponse.md
 docs/UpdateCustomImageRequest.md
 docs/UpdateCustomImageResponse.md
 docs/UpdateCustomImageResponseData.md
-docs/UpdateObjectStorageResponse.md
-docs/UpdateObjectStorageResponseData.md
-docs/UpdateObjectStorageResponseDataAutoScaling.md
-docs/UpdateObjectStorageResponseLinks.md
 docs/UpdateRoleRequest.md
 docs/UpdateRoleResponse.md
 docs/UpdateRoleResponseLinks.md
@@ -336,6 +335,10 @@ docs/UpgradeInstanceRequest.md
 docs/UpgradeInstanceRequestFirewalling.md
 docs/UpgradeObjectStorageRequest.md
 docs/UpgradeObjectStorageRequestAutoScaling.md
+docs/UpgradeObjectStorageResponse.md
+docs/UpgradeObjectStorageResponseData.md
+docs/UpgradeObjectStorageResponseDataAutoScaling.md
+docs/UpgradeObjectStorageResponseLinks.md
 docs/UserAuditResponse.md
 docs/UserIsPasswordSetResponse.md
 docs/UserResponse.md
@@ -454,8 +457,6 @@ pfruck_contabo/model/create_user_response.py
 pfruck_contabo/model/create_user_response_data.py
 pfruck_contabo/model/create_user_response_links.py
 pfruck_contabo/model/credential_data.py
-pfruck_contabo/model/credential_response.py
-pfruck_contabo/model/credential_response_links.py
 pfruck_contabo/model/custom_images_stats_response.py
 pfruck_contabo/model/custom_images_stats_response_data.py
 pfruck_contabo/model/custom_images_stats_response_links.py
@@ -478,6 +479,8 @@ pfruck_contabo/model/find_assignment_response.py
 pfruck_contabo/model/find_assignment_response_links.py
 pfruck_contabo/model/find_client_response.py
 pfruck_contabo/model/find_client_response_links.py
+pfruck_contabo/model/find_credential_response.py
+pfruck_contabo/model/find_credential_response_links.py
 pfruck_contabo/model/find_customer_response.py
 pfruck_contabo/model/find_customer_response_links.py
 pfruck_contabo/model/find_firewall_response.py
@@ -547,6 +550,8 @@ pfruck_contabo/model/list_assignment_audits_response.py
 pfruck_contabo/model/list_assignment_audits_response_links.py
 pfruck_contabo/model/list_assignment_response.py
 pfruck_contabo/model/list_assignment_response_links.py
+pfruck_contabo/model/list_credential_response.py
+pfruck_contabo/model/list_credential_response_links.py
 pfruck_contabo/model/list_data_center_response.py
 pfruck_contabo/model/list_data_center_response_links.py
 pfruck_contabo/model/list_dpa_audit_response.py
@@ -627,6 +632,7 @@ pfruck_contabo/model/patch_instance_request.py
 pfruck_contabo/model/patch_instance_response.py
 pfruck_contabo/model/patch_instance_response_data.py
 pfruck_contabo/model/patch_instance_response_links.py
+pfruck_contabo/model/patch_object_storage_request.py
 pfruck_contabo/model/patch_private_network_request.py
 pfruck_contabo/model/patch_private_network_response.py
 pfruck_contabo/model/payment_method_response.py
@@ -667,10 +673,6 @@ pfruck_contabo/model/unassign_vip_response.py
 pfruck_contabo/model/update_custom_image_request.py
 pfruck_contabo/model/update_custom_image_response.py
 pfruck_contabo/model/update_custom_image_response_data.py
-pfruck_contabo/model/update_object_storage_response.py
-pfruck_contabo/model/update_object_storage_response_data.py
-pfruck_contabo/model/update_object_storage_response_data_auto_scaling.py
-pfruck_contabo/model/update_object_storage_response_links.py
 pfruck_contabo/model/update_role_request.py
 pfruck_contabo/model/update_role_response.py
 pfruck_contabo/model/update_role_response_links.py
@@ -691,6 +693,10 @@ pfruck_contabo/model/upgrade_instance_request.py
 pfruck_contabo/model/upgrade_instance_request_firewalling.py
 pfruck_contabo/model/upgrade_object_storage_request.py
 pfruck_contabo/model/upgrade_object_storage_request_auto_scaling.py
+pfruck_contabo/model/upgrade_object_storage_response.py
+pfruck_contabo/model/upgrade_object_storage_response_data.py
+pfruck_contabo/model/upgrade_object_storage_response_data_auto_scaling.py
+pfruck_contabo/model/upgrade_object_storage_response_links.py
 pfruck_contabo/model/user_audit_response.py
 pfruck_contabo/model/user_is_password_set_response.py
 pfruck_contabo/model/user_response.py
@@ -772,8 +778,6 @@ test/test_create_user_response.py
 test/test_create_user_response_data.py
 test/test_create_user_response_links.py
 test/test_credential_data.py
-test/test_credential_response.py
-test/test_credential_response_links.py
 test/test_custom_images_stats_response.py
 test/test_custom_images_stats_response_data.py
 test/test_custom_images_stats_response_links.py
@@ -799,6 +803,8 @@ test/test_find_assignment_response.py
 test/test_find_assignment_response_links.py
 test/test_find_client_response.py
 test/test_find_client_response_links.py
+test/test_find_credential_response.py
+test/test_find_credential_response_links.py
 test/test_find_customer_response.py
 test/test_find_customer_response_links.py
 test/test_find_firewall_response.py
@@ -879,6 +885,8 @@ test/test_list_assignment_audits_response.py
 test/test_list_assignment_audits_response_links.py
 test/test_list_assignment_response.py
 test/test_list_assignment_response_links.py
+test/test_list_credential_response.py
+test/test_list_credential_response_links.py
 test/test_list_data_center_response.py
 test/test_list_data_center_response_links.py
 test/test_list_dpa_audit_response.py
@@ -961,6 +969,7 @@ test/test_patch_instance_request.py
 test/test_patch_instance_response.py
 test/test_patch_instance_response_data.py
 test/test_patch_instance_response_links.py
+test/test_patch_object_storage_request.py
 test/test_patch_private_network_request.py
 test/test_patch_private_network_response.py
 test/test_payment_method_response.py
@@ -1015,10 +1024,6 @@ test/test_unassign_vip_response.py
 test/test_update_custom_image_request.py
 test/test_update_custom_image_response.py
 test/test_update_custom_image_response_data.py
-test/test_update_object_storage_response.py
-test/test_update_object_storage_response_data.py
-test/test_update_object_storage_response_data_auto_scaling.py
-test/test_update_object_storage_response_links.py
 test/test_update_role_request.py
 test/test_update_role_response.py
 test/test_update_role_response_links.py
@@ -1039,6 +1044,10 @@ test/test_upgrade_instance_request.py
 test/test_upgrade_instance_request_firewalling.py
 test/test_upgrade_object_storage_request.py
 test/test_upgrade_object_storage_request_auto_scaling.py
+test/test_upgrade_object_storage_response.py
+test/test_upgrade_object_storage_response_data.py
+test/test_upgrade_object_storage_response_data_auto_scaling.py
+test/test_upgrade_object_storage_response_links.py
 test/test_user_audit_response.py
 test/test_user_is_password_set_response.py
 test/test_user_response.py

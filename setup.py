@@ -183,8 +183,9 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**create_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#create_object_storage) | **POST** /v1/object-storages | Create a new object storage
 *ObjectStoragesApi* | [**retrieve_data_center_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_data_center_list) | **GET** /v1/data-centers | List data centers
 *ObjectStoragesApi* | [**retrieve_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_object_storage) | **GET** /v1/object-storages/{objectStorageId} | Get specific object storage by its id
-*ObjectStoragesApi* | [**retrieve_object_storage_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your Object Storages
+*ObjectStoragesApi* | [**retrieve_object_storage_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_object_storage_list) | **GET** /v1/object-storages | List all your object storages
 *ObjectStoragesApi* | [**retrieve_object_storages_stats**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#retrieve_object_storages_stats) | **GET** /v1/object-storages/{objectStorageId}/stats | List usage statistics about the specified object storage
+*ObjectStoragesApi* | [**update_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#update_object_storage) | **PATCH** /v1/object-storages/{objectStorageId} | Modifies the display name of object storage
 *ObjectStoragesApi* | [**upgrade_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#upgrade_object_storage) | **POST** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size resp. update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**retrieve_object_storage_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesAuditsApi.md#retrieve_object_storage_audits_list) | **GET** /v1/object-storages/audits | List history about your object storages (audit)
 *PaymentMethodsApi* | [**retrieve_payment_method_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodsApi.md#retrieve_payment_method_list) | **GET** /v1/payment-methods | List payment methods
@@ -231,8 +232,9 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**create_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
-*UsersApi* | [**get_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get S3 compatible object storage credentials
-*UsersApi* | [**regenerate_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/credentials | Regenerates secret key of specified user for the S3 compatible object storages
+*UsersApi* | [**get_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials
+*UsersApi* | [**list_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user
+*UsersApi* | [**regenerate_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages
 *UsersApi* | [**resend_email_verification**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 *UsersApi* | [**reset_password**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 *UsersApi* | [**retrieve_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
@@ -317,8 +319,6 @@ Class | Method | HTTP request | Description
  - [CreateUserResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CreateUserResponseData.md)
  - [CreateUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/CreateUserResponseLinks.md)
  - [CredentialData](https://github.com/p-fruck/python-contabo/blob/main/docs/CredentialData.md)
- - [CredentialResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CredentialResponse.md)
- - [CredentialResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/CredentialResponseLinks.md)
  - [CustomImagesStatsResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponseLinks.md)
@@ -341,6 +341,8 @@ Class | Method | HTTP request | Description
  - [FindAssignmentResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindClientResponse.md)
  - [FindClientResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindClientResponseLinks.md)
+ - [FindCredentialResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindCredentialResponse.md)
+ - [FindCredentialResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindCredentialResponseLinks.md)
  - [FindCustomerResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindCustomerResponse.md)
  - [FindCustomerResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindCustomerResponseLinks.md)
  - [FindFirewallResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindFirewallResponse.md)
@@ -410,6 +412,8 @@ Class | Method | HTTP request | Description
  - [ListAssignmentAuditsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListAssignmentAuditsResponseLinks.md)
  - [ListAssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListAssignmentResponse.md)
  - [ListAssignmentResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListAssignmentResponseLinks.md)
+ - [ListCredentialResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListCredentialResponse.md)
+ - [ListCredentialResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListCredentialResponseLinks.md)
  - [ListDataCenterResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListDataCenterResponse.md)
  - [ListDataCenterResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListDataCenterResponseLinks.md)
  - [ListDpaAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListDpaAuditResponse.md)
@@ -490,6 +494,7 @@ Class | Method | HTTP request | Description
  - [PatchInstanceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchInstanceResponse.md)
  - [PatchInstanceResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchInstanceResponseData.md)
  - [PatchInstanceResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchInstanceResponseLinks.md)
+ - [PatchObjectStorageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchObjectStorageRequest.md)
  - [PatchPrivateNetworkRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PatchPrivateNetworkResponse.md)
  - [PaymentMethodResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/PaymentMethodResponse.md)
@@ -530,10 +535,6 @@ Class | Method | HTTP request | Description
  - [UpdateCustomImageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponse.md)
  - [UpdateCustomImageResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponseData.md)
- - [UpdateObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateObjectStorageResponse.md)
- - [UpdateObjectStorageResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateObjectStorageResponseData.md)
- - [UpdateObjectStorageResponseDataAutoScaling](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateObjectStorageResponseDataAutoScaling.md)
- - [UpdateObjectStorageResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateObjectStorageResponseLinks.md)
  - [UpdateRoleRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateRoleRequest.md)
  - [UpdateRoleResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateRoleResponse.md)
  - [UpdateRoleResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateRoleResponseLinks.md)
@@ -554,6 +555,10 @@ Class | Method | HTTP request | Description
  - [UpgradeInstanceRequestFirewalling](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeInstanceRequestFirewalling.md)
  - [UpgradeObjectStorageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageRequest.md)
  - [UpgradeObjectStorageRequestAutoScaling](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageRequestAutoScaling.md)
+ - [UpgradeObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageResponse.md)
+ - [UpgradeObjectStorageResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageResponseData.md)
+ - [UpgradeObjectStorageResponseDataAutoScaling](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageResponseDataAutoScaling.md)
+ - [UpgradeObjectStorageResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/UpgradeObjectStorageResponseLinks.md)
  - [UserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserIsPasswordSetResponse.md)
  - [UserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserResponse.md)

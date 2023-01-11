@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**create_user**](UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 [**delete_user**](UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 [**generate_client_secret**](UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
-[**get_object_storage_credentials**](UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get S3 compatible object storage credentials
-[**regenerate_credentials**](UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/credentials | Regenerates secret key of specified user for the S3 compatible object storages
+[**get_object_storage_credentials**](UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials
+[**list_object_storage_credentials**](UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user
+[**regenerate_credentials**](UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages
 [**resend_email_verification**](UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 [**reset_password**](UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 [**retrieve_user**](UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
@@ -292,7 +293,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_object_storage_credentials**
-> CredentialResponse get_object_storage_credentials(x_request_id, user_id)
+> FindCredentialResponse get_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id)
 
 Get S3 compatible object storage credentials
 
@@ -306,7 +307,7 @@ Get S3 compatible object storage credentials for accessing it via S3 compatible 
 import time
 import pfruck_contabo
 from pfruck_contabo.api import users_api
-from pfruck_contabo.model.credential_response import CredentialResponse
+from pfruck_contabo.model.find_credential_response import FindCredentialResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -330,12 +331,14 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage
+    credential_id = 12345 # int | The ID of the object storage credential
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get S3 compatible object storage credentials
-        api_response = api_instance.get_object_storage_credentials(x_request_id, user_id)
+        api_response = api_instance.get_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling UsersApi->get_object_storage_credentials: %s\n" % e)
@@ -344,7 +347,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get S3 compatible object storage credentials
-        api_response = api_instance.get_object_storage_credentials(x_request_id, user_id, x_trace_id=x_trace_id)
+        api_response = api_instance.get_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling UsersApi->get_object_storage_credentials: %s\n" % e)
@@ -357,11 +360,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **user_id** | **str**| The identifier of the user |
+ **object_storage_id** | **str**| The identifier of the S3 object storage |
+ **credential_id** | **int**| The ID of the object storage credential |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
 
-[**CredentialResponse**](CredentialResponse.md)
+[**FindCredentialResponse**](FindCredentialResponse.md)
 
 ### Authorization
 
@@ -381,12 +386,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **regenerate_credentials**
-> CredentialResponse regenerate_credentials(x_request_id, user_id)
+# **list_object_storage_credentials**
+> ListCredentialResponse list_object_storage_credentials(x_request_id, user_id)
 
-Regenerates secret key of specified user for the S3 compatible object storages
+Get list of S3 compatible object storage credentials for user
 
-Regenerates secret key of specified user for the S3 compatible object storages. Please note that these credentials are valid for all object storages at different locations.
+Get list of S3 compatible object storage credentials for accessing it via S3 compatible tools like `aws` cli.
 
 ### Example
 
@@ -396,7 +401,7 @@ Regenerates secret key of specified user for the S3 compatible object storages. 
 import time
 import pfruck_contabo
 from pfruck_contabo.api import users_api
-from pfruck_contabo.model.credential_response import CredentialResponse
+from pfruck_contabo.model.list_credential_response import ListCredentialResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -421,11 +426,113 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    page = 1 # int | Number of page to be fetched. (optional)
+    size = 10 # int | Number of elements per page. (optional)
+    order_by = [
+        "name:asc",
+    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get list of S3 compatible object storage credentials for user
+        api_response = api_instance.list_object_storage_credentials(x_request_id, user_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling UsersApi->list_object_storage_credentials: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get list of S3 compatible object storage credentials for user
+        api_response = api_instance.list_object_storage_credentials(x_request_id, user_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, object_storage_id=object_storage_id)
+        pprint(api_response)
+    except pfruck_contabo.ApiException as e:
+        print("Exception when calling UsersApi->list_object_storage_credentials: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
+ **user_id** | **str**| The identifier of the user |
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **page** | **int**| Number of page to be fetched. | [optional]
+ **size** | **int**| Number of elements per page. | [optional]
+ **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
+ **object_storage_id** | **str**| The identifier of the S3 object storage | [optional]
+
+### Return type
+
+[**ListCredentialResponse**](ListCredentialResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The response will be an array of JSON objects that contains S3 credentials. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **regenerate_credentials**
+> FindCredentialResponse regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id)
+
+Regenerates secret key of specified user for the S3 compatible object storages
+
+Regenerates secret key of specified user for the a specific S3 compatible object storages.
+
+### Example
+
+* Bearer (JWT) Authentication (bearer):
+
+```python
+import time
+import pfruck_contabo
+from pfruck_contabo.api import users_api
+from pfruck_contabo.model.find_credential_response import FindCredentialResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.contabo.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pfruck_contabo.Configuration(
+    host = "https://api.contabo.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearer
+configuration = pfruck_contabo.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with pfruck_contabo.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = users_api.UsersApi(api_client)
+    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage
+    credential_id = 12345 # int | The ID of the object storage credential
+    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Regenerates secret key of specified user for the S3 compatible object storages
-        api_response = api_instance.regenerate_credentials(x_request_id, user_id)
+        api_response = api_instance.regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling UsersApi->regenerate_credentials: %s\n" % e)
@@ -434,7 +541,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Regenerates secret key of specified user for the S3 compatible object storages
-        api_response = api_instance.regenerate_credentials(x_request_id, user_id, x_trace_id=x_trace_id)
+        api_response = api_instance.regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling UsersApi->regenerate_credentials: %s\n" % e)
@@ -447,11 +554,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **user_id** | **str**| The identifier of the user |
+ **object_storage_id** | **str**| The identifier of the S3 object storage |
+ **credential_id** | **int**| The ID of the object storage credential |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
 
-[**CredentialResponse**](CredentialResponse.md)
+[**FindCredentialResponse**](FindCredentialResponse.md)
 
 ### Authorization
 

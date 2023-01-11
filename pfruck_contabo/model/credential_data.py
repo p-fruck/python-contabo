@@ -91,6 +91,10 @@ class CredentialData(ModelNormal):
             'customer_id': (str,),  # noqa: E501
             'access_key': (str,),  # noqa: E501
             'secret_key': (str,),  # noqa: E501
+            'object_storage_id': (str,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
+            'credential_id': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +107,10 @@ class CredentialData(ModelNormal):
         'customer_id': 'customerId',  # noqa: E501
         'access_key': 'accessKey',  # noqa: E501
         'secret_key': 'secretKey',  # noqa: E501
+        'object_storage_id': 'objectStorageId',  # noqa: E501
+        'display_name': 'displayName',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'credential_id': 'credentialId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -112,7 +120,7 @@ class CredentialData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, access_key, secret_key, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, access_key, secret_key, object_storage_id, display_name, region, credential_id, *args, **kwargs):  # noqa: E501
         """CredentialData - a model defined in OpenAPI
 
         Args:
@@ -120,6 +128,10 @@ class CredentialData(ModelNormal):
             customer_id (str): Your customer number
             access_key (str): Access key ID.
             secret_key (str): Secret key ID.
+            object_storage_id (str): Object Storage ID.
+            display_name (str): Object Storage Name.
+            region (str): Object Storage Region.
+            credential_id (float): Object Storage Credential ID
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,6 +199,10 @@ class CredentialData(ModelNormal):
         self.customer_id = customer_id
         self.access_key = access_key
         self.secret_key = secret_key
+        self.object_storage_id = object_storage_id
+        self.display_name = display_name
+        self.region = region
+        self.credential_id = credential_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -207,7 +223,7 @@ class CredentialData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, access_key, secret_key, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, access_key, secret_key, object_storage_id, display_name, region, credential_id, *args, **kwargs):  # noqa: E501
         """CredentialData - a model defined in OpenAPI
 
         Args:
@@ -215,6 +231,10 @@ class CredentialData(ModelNormal):
             customer_id (str): Your customer number
             access_key (str): Access key ID.
             secret_key (str): Secret key ID.
+            object_storage_id (str): Object Storage ID.
+            display_name (str): Object Storage Name.
+            region (str): Object Storage Region.
+            credential_id (float): Object Storage Credential ID
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,6 +300,10 @@ class CredentialData(ModelNormal):
         self.customer_id = customer_id
         self.access_key = access_key
         self.secret_key = secret_key
+        self.object_storage_id = object_storage_id
+        self.display_name = display_name
+        self.region = region
+        self.credential_id = credential_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

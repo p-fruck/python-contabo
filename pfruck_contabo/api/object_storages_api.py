@@ -28,8 +28,9 @@ from pfruck_contabo.model.find_object_storage_response import FindObjectStorageR
 from pfruck_contabo.model.list_data_center_response import ListDataCenterResponse
 from pfruck_contabo.model.list_object_storage_response import ListObjectStorageResponse
 from pfruck_contabo.model.object_storages_stats_response import ObjectStoragesStatsResponse
-from pfruck_contabo.model.update_object_storage_response import UpdateObjectStorageResponse
+from pfruck_contabo.model.patch_object_storage_request import PatchObjectStorageRequest
 from pfruck_contabo.model.upgrade_object_storage_request import UpgradeObjectStorageRequest
+from pfruck_contabo.model.upgrade_object_storage_response import UpgradeObjectStorageResponse
 
 
 class ObjectStoragesApi(object):
@@ -538,9 +539,85 @@ class ObjectStoragesApi(object):
             },
             api_client=api_client
         )
+        self.update_object_storage_endpoint = _Endpoint(
+            settings={
+                'response_type': (CancelObjectStorageResponse,),
+                'auth': [
+                    'bearer'
+                ],
+                'endpoint_path': '/v1/object-storages/{objectStorageId}',
+                'operation_id': 'update_object_storage',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_request_id',
+                    'object_storage_id',
+                    'patch_object_storage_request',
+                    'x_trace_id',
+                ],
+                'required': [
+                    'x_request_id',
+                    'object_storage_id',
+                    'patch_object_storage_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-5][0-9A-Fa-f]{3}-[089abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_request_id':
+                        (str,),
+                    'object_storage_id':
+                        (str,),
+                    'patch_object_storage_request':
+                        (PatchObjectStorageRequest,),
+                    'x_trace_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_request_id': 'x-request-id',
+                    'object_storage_id': 'objectStorageId',
+                    'x_trace_id': 'x-trace-id',
+                },
+                'location_map': {
+                    'x_request_id': 'header',
+                    'object_storage_id': 'path',
+                    'patch_object_storage_request': 'body',
+                    'x_trace_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.upgrade_object_storage_endpoint = _Endpoint(
             settings={
-                'response_type': (UpdateObjectStorageResponse,),
+                'response_type': (UpgradeObjectStorageResponse,),
                 'auth': [
                     'bearer'
                 ],
@@ -975,9 +1052,9 @@ class ObjectStoragesApi(object):
         x_request_id,
         **kwargs
     ):
-        """List all your Object Storages  # noqa: E501
+        """List all your object storages  # noqa: E501
 
-        List and filter all Object Storages in your account  # noqa: E501
+        List and filter all object storages in your account  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1148,6 +1225,98 @@ class ObjectStoragesApi(object):
             object_storage_id
         return self.retrieve_object_storages_stats_endpoint.call_with_http_info(**kwargs)
 
+    def update_object_storage(
+        self,
+        x_request_id,
+        object_storage_id,
+        patch_object_storage_request,
+        **kwargs
+    ):
+        """Modifies the display name of object storage  # noqa: E501
+
+        Modifies the display name of object storage. Display name must be unique.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_object_storage(x_request_id, object_storage_id, patch_object_storage_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+            object_storage_id (str): The identifier of the object storage
+            patch_object_storage_request (PatchObjectStorageRequest):
+
+        Keyword Args:
+            x_trace_id (str): Identifier to trace group of requests.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CancelObjectStorageResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['x_request_id'] = \
+            x_request_id
+        kwargs['object_storage_id'] = \
+            object_storage_id
+        kwargs['patch_object_storage_request'] = \
+            patch_object_storage_request
+        return self.update_object_storage_endpoint.call_with_http_info(**kwargs)
+
     def upgrade_object_storage(
         self,
         x_request_id,
@@ -1203,7 +1372,7 @@ class ObjectStoragesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            UpdateObjectStorageResponse
+            UpgradeObjectStorageResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -312,7 +312,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     dpa_id = "6C65CD0E-572F-4051-9161-0D731DB44B6E" # str | The identifier of the data processing agreement
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
-    action = "preview" # str | Set the action for download PDF or only preview it. Default is preview (optional)
+    content_disposition = "inline" # str | Set the content dispotion header for download PDF or only preview it. Default is inline (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -326,7 +326,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Download concluded DPA PDF file
-        api_response = api_instance.download_dpa_file(x_request_id, dpa_id, x_trace_id=x_trace_id, action=action)
+        api_response = api_instance.download_dpa_file(x_request_id, dpa_id, x_trace_id=x_trace_id, content_disposition=content_disposition)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling DPASApi->download_dpa_file: %s\n" % e)
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **dpa_id** | **str**| The identifier of the data processing agreement |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **action** | **str**| Set the action for download PDF or only preview it. Default is preview | [optional]
+ **content_disposition** | **str**| Set the content dispotion header for download PDF or only preview it. Default is inline | [optional]
 
 ### Return type
 
@@ -403,6 +403,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     dpa_id = "6C65CD0E-572F-4051-9161-0D731DB44B6E" # str | The identifier of the data processing agreement
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    content_disposition = "inline" # str | Set the content dispotion header for download PDF or only preview it. Default is inline (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -416,7 +417,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Download preview version of DPA
-        api_response = api_instance.download_preview_dpa(x_request_id, dpa_id, x_trace_id=x_trace_id)
+        api_response = api_instance.download_preview_dpa(x_request_id, dpa_id, x_trace_id=x_trace_id, content_disposition=content_disposition)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling DPASApi->download_preview_dpa: %s\n" % e)
@@ -430,6 +431,7 @@ Name | Type | Description  | Notes
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **dpa_id** | **str**| The identifier of the data processing agreement |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **content_disposition** | **str**| Set the content dispotion header for download PDF or only preview it. Default is inline | [optional]
 
 ### Return type
 

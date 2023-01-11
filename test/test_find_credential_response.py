@@ -13,14 +13,14 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.credential_data import CredentialData
-from pfruck_contabo.model.credential_response_links import CredentialResponseLinks
+from pfruck_contabo.model.find_credential_response_links import FindCredentialResponseLinks
 globals()['CredentialData'] = CredentialData
-globals()['CredentialResponseLinks'] = CredentialResponseLinks
-from pfruck_contabo.model.credential_response import CredentialResponse
+globals()['FindCredentialResponseLinks'] = FindCredentialResponseLinks
+from pfruck_contabo.model.find_credential_response import FindCredentialResponse
 
 
-class TestCredentialResponse(unittest.TestCase):
-    """CredentialResponse unit test stubs"""
+class TestFindCredentialResponse(unittest.TestCase):
+    """FindCredentialResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestCredentialResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCredentialResponse(self):
-        """Test CredentialResponse"""
+    def testFindCredentialResponse(self):
+        """Test FindCredentialResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CredentialResponse()  # noqa: E501
+        # model = FindCredentialResponse()  # noqa: E501
         pass
 
 

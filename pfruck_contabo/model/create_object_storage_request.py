@@ -65,6 +65,10 @@ class CreateObjectStorageRequest(ModelNormal):
         ('region',): {
             'min_length': 1,
         },
+        ('display_name',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -93,6 +97,7 @@ class CreateObjectStorageRequest(ModelNormal):
             'region': (str,),  # noqa: E501
             'total_purchased_space_tb': (float,),  # noqa: E501
             'auto_scaling': (CreateObjectStorageRequestAutoScaling,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +109,7 @@ class CreateObjectStorageRequest(ModelNormal):
         'region': 'region',  # noqa: E501
         'total_purchased_space_tb': 'totalPurchasedSpaceTB',  # noqa: E501
         'auto_scaling': 'autoScaling',  # noqa: E501
+        'display_name': 'displayName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -152,6 +158,7 @@ class CreateObjectStorageRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_scaling (CreateObjectStorageRequestAutoScaling): [optional]  # noqa: E501
+            display_name (str): Display name helps to differentiate between object storages, especially if they are in the same region. If display name is not provided, it will be generated. Display name can be changed any time.. [optional]  # noqa: E501
         """
 
         region = kwargs.get('region', "EU")
@@ -245,6 +252,7 @@ class CreateObjectStorageRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_scaling (CreateObjectStorageRequestAutoScaling): [optional]  # noqa: E501
+            display_name (str): Display name helps to differentiate between object storages, especially if they are in the same region. If display name is not provided, it will be generated. Display name can be changed any time.. [optional]  # noqa: E501
         """
 
         region = kwargs.get('region', "EU")

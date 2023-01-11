@@ -14,11 +14,11 @@ import unittest
 import pfruck_contabo
 from pfruck_contabo.model.auto_scaling_type_response import AutoScalingTypeResponse
 globals()['AutoScalingTypeResponse'] = AutoScalingTypeResponse
-from pfruck_contabo.model.update_object_storage_response_data_auto_scaling import UpdateObjectStorageResponseDataAutoScaling
+from pfruck_contabo.model.upgrade_object_storage_response_data_auto_scaling import UpgradeObjectStorageResponseDataAutoScaling
 
 
-class TestUpdateObjectStorageResponseDataAutoScaling(unittest.TestCase):
-    """UpdateObjectStorageResponseDataAutoScaling unit test stubs"""
+class TestUpgradeObjectStorageResponseDataAutoScaling(unittest.TestCase):
+    """UpgradeObjectStorageResponseDataAutoScaling unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +26,10 @@ class TestUpdateObjectStorageResponseDataAutoScaling(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testUpdateObjectStorageResponseDataAutoScaling(self):
-        """Test UpdateObjectStorageResponseDataAutoScaling"""
+    def testUpgradeObjectStorageResponseDataAutoScaling(self):
+        """Test UpgradeObjectStorageResponseDataAutoScaling"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateObjectStorageResponseDataAutoScaling()  # noqa: E501
+        # model = UpgradeObjectStorageResponseDataAutoScaling()  # noqa: E501
         pass
 
 

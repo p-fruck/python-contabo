@@ -193,7 +193,7 @@ class DPASApi(object):
                     'x_request_id',
                     'dpa_id',
                     'x_trace_id',
-                    'action',
+                    'content_disposition',
                 ],
                 'required': [
                     'x_request_id',
@@ -202,7 +202,7 @@ class DPASApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'action',
+                    'content_disposition',
                 ],
                 'validation': [
                     'x_request_id',
@@ -218,10 +218,10 @@ class DPASApi(object):
                     },
                 },
                 'allowed_values': {
-                    ('action',): {
+                    ('content_disposition',): {
 
-                        "PREVIEW": "preview",
-                        "DOWNLOAD": "download"
+                        "INLINE": "inline",
+                        "ATTACHMENT": "attachment"
                     },
                 },
                 'openapi_types': {
@@ -231,20 +231,20 @@ class DPASApi(object):
                         (str,),
                     'x_trace_id':
                         (str,),
-                    'action':
+                    'content_disposition':
                         (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
                     'dpa_id': 'dpaId',
                     'x_trace_id': 'x-trace-id',
-                    'action': 'action',
+                    'content_disposition': 'contentDisposition',
                 },
                 'location_map': {
                     'x_request_id': 'header',
                     'dpa_id': 'path',
                     'x_trace_id': 'header',
-                    'action': 'query',
+                    'content_disposition': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -273,6 +273,7 @@ class DPASApi(object):
                     'x_request_id',
                     'dpa_id',
                     'x_trace_id',
+                    'content_disposition',
                 ],
                 'required': [
                     'x_request_id',
@@ -281,6 +282,7 @@ class DPASApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'content_disposition',
                 ],
                 'validation': [
                     'x_request_id',
@@ -296,6 +298,11 @@ class DPASApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('content_disposition',): {
+
+                        "INLINE": "inline",
+                        "ATTACHMENT": "attachment"
+                    },
                 },
                 'openapi_types': {
                     'x_request_id':
@@ -304,16 +311,20 @@ class DPASApi(object):
                         (str,),
                     'x_trace_id':
                         (str,),
+                    'content_disposition':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
                     'dpa_id': 'dpaId',
                     'x_trace_id': 'x-trace-id',
+                    'content_disposition': 'contentDisposition',
                 },
                 'location_map': {
                     'x_request_id': 'header',
                     'dpa_id': 'path',
                     'x_trace_id': 'header',
+                    'content_disposition': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -843,7 +854,7 @@ class DPASApi(object):
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
-            action (str): Set the action for download PDF or only preview it. Default is preview. [optional]
+            content_disposition (str): Set the content dispotion header for download PDF or only preview it. Default is inline. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -932,6 +943,7 @@ class DPASApi(object):
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
+            content_disposition (str): Set the content dispotion header for download PDF or only preview it. Default is inline. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

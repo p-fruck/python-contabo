@@ -12,15 +12,15 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.cancel_object_storage_response_data import CancelObjectStorageResponseData
+from pfruck_contabo.model.upgrade_object_storage_response_data import UpgradeObjectStorageResponseData
 from pfruck_contabo.model.upgrade_object_storage_response_links import UpgradeObjectStorageResponseLinks
-globals()['CancelObjectStorageResponseData'] = CancelObjectStorageResponseData
+globals()['UpgradeObjectStorageResponseData'] = UpgradeObjectStorageResponseData
 globals()['UpgradeObjectStorageResponseLinks'] = UpgradeObjectStorageResponseLinks
-from pfruck_contabo.model.cancel_object_storage_response import CancelObjectStorageResponse
+from pfruck_contabo.model.upgrade_object_storage_response import UpgradeObjectStorageResponse
 
 
-class TestCancelObjectStorageResponse(unittest.TestCase):
-    """CancelObjectStorageResponse unit test stubs"""
+class TestUpgradeObjectStorageResponse(unittest.TestCase):
+    """UpgradeObjectStorageResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestCancelObjectStorageResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCancelObjectStorageResponse(self):
-        """Test CancelObjectStorageResponse"""
+    def testUpgradeObjectStorageResponse(self):
+        """Test UpgradeObjectStorageResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CancelObjectStorageResponse()  # noqa: E501
+        # model = UpgradeObjectStorageResponse()  # noqa: E501
         pass
 
 

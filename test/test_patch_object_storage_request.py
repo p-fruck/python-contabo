@@ -12,13 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.self_links import SelfLinks
-globals()['SelfLinks'] = SelfLinks
-from pfruck_contabo.model.credential_response_links import CredentialResponseLinks
+from pfruck_contabo.model.patch_object_storage_request import PatchObjectStorageRequest
 
 
-class TestCredentialResponseLinks(unittest.TestCase):
-    """CredentialResponseLinks unit test stubs"""
+class TestPatchObjectStorageRequest(unittest.TestCase):
+    """PatchObjectStorageRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +24,10 @@ class TestCredentialResponseLinks(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCredentialResponseLinks(self):
-        """Test CredentialResponseLinks"""
+    def testPatchObjectStorageRequest(self):
+        """Test PatchObjectStorageRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CredentialResponseLinks()  # noqa: E501
+        # model = PatchObjectStorageRequest()  # noqa: E501
         pass
 
 

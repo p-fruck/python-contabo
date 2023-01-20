@@ -246,8 +246,6 @@ Class | Method | HTTP request | Description
 *VIPApi* | [**retrieve_vip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 *VIPApi* | [**retrieve_vip_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
 *VIPApi* | [**unassign_ip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/instances/{instanceId} | Unassign a VIP from a VPS/VDS
-*ZeropsApi* | [**retrieve_zerops_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
-*ZeropsApi* | [**sign_in_zerops**](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
 
 ## Documentation For Models
@@ -361,8 +359,6 @@ Class | Method | HTTP request | Description
  - [FindUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserResponse.md)
  - [FindVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindVipResponse.md)
  - [FindVipResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindVipResponseLinks.md)
- - [FindZeropsSignInResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindZeropsSignInResponse.md)
- - [FindZeropsUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindZeropsUserResponse.md)
  - [FirewallAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallAuditResponse.md)
  - [FirewallResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallResponse.md)
  - [FirewallRuleRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallRuleRequest.md)
@@ -563,8 +559,6 @@ Class | Method | HTTP request | Description
  - [UserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserIsPasswordSetResponse.md)
  - [UserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserResponse.md)
  - [VipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/VipResponse.md)
- - [ZeropsSignInResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsSignInResponse.md)
- - [ZeropsUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ZeropsUserResponse.md)
 
 
 ## Documentation For Authorization

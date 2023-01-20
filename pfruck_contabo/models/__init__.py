@@ -118,8 +118,6 @@ from pfruck_contabo.model.find_user_is_password_set_response_links import FindUs
 from pfruck_contabo.model.find_user_response import FindUserResponse
 from pfruck_contabo.model.find_vip_response import FindVipResponse
 from pfruck_contabo.model.find_vip_response_links import FindVipResponseLinks
-from pfruck_contabo.model.find_zerops_sign_in_response import FindZeropsSignInResponse
-from pfruck_contabo.model.find_zerops_user_response import FindZeropsUserResponse
 from pfruck_contabo.model.firewall_audit_response import FirewallAuditResponse
 from pfruck_contabo.model.firewall_response import FirewallResponse
 from pfruck_contabo.model.firewall_rule_request import FirewallRuleRequest
@@ -320,5 +318,3 @@ from pfruck_contabo.model.user_audit_response import UserAuditResponse
 from pfruck_contabo.model.user_is_password_set_response import UserIsPasswordSetResponse
 from pfruck_contabo.model.user_response import UserResponse
 from pfruck_contabo.model.vip_response import VipResponse
-from pfruck_contabo.model.zerops_sign_in_response import ZeropsSignInResponse
-from pfruck_contabo.model.zerops_user_response import ZeropsUserResponse

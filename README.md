@@ -207,8 +207,6 @@ Class | Method | HTTP request | Description
 *VIPApi* | [**retrieve_vip**](docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
 *VIPApi* | [**retrieve_vip_list**](docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
 *VIPApi* | [**unassign_ip**](docs/VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/instances/{instanceId} | Unassign a VIP from a VPS/VDS
-*ZeropsApi* | [**retrieve_zerops_user**](docs/ZeropsApi.md#retrieve_zerops_user) | **GET** /v1/zerops/user | get zerops user
-*ZeropsApi* | [**sign_in_zerops**](docs/ZeropsApi.md#sign_in_zerops) | **GET** /v1/zerops/sign-in | authenticate to zerops
 
 
 ## Documentation For Models
@@ -322,8 +320,6 @@ Class | Method | HTTP request | Description
  - [FindUserResponse](docs/FindUserResponse.md)
  - [FindVipResponse](docs/FindVipResponse.md)
  - [FindVipResponseLinks](docs/FindVipResponseLinks.md)
- - [FindZeropsSignInResponse](docs/FindZeropsSignInResponse.md)
- - [FindZeropsUserResponse](docs/FindZeropsUserResponse.md)
  - [FirewallAuditResponse](docs/FirewallAuditResponse.md)
  - [FirewallResponse](docs/FirewallResponse.md)
  - [FirewallRuleRequest](docs/FirewallRuleRequest.md)
@@ -524,8 +520,6 @@ Class | Method | HTTP request | Description
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
  - [VipResponse](docs/VipResponse.md)
- - [ZeropsSignInResponse](docs/ZeropsSignInResponse.md)
- - [ZeropsUserResponse](docs/ZeropsUserResponse.md)
 
 
 ## Documentation For Authorization

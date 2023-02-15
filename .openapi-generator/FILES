@@ -54,7 +54,6 @@ docs/CreateSecretResponse.md
 docs/CreateSecretResponseLinks.md
 docs/CreateSnapshotRequest.md
 docs/CreateSnapshotResponse.md
-docs/CreateSnapshotResponseData.md
 docs/CreateSnapshotResponseLinks.md
 docs/CreateTagRequest.md
 docs/CreateTagResponse.md
@@ -286,6 +285,7 @@ docs/RoleResponse.md
 docs/RolesApi.md
 docs/RolesAuditsApi.md
 docs/RollbackSnapshotResponse.md
+docs/RollbackSnapshotResponseLinks.md
 docs/Rules.md
 docs/RulesRequest.md
 docs/SecretAuditResponse.md
@@ -321,7 +321,6 @@ docs/UpdateSecretResponse.md
 docs/UpdateSecretResponseLinks.md
 docs/UpdateSnapshotRequest.md
 docs/UpdateSnapshotResponse.md
-docs/UpdateSnapshotResponseLinks.md
 docs/UpdateTagRequest.md
 docs/UpdateTagResponse.md
 docs/UpdateTagResponseLinks.md
@@ -436,7 +435,6 @@ pfruck_contabo/model/create_secret_response.py
 pfruck_contabo/model/create_secret_response_links.py
 pfruck_contabo/model/create_snapshot_request.py
 pfruck_contabo/model/create_snapshot_response.py
-pfruck_contabo/model/create_snapshot_response_data.py
 pfruck_contabo/model/create_snapshot_response_links.py
 pfruck_contabo/model/create_tag_request.py
 pfruck_contabo/model/create_tag_response.py
@@ -646,6 +644,7 @@ pfruck_contabo/model/resource_permissions_response.py
 pfruck_contabo/model/role_audit_response.py
 pfruck_contabo/model/role_response.py
 pfruck_contabo/model/rollback_snapshot_response.py
+pfruck_contabo/model/rollback_snapshot_response_links.py
 pfruck_contabo/model/rules.py
 pfruck_contabo/model/rules_request.py
 pfruck_contabo/model/secret_audit_response.py
@@ -673,7 +672,6 @@ pfruck_contabo/model/update_secret_response.py
 pfruck_contabo/model/update_secret_response_links.py
 pfruck_contabo/model/update_snapshot_request.py
 pfruck_contabo/model/update_snapshot_response.py
-pfruck_contabo/model/update_snapshot_response_links.py
 pfruck_contabo/model/update_tag_request.py
 pfruck_contabo/model/update_tag_response.py
 pfruck_contabo/model/update_tag_response_links.py
@@ -753,7 +751,6 @@ test/test_create_secret_response.py
 test/test_create_secret_response_links.py
 test/test_create_snapshot_request.py
 test/test_create_snapshot_response.py
-test/test_create_snapshot_response_data.py
 test/test_create_snapshot_response_links.py
 test/test_create_tag_request.py
 test/test_create_tag_response.py
@@ -985,6 +982,7 @@ test/test_role_response.py
 test/test_roles_api.py
 test/test_roles_audits_api.py
 test/test_rollback_snapshot_response.py
+test/test_rollback_snapshot_response_links.py
 test/test_rules.py
 test/test_rules_request.py
 test/test_secret_audit_response.py
@@ -1020,7 +1018,6 @@ test/test_update_secret_response.py
 test/test_update_secret_response_links.py
 test/test_update_snapshot_request.py
 test/test_update_snapshot_response.py
-test/test_update_snapshot_response_links.py
 test/test_update_tag_request.py
 test/test_update_tag_response.py
 test/test_update_tag_response_links.py

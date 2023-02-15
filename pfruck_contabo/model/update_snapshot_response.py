@@ -30,8 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.update_snapshot_response_links import UpdateSnapshotResponseLinks
-    globals()['UpdateSnapshotResponseLinks'] = UpdateSnapshotResponseLinks
+    from pfruck_contabo.model.create_snapshot_response_links import CreateSnapshotResponseLinks
+    from pfruck_contabo.model.snapshot_response import SnapshotResponse
+    globals()['CreateSnapshotResponseLinks'] = CreateSnapshotResponseLinks
+    globals()['SnapshotResponse'] = SnapshotResponse
 
 
 class UpdateSnapshotResponse(ModelNormal):
@@ -87,7 +89,8 @@ class UpdateSnapshotResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'links': (UpdateSnapshotResponseLinks,),  # noqa: E501
+            'data': ([SnapshotResponse],),  # noqa: E501
+            'links': (CreateSnapshotResponseLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +99,7 @@ class UpdateSnapshotResponse(ModelNormal):
 
 
     attribute_map = {
+        'data': 'data',  # noqa: E501
         'links': '_links',  # noqa: E501
     }
 
@@ -106,11 +110,12 @@ class UpdateSnapshotResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, links, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, data, links, *args, **kwargs):  # noqa: E501
         """UpdateSnapshotResponse - a model defined in OpenAPI
 
         Args:
-            links (UpdateSnapshotResponseLinks):
+            data ([SnapshotResponse]):
+            links (CreateSnapshotResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -174,6 +179,7 @@ class UpdateSnapshotResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.data = data
         self.links = links
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -195,11 +201,12 @@ class UpdateSnapshotResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, links, *args, **kwargs):  # noqa: E501
+    def __init__(self, data, links, *args, **kwargs):  # noqa: E501
         """UpdateSnapshotResponse - a model defined in OpenAPI
 
         Args:
-            links (UpdateSnapshotResponseLinks):
+            data ([SnapshotResponse]):
+            links (CreateSnapshotResponseLinks):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,6 +268,7 @@ class UpdateSnapshotResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.data = data
         self.links = links
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

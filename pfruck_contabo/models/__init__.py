@@ -61,7 +61,6 @@ from pfruck_contabo.model.create_secret_response import CreateSecretResponse
 from pfruck_contabo.model.create_secret_response_links import CreateSecretResponseLinks
 from pfruck_contabo.model.create_snapshot_request import CreateSnapshotRequest
 from pfruck_contabo.model.create_snapshot_response import CreateSnapshotResponse
-from pfruck_contabo.model.create_snapshot_response_data import CreateSnapshotResponseData
 from pfruck_contabo.model.create_snapshot_response_links import CreateSnapshotResponseLinks
 from pfruck_contabo.model.create_tag_request import CreateTagRequest
 from pfruck_contabo.model.create_tag_response import CreateTagResponse
@@ -271,6 +270,7 @@ from pfruck_contabo.model.resource_permissions_response import ResourcePermissio
 from pfruck_contabo.model.role_audit_response import RoleAuditResponse
 from pfruck_contabo.model.role_response import RoleResponse
 from pfruck_contabo.model.rollback_snapshot_response import RollbackSnapshotResponse
+from pfruck_contabo.model.rollback_snapshot_response_links import RollbackSnapshotResponseLinks
 from pfruck_contabo.model.rules import Rules
 from pfruck_contabo.model.rules_request import RulesRequest
 from pfruck_contabo.model.secret_audit_response import SecretAuditResponse
@@ -298,7 +298,6 @@ from pfruck_contabo.model.update_secret_response import UpdateSecretResponse
 from pfruck_contabo.model.update_secret_response_links import UpdateSecretResponseLinks
 from pfruck_contabo.model.update_snapshot_request import UpdateSnapshotRequest
 from pfruck_contabo.model.update_snapshot_response import UpdateSnapshotResponse
-from pfruck_contabo.model.update_snapshot_response_links import UpdateSnapshotResponseLinks
 from pfruck_contabo.model.update_tag_request import UpdateTagRequest
 from pfruck_contabo.model.update_tag_response import UpdateTagResponse
 from pfruck_contabo.model.update_tag_response_links import UpdateTagResponseLinks

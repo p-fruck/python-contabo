@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.create_snapshot_response_data import CreateSnapshotResponseData
     from pfruck_contabo.model.create_snapshot_response_links import CreateSnapshotResponseLinks
-    globals()['CreateSnapshotResponseData'] = CreateSnapshotResponseData
+    from pfruck_contabo.model.snapshot_response import SnapshotResponse
     globals()['CreateSnapshotResponseLinks'] = CreateSnapshotResponseLinks
+    globals()['SnapshotResponse'] = SnapshotResponse
 
 
 class CreateSnapshotResponse(ModelNormal):
@@ -89,7 +89,7 @@ class CreateSnapshotResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([CreateSnapshotResponseData],),  # noqa: E501
+            'data': ([SnapshotResponse],),  # noqa: E501
             'links': (CreateSnapshotResponseLinks,),  # noqa: E501
         }
 
@@ -114,7 +114,7 @@ class CreateSnapshotResponse(ModelNormal):
         """CreateSnapshotResponse - a model defined in OpenAPI
 
         Args:
-            data ([CreateSnapshotResponseData]):
+            data ([SnapshotResponse]):
             links (CreateSnapshotResponseLinks):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class CreateSnapshotResponse(ModelNormal):
         """CreateSnapshotResponse - a model defined in OpenAPI
 
         Args:
-            data ([CreateSnapshotResponseData]):
+            data ([SnapshotResponse]):
             links (CreateSnapshotResponseLinks):
 
         Keyword Args:

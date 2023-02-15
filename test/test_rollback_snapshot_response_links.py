@@ -14,11 +14,11 @@ import unittest
 import pfruck_contabo
 from pfruck_contabo.model.self_links import SelfLinks
 globals()['SelfLinks'] = SelfLinks
-from pfruck_contabo.model.update_snapshot_response_links import UpdateSnapshotResponseLinks
+from pfruck_contabo.model.rollback_snapshot_response_links import RollbackSnapshotResponseLinks
 
 
-class TestUpdateSnapshotResponseLinks(unittest.TestCase):
-    """UpdateSnapshotResponseLinks unit test stubs"""
+class TestRollbackSnapshotResponseLinks(unittest.TestCase):
+    """RollbackSnapshotResponseLinks unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +26,10 @@ class TestUpdateSnapshotResponseLinks(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testUpdateSnapshotResponseLinks(self):
-        """Test UpdateSnapshotResponseLinks"""
+    def testRollbackSnapshotResponseLinks(self):
+        """Test RollbackSnapshotResponseLinks"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = UpdateSnapshotResponseLinks()  # noqa: E501
+        # model = RollbackSnapshotResponseLinks()  # noqa: E501
         pass
 
 

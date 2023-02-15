@@ -12,8 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.update_snapshot_response_links import UpdateSnapshotResponseLinks
-globals()['UpdateSnapshotResponseLinks'] = UpdateSnapshotResponseLinks
+from pfruck_contabo.model.create_snapshot_response_links import CreateSnapshotResponseLinks
+from pfruck_contabo.model.snapshot_response import SnapshotResponse
+globals()['CreateSnapshotResponseLinks'] = CreateSnapshotResponseLinks
+globals()['SnapshotResponse'] = SnapshotResponse
 from pfruck_contabo.model.update_snapshot_response import UpdateSnapshotResponse
 
 

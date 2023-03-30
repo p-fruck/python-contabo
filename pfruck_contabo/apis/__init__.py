@@ -40,6 +40,7 @@ from pfruck_contabo.api.secrets_api import SecretsApi
 from pfruck_contabo.api.secrets_audits_api import SecretsAuditsApi
 from pfruck_contabo.api.snapshots_api import SnapshotsApi
 from pfruck_contabo.api.snapshots_audits_api import SnapshotsAuditsApi
+from pfruck_contabo.api.subscriptions_api import SubscriptionsApi
 from pfruck_contabo.api.tag_assignments_api import TagAssignmentsApi
 from pfruck_contabo.api.tag_assignments_audits_api import TagAssignmentsAuditsApi
 from pfruck_contabo.api.tags_api import TagsApi

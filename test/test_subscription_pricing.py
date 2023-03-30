@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.ip_v43 import IpV43
+from pfruck_contabo.model.subscription_pricing import SubscriptionPricing
 
 
-class TestIpV43(unittest.TestCase):
-    """IpV43 unit test stubs"""
+class TestSubscriptionPricing(unittest.TestCase):
+    """SubscriptionPricing unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +24,10 @@ class TestIpV43(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testIpV43(self):
-        """Test IpV43"""
+    def testSubscriptionPricing(self):
+        """Test SubscriptionPricing"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = IpV43()  # noqa: E501
+        # model = SubscriptionPricing()  # noqa: E501
         pass
 
 

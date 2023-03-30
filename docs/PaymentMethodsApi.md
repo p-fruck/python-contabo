@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **retrieve_payment_method_list**
-> ListPaymentMethodResponse1 retrieve_payment_method_list(x_request_id)
+> ListPaymentMethodResponse retrieve_payment_method_list(x_request_id)
 
 List payment methods
 
@@ -22,7 +22,7 @@ List payment methods that you can use to pay with.
 import time
 import pfruck_contabo
 from pfruck_contabo.api import payment_methods_api
-from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
+from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListPaymentMethodResponse1**](ListPaymentMethodResponse1.md)
+[**ListPaymentMethodResponse**](ListPaymentMethodResponse.md)
 
 ### Authorization
 

@@ -12,15 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.ip_v42 import IpV42
-from pfruck_contabo.model.ip_v6 import IpV6
-globals()['IpV42'] = IpV42
-globals()['IpV6'] = IpV6
-from pfruck_contabo.model.ip_config1 import IpConfig1
+from pfruck_contabo.model.cancel_subscription_response_data import CancelSubscriptionResponseData
 
 
-class TestIpConfig1(unittest.TestCase):
-    """IpConfig1 unit test stubs"""
+class TestCancelSubscriptionResponseData(unittest.TestCase):
+    """CancelSubscriptionResponseData unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +24,10 @@ class TestIpConfig1(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testIpConfig1(self):
-        """Test IpConfig1"""
+    def testCancelSubscriptionResponseData(self):
+        """Test CancelSubscriptionResponseData"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = IpConfig1()  # noqa: E501
+        # model = CancelSubscriptionResponseData()  # noqa: E501
         pass
 
 

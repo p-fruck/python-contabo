@@ -94,7 +94,7 @@ import pfruck_contabo
 from pprint import pprint
 from pfruck_contabo.api import customer_api
 from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -218,6 +218,12 @@ Class | Method | HTTP request | Description
 *SnapshotsApi* | [**rollback_snapshot**](https://github.com/p-fruck/python-contabo/blob/main/docs/SnapshotsApi.md#rollback_snapshot) | **POST** /v1/compute/instances/{instanceId}/snapshots/{snapshotId}/rollback | Rollback the instance to a specific snapshot by id
 *SnapshotsApi* | [**update_snapshot**](https://github.com/p-fruck/python-contabo/blob/main/docs/SnapshotsApi.md#update_snapshot) | **PATCH** /v1/compute/instances/{instanceId}/snapshots/{snapshotId} | Update specific snapshot by id
 *SnapshotsAuditsApi* | [**retrieve_snapshots_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/SnapshotsAuditsApi.md#retrieve_snapshots_audits_list) | **GET** /v1/compute/snapshots/audits | List history about your snapshots (audit) triggered via the API
+*SubscriptionsApi* | [**activate_windows**](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionsApi.md#activate_windows) | **POST** /v1/subscriptions/activate-windows | Activate the windows licence.
+*SubscriptionsApi* | [**cancel_subscription**](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionsApi.md#cancel_subscription) | **POST** /v1/subscriptions/cancel/{tenantId}/{subscriptionId} | Cancel the subscription.
+*SubscriptionsApi* | [**get_earliest_cancellation_date**](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionsApi.md#get_earliest_cancellation_date) | **GET** /v1/subscriptions/{tenantId}/{subscriptionId} | Get earliest cancellation date
+*SubscriptionsApi* | [**retrieve_subscription**](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionsApi.md#retrieve_subscription) | **GET** /v1/subscriptions/type/{subscriptionType}/{tenantId}/{objectId} | Retrieve specific subscription
+*SubscriptionsApi* | [**retrieve_subscriptions**](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionsApi.md#retrieve_subscriptions) | **GET** /v1/subscriptions/type/{subscriptionType}/{tenantId} | List all subscriptions by type
+*SubscriptionsApi* | [**revoke_subscription_cancellation**](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionsApi.md#revoke_subscription_cancellation) | **DELETE** /v1/subscriptions/type/{subscriptionType}/{tenantId}/{objectId}/cancel | Revoke cancellation
 *TagAssignmentsApi* | [**create_assignment**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAssignmentsApi.md#create_assignment) | **POST** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Create a new assignment for the tag
 *TagAssignmentsApi* | [**delete_assignment**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAssignmentsApi.md#delete_assignment) | **DELETE** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Delete existing tag assignment
 *TagAssignmentsApi* | [**retrieve_assignment**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAssignmentsApi.md#retrieve_assignment) | **GET** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Get specific assignment for the tag
@@ -250,6 +256,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ActivateWindowsRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/ActivateWindowsRequest.md)
+ - [ActivateWindowsResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ActivateWindowsResponse.md)
+ - [ActivateWindowsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ActivateWindowsResponseLinks.md)
  - [AddOnResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnResponse.md)
  - [AdditionalIp](https://github.com/p-fruck/python-contabo/blob/main/docs/AdditionalIp.md)
  - [Address](https://github.com/p-fruck/python-contabo/blob/main/docs/Address.md)
@@ -269,6 +278,10 @@ Class | Method | HTTP request | Description
  - [CancelInstanceResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelInstanceResponseData.md)
  - [CancelObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelObjectStorageResponse.md)
  - [CancelObjectStorageResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelObjectStorageResponseData.md)
+ - [CancelSubscriptionRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelSubscriptionRequest.md)
+ - [CancelSubscriptionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelSubscriptionResponse.md)
+ - [CancelSubscriptionResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelSubscriptionResponseData.md)
+ - [CancelSubscriptionResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/CancelSubscriptionResponseLinks.md)
  - [ClientResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ClientResponse.md)
  - [ClientSecretResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ClientSecretResponse.md)
  - [CreateAssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/CreateAssignmentResponse.md)
@@ -334,6 +347,10 @@ Class | Method | HTTP request | Description
  - [DpaResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/DpaResponseData.md)
  - [DpaResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/DpaResponseLinks.md)
  - [DpaServiceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/DpaServiceResponse.md)
+ - [EarliestCancellationDateSubscriptionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/EarliestCancellationDateSubscriptionResponse.md)
+ - [ExtendedSubscriptionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ExtendedSubscriptionResponse.md)
+ - [ExtendedSubscriptionResponsePricing](https://github.com/p-fruck/python-contabo/blob/main/docs/ExtendedSubscriptionResponsePricing.md)
+ - [ExtendedSubscriptionResponseProduct](https://github.com/p-fruck/python-contabo/blob/main/docs/ExtendedSubscriptionResponseProduct.md)
  - [FindAssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindClientResponse.md)
@@ -352,6 +369,8 @@ Class | Method | HTTP request | Description
  - [FindRoleResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindRoleResponse.md)
  - [FindSecretResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindSecretResponse.md)
  - [FindSnapshotResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindSnapshotResponse.md)
+ - [FindSubscriptionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindSubscriptionResponse.md)
+ - [FindSubscriptionResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindSubscriptionResponseLinks.md)
  - [FindTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindTagResponse.md)
  - [FindUserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponseLinks.md)
@@ -392,12 +411,8 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditResponse.md)
  - [InvoiceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InvoiceResponse.md)
  - [IpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig.md)
- - [IpConfig1](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig1.md)
- - [IpConfig2](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig2.md)
  - [IpV4](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV4.md)
  - [IpV41](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV41.md)
- - [IpV42](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV42.md)
- - [IpV43](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV43.md)
  - [IpV6](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV6.md)
  - [LedgerEntryResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/LedgerEntryResponse.md)
  - [Links](https://github.com/p-fruck/python-contabo/blob/main/docs/Links.md)
@@ -427,6 +442,7 @@ Class | Method | HTTP request | Description
  - [ListImageResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListImageResponseLinks.md)
  - [ListInstancesActionsAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesActionsAuditResponse.md)
  - [ListInstancesActionsAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesActionsAuditResponseLinks.md)
+ - [ListInstancesActionsAuditResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesActionsAuditResponsePagination.md)
  - [ListInstancesAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesAuditResponse.md)
  - [ListInstancesAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesAuditResponseLinks.md)
  - [ListInstancesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponse.md)
@@ -463,6 +479,8 @@ Class | Method | HTTP request | Description
  - [ListSnapshotResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListSnapshotResponseLinks.md)
  - [ListSnapshotsAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListSnapshotsAuditResponse.md)
  - [ListSnapshotsAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListSnapshotsAuditResponseLinks.md)
+ - [ListSubscriptionsResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListSubscriptionsResponse.md)
+ - [ListSubscriptionsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListSubscriptionsResponseLinks.md)
  - [ListTagAuditsResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagAuditsResponse.md)
  - [ListTagAuditsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagResponse.md)
@@ -471,7 +489,6 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponsePagination.md)
  - [ListVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponse.md)
  - [ListVipResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseData.md)
  - [ListVipResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseLinks.md)
@@ -521,6 +538,8 @@ Class | Method | HTTP request | Description
  - [SnapshotResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/SnapshotResponse.md)
  - [SnapshotsAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/SnapshotsAuditResponse.md)
  - [SrcCidr](https://github.com/p-fruck/python-contabo/blob/main/docs/SrcCidr.md)
+ - [SubscriptionPricing](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionPricing.md)
+ - [SubscriptionProduct](https://github.com/p-fruck/python-contabo/blob/main/docs/SubscriptionProduct.md)
  - [TagAssignmentSelfLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAssignmentSelfLinks.md)
  - [TagAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAuditResponse.md)
  - [TagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse.md)

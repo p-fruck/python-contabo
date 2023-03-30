@@ -55,7 +55,7 @@ import pfruck_contabo
 from pprint import pprint
 from pfruck_contabo.api import customer_api
 from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -179,6 +179,12 @@ Class | Method | HTTP request | Description
 *SnapshotsApi* | [**rollback_snapshot**](docs/SnapshotsApi.md#rollback_snapshot) | **POST** /v1/compute/instances/{instanceId}/snapshots/{snapshotId}/rollback | Rollback the instance to a specific snapshot by id
 *SnapshotsApi* | [**update_snapshot**](docs/SnapshotsApi.md#update_snapshot) | **PATCH** /v1/compute/instances/{instanceId}/snapshots/{snapshotId} | Update specific snapshot by id
 *SnapshotsAuditsApi* | [**retrieve_snapshots_audits_list**](docs/SnapshotsAuditsApi.md#retrieve_snapshots_audits_list) | **GET** /v1/compute/snapshots/audits | List history about your snapshots (audit) triggered via the API
+*SubscriptionsApi* | [**activate_windows**](docs/SubscriptionsApi.md#activate_windows) | **POST** /v1/subscriptions/activate-windows | Activate the windows licence.
+*SubscriptionsApi* | [**cancel_subscription**](docs/SubscriptionsApi.md#cancel_subscription) | **POST** /v1/subscriptions/cancel/{tenantId}/{subscriptionId} | Cancel the subscription.
+*SubscriptionsApi* | [**get_earliest_cancellation_date**](docs/SubscriptionsApi.md#get_earliest_cancellation_date) | **GET** /v1/subscriptions/{tenantId}/{subscriptionId} | Get earliest cancellation date
+*SubscriptionsApi* | [**retrieve_subscription**](docs/SubscriptionsApi.md#retrieve_subscription) | **GET** /v1/subscriptions/type/{subscriptionType}/{tenantId}/{objectId} | Retrieve specific subscription
+*SubscriptionsApi* | [**retrieve_subscriptions**](docs/SubscriptionsApi.md#retrieve_subscriptions) | **GET** /v1/subscriptions/type/{subscriptionType}/{tenantId} | List all subscriptions by type
+*SubscriptionsApi* | [**revoke_subscription_cancellation**](docs/SubscriptionsApi.md#revoke_subscription_cancellation) | **DELETE** /v1/subscriptions/type/{subscriptionType}/{tenantId}/{objectId}/cancel | Revoke cancellation
 *TagAssignmentsApi* | [**create_assignment**](docs/TagAssignmentsApi.md#create_assignment) | **POST** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Create a new assignment for the tag
 *TagAssignmentsApi* | [**delete_assignment**](docs/TagAssignmentsApi.md#delete_assignment) | **DELETE** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Delete existing tag assignment
 *TagAssignmentsApi* | [**retrieve_assignment**](docs/TagAssignmentsApi.md#retrieve_assignment) | **GET** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Get specific assignment for the tag
@@ -211,6 +217,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ActivateWindowsRequest](docs/ActivateWindowsRequest.md)
+ - [ActivateWindowsResponse](docs/ActivateWindowsResponse.md)
+ - [ActivateWindowsResponseLinks](docs/ActivateWindowsResponseLinks.md)
  - [AddOnResponse](docs/AddOnResponse.md)
  - [AdditionalIp](docs/AdditionalIp.md)
  - [Address](docs/Address.md)
@@ -230,6 +239,10 @@ Class | Method | HTTP request | Description
  - [CancelInstanceResponseData](docs/CancelInstanceResponseData.md)
  - [CancelObjectStorageResponse](docs/CancelObjectStorageResponse.md)
  - [CancelObjectStorageResponseData](docs/CancelObjectStorageResponseData.md)
+ - [CancelSubscriptionRequest](docs/CancelSubscriptionRequest.md)
+ - [CancelSubscriptionResponse](docs/CancelSubscriptionResponse.md)
+ - [CancelSubscriptionResponseData](docs/CancelSubscriptionResponseData.md)
+ - [CancelSubscriptionResponseLinks](docs/CancelSubscriptionResponseLinks.md)
  - [ClientResponse](docs/ClientResponse.md)
  - [ClientSecretResponse](docs/ClientSecretResponse.md)
  - [CreateAssignmentResponse](docs/CreateAssignmentResponse.md)
@@ -295,6 +308,10 @@ Class | Method | HTTP request | Description
  - [DpaResponseData](docs/DpaResponseData.md)
  - [DpaResponseLinks](docs/DpaResponseLinks.md)
  - [DpaServiceResponse](docs/DpaServiceResponse.md)
+ - [EarliestCancellationDateSubscriptionResponse](docs/EarliestCancellationDateSubscriptionResponse.md)
+ - [ExtendedSubscriptionResponse](docs/ExtendedSubscriptionResponse.md)
+ - [ExtendedSubscriptionResponsePricing](docs/ExtendedSubscriptionResponsePricing.md)
+ - [ExtendedSubscriptionResponseProduct](docs/ExtendedSubscriptionResponseProduct.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)
@@ -313,6 +330,8 @@ Class | Method | HTTP request | Description
  - [FindRoleResponse](docs/FindRoleResponse.md)
  - [FindSecretResponse](docs/FindSecretResponse.md)
  - [FindSnapshotResponse](docs/FindSnapshotResponse.md)
+ - [FindSubscriptionResponse](docs/FindSubscriptionResponse.md)
+ - [FindSubscriptionResponseLinks](docs/FindSubscriptionResponseLinks.md)
  - [FindTagResponse](docs/FindTagResponse.md)
  - [FindUserIsPasswordSetResponse](docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](docs/FindUserIsPasswordSetResponseLinks.md)
@@ -353,12 +372,8 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
  - [InvoiceResponse](docs/InvoiceResponse.md)
  - [IpConfig](docs/IpConfig.md)
- - [IpConfig1](docs/IpConfig1.md)
- - [IpConfig2](docs/IpConfig2.md)
  - [IpV4](docs/IpV4.md)
  - [IpV41](docs/IpV41.md)
- - [IpV42](docs/IpV42.md)
- - [IpV43](docs/IpV43.md)
  - [IpV6](docs/IpV6.md)
  - [LedgerEntryResponse](docs/LedgerEntryResponse.md)
  - [Links](docs/Links.md)
@@ -388,6 +403,7 @@ Class | Method | HTTP request | Description
  - [ListImageResponseLinks](docs/ListImageResponseLinks.md)
  - [ListInstancesActionsAuditResponse](docs/ListInstancesActionsAuditResponse.md)
  - [ListInstancesActionsAuditResponseLinks](docs/ListInstancesActionsAuditResponseLinks.md)
+ - [ListInstancesActionsAuditResponsePagination](docs/ListInstancesActionsAuditResponsePagination.md)
  - [ListInstancesAuditResponse](docs/ListInstancesAuditResponse.md)
  - [ListInstancesAuditResponseLinks](docs/ListInstancesAuditResponseLinks.md)
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
@@ -424,6 +440,8 @@ Class | Method | HTTP request | Description
  - [ListSnapshotResponseLinks](docs/ListSnapshotResponseLinks.md)
  - [ListSnapshotsAuditResponse](docs/ListSnapshotsAuditResponse.md)
  - [ListSnapshotsAuditResponseLinks](docs/ListSnapshotsAuditResponseLinks.md)
+ - [ListSubscriptionsResponse](docs/ListSubscriptionsResponse.md)
+ - [ListSubscriptionsResponseLinks](docs/ListSubscriptionsResponseLinks.md)
  - [ListTagAuditsResponse](docs/ListTagAuditsResponse.md)
  - [ListTagAuditsResponseLinks](docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](docs/ListTagResponse.md)
@@ -432,7 +450,6 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
  - [ListVipResponse](docs/ListVipResponse.md)
  - [ListVipResponseData](docs/ListVipResponseData.md)
  - [ListVipResponseLinks](docs/ListVipResponseLinks.md)
@@ -482,6 +499,8 @@ Class | Method | HTTP request | Description
  - [SnapshotResponse](docs/SnapshotResponse.md)
  - [SnapshotsAuditResponse](docs/SnapshotsAuditResponse.md)
  - [SrcCidr](docs/SrcCidr.md)
+ - [SubscriptionPricing](docs/SubscriptionPricing.md)
+ - [SubscriptionProduct](docs/SubscriptionProduct.md)
  - [TagAssignmentSelfLinks](docs/TagAssignmentSelfLinks.md)
  - [TagAuditResponse](docs/TagAuditResponse.md)
  - [TagResponse](docs/TagResponse.md)

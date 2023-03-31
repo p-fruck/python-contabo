@@ -12,15 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.ip_v43 import IpV43
-from pfruck_contabo.model.ip_v6 import IpV6
-globals()['IpV43'] = IpV43
-globals()['IpV6'] = IpV6
-from pfruck_contabo.model.ip_config2 import IpConfig2
+from pfruck_contabo.model.subscription_product import SubscriptionProduct
 
 
-class TestIpConfig2(unittest.TestCase):
-    """IpConfig2 unit test stubs"""
+class TestSubscriptionProduct(unittest.TestCase):
+    """SubscriptionProduct unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +24,10 @@ class TestIpConfig2(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testIpConfig2(self):
-        """Test IpConfig2"""
+    def testSubscriptionProduct(self):
+        """Test SubscriptionProduct"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = IpConfig2()  # noqa: E501
+        # model = SubscriptionProduct()  # noqa: E501
         pass
 
 

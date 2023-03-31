@@ -2,6 +2,9 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/ActivateWindowsRequest.md
+docs/ActivateWindowsResponse.md
+docs/ActivateWindowsResponseLinks.md
 docs/AddOnResponse.md
 docs/AdditionalIp.md
 docs/Address.md
@@ -21,6 +24,10 @@ docs/CancelInstanceResponse.md
 docs/CancelInstanceResponseData.md
 docs/CancelObjectStorageResponse.md
 docs/CancelObjectStorageResponseData.md
+docs/CancelSubscriptionRequest.md
+docs/CancelSubscriptionResponse.md
+docs/CancelSubscriptionResponseData.md
+docs/CancelSubscriptionResponseLinks.md
 docs/ClientResponse.md
 docs/ClientSecretResponse.md
 docs/CreateAssignmentResponse.md
@@ -89,6 +96,10 @@ docs/DpaResponse.md
 docs/DpaResponseData.md
 docs/DpaResponseLinks.md
 docs/DpaServiceResponse.md
+docs/EarliestCancellationDateSubscriptionResponse.md
+docs/ExtendedSubscriptionResponse.md
+docs/ExtendedSubscriptionResponsePricing.md
+docs/ExtendedSubscriptionResponseProduct.md
 docs/FindAssignmentResponse.md
 docs/FindAssignmentResponseLinks.md
 docs/FindClientResponse.md
@@ -107,6 +118,8 @@ docs/FindPrivateNetworkResponse.md
 docs/FindRoleResponse.md
 docs/FindSecretResponse.md
 docs/FindSnapshotResponse.md
+docs/FindSubscriptionResponse.md
+docs/FindSubscriptionResponseLinks.md
 docs/FindTagResponse.md
 docs/FindUserIsPasswordSetResponse.md
 docs/FindUserIsPasswordSetResponseLinks.md
@@ -157,12 +170,8 @@ docs/InternalApi.md
 docs/InvoiceResponse.md
 docs/InvoicesApi.md
 docs/IpConfig.md
-docs/IpConfig1.md
-docs/IpConfig2.md
 docs/IpV4.md
 docs/IpV41.md
-docs/IpV42.md
-docs/IpV43.md
 docs/IpV6.md
 docs/LedgerApi.md
 docs/LedgerEntryResponse.md
@@ -193,6 +202,7 @@ docs/ListImageResponseData.md
 docs/ListImageResponseLinks.md
 docs/ListInstancesActionsAuditResponse.md
 docs/ListInstancesActionsAuditResponseLinks.md
+docs/ListInstancesActionsAuditResponsePagination.md
 docs/ListInstancesAuditResponse.md
 docs/ListInstancesAuditResponseLinks.md
 docs/ListInstancesResponse.md
@@ -229,6 +239,8 @@ docs/ListSnapshotResponse.md
 docs/ListSnapshotResponseLinks.md
 docs/ListSnapshotsAuditResponse.md
 docs/ListSnapshotsAuditResponseLinks.md
+docs/ListSubscriptionsResponse.md
+docs/ListSubscriptionsResponseLinks.md
 docs/ListTagAuditsResponse.md
 docs/ListTagAuditsResponseLinks.md
 docs/ListTagResponse.md
@@ -237,7 +249,6 @@ docs/ListUserAuditResponse.md
 docs/ListUserAuditResponseLinks.md
 docs/ListUserResponse.md
 docs/ListUserResponseLinks.md
-docs/ListUserResponsePagination.md
 docs/ListVipResponse.md
 docs/ListVipResponseData.md
 docs/ListVipResponseLinks.md
@@ -299,6 +310,9 @@ docs/SnapshotsApi.md
 docs/SnapshotsAuditResponse.md
 docs/SnapshotsAuditsApi.md
 docs/SrcCidr.md
+docs/SubscriptionPricing.md
+docs/SubscriptionProduct.md
+docs/SubscriptionsApi.md
 docs/TagAssignmentSelfLinks.md
 docs/TagAssignmentsApi.md
 docs/TagAssignmentsAuditsApi.md
@@ -371,6 +385,7 @@ pfruck_contabo/api/secrets_api.py
 pfruck_contabo/api/secrets_audits_api.py
 pfruck_contabo/api/snapshots_api.py
 pfruck_contabo/api/snapshots_audits_api.py
+pfruck_contabo/api/subscriptions_api.py
 pfruck_contabo/api/tag_assignments_api.py
 pfruck_contabo/api/tag_assignments_audits_api.py
 pfruck_contabo/api/tags_api.py
@@ -383,6 +398,9 @@ pfruck_contabo/apis/__init__.py
 pfruck_contabo/configuration.py
 pfruck_contabo/exceptions.py
 pfruck_contabo/model/__init__.py
+pfruck_contabo/model/activate_windows_request.py
+pfruck_contabo/model/activate_windows_response.py
+pfruck_contabo/model/activate_windows_response_links.py
 pfruck_contabo/model/add_on_response.py
 pfruck_contabo/model/additional_ip.py
 pfruck_contabo/model/address.py
@@ -402,6 +420,10 @@ pfruck_contabo/model/cancel_instance_response.py
 pfruck_contabo/model/cancel_instance_response_data.py
 pfruck_contabo/model/cancel_object_storage_response.py
 pfruck_contabo/model/cancel_object_storage_response_data.py
+pfruck_contabo/model/cancel_subscription_request.py
+pfruck_contabo/model/cancel_subscription_response.py
+pfruck_contabo/model/cancel_subscription_response_data.py
+pfruck_contabo/model/cancel_subscription_response_links.py
 pfruck_contabo/model/client_response.py
 pfruck_contabo/model/client_secret_response.py
 pfruck_contabo/model/create_assignment_response.py
@@ -467,6 +489,10 @@ pfruck_contabo/model/dpa_response.py
 pfruck_contabo/model/dpa_response_data.py
 pfruck_contabo/model/dpa_response_links.py
 pfruck_contabo/model/dpa_service_response.py
+pfruck_contabo/model/earliest_cancellation_date_subscription_response.py
+pfruck_contabo/model/extended_subscription_response.py
+pfruck_contabo/model/extended_subscription_response_pricing.py
+pfruck_contabo/model/extended_subscription_response_product.py
 pfruck_contabo/model/find_assignment_response.py
 pfruck_contabo/model/find_assignment_response_links.py
 pfruck_contabo/model/find_client_response.py
@@ -485,6 +511,8 @@ pfruck_contabo/model/find_private_network_response.py
 pfruck_contabo/model/find_role_response.py
 pfruck_contabo/model/find_secret_response.py
 pfruck_contabo/model/find_snapshot_response.py
+pfruck_contabo/model/find_subscription_response.py
+pfruck_contabo/model/find_subscription_response_links.py
 pfruck_contabo/model/find_tag_response.py
 pfruck_contabo/model/find_user_is_password_set_response.py
 pfruck_contabo/model/find_user_is_password_set_response_links.py
@@ -525,12 +553,8 @@ pfruck_contabo/model/instances_actions_audit_response.py
 pfruck_contabo/model/instances_audit_response.py
 pfruck_contabo/model/invoice_response.py
 pfruck_contabo/model/ip_config.py
-pfruck_contabo/model/ip_config1.py
-pfruck_contabo/model/ip_config2.py
 pfruck_contabo/model/ip_v4.py
 pfruck_contabo/model/ip_v41.py
-pfruck_contabo/model/ip_v42.py
-pfruck_contabo/model/ip_v43.py
 pfruck_contabo/model/ip_v6.py
 pfruck_contabo/model/ledger_entry_response.py
 pfruck_contabo/model/links.py
@@ -560,6 +584,7 @@ pfruck_contabo/model/list_image_response_data.py
 pfruck_contabo/model/list_image_response_links.py
 pfruck_contabo/model/list_instances_actions_audit_response.py
 pfruck_contabo/model/list_instances_actions_audit_response_links.py
+pfruck_contabo/model/list_instances_actions_audit_response_pagination.py
 pfruck_contabo/model/list_instances_audit_response.py
 pfruck_contabo/model/list_instances_audit_response_links.py
 pfruck_contabo/model/list_instances_response.py
@@ -596,6 +621,8 @@ pfruck_contabo/model/list_snapshot_response.py
 pfruck_contabo/model/list_snapshot_response_links.py
 pfruck_contabo/model/list_snapshots_audit_response.py
 pfruck_contabo/model/list_snapshots_audit_response_links.py
+pfruck_contabo/model/list_subscriptions_response.py
+pfruck_contabo/model/list_subscriptions_response_links.py
 pfruck_contabo/model/list_tag_audits_response.py
 pfruck_contabo/model/list_tag_audits_response_links.py
 pfruck_contabo/model/list_tag_response.py
@@ -604,7 +631,6 @@ pfruck_contabo/model/list_user_audit_response.py
 pfruck_contabo/model/list_user_audit_response_links.py
 pfruck_contabo/model/list_user_response.py
 pfruck_contabo/model/list_user_response_links.py
-pfruck_contabo/model/list_user_response_pagination.py
 pfruck_contabo/model/list_vip_response.py
 pfruck_contabo/model/list_vip_response_data.py
 pfruck_contabo/model/list_vip_response_links.py
@@ -654,6 +680,8 @@ pfruck_contabo/model/set_default_firewall_response.py
 pfruck_contabo/model/snapshot_response.py
 pfruck_contabo/model/snapshots_audit_response.py
 pfruck_contabo/model/src_cidr.py
+pfruck_contabo/model/subscription_pricing.py
+pfruck_contabo/model/subscription_product.py
 pfruck_contabo/model/tag_assignment_self_links.py
 pfruck_contabo/model/tag_audit_response.py
 pfruck_contabo/model/tag_response.py
@@ -699,6 +727,9 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_activate_windows_request.py
+test/test_activate_windows_response.py
+test/test_activate_windows_response_links.py
 test/test_add_on_response.py
 test/test_additional_ip.py
 test/test_address.py
@@ -718,6 +749,10 @@ test/test_cancel_instance_response.py
 test/test_cancel_instance_response_data.py
 test/test_cancel_object_storage_response.py
 test/test_cancel_object_storage_response_data.py
+test/test_cancel_subscription_request.py
+test/test_cancel_subscription_response.py
+test/test_cancel_subscription_response_data.py
+test/test_cancel_subscription_response_links.py
 test/test_client_response.py
 test/test_client_secret_response.py
 test/test_create_assignment_response.py
@@ -786,6 +821,10 @@ test/test_dpa_response_data.py
 test/test_dpa_response_links.py
 test/test_dpa_service_response.py
 test/test_dpas_api.py
+test/test_earliest_cancellation_date_subscription_response.py
+test/test_extended_subscription_response.py
+test/test_extended_subscription_response_pricing.py
+test/test_extended_subscription_response_product.py
 test/test_find_assignment_response.py
 test/test_find_assignment_response_links.py
 test/test_find_client_response.py
@@ -804,6 +843,8 @@ test/test_find_private_network_response.py
 test/test_find_role_response.py
 test/test_find_secret_response.py
 test/test_find_snapshot_response.py
+test/test_find_subscription_response.py
+test/test_find_subscription_response_links.py
 test/test_find_tag_response.py
 test/test_find_user_is_password_set_response.py
 test/test_find_user_is_password_set_response_links.py
@@ -854,12 +895,8 @@ test/test_internal_api.py
 test/test_invoice_response.py
 test/test_invoices_api.py
 test/test_ip_config.py
-test/test_ip_config1.py
-test/test_ip_config2.py
 test/test_ip_v4.py
 test/test_ip_v41.py
-test/test_ip_v42.py
-test/test_ip_v43.py
 test/test_ip_v6.py
 test/test_ledger_api.py
 test/test_ledger_entry_response.py
@@ -890,6 +927,7 @@ test/test_list_image_response_data.py
 test/test_list_image_response_links.py
 test/test_list_instances_actions_audit_response.py
 test/test_list_instances_actions_audit_response_links.py
+test/test_list_instances_actions_audit_response_pagination.py
 test/test_list_instances_audit_response.py
 test/test_list_instances_audit_response_links.py
 test/test_list_instances_response.py
@@ -926,6 +964,8 @@ test/test_list_snapshot_response.py
 test/test_list_snapshot_response_links.py
 test/test_list_snapshots_audit_response.py
 test/test_list_snapshots_audit_response_links.py
+test/test_list_subscriptions_response.py
+test/test_list_subscriptions_response_links.py
 test/test_list_tag_audits_response.py
 test/test_list_tag_audits_response_links.py
 test/test_list_tag_response.py
@@ -934,7 +974,6 @@ test/test_list_user_audit_response.py
 test/test_list_user_audit_response_links.py
 test/test_list_user_response.py
 test/test_list_user_response_links.py
-test/test_list_user_response_pagination.py
 test/test_list_vip_response.py
 test/test_list_vip_response_data.py
 test/test_list_vip_response_links.py
@@ -996,6 +1035,9 @@ test/test_snapshots_api.py
 test/test_snapshots_audit_response.py
 test/test_snapshots_audits_api.py
 test/test_src_cidr.py
+test/test_subscription_pricing.py
+test/test_subscription_product.py
+test/test_subscriptions_api.py
 test/test_tag_assignment_self_links.py
 test/test_tag_assignments_api.py
 test/test_tag_assignments_audits_api.py

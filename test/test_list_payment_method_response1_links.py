@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.links import Links
-globals()['Links'] = Links
+from pfruck_contabo.model.self_links import SelfLinks
+globals()['SelfLinks'] = SelfLinks
 from pfruck_contabo.model.list_payment_method_response1_links import ListPaymentMethodResponse1Links
 
 

@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.ip_v42 import IpV42
+from pfruck_contabo.model.cancel_subscription_request import CancelSubscriptionRequest
 
 
-class TestIpV42(unittest.TestCase):
-    """IpV42 unit test stubs"""
+class TestCancelSubscriptionRequest(unittest.TestCase):
+    """CancelSubscriptionRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +24,10 @@ class TestIpV42(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testIpV42(self):
-        """Test IpV42"""
+    def testCancelSubscriptionRequest(self):
+        """Test CancelSubscriptionRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = IpV42()  # noqa: E501
+        # model = CancelSubscriptionRequest()  # noqa: E501
         pass
 
 

@@ -12,9 +12,9 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.ip_config1 import IpConfig1
+from pfruck_contabo.model.ip_config import IpConfig
 from pfruck_contabo.model.private_ip_config import PrivateIpConfig
-globals()['IpConfig1'] = IpConfig1
+globals()['IpConfig'] = IpConfig
 globals()['PrivateIpConfig'] = PrivateIpConfig
 from pfruck_contabo.model.instances import Instances
 

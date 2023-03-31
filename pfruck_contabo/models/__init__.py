@@ -9,6 +9,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from pfruck_contabo.model.activate_windows_request import ActivateWindowsRequest
+from pfruck_contabo.model.activate_windows_response import ActivateWindowsResponse
+from pfruck_contabo.model.activate_windows_response_links import ActivateWindowsResponseLinks
 from pfruck_contabo.model.add_on_response import AddOnResponse
 from pfruck_contabo.model.additional_ip import AdditionalIp
 from pfruck_contabo.model.address import Address
@@ -28,6 +31,10 @@ from pfruck_contabo.model.cancel_instance_response import CancelInstanceResponse
 from pfruck_contabo.model.cancel_instance_response_data import CancelInstanceResponseData
 from pfruck_contabo.model.cancel_object_storage_response import CancelObjectStorageResponse
 from pfruck_contabo.model.cancel_object_storage_response_data import CancelObjectStorageResponseData
+from pfruck_contabo.model.cancel_subscription_request import CancelSubscriptionRequest
+from pfruck_contabo.model.cancel_subscription_response import CancelSubscriptionResponse
+from pfruck_contabo.model.cancel_subscription_response_data import CancelSubscriptionResponseData
+from pfruck_contabo.model.cancel_subscription_response_links import CancelSubscriptionResponseLinks
 from pfruck_contabo.model.client_response import ClientResponse
 from pfruck_contabo.model.client_secret_response import ClientSecretResponse
 from pfruck_contabo.model.create_assignment_response import CreateAssignmentResponse
@@ -93,6 +100,10 @@ from pfruck_contabo.model.dpa_response import DpaResponse
 from pfruck_contabo.model.dpa_response_data import DpaResponseData
 from pfruck_contabo.model.dpa_response_links import DpaResponseLinks
 from pfruck_contabo.model.dpa_service_response import DpaServiceResponse
+from pfruck_contabo.model.earliest_cancellation_date_subscription_response import EarliestCancellationDateSubscriptionResponse
+from pfruck_contabo.model.extended_subscription_response import ExtendedSubscriptionResponse
+from pfruck_contabo.model.extended_subscription_response_pricing import ExtendedSubscriptionResponsePricing
+from pfruck_contabo.model.extended_subscription_response_product import ExtendedSubscriptionResponseProduct
 from pfruck_contabo.model.find_assignment_response import FindAssignmentResponse
 from pfruck_contabo.model.find_assignment_response_links import FindAssignmentResponseLinks
 from pfruck_contabo.model.find_client_response import FindClientResponse
@@ -111,6 +122,8 @@ from pfruck_contabo.model.find_private_network_response import FindPrivateNetwor
 from pfruck_contabo.model.find_role_response import FindRoleResponse
 from pfruck_contabo.model.find_secret_response import FindSecretResponse
 from pfruck_contabo.model.find_snapshot_response import FindSnapshotResponse
+from pfruck_contabo.model.find_subscription_response import FindSubscriptionResponse
+from pfruck_contabo.model.find_subscription_response_links import FindSubscriptionResponseLinks
 from pfruck_contabo.model.find_tag_response import FindTagResponse
 from pfruck_contabo.model.find_user_is_password_set_response import FindUserIsPasswordSetResponse
 from pfruck_contabo.model.find_user_is_password_set_response_links import FindUserIsPasswordSetResponseLinks
@@ -151,12 +164,8 @@ from pfruck_contabo.model.instances_actions_audit_response import InstancesActio
 from pfruck_contabo.model.instances_audit_response import InstancesAuditResponse
 from pfruck_contabo.model.invoice_response import InvoiceResponse
 from pfruck_contabo.model.ip_config import IpConfig
-from pfruck_contabo.model.ip_config1 import IpConfig1
-from pfruck_contabo.model.ip_config2 import IpConfig2
 from pfruck_contabo.model.ip_v4 import IpV4
 from pfruck_contabo.model.ip_v41 import IpV41
-from pfruck_contabo.model.ip_v42 import IpV42
-from pfruck_contabo.model.ip_v43 import IpV43
 from pfruck_contabo.model.ip_v6 import IpV6
 from pfruck_contabo.model.ledger_entry_response import LedgerEntryResponse
 from pfruck_contabo.model.links import Links
@@ -186,6 +195,7 @@ from pfruck_contabo.model.list_image_response_data import ListImageResponseData
 from pfruck_contabo.model.list_image_response_links import ListImageResponseLinks
 from pfruck_contabo.model.list_instances_actions_audit_response import ListInstancesActionsAuditResponse
 from pfruck_contabo.model.list_instances_actions_audit_response_links import ListInstancesActionsAuditResponseLinks
+from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
 from pfruck_contabo.model.list_instances_audit_response import ListInstancesAuditResponse
 from pfruck_contabo.model.list_instances_audit_response_links import ListInstancesAuditResponseLinks
 from pfruck_contabo.model.list_instances_response import ListInstancesResponse
@@ -222,6 +232,8 @@ from pfruck_contabo.model.list_snapshot_response import ListSnapshotResponse
 from pfruck_contabo.model.list_snapshot_response_links import ListSnapshotResponseLinks
 from pfruck_contabo.model.list_snapshots_audit_response import ListSnapshotsAuditResponse
 from pfruck_contabo.model.list_snapshots_audit_response_links import ListSnapshotsAuditResponseLinks
+from pfruck_contabo.model.list_subscriptions_response import ListSubscriptionsResponse
+from pfruck_contabo.model.list_subscriptions_response_links import ListSubscriptionsResponseLinks
 from pfruck_contabo.model.list_tag_audits_response import ListTagAuditsResponse
 from pfruck_contabo.model.list_tag_audits_response_links import ListTagAuditsResponseLinks
 from pfruck_contabo.model.list_tag_response import ListTagResponse
@@ -230,7 +242,6 @@ from pfruck_contabo.model.list_user_audit_response import ListUserAuditResponse
 from pfruck_contabo.model.list_user_audit_response_links import ListUserAuditResponseLinks
 from pfruck_contabo.model.list_user_response import ListUserResponse
 from pfruck_contabo.model.list_user_response_links import ListUserResponseLinks
-from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.list_vip_response import ListVipResponse
 from pfruck_contabo.model.list_vip_response_data import ListVipResponseData
 from pfruck_contabo.model.list_vip_response_links import ListVipResponseLinks
@@ -280,6 +291,8 @@ from pfruck_contabo.model.set_default_firewall_response import SetDefaultFirewal
 from pfruck_contabo.model.snapshot_response import SnapshotResponse
 from pfruck_contabo.model.snapshots_audit_response import SnapshotsAuditResponse
 from pfruck_contabo.model.src_cidr import SrcCidr
+from pfruck_contabo.model.subscription_pricing import SubscriptionPricing
+from pfruck_contabo.model.subscription_product import SubscriptionProduct
 from pfruck_contabo.model.tag_assignment_self_links import TagAssignmentSelfLinks
 from pfruck_contabo.model.tag_audit_response import TagAuditResponse
 from pfruck_contabo.model.tag_response import TagResponse

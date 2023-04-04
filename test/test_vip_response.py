@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.ip_v41 import IpV41
-globals()['IpV41'] = IpV41
+from pfruck_contabo.model.ip_v4 import IpV4
+globals()['IpV4'] = IpV4
 from pfruck_contabo.model.vip_response import VipResponse
 
 

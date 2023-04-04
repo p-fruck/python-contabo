@@ -13,8 +13,10 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.list_payment_method_response1_links import ListPaymentMethodResponse1Links
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.payment_method_response1 import PaymentMethodResponse1
 globals()['ListPaymentMethodResponse1Links'] = ListPaymentMethodResponse1Links
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 globals()['PaymentMethodResponse1'] = PaymentMethodResponse1
 from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 

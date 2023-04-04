@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.ip_v41 import IpV41
-    globals()['IpV41'] = IpV41
+    from pfruck_contabo.model.ip_v4 import IpV4
+    globals()['IpV4'] = IpV4
 
 
 class ListVipResponseData(ModelNormal):
@@ -116,7 +116,7 @@ class ListVipResponseData(ModelNormal):
             'ip_version': (str,),  # noqa: E501
             'resource_type': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
-            'v4': (IpV41,),  # noqa: E501
+            'v4': (IpV4,),  # noqa: E501
         }
 
     @cached_property
@@ -193,7 +193,7 @@ class ListVipResponseData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             resource_type (str): The resourceType using the VIP.. [optional]  # noqa: E501
             type (str): The VIP type.. [optional]  # noqa: E501
-            v4 (IpV41): [optional]  # noqa: E501
+            v4 (IpV4): [optional]  # noqa: E501
         """
 
         ip_version = kwargs.get('ip_version', "v4")
@@ -302,7 +302,7 @@ class ListVipResponseData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             resource_type (str): The resourceType using the VIP.. [optional]  # noqa: E501
             type (str): The VIP type.. [optional]  # noqa: E501
-            v4 (IpV41): [optional]  # noqa: E501
+            v4 (IpV4): [optional]  # noqa: E501
         """
 
         ip_version = kwargs.get('ip_version', "v4")

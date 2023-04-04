@@ -21,7 +21,7 @@ from pfruck_contabo.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 
 
 class PaymentMethodsApi(object):
@@ -37,7 +37,7 @@ class PaymentMethodsApi(object):
         self.api_client = api_client
         self.retrieve_payment_method_list_endpoint = _Endpoint(
             settings={
-                'response_type': (ListPaymentMethodResponse,),
+                'response_type': (ListPaymentMethodResponse1,),
                 'auth': [
                     'bearer'
                 ],
@@ -187,7 +187,7 @@ class PaymentMethodsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ListPaymentMethodResponse
+            ListPaymentMethodResponse1
                 If the method is called asynchronously, returns the request
                 thread.
         """

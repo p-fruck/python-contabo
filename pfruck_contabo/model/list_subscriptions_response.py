@@ -31,11 +31,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.extended_subscription_response import ExtendedSubscriptionResponse
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
     from pfruck_contabo.model.list_subscriptions_response_links import ListSubscriptionsResponseLinks
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['ExtendedSubscriptionResponse'] = ExtendedSubscriptionResponse
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
     globals()['ListSubscriptionsResponseLinks'] = ListSubscriptionsResponseLinks
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ListSubscriptionsResponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListSubscriptionsResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([ExtendedSubscriptionResponse],),  # noqa: E501
             'links': (ListSubscriptionsResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListSubscriptionsResponse(ModelNormal):
         """ListSubscriptionsResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListUserResponsePagination):
             data ([ExtendedSubscriptionResponse]):
             links (ListSubscriptionsResponseLinks):
 
@@ -211,7 +211,7 @@ class ListSubscriptionsResponse(ModelNormal):
         """ListSubscriptionsResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListUserResponsePagination):
             data ([ExtendedSubscriptionResponse]):
             links (ListSubscriptionsResponseLinks):
 

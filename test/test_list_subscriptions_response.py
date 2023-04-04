@@ -13,11 +13,11 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.extended_subscription_response import ExtendedSubscriptionResponse
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
 from pfruck_contabo.model.list_subscriptions_response_links import ListSubscriptionsResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['ExtendedSubscriptionResponse'] = ExtendedSubscriptionResponse
-globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
 globals()['ListSubscriptionsResponseLinks'] = ListSubscriptionsResponseLinks
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_subscriptions_response import ListSubscriptionsResponse
 
 

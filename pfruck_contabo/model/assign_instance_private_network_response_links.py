@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.instance_assignment_self_links import InstanceAssignmentSelfLinks
-    globals()['InstanceAssignmentSelfLinks'] = InstanceAssignmentSelfLinks
+    from pfruck_contabo.model.instance_assignment_self_links1 import InstanceAssignmentSelfLinks1
+    globals()['InstanceAssignmentSelfLinks1'] = InstanceAssignmentSelfLinks1
 
 
 class AssignInstancePrivateNetworkResponseLinks(ModelComposed):
@@ -320,7 +320,7 @@ class AssignInstancePrivateNetworkResponseLinks(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              InstanceAssignmentSelfLinks,
+              InstanceAssignmentSelfLinks1,
           ],
           'oneOf': [
           ],

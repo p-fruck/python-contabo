@@ -14,10 +14,10 @@ import unittest
 import pfruck_contabo
 from pfruck_contabo.model.list_image_response_data import ListImageResponseData
 from pfruck_contabo.model.list_image_response_links import ListImageResponseLinks
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['ListImageResponseData'] = ListImageResponseData
 globals()['ListImageResponseLinks'] = ListImageResponseLinks
-globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_image_response import ListImageResponse
 
 

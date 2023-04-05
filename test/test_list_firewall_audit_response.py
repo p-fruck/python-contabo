@@ -14,10 +14,10 @@ import unittest
 import pfruck_contabo
 from pfruck_contabo.model.firewall_audit_response import FirewallAuditResponse
 from pfruck_contabo.model.list_firewall_audit_response_links import ListFirewallAuditResponseLinks
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['FirewallAuditResponse'] = FirewallAuditResponse
 globals()['ListFirewallAuditResponseLinks'] = ListFirewallAuditResponseLinks
-globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_firewall_audit_response import ListFirewallAuditResponse
 
 

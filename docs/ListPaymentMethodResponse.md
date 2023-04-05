@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pagination** | [**ListInstancesActionsAuditResponsePagination**](ListInstancesActionsAuditResponsePagination.md) |  | 
 **data** | [**[PaymentMethodResponse]**](PaymentMethodResponse.md) |  | 
 **links** | [**ListPaymentMethodResponseLinks**](ListPaymentMethodResponseLinks.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -55,6 +55,15 @@ class PaymentMethodResponse(ModelNormal):
     """
 
     allowed_values = {
+        ('payment_type',): {
+            'SEPA': "SEPA",
+            'BANK_TRANSFER': "Bank transfer",
+            'CREDIT_CARD': "Credit Card",
+            'PAYPAL': "Paypal",
+            'PAYPAL_(AUTOMATIC)': "Paypal (Automatic)",
+            'SKRILL': "Skrill",
+            'WESTERN_UNION': "Western Union",
+        },
     }
 
     validations = {
@@ -64,9 +73,17 @@ class PaymentMethodResponse(ModelNormal):
         ('customer_id',): {
             'min_length': 1,
         },
-        ('payment_method_id',): {
+        ('payment_type_id',): {
+            'min_length': 1,
         },
-        ('payment_method',): {
+        ('payment_type',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
+        ('description',): {
+            'min_length': 1,
+        },
+        ('logo',): {
             'min_length': 1,
         },
     }
@@ -94,9 +111,11 @@ class PaymentMethodResponse(ModelNormal):
         return {
             'tenant_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
-            'payment_method_id': (float,),  # noqa: E501
-            'payment_method': (str,),  # noqa: E501
+            'payment_type_id': (str,),  # noqa: E501
+            'payment_type': (str,),  # noqa: E501
             'direct_debit': (bool,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'logo': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -107,9 +126,11 @@ class PaymentMethodResponse(ModelNormal):
     attribute_map = {
         'tenant_id': 'tenantId',  # noqa: E501
         'customer_id': 'customerId',  # noqa: E501
-        'payment_method_id': 'paymentMethodId',  # noqa: E501
-        'payment_method': 'paymentMethod',  # noqa: E501
+        'payment_type_id': 'paymentTypeId',  # noqa: E501
+        'payment_type': 'paymentType',  # noqa: E501
         'direct_debit': 'directDebit',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'logo': 'logo',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,15 +140,17 @@ class PaymentMethodResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, payment_method_id, payment_method, direct_debit, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, payment_type_id, payment_type, direct_debit, description, logo, *args, **kwargs):  # noqa: E501
         """PaymentMethodResponse - a model defined in OpenAPI
 
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            payment_method_id (float): Payment method id
-            payment_method (str): Payment method name
-            direct_debit (bool): Automatic debit from your payment method
+            payment_type_id (str): Your paymentTypeId
+            payment_type (str): Current payment method
+            direct_debit (bool): Indicate if payment-method is direct debit or not
+            description (str): description or details of the payment method
+            logo (str): logo
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -193,9 +216,11 @@ class PaymentMethodResponse(ModelNormal):
 
         self.tenant_id = tenant_id
         self.customer_id = customer_id
-        self.payment_method_id = payment_method_id
-        self.payment_method = payment_method
+        self.payment_type_id = payment_type_id
+        self.payment_type = payment_type
         self.direct_debit = direct_debit
+        self.description = description
+        self.logo = logo
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -216,15 +241,17 @@ class PaymentMethodResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, payment_method_id, payment_method, direct_debit, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, payment_type_id, payment_type, direct_debit, description, logo, *args, **kwargs):  # noqa: E501
         """PaymentMethodResponse - a model defined in OpenAPI
 
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            payment_method_id (float): Payment method id
-            payment_method (str): Payment method name
-            direct_debit (bool): Automatic debit from your payment method
+            payment_type_id (str): Your paymentTypeId
+            payment_type (str): Current payment method
+            direct_debit (bool): Indicate if payment-method is direct debit or not
+            description (str): description or details of the payment method
+            logo (str): logo
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -288,9 +315,11 @@ class PaymentMethodResponse(ModelNormal):
 
         self.tenant_id = tenant_id
         self.customer_id = customer_id
-        self.payment_method_id = payment_method_id
-        self.payment_method = payment_method
+        self.payment_type_id = payment_type_id
+        self.payment_type = payment_type
         self.direct_debit = direct_debit
+        self.description = description
+        self.logo = logo
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     from pfruck_contabo.model.list_vip_response_data import ListVipResponseData
     from pfruck_contabo.model.list_vip_response_links import ListVipResponseLinks
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
     globals()['ListVipResponseData'] = ListVipResponseData
     globals()['ListVipResponseLinks'] = ListVipResponseLinks
 
@@ -91,7 +91,7 @@ class ListVipResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([ListVipResponseData],),  # noqa: E501
             'links': (ListVipResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListVipResponse(ModelNormal):
         """ListVipResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListUserResponsePagination):
             data ([ListVipResponseData]):
             links (ListVipResponseLinks):
 
@@ -211,7 +211,7 @@ class ListVipResponse(ModelNormal):
         """ListVipResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListUserResponsePagination):
             data ([ListVipResponseData]):
             links (ListVipResponseLinks):
 

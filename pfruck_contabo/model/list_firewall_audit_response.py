@@ -32,10 +32,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 def lazy_import():
     from pfruck_contabo.model.firewall_audit_response import FirewallAuditResponse
     from pfruck_contabo.model.list_firewall_audit_response_links import ListFirewallAuditResponseLinks
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['FirewallAuditResponse'] = FirewallAuditResponse
     globals()['ListFirewallAuditResponseLinks'] = ListFirewallAuditResponseLinks
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ListFirewallAuditResponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListFirewallAuditResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
             'data': ([FirewallAuditResponse],),  # noqa: E501
             'links': (ListFirewallAuditResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListFirewallAuditResponse(ModelNormal):
         """ListFirewallAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListUserResponsePagination):
             data ([FirewallAuditResponse]):
             links (ListFirewallAuditResponseLinks):
 
@@ -211,7 +211,7 @@ class ListFirewallAuditResponse(ModelNormal):
         """ListFirewallAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListUserResponsePagination):
             data ([FirewallAuditResponse]):
             links (ListFirewallAuditResponseLinks):
 

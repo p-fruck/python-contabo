@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.ip_v4 import IpV4
-    globals()['IpV4'] = IpV4
+    from pfruck_contabo.model.ip_v43 import IpV43
+    globals()['IpV43'] = IpV43
 
 
 class AdditionalIp(ModelNormal):
@@ -87,7 +87,7 @@ class AdditionalIp(ModelNormal):
         """
         lazy_import()
         return {
-            'v4': (IpV4,),  # noqa: E501
+            'v4': (IpV43,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class AdditionalIp(ModelNormal):
         """AdditionalIp - a model defined in OpenAPI
 
         Args:
-            v4 (IpV4):
+            v4 (IpV43):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -199,7 +199,7 @@ class AdditionalIp(ModelNormal):
         """AdditionalIp - a model defined in OpenAPI
 
         Args:
-            v4 (IpV4):
+            v4 (IpV43):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

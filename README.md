@@ -55,7 +55,7 @@ import pfruck_contabo
 from pprint import pprint
 from pfruck_contabo.api import customer_api
 from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -199,9 +199,9 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
-*UsersApi* | [**get_object_storage_credentials**](docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials
-*UsersApi* | [**list_object_storage_credentials**](docs/UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user
-*UsersApi* | [**regenerate_credentials**](docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages
+*UsersApi* | [**get_object_storage_credentials**](docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials.
+*UsersApi* | [**list_object_storage_credentials**](docs/UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user.
+*UsersApi* | [**regenerate_credentials**](docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages.
 *UsersApi* | [**resend_email_verification**](docs/UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 *UsersApi* | [**reset_password**](docs/UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 *UsersApi* | [**retrieve_user**](docs/UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
@@ -372,12 +372,8 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
  - [InvoiceResponse](docs/InvoiceResponse.md)
  - [IpConfig](docs/IpConfig.md)
- - [IpConfig1](docs/IpConfig1.md)
- - [IpConfig2](docs/IpConfig2.md)
  - [IpV4](docs/IpV4.md)
  - [IpV41](docs/IpV41.md)
- - [IpV42](docs/IpV42.md)
- - [IpV43](docs/IpV43.md)
  - [IpV6](docs/IpV6.md)
  - [LedgerEntryResponse](docs/LedgerEntryResponse.md)
  - [Links](docs/Links.md)
@@ -407,6 +403,7 @@ Class | Method | HTTP request | Description
  - [ListImageResponseLinks](docs/ListImageResponseLinks.md)
  - [ListInstancesActionsAuditResponse](docs/ListInstancesActionsAuditResponse.md)
  - [ListInstancesActionsAuditResponseLinks](docs/ListInstancesActionsAuditResponseLinks.md)
+ - [ListInstancesActionsAuditResponsePagination](docs/ListInstancesActionsAuditResponsePagination.md)
  - [ListInstancesAuditResponse](docs/ListInstancesAuditResponse.md)
  - [ListInstancesAuditResponseLinks](docs/ListInstancesAuditResponseLinks.md)
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
@@ -453,7 +450,6 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
  - [ListVipResponse](docs/ListVipResponse.md)
  - [ListVipResponseData](docs/ListVipResponseData.md)
  - [ListVipResponseLinks](docs/ListVipResponseLinks.md)

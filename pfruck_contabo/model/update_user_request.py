@@ -167,7 +167,7 @@ class UpdateUserRequest(ModelNormal):
             first_name (str): The name of the user. Names may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.. [optional]  # noqa: E501
             last_name (str): The last name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.. [optional]  # noqa: E501
             email (str): The email of the user to which activation and forgot password links are being sent to. There is a limit of 255 characters per email.. [optional]  # noqa: E501
-            enabled (bool): If uses is not enabled, he can't login and thus use services any longer.. [optional]  # noqa: E501
+            enabled (bool): If user is not enabled, he can't login and thus use services any longer.. [optional]  # noqa: E501
             totp (bool): Enable or disable two-factor authentication (2FA) via time based OTP.. [optional]  # noqa: E501
             locale (str): The locale of the user. This can be `de-DE`, `de`, `en-US`, `en`. [optional]  # noqa: E501
             roles ([int]): The roles as list of `roleId`s of the user.. [optional]  # noqa: E501
@@ -259,7 +259,7 @@ class UpdateUserRequest(ModelNormal):
             first_name (str): The name of the user. Names may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.. [optional]  # noqa: E501
             last_name (str): The last name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.. [optional]  # noqa: E501
             email (str): The email of the user to which activation and forgot password links are being sent to. There is a limit of 255 characters per email.. [optional]  # noqa: E501
-            enabled (bool): If uses is not enabled, he can't login and thus use services any longer.. [optional]  # noqa: E501
+            enabled (bool): If user is not enabled, he can't login and thus use services any longer.. [optional]  # noqa: E501
             totp (bool): Enable or disable two-factor authentication (2FA) via time based OTP.. [optional]  # noqa: E501
             locale (str): The locale of the user. This can be `de-DE`, `de`, `en-US`, `en`. [optional]  # noqa: E501
             roles ([int]): The roles as list of `roleId`s of the user.. [optional]  # noqa: E501

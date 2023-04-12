@@ -133,10 +133,10 @@ class RoleResponse(ModelNormal):
             role_id (int): Role's id
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            name (str): Role Name
+            name (str): Role's name
             admin (bool): Admin
             access_all_resources (bool): Access All Resources
-            type (str): Role type can be either `default` or `custom`. The `default` roles cannot be modified or deleted
+            type (str): Role type can be either `default` or `custom`. The `default` roles cannot be modified or deleted.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,10 +235,10 @@ class RoleResponse(ModelNormal):
             role_id (int): Role's id
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            name (str): Role Name
+            name (str): Role's name
             admin (bool): Admin
             access_all_resources (bool): Access All Resources
-            type (str): Role type can be either `default` or `custom`. The `default` roles cannot be modified or deleted
+            type (str): Role type can be either `default` or `custom`. The `default` roles cannot be modified or deleted.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

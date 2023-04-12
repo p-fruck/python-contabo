@@ -32,10 +32,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 def lazy_import():
     from pfruck_contabo.model.credential_data import CredentialData
     from pfruck_contabo.model.list_credential_response_links import ListCredentialResponseLinks
-    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
+    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
     globals()['CredentialData'] = CredentialData
     globals()['ListCredentialResponseLinks'] = ListCredentialResponseLinks
-    globals()['ListUserResponsePagination'] = ListUserResponsePagination
+    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
 
 
 class ListCredentialResponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListCredentialResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListUserResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
             'data': ([CredentialData],),  # noqa: E501
             'links': (ListCredentialResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListCredentialResponse(ModelNormal):
         """ListCredentialResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesActionsAuditResponsePagination):
             data ([CredentialData]):
             links (ListCredentialResponseLinks):
 
@@ -211,7 +211,7 @@ class ListCredentialResponse(ModelNormal):
         """ListCredentialResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesActionsAuditResponsePagination):
             data ([CredentialData]):
             links (ListCredentialResponseLinks):
 

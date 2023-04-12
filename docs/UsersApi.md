@@ -7,9 +7,9 @@ Method | HTTP request | Description
 [**create_user**](UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 [**delete_user**](UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 [**generate_client_secret**](UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
-[**get_object_storage_credentials**](UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials
-[**list_object_storage_credentials**](UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user
-[**regenerate_credentials**](UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages
+[**get_object_storage_credentials**](UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials.
+[**list_object_storage_credentials**](UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user.
+[**regenerate_credentials**](UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages.
 [**resend_email_verification**](UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 [**reset_password**](UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 [**retrieve_user**](UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
@@ -154,7 +154,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
@@ -179,7 +179,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 # **get_object_storage_credentials**
 > FindCredentialResponse get_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id)
 
-Get S3 compatible object storage credentials
+Get S3 compatible object storage credentials.
 
 Get S3 compatible object storage credentials for accessing it via S3 compatible tools like `aws` cli.
 
@@ -330,14 +330,14 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage
     credential_id = 12345 # int | The ID of the object storage credential
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Get S3 compatible object storage credentials
+        # Get S3 compatible object storage credentials.
         api_response = api_instance.get_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -346,7 +346,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get S3 compatible object storage credentials
+        # Get S3 compatible object storage credentials.
         api_response = api_instance.get_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -359,7 +359,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **object_storage_id** | **str**| The identifier of the S3 object storage |
  **credential_id** | **int**| The ID of the object storage credential |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 # **list_object_storage_credentials**
 > ListCredentialResponse list_object_storage_credentials(x_request_id, user_id)
 
-Get list of S3 compatible object storage credentials for user
+Get list of S3 compatible object storage credentials for user.
 
 Get list of S3 compatible object storage credentials for accessing it via S3 compatible tools like `aws` cli.
 
@@ -424,7 +424,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
@@ -435,7 +435,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get list of S3 compatible object storage credentials for user
+        # Get list of S3 compatible object storage credentials for user.
         api_response = api_instance.list_object_storage_credentials(x_request_id, user_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -444,7 +444,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Get list of S3 compatible object storage credentials for user
+        # Get list of S3 compatible object storage credentials for user.
         api_response = api_instance.list_object_storage_credentials(x_request_id, user_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, object_storage_id=object_storage_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -457,7 +457,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
  **page** | **int**| Number of page to be fetched. | [optional]
  **size** | **int**| Number of elements per page. | [optional]
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 # **regenerate_credentials**
 > FindCredentialResponse regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id)
 
-Regenerates secret key of specified user for the S3 compatible object storages
+Regenerates secret key of specified user for the S3 compatible object storages.
 
 Regenerates secret key of specified user for the a specific S3 compatible object storages.
 
@@ -524,14 +524,14 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage
     credential_id = 12345 # int | The ID of the object storage credential
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Regenerates secret key of specified user for the S3 compatible object storages
+        # Regenerates secret key of specified user for the S3 compatible object storages.
         api_response = api_instance.regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -540,7 +540,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Regenerates secret key of specified user for the S3 compatible object storages
+        # Regenerates secret key of specified user for the S3 compatible object storages.
         api_response = api_instance.regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -553,7 +553,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **object_storage_id** | **str**| The identifier of the S3 object storage |
  **credential_id** | **int**| The ID of the object storage credential |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
@@ -617,7 +617,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
     redirect_url = "https://test.contabo.de" # str | The redirect url used for email verification (optional)
 
@@ -643,7 +643,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
  **redirect_url** | **str**| The redirect url used for email verification | [optional]
 
@@ -706,7 +706,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
     redirect_url = "https://test.contabo.de" # str | The redirect url used for resetting password (optional)
 
@@ -732,7 +732,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
  **redirect_url** | **str**| The redirect url used for resetting password | [optional]
 
@@ -796,7 +796,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
@@ -823,7 +823,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -1077,7 +1077,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user
+    user_id = "6cdf5968-f9fe-4192-97c2-f349e813c5e8" # str | The identifier of the user.
     update_user_request = UpdateUserRequest(
         first_name="John",
         last_name="Doe",
@@ -1113,7 +1113,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **user_id** | **str**| The identifier of the user |
+ **user_id** | **str**| The identifier of the user. |
  **update_user_request** | [**UpdateUserRequest**](UpdateUserRequest.md)|  |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 

@@ -122,7 +122,7 @@ class UpdateRoleRequest(ModelNormal):
         Args:
             name (str): The name of the role. There is a limit of 255 characters per role.
             admin (bool): If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.
-            access_all_resources (bool): Allow access to all resources. This will superseed all assigned resources in a role
+            access_all_resources (bool): Allow access to all resources. This will superseed all assigned resources in a role.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -216,7 +216,7 @@ class UpdateRoleRequest(ModelNormal):
         Args:
             name (str): The name of the role. There is a limit of 255 characters per role.
             admin (bool): If user is admin he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.
-            access_all_resources (bool): Allow access to all resources. This will superseed all assigned resources in a role
+            access_all_resources (bool): Allow access to all resources. This will superseed all assigned resources in a role.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

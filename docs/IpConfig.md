@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**v4** | [**IpV41**](IpV41.md) |  | 
+**v4** | [**IpV4**](IpV4.md) |  | 
 **v6** | [**IpV6**](IpV6.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

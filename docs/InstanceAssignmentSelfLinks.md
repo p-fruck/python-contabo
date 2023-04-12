@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_self** | **str** | Link to current resource. | 
-**firewall** | **str** | Link to related firewall. | 
+**virtual_private_cloud** | **str** | Link to related Private Network. | 
 **instance** | **str** | Link to assigned instance. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

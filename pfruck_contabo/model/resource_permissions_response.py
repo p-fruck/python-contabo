@@ -106,7 +106,7 @@ class ResourcePermissionsResponse(ModelNormal):
         """ResourcePermissionsResponse - a model defined in OpenAPI
 
         Args:
-            tag_id (int): Tag ID
+            tag_id (int): Tag's id
             tag_name (str): Tag name. The resriction is based on the resources which have been assigned to that tag. If no resource has been assigned to the given tag, no access will be possible.
 
         Keyword Args:
@@ -197,7 +197,7 @@ class ResourcePermissionsResponse(ModelNormal):
         """ResourcePermissionsResponse - a model defined in OpenAPI
 
         Args:
-            tag_id (int): Tag ID
+            tag_id (int): Tag's id
             tag_name (str): Tag name. The resriction is based on the resources which have been assigned to that tag. If no resource has been assigned to the given tag, no access will be possible.
 
         Keyword Args:

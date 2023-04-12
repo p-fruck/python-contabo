@@ -32,10 +32,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 def lazy_import():
     from pfruck_contabo.model.list_firewall_response_data import ListFirewallResponseData
     from pfruck_contabo.model.list_firewall_response_links import ListFirewallResponseLinks
-    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
+    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
     globals()['ListFirewallResponseData'] = ListFirewallResponseData
     globals()['ListFirewallResponseLinks'] = ListFirewallResponseLinks
-    globals()['ListUserResponsePagination'] = ListUserResponsePagination
+    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
 
 
 class ListFirewallResponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListFirewallResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListUserResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
             'data': ([ListFirewallResponseData],),  # noqa: E501
             'links': (ListFirewallResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListFirewallResponse(ModelNormal):
         """ListFirewallResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesActionsAuditResponsePagination):
             data ([ListFirewallResponseData]):
             links (ListFirewallResponseLinks):
 
@@ -211,7 +211,7 @@ class ListFirewallResponse(ModelNormal):
         """ListFirewallResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesActionsAuditResponsePagination):
             data ([ListFirewallResponseData]):
             links (ListFirewallResponseLinks):
 

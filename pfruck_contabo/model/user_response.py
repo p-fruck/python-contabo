@@ -158,7 +158,7 @@ class UserResponse(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            user_id (str): User's id
+            user_id (str): The identifier of the user.
             first_name (str): The first name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.
             last_name (str): The last name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.
             email (str): The email of the user to which activation and forgot password links are being sent to. There is a limit of 255 characters per email.
@@ -269,7 +269,7 @@ class UserResponse(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            user_id (str): User's id
+            user_id (str): The identifier of the user.
             first_name (str): The first name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.
             last_name (str): The last name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.
             email (str): The email of the user to which activation and forgot password links are being sent to. There is a limit of 255 characters per email.

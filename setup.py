@@ -94,7 +94,7 @@ import pfruck_contabo
 from pprint import pprint
 from pfruck_contabo.api import customer_api
 from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -238,9 +238,9 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**create_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
-*UsersApi* | [**get_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials
-*UsersApi* | [**list_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user
-*UsersApi* | [**regenerate_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages
+*UsersApi* | [**get_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#get_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Get S3 compatible object storage credentials.
+*UsersApi* | [**list_object_storage_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#list_object_storage_credentials) | **GET** /v1/users/{userId}/object-storages/credentials | Get list of S3 compatible object storage credentials for user.
+*UsersApi* | [**regenerate_credentials**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#regenerate_credentials) | **PATCH** /v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId} | Regenerates secret key of specified user for the S3 compatible object storages.
 *UsersApi* | [**resend_email_verification**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#resend_email_verification) | **POST** /v1/users/{userId}/resend-email-verification | Resend email verification
 *UsersApi* | [**reset_password**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#reset_password) | **POST** /v1/users/{userId}/reset-password | Send reset password email
 *UsersApi* | [**retrieve_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user) | **GET** /v1/users/{userId} | Get specific user by id
@@ -411,12 +411,8 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditResponse.md)
  - [InvoiceResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/InvoiceResponse.md)
  - [IpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig.md)
- - [IpConfig1](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig1.md)
- - [IpConfig2](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig2.md)
  - [IpV4](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV4.md)
  - [IpV41](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV41.md)
- - [IpV42](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV42.md)
- - [IpV43](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV43.md)
  - [IpV6](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV6.md)
  - [LedgerEntryResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/LedgerEntryResponse.md)
  - [Links](https://github.com/p-fruck/python-contabo/blob/main/docs/Links.md)
@@ -446,6 +442,7 @@ Class | Method | HTTP request | Description
  - [ListImageResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListImageResponseLinks.md)
  - [ListInstancesActionsAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesActionsAuditResponse.md)
  - [ListInstancesActionsAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesActionsAuditResponseLinks.md)
+ - [ListInstancesActionsAuditResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesActionsAuditResponsePagination.md)
  - [ListInstancesAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesAuditResponse.md)
  - [ListInstancesAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesAuditResponseLinks.md)
  - [ListInstancesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponse.md)
@@ -492,7 +489,6 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponsePagination.md)
  - [ListVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponse.md)
  - [ListVipResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseData.md)
  - [ListVipResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseLinks.md)

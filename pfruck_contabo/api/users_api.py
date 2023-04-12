@@ -1048,7 +1048,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1211,7 +1211,7 @@ class UsersApi(object):
         credential_id,
         **kwargs
     ):
-        """Get S3 compatible object storage credentials  # noqa: E501
+        """Get S3 compatible object storage credentials.  # noqa: E501
 
         Get S3 compatible object storage credentials for accessing it via S3 compatible tools like `aws` cli.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1222,7 +1222,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
             object_storage_id (str): The identifier of the S3 object storage
             credential_id (int): The ID of the object storage credential
 
@@ -1305,7 +1305,7 @@ class UsersApi(object):
         user_id,
         **kwargs
     ):
-        """Get list of S3 compatible object storage credentials for user  # noqa: E501
+        """Get list of S3 compatible object storage credentials for user.  # noqa: E501
 
         Get list of S3 compatible object storage credentials for accessing it via S3 compatible tools like `aws` cli.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1316,7 +1316,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1399,7 +1399,7 @@ class UsersApi(object):
         credential_id,
         **kwargs
     ):
-        """Regenerates secret key of specified user for the S3 compatible object storages  # noqa: E501
+        """Regenerates secret key of specified user for the S3 compatible object storages.  # noqa: E501
 
         Regenerates secret key of specified user for the a specific S3 compatible object storages.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1410,7 +1410,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
             object_storage_id (str): The identifier of the S3 object storage
             credential_id (int): The ID of the object storage credential
 
@@ -1504,7 +1504,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1593,7 +1593,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1682,7 +1682,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1945,7 +1945,7 @@ class UsersApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            user_id (str): The identifier of the user
+            user_id (str): The identifier of the user.
             update_user_request (UpdateUserRequest):
 
         Keyword Args:

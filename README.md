@@ -55,7 +55,7 @@ import pfruck_contabo
 from pprint import pprint
 from pfruck_contabo.api import customer_api
 from pfruck_contabo.model.find_customer_response import FindCustomerResponse
-from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
+from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -372,8 +372,12 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
  - [InvoiceResponse](docs/InvoiceResponse.md)
  - [IpConfig](docs/IpConfig.md)
+ - [IpConfig1](docs/IpConfig1.md)
+ - [IpConfig2](docs/IpConfig2.md)
  - [IpV4](docs/IpV4.md)
  - [IpV41](docs/IpV41.md)
+ - [IpV42](docs/IpV42.md)
+ - [IpV43](docs/IpV43.md)
  - [IpV6](docs/IpV6.md)
  - [LedgerEntryResponse](docs/LedgerEntryResponse.md)
  - [Links](docs/Links.md)
@@ -403,7 +407,6 @@ Class | Method | HTTP request | Description
  - [ListImageResponseLinks](docs/ListImageResponseLinks.md)
  - [ListInstancesActionsAuditResponse](docs/ListInstancesActionsAuditResponse.md)
  - [ListInstancesActionsAuditResponseLinks](docs/ListInstancesActionsAuditResponseLinks.md)
- - [ListInstancesActionsAuditResponsePagination](docs/ListInstancesActionsAuditResponsePagination.md)
  - [ListInstancesAuditResponse](docs/ListInstancesAuditResponse.md)
  - [ListInstancesAuditResponseLinks](docs/ListInstancesAuditResponseLinks.md)
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
@@ -450,6 +453,7 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
+ - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
  - [ListVipResponse](docs/ListVipResponse.md)
  - [ListVipResponseData](docs/ListVipResponseData.md)
  - [ListVipResponseLinks](docs/ListVipResponseLinks.md)

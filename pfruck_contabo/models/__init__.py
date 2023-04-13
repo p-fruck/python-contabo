@@ -164,8 +164,12 @@ from pfruck_contabo.model.instances_actions_audit_response import InstancesActio
 from pfruck_contabo.model.instances_audit_response import InstancesAuditResponse
 from pfruck_contabo.model.invoice_response import InvoiceResponse
 from pfruck_contabo.model.ip_config import IpConfig
+from pfruck_contabo.model.ip_config1 import IpConfig1
+from pfruck_contabo.model.ip_config2 import IpConfig2
 from pfruck_contabo.model.ip_v4 import IpV4
 from pfruck_contabo.model.ip_v41 import IpV41
+from pfruck_contabo.model.ip_v42 import IpV42
+from pfruck_contabo.model.ip_v43 import IpV43
 from pfruck_contabo.model.ip_v6 import IpV6
 from pfruck_contabo.model.ledger_entry_response import LedgerEntryResponse
 from pfruck_contabo.model.links import Links
@@ -195,7 +199,6 @@ from pfruck_contabo.model.list_image_response_data import ListImageResponseData
 from pfruck_contabo.model.list_image_response_links import ListImageResponseLinks
 from pfruck_contabo.model.list_instances_actions_audit_response import ListInstancesActionsAuditResponse
 from pfruck_contabo.model.list_instances_actions_audit_response_links import ListInstancesActionsAuditResponseLinks
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
 from pfruck_contabo.model.list_instances_audit_response import ListInstancesAuditResponse
 from pfruck_contabo.model.list_instances_audit_response_links import ListInstancesAuditResponseLinks
 from pfruck_contabo.model.list_instances_response import ListInstancesResponse
@@ -242,6 +245,7 @@ from pfruck_contabo.model.list_user_audit_response import ListUserAuditResponse
 from pfruck_contabo.model.list_user_audit_response_links import ListUserAuditResponseLinks
 from pfruck_contabo.model.list_user_response import ListUserResponse
 from pfruck_contabo.model.list_user_response_links import ListUserResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.list_vip_response import ListVipResponse
 from pfruck_contabo.model.list_vip_response_data import ListVipResponseData
 from pfruck_contabo.model.list_vip_response_links import ListVipResponseLinks

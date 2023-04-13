@@ -13,11 +13,11 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.ledger_entry_response import LedgerEntryResponse
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
 from pfruck_contabo.model.list_ledger_entries_reponse_links import ListLedgerEntriesReponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['LedgerEntryResponse'] = LedgerEntryResponse
-globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
 globals()['ListLedgerEntriesReponseLinks'] = ListLedgerEntriesReponseLinks
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_ledger_entries_reponse import ListLedgerEntriesReponse
 
 

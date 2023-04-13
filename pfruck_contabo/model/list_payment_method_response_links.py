@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.links import Links
-    globals()['Links'] = Links
+    from pfruck_contabo.model.self_links import SelfLinks
+    globals()['SelfLinks'] = SelfLinks
 
 
 class ListPaymentMethodResponseLinks(ModelComposed):
@@ -88,10 +88,6 @@ class ListPaymentMethodResponseLinks(ModelComposed):
         lazy_import()
         return {
             '_self': (str,),  # noqa: E501
-            'first': (str,),  # noqa: E501
-            'last': (str,),  # noqa: E501
-            'previous': (str,),  # noqa: E501
-            'next': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -101,10 +97,6 @@ class ListPaymentMethodResponseLinks(ModelComposed):
 
     attribute_map = {
         '_self': 'self',  # noqa: E501
-        'first': 'first',  # noqa: E501
-        'last': 'last',  # noqa: E501
-        'previous': 'previous',  # noqa: E501
-        'next': 'next',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,8 +109,6 @@ class ListPaymentMethodResponseLinks(ModelComposed):
 
         Keyword Args:
             _self (str): Link to current resource.
-            first (str): Link to first page, if applicable.
-            last (str): Link to last page, if applicable.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -149,8 +139,6 @@ class ListPaymentMethodResponseLinks(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            previous (str): Link to previous page, if applicable.. [optional]  # noqa: E501
-            next (str): Link to next page, if applicable.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,8 +213,6 @@ class ListPaymentMethodResponseLinks(ModelComposed):
 
         Keyword Args:
             _self (str): Link to current resource.
-            first (str): Link to first page, if applicable.
-            last (str): Link to last page, if applicable.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -257,8 +243,6 @@ class ListPaymentMethodResponseLinks(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            previous (str): Link to previous page, if applicable.. [optional]  # noqa: E501
-            next (str): Link to next page, if applicable.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -328,7 +312,7 @@ class ListPaymentMethodResponseLinks(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              Links,
+              SelfLinks,
           ],
           'oneOf': [
           ],

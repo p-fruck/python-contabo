@@ -14,11 +14,11 @@ import unittest
 import pfruck_contabo
 from pfruck_contabo.model.pagination_meta import PaginationMeta
 globals()['PaginationMeta'] = PaginationMeta
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 
 
-class TestListInstancesActionsAuditResponsePagination(unittest.TestCase):
-    """ListInstancesActionsAuditResponsePagination unit test stubs"""
+class TestListUserResponsePagination(unittest.TestCase):
+    """ListUserResponsePagination unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +26,10 @@ class TestListInstancesActionsAuditResponsePagination(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListInstancesActionsAuditResponsePagination(self):
-        """Test ListInstancesActionsAuditResponsePagination"""
+    def testListUserResponsePagination(self):
+        """Test ListUserResponsePagination"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListInstancesActionsAuditResponsePagination()  # noqa: E501
+        # model = ListUserResponsePagination()  # noqa: E501
         pass
 
 

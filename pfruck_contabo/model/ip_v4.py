@@ -82,8 +82,10 @@ class IpV4(ModelNormal):
         """
         return {
             'ip': (str,),  # noqa: E501
-            'netmask_cidr': (int,),  # noqa: E501
             'gateway': (str,),  # noqa: E501
+            'netmask_cidr': (int,),  # noqa: E501
+            'broadcast': (str,),  # noqa: E501
+            'net': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -93,8 +95,10 @@ class IpV4(ModelNormal):
 
     attribute_map = {
         'ip': 'ip',  # noqa: E501
-        'netmask_cidr': 'netmaskCidr',  # noqa: E501
         'gateway': 'gateway',  # noqa: E501
+        'netmask_cidr': 'netmaskCidr',  # noqa: E501
+        'broadcast': 'broadcast',  # noqa: E501
+        'net': 'net',  # noqa: E501
     }
 
     read_only_vars = {
@@ -104,13 +108,15 @@ class IpV4(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, ip, netmask_cidr, gateway, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, ip, gateway, netmask_cidr, broadcast, net, *args, **kwargs):  # noqa: E501
         """IpV4 - a model defined in OpenAPI
 
         Args:
-            ip (str): IP Address
-            netmask_cidr (int): Netmask CIDR
+            ip (str): IP address
             gateway (str): Gateway
+            netmask_cidr (int): Netmask CIDR
+            broadcast (str): Broadcast address
+            net (str): Net address
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -175,8 +181,10 @@ class IpV4(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.ip = ip
-        self.netmask_cidr = netmask_cidr
         self.gateway = gateway
+        self.netmask_cidr = netmask_cidr
+        self.broadcast = broadcast
+        self.net = net
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,13 +205,15 @@ class IpV4(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, ip, netmask_cidr, gateway, *args, **kwargs):  # noqa: E501
+    def __init__(self, ip, gateway, netmask_cidr, broadcast, net, *args, **kwargs):  # noqa: E501
         """IpV4 - a model defined in OpenAPI
 
         Args:
-            ip (str): IP Address
-            netmask_cidr (int): Netmask CIDR
+            ip (str): IP address
             gateway (str): Gateway
+            netmask_cidr (int): Netmask CIDR
+            broadcast (str): Broadcast address
+            net (str): Net address
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -266,8 +276,10 @@ class IpV4(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.ip = ip
-        self.netmask_cidr = netmask_cidr
         self.gateway = gateway
+        self.netmask_cidr = netmask_cidr
+        self.broadcast = broadcast
+        self.net = net
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

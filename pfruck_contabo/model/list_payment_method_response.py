@@ -30,10 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
     from pfruck_contabo.model.list_payment_method_response_links import ListPaymentMethodResponseLinks
     from pfruck_contabo.model.payment_method_response import PaymentMethodResponse
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
     globals()['ListPaymentMethodResponseLinks'] = ListPaymentMethodResponseLinks
     globals()['PaymentMethodResponse'] = PaymentMethodResponse
 
@@ -91,7 +89,6 @@ class ListPaymentMethodResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
             'data': ([PaymentMethodResponse],),  # noqa: E501
             'links': (ListPaymentMethodResponseLinks,),  # noqa: E501
         }
@@ -102,7 +99,6 @@ class ListPaymentMethodResponse(ModelNormal):
 
 
     attribute_map = {
-        'pagination': '_pagination',  # noqa: E501
         'data': 'data',  # noqa: E501
         'links': '_links',  # noqa: E501
     }
@@ -114,11 +110,10 @@ class ListPaymentMethodResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pagination, data, links, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, data, links, *args, **kwargs):  # noqa: E501
         """ListPaymentMethodResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
             data ([PaymentMethodResponse]):
             links (ListPaymentMethodResponseLinks):
 
@@ -184,7 +179,6 @@ class ListPaymentMethodResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.pagination = pagination
         self.data = data
         self.links = links
         for var_name, var_value in kwargs.items():
@@ -207,11 +201,10 @@ class ListPaymentMethodResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pagination, data, links, *args, **kwargs):  # noqa: E501
+    def __init__(self, data, links, *args, **kwargs):  # noqa: E501
         """ListPaymentMethodResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
             data ([PaymentMethodResponse]):
             links (ListPaymentMethodResponseLinks):
 
@@ -275,7 +268,6 @@ class ListPaymentMethodResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.pagination = pagination
         self.data = data
         self.links = links
         for var_name, var_value in kwargs.items():

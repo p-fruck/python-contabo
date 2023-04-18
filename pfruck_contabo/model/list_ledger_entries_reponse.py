@@ -31,11 +31,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.ledger_entry_response import LedgerEntryResponse
+    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
     from pfruck_contabo.model.list_ledger_entries_reponse_links import ListLedgerEntriesReponseLinks
-    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     globals()['LedgerEntryResponse'] = LedgerEntryResponse
+    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
     globals()['ListLedgerEntriesReponseLinks'] = ListLedgerEntriesReponseLinks
-    globals()['ListUserResponsePagination'] = ListUserResponsePagination
 
 
 class ListLedgerEntriesReponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListLedgerEntriesReponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListUserResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
             'data': ([LedgerEntryResponse],),  # noqa: E501
             'links': (ListLedgerEntriesReponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListLedgerEntriesReponse(ModelNormal):
         """ListLedgerEntriesReponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesActionsAuditResponsePagination):
             data ([LedgerEntryResponse]):
             links (ListLedgerEntriesReponseLinks):
 
@@ -211,7 +211,7 @@ class ListLedgerEntriesReponse(ModelNormal):
         """ListLedgerEntriesReponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesActionsAuditResponsePagination):
             data ([LedgerEntryResponse]):
             links (ListLedgerEntriesReponseLinks):
 

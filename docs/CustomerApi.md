@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_payment_method**
-> ListPaymentMethodResponse retrieve_payment_method(x_request_id)
+> ListPaymentMethodResponse1 retrieve_payment_method(x_request_id)
 
 List current payment method
 
@@ -111,7 +111,7 @@ List current payment method
 import time
 import pfruck_contabo
 from pfruck_contabo.api import customer_api
-from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse
+from pfruck_contabo.model.list_payment_method_response1 import ListPaymentMethodResponse1
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListPaymentMethodResponse**](ListPaymentMethodResponse.md)
+[**ListPaymentMethodResponse1**](ListPaymentMethodResponse1.md)
 
 ### Authorization
 

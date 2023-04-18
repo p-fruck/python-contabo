@@ -12,8 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
 from pfruck_contabo.model.list_payment_method_response_links import ListPaymentMethodResponseLinks
 from pfruck_contabo.model.payment_method_response import PaymentMethodResponse
+globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
 globals()['ListPaymentMethodResponseLinks'] = ListPaymentMethodResponseLinks
 globals()['PaymentMethodResponse'] = PaymentMethodResponse
 from pfruck_contabo.model.list_payment_method_response import ListPaymentMethodResponse

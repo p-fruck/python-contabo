@@ -82,7 +82,7 @@ class InstanceAssignmentSelfLinks1(ModelNormal):
         """
         return {
             '_self': (str,),  # noqa: E501
-            'virtual_private_cloud': (str,),  # noqa: E501
+            'firewall': (str,),  # noqa: E501
             'instance': (str,),  # noqa: E501
         }
 
@@ -93,7 +93,7 @@ class InstanceAssignmentSelfLinks1(ModelNormal):
 
     attribute_map = {
         '_self': 'self',  # noqa: E501
-        'virtual_private_cloud': 'virtualPrivateCloud',  # noqa: E501
+        'firewall': 'firewall',  # noqa: E501
         'instance': 'instance',  # noqa: E501
     }
 
@@ -104,12 +104,12 @@ class InstanceAssignmentSelfLinks1(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, _self, virtual_private_cloud, instance, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, _self, firewall, instance, *args, **kwargs):  # noqa: E501
         """InstanceAssignmentSelfLinks1 - a model defined in OpenAPI
 
         Args:
             _self (str): Link to current resource.
-            virtual_private_cloud (str): Link to related Private Network.
+            firewall (str): Link to related firewall.
             instance (str): Link to assigned instance.
 
         Keyword Args:
@@ -175,7 +175,7 @@ class InstanceAssignmentSelfLinks1(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self._self = _self
-        self.virtual_private_cloud = virtual_private_cloud
+        self.firewall = firewall
         self.instance = instance
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -197,12 +197,12 @@ class InstanceAssignmentSelfLinks1(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, _self, virtual_private_cloud, instance, *args, **kwargs):  # noqa: E501
+    def __init__(self, _self, firewall, instance, *args, **kwargs):  # noqa: E501
         """InstanceAssignmentSelfLinks1 - a model defined in OpenAPI
 
         Args:
             _self (str): Link to current resource.
-            virtual_private_cloud (str): Link to related Private Network.
+            firewall (str): Link to related firewall.
             instance (str): Link to assigned instance.
 
         Keyword Args:
@@ -266,7 +266,7 @@ class InstanceAssignmentSelfLinks1(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self._self = _self
-        self.virtual_private_cloud = virtual_private_cloud
+        self.firewall = firewall
         self.instance = instance
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

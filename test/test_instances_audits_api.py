@@ -26,7 +26,7 @@ class TestInstancesAuditsApi(unittest.TestCase):
     def test_retrieve_instances_audits_list(self):
         """Test case for retrieve_instances_audits_list
 
-        List history about your instances (audit) triggered via the API  # noqa: E501
+        List history about your custom images (audit)  # noqa: E501
         """
         pass
 

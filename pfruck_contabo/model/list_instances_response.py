@@ -30,12 +30,12 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
     from pfruck_contabo.model.list_instances_response_data import ListInstancesResponseData
     from pfruck_contabo.model.list_instances_response_links import ListInstancesResponseLinks
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+    from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     globals()['ListInstancesResponseData'] = ListInstancesResponseData
     globals()['ListInstancesResponseLinks'] = ListInstancesResponseLinks
+    globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
 
 
 class ListInstancesResponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListInstancesResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesResponsePagination,),  # noqa: E501
             'data': ([ListInstancesResponseData],),  # noqa: E501
             'links': (ListInstancesResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListInstancesResponse(ModelNormal):
         """ListInstancesResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([ListInstancesResponseData]):
             links (ListInstancesResponseLinks):
 
@@ -211,7 +211,7 @@ class ListInstancesResponse(ModelNormal):
         """ListInstancesResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([ListInstancesResponseData]):
             links (ListInstancesResponseLinks):
 

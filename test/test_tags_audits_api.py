@@ -26,7 +26,7 @@ class TestTagsAuditsApi(unittest.TestCase):
     def test_retrieve_tag_audits_list(self):
         """Test case for retrieve_tag_audits_list
 
-        List history about your tags (audit)  # noqa: E501
+        List history about your assignments (audit)  # noqa: E501
         """
         pass
 

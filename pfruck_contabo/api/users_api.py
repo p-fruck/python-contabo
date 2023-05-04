@@ -345,6 +345,8 @@ class UsersApi(object):
                     'size',
                     'order_by',
                     'object_storage_id',
+                    'region_name',
+                    'display_name',
                 ],
                 'required': [
                     'x_request_id',
@@ -384,6 +386,10 @@ class UsersApi(object):
                         ([str],),
                     'object_storage_id':
                         (str,),
+                    'region_name':
+                        (str,),
+                    'display_name':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -393,6 +399,8 @@ class UsersApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'object_storage_id': 'objectStorageId',
+                    'region_name': 'regionName',
+                    'display_name': 'displayName',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -402,6 +410,8 @@ class UsersApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'object_storage_id': 'query',
+                    'region_name': 'query',
+                    'display_name': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -1324,6 +1334,8 @@ class UsersApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             object_storage_id (str): The identifier of the S3 object storage. [optional]
+            region_name (str): Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central). [optional]
+            display_name (str): Filter for Object Storage by his displayName.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

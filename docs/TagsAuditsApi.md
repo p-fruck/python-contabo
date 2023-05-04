@@ -4,15 +4,15 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_tag_audits_list**](TagsAuditsApi.md#retrieve_tag_audits_list) | **GET** /v1/tags/audits | List history about your tags (audit)
+[**retrieve_tag_audits_list**](TagsAuditsApi.md#retrieve_tag_audits_list) | **GET** /v1/tags/audits | List history about your assignments (audit)
 
 
 # **retrieve_tag_audits_list**
 > ListTagAuditsResponse retrieve_tag_audits_list(x_request_id)
 
-List history about your tags (audit)
+List history about your assignments (audit)
 
-List and filters the history about your tags.
+List and filters the history about your assignments.
 
 ### Example
 
@@ -59,7 +59,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List history about your tags (audit)
+        # List history about your assignments (audit)
         api_response = api_instance.retrieve_tag_audits_list(x_request_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -68,7 +68,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List history about your tags (audit)
+        # List history about your assignments (audit)
         api_response = api_instance.retrieve_tag_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, tag_id=tag_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:

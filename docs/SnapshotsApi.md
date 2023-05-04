@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**delete_snapshot**](SnapshotsApi.md#delete_snapshot) | **DELETE** /v1/compute/instances/{instanceId}/snapshots/{snapshotId} | Delete existing snapshot by id
 [**retrieve_snapshot**](SnapshotsApi.md#retrieve_snapshot) | **GET** /v1/compute/instances/{instanceId}/snapshots/{snapshotId} | Retrieve a specific snapshot by id
 [**retrieve_snapshot_list**](SnapshotsApi.md#retrieve_snapshot_list) | **GET** /v1/compute/instances/{instanceId}/snapshots | List snapshots
-[**rollback_snapshot**](SnapshotsApi.md#rollback_snapshot) | **POST** /v1/compute/instances/{instanceId}/snapshots/{snapshotId}/rollback | Rollback the instance to a specific snapshot by id
+[**rollback_snapshot**](SnapshotsApi.md#rollback_snapshot) | **POST** /v1/compute/instances/{instanceId}/snapshots/{snapshotId}/rollback | Revert the instance to a particular snapshot based on its identifier
 [**update_snapshot**](SnapshotsApi.md#update_snapshot) | **PATCH** /v1/compute/instances/{instanceId}/snapshots/{snapshotId} | Update specific snapshot by id
 
 
@@ -390,9 +390,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rollback_snapshot**
-> RollbackSnapshotResponse rollback_snapshot(x_request_id, instance_id, snapshot_id)
+> RollbackSnapshotResponse rollback_snapshot(x_request_id, instance_id, snapshot_id, body)
 
-Rollback the instance to a specific snapshot by id
+Revert the instance to a particular snapshot based on its identifier
 
 Rollback instance to a specific snapshot. The snapshot must be the latest one in order to be able to restore it, otherwise you will receive an error informing you that the snapshot is not the latest
 
@@ -429,12 +429,13 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     instance_id = 12345 # int | The identifier of the instance
     snapshot_id = "snap1628603855" # str | The identifier of the snapshot
+    body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Rollback the instance to a specific snapshot by id
-        api_response = api_instance.rollback_snapshot(x_request_id, instance_id, snapshot_id)
+        # Revert the instance to a particular snapshot based on its identifier
+        api_response = api_instance.rollback_snapshot(x_request_id, instance_id, snapshot_id, body)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling SnapshotsApi->rollback_snapshot: %s\n" % e)
@@ -442,8 +443,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Rollback the instance to a specific snapshot by id
-        api_response = api_instance.rollback_snapshot(x_request_id, instance_id, snapshot_id, x_trace_id=x_trace_id)
+        # Revert the instance to a particular snapshot based on its identifier
+        api_response = api_instance.rollback_snapshot(x_request_id, instance_id, snapshot_id, body, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling SnapshotsApi->rollback_snapshot: %s\n" % e)
@@ -457,6 +458,7 @@ Name | Type | Description  | Notes
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
  **instance_id** | **int**| The identifier of the instance |
  **snapshot_id** | **str**| The identifier of the snapshot |
+ **body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -469,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

@@ -423,6 +423,8 @@ class InstancesApi(object):
                     'size',
                     'order_by',
                     'name',
+                    'display_name',
+                    'data_center',
                     'region',
                     'instance_id',
                     'instance_ids',
@@ -474,6 +476,10 @@ class InstancesApi(object):
                         ([str],),
                     'name':
                         (str,),
+                    'display_name':
+                        (str,),
+                    'data_center':
+                        (str,),
                     'region':
                         (str,),
                     'instance_id':
@@ -494,6 +500,8 @@ class InstancesApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'name': 'name',
+                    'display_name': 'displayName',
+                    'data_center': 'dataCenter',
                     'region': 'region',
                     'instance_id': 'instanceId',
                     'instance_ids': 'instanceIds',
@@ -508,6 +516,8 @@ class InstancesApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'name': 'query',
+                    'display_name': 'query',
+                    'data_center': 'query',
                     'region': 'query',
                     'instance_id': 'query',
                     'instance_ids': 'query',
@@ -700,7 +710,7 @@ class InstancesApi(object):
     ):
         """Create a new instance  # noqa: E501
 
-        Create a new instance for your account with the provided parameters.       <table>         <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>         <tr><td>V1</td><td>VPS S SSD</td><td>200 GB SSD</td></tr>         <tr><td>V35</td><td>VPS S Storage</td><td>400 GB SSD</td></tr>         <tr><td>V12</td><td>VPS S NVMe</td><td>50 GB NVMe</td></tr>         <tr><td>V2</td><td>VPS M SSD</td><td>400 GB SSD</td></tr>         <tr><td>V36</td><td>VPS M Storage</td><td>800 GB SSD</td></tr>         <tr><td>V13</td><td>VPS M NVMe</td><td>100 GB NVMe</td></tr>         <tr><td>V3</td><td>VPS L SSD</td><td>800 GB SSD</td></tr>         <tr><td>V37</td><td>VPS L Storage</td><td>1600 GB SSD</td></tr>         <tr><td>V14</td><td>VPS L NVMe</td><td>200 GB NVMe</td></tr>         <tr><td>V4</td><td>VPS XL SSD</td><td>1600 GB SSD</td></tr>         <tr><td>V38</td><td>VPS XL SSD</td><td>3200 GB SSD</td></tr>         <tr><td>V15</td><td>VPS XL NVMe</td><td>400 GB NVMe</td></tr>         <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>         <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>         <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>         <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>         <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>         </table>  # noqa: E501
+        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V1</td><td>VPS S SSD</td><td>200 GB SSD</td></tr>           <tr><td>V35</td><td>VPS S Storage</td><td>400 GB SSD</td></tr>           <tr><td>V12</td><td>VPS S NVMe</td><td>50 GB NVMe</td></tr>           <tr><td>V2</td><td>VPS M SSD</td><td>400 GB SSD</td></tr>           <tr><td>V36</td><td>VPS M Storage</td><td>800 GB SSD</td></tr>           <tr><td>V13</td><td>VPS M NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V3</td><td>VPS L SSD</td><td>800 GB SSD</td></tr>           <tr><td>V37</td><td>VPS L Storage</td><td>1600 GB SSD</td></tr>           <tr><td>V14</td><td>VPS L NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V4</td><td>VPS XL SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V38</td><td>VPS XL SSD</td><td>3200 GB SSD</td></tr>           <tr><td>V15</td><td>VPS XL NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1075,6 +1085,8 @@ class InstancesApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             name (str): The name of the instance. [optional]
+            display_name (str): The display name of the instance. [optional]
+            data_center (str): The data center of the instance. [optional]
             region (str): The Region of the instance. [optional]
             instance_id (int): The identifier of the instance (deprecated). [optional]
             instance_ids (str): Comma separated instances identifiers. [optional]
@@ -1155,7 +1167,7 @@ class InstancesApi(object):
     ):
         """Upgrading instance capabilities  # noqa: E501
 
-        In order to enhance your instance with additional features you can purchase add-ons. Currently only firewalling and private network addon is allowed.  # noqa: E501
+        In order to enhance your instance with additional features you can purchase add-ons.   Currently only firewalling and private network addon is allowed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

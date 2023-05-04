@@ -106,8 +106,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | The response will be a JSON object and contains standard custom image attributes. |  -  |
-**415** | The response will be an error in case the provided image URL is not in .qcow2 or .iso format.  |  -  |
+**201** | The response will be a JSON object and contains standard custom image attributes |  -  |
+**415** | The response will be an error in case the provided image URL is not in .qcow2 or .iso format |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 Delete an uploaded custom image by its id
 
-Your are free to delete a previously uploaded custom images at any time.
+Your are free to delete a previously uploaded custom images at any time
 
 ### Example
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 Get details about a specific image by its id
 
-Get details about a specific image. This could be either a standard or custom image. In case of an custom image you can also check the download status.
+Get details about a specific image. This could be either a standard or custom image. In case of an custom image you can also check the download status
 
 ### Example
 
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains standard custom image attributes. |  -  |
+**200** | The response will be a JSON object and contains standard custom image attributes |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 Update custom image name by its id
 
-Update name of the custom image.
+Update name of the custom image
 
 ### Example
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains standard custom image attributes. |  -  |
+**200** | The response will be a JSON object and contains standard custom image attributes |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

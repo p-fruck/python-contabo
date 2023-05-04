@@ -141,7 +141,7 @@ class InstancesAuditResponse(ModelNormal):
         """InstancesAuditResponse - a model defined in OpenAPI
 
         Args:
-            id (int): The identifier of the audit entry.
+            id (int): The ID of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
             tenant_id (str): Customer tenant id
@@ -150,7 +150,7 @@ class InstancesAuditResponse(ModelNormal):
             username (str): Name of the user which led to the change.
             request_id (str): The requestId of the API call which led to the change.
             trace_id (str): The traceId of the API call which led to the change.
-            instance_id (int): The identifier of the instances
+            instance_id (int): The identifier of the instance
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,7 +249,7 @@ class InstancesAuditResponse(ModelNormal):
         """InstancesAuditResponse - a model defined in OpenAPI
 
         Args:
-            id (int): The identifier of the audit entry.
+            id (int): The ID of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
             tenant_id (str): Customer tenant id
@@ -258,7 +258,7 @@ class InstancesAuditResponse(ModelNormal):
             username (str): Name of the user which led to the change.
             request_id (str): The requestId of the API call which led to the change.
             trace_id (str): The traceId of the API call which led to the change.
-            instance_id (int): The identifier of the instances
+            instance_id (int): The identifier of the instance
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

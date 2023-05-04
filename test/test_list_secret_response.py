@@ -12,10 +12,10 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
 from pfruck_contabo.model.list_secret_response_links import ListSecretResponseLinks
 from pfruck_contabo.model.secret_response import SecretResponse
-globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
 globals()['ListSecretResponseLinks'] = ListSecretResponseLinks
 globals()['SecretResponse'] = SecretResponse
 from pfruck_contabo.model.list_secret_response import ListSecretResponse

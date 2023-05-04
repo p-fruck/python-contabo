@@ -23,10 +23,24 @@ class TestInstanceActionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_rescue(self):
+        """Test case for rescue
+
+        Rescue a compute instance / resource identified by its id  # noqa: E501
+        """
+        pass
+
+    def test_reset_password_action(self):
+        """Test case for reset_password_action
+
+        Reset password for a compute instance / resource referenced by an id  # noqa: E501
+        """
+        pass
+
     def test_restart(self):
         """Test case for restart
 
-        Restart a compute instance / resource identified by its id  # noqa: E501
+        Retrieve a list of your custom images history.  # noqa: E501
         """
         pass
 

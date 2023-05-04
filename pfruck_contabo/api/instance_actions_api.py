@@ -21,10 +21,14 @@ from pfruck_contabo.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from pfruck_contabo.model.instance_rescue_action_response import InstanceRescueActionResponse
+from pfruck_contabo.model.instance_reset_password_action_response import InstanceResetPasswordActionResponse
 from pfruck_contabo.model.instance_restart_action_response import InstanceRestartActionResponse
 from pfruck_contabo.model.instance_shutdown_action_response import InstanceShutdownActionResponse
 from pfruck_contabo.model.instance_start_action_response import InstanceStartActionResponse
 from pfruck_contabo.model.instance_stop_action_response import InstanceStopActionResponse
+from pfruck_contabo.model.instances_actions_rescue_request import InstancesActionsRescueRequest
+from pfruck_contabo.model.instances_reset_password_actions_request import InstancesResetPasswordActionsRequest
 
 
 class InstanceActionsApi(object):
@@ -38,6 +42,158 @@ class InstanceActionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.rescue_endpoint = _Endpoint(
+            settings={
+                'response_type': (InstanceRescueActionResponse,),
+                'auth': [
+                    'bearer'
+                ],
+                'endpoint_path': '/v1/compute/instances/{instanceId}/actions/rescue',
+                'operation_id': 'rescue',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_request_id',
+                    'instance_id',
+                    'instances_actions_rescue_request',
+                    'x_trace_id',
+                ],
+                'required': [
+                    'x_request_id',
+                    'instance_id',
+                    'instances_actions_rescue_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-5][0-9A-Fa-f]{3}-[089abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_request_id':
+                        (str,),
+                    'instance_id':
+                        (int,),
+                    'instances_actions_rescue_request':
+                        (InstancesActionsRescueRequest,),
+                    'x_trace_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_request_id': 'x-request-id',
+                    'instance_id': 'instanceId',
+                    'x_trace_id': 'x-trace-id',
+                },
+                'location_map': {
+                    'x_request_id': 'header',
+                    'instance_id': 'path',
+                    'instances_actions_rescue_request': 'body',
+                    'x_trace_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.reset_password_action_endpoint = _Endpoint(
+            settings={
+                'response_type': (InstanceResetPasswordActionResponse,),
+                'auth': [
+                    'bearer'
+                ],
+                'endpoint_path': '/v1/compute/instances/{instanceId}/actions/resetPassword',
+                'operation_id': 'reset_password_action',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_request_id',
+                    'instance_id',
+                    'instances_reset_password_actions_request',
+                    'x_trace_id',
+                ],
+                'required': [
+                    'x_request_id',
+                    'instance_id',
+                    'instances_reset_password_actions_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'x_request_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('x_request_id',): {
+
+                        'regex': {
+                            'pattern': r'^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-5][0-9A-Fa-f]{3}-[089abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_request_id':
+                        (str,),
+                    'instance_id':
+                        (int,),
+                    'instances_reset_password_actions_request':
+                        (InstancesResetPasswordActionsRequest,),
+                    'x_trace_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_request_id': 'x-request-id',
+                    'instance_id': 'instanceId',
+                    'x_trace_id': 'x-trace-id',
+                },
+                'location_map': {
+                    'x_request_id': 'header',
+                    'instance_id': 'path',
+                    'instances_reset_password_actions_request': 'body',
+                    'x_trace_id': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.restart_endpoint = _Endpoint(
             settings={
                 'response_type': (InstanceRestartActionResponse,),
@@ -315,15 +471,199 @@ class InstanceActionsApi(object):
             api_client=api_client
         )
 
+    def rescue(
+        self,
+        x_request_id,
+        instance_id,
+        instances_actions_rescue_request,
+        **kwargs
+    ):
+        """Rescue a compute instance / resource identified by its id  # noqa: E501
+
+        You can reboot your instance in rescue mode to resolve system issues. Rescue system is Linux based and its booted instead of your regular operating system. The disk containing your operating sytstem, software and your data is already mounted for you to access and repair/modify files. After a reboot your compute instance will boot your operating system. Please note that this is for advanced users.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.rescue(x_request_id, instance_id, instances_actions_rescue_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+            instance_id (int): The identifier of the compute instance / resource to be started in rescue mode.
+            instances_actions_rescue_request (InstancesActionsRescueRequest):
+
+        Keyword Args:
+            x_trace_id (str): Identifier to trace group of requests.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InstanceRescueActionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['x_request_id'] = \
+            x_request_id
+        kwargs['instance_id'] = \
+            instance_id
+        kwargs['instances_actions_rescue_request'] = \
+            instances_actions_rescue_request
+        return self.rescue_endpoint.call_with_http_info(**kwargs)
+
+    def reset_password_action(
+        self,
+        x_request_id,
+        instance_id,
+        instances_reset_password_actions_request,
+        **kwargs
+    ):
+        """Reset password for a compute instance / resource referenced by an id  # noqa: E501
+
+        Reset password for a compute instance / resource referenced by an id. This will reset the current password to the password that you provided in the body of this request.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.reset_password_action(x_request_id, instance_id, instances_reset_password_actions_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+            instance_id (int): The identifier of the compute instance / resource to be started in rescue mode.
+            instances_reset_password_actions_request (InstancesResetPasswordActionsRequest):
+
+        Keyword Args:
+            x_trace_id (str): Identifier to trace group of requests.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InstanceResetPasswordActionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['x_request_id'] = \
+            x_request_id
+        kwargs['instance_id'] = \
+            instance_id
+        kwargs['instances_reset_password_actions_request'] = \
+            instances_reset_password_actions_request
+        return self.reset_password_action_endpoint.call_with_http_info(**kwargs)
+
     def restart(
         self,
         x_request_id,
         instance_id,
         **kwargs
     ):
-        """Restart a compute instance / resource identified by its id  # noqa: E501
+        """Retrieve a list of your custom images history.  # noqa: E501
 
-        Restarting a compute instance / resource is like powering off and powering on again a real server. If the compute instance / resource is already started it will stopped and started again. If it is stopped the compute instance / resource will be started. So please be aware that data may be lost. You may check the current status anytime when getting information about a compute instance / resource.  # noqa: E501
+        List of your custom images history, with the ability to apply filters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -332,7 +672,7 @@ class InstanceActionsApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            instance_id (int): The identifier of the compute instance / resource to be started.
+            instance_id (int): The identifier of the compute instance / resource to be started in rescue mode.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -420,7 +760,7 @@ class InstanceActionsApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            instance_id (int): The identifier of the instance to be shutdown
+            instance_id (int): The identifier of the compute instance / resource to be started in rescue mode.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -508,7 +848,7 @@ class InstanceActionsApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            instance_id (int): The identifier of the compute instance / resource to be started.
+            instance_id (int): The identifier of the compute instance / resource to be started in rescue mode.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -596,7 +936,7 @@ class InstanceActionsApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            instance_id (int): The identifier of the instance to stop
+            instance_id (int): The identifier of the compute instance / resource to be started in rescue mode.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]

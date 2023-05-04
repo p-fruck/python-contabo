@@ -126,12 +126,12 @@ class CredentialData(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            access_key (str): Access key's id.
-            secret_key (str): Secret key's id.
-            object_storage_id (str): Object Storage's id.
-            display_name (str): Object Storage's name.
-            region (str): Object Storage's region.
-            credential_id (float): Object Storage's credential id.
+            access_key (str): Access key ID.
+            secret_key (str): Secret key ID.
+            object_storage_id (str): Object Storage ID.
+            display_name (str): Object Storage Name.
+            region (str): Object Storage Region.
+            credential_id (float): Object Storage Credential ID
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,12 +229,12 @@ class CredentialData(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            access_key (str): Access key's id.
-            secret_key (str): Secret key's id.
-            object_storage_id (str): Object Storage's id.
-            display_name (str): Object Storage's name.
-            region (str): Object Storage's region.
-            credential_id (float): Object Storage's credential id.
+            access_key (str): Access key ID.
+            secret_key (str): Secret key ID.
+            object_storage_id (str): Object Storage ID.
+            display_name (str): Object Storage Name.
+            region (str): Object Storage Region.
+            credential_id (float): Object Storage Credential ID
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

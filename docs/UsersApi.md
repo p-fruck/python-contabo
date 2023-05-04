@@ -432,6 +432,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage (optional)
+    region_name = "Asia (Singapore)" # str | Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central) (optional)
+    display_name = "Object Storage EU 420" # str | Filter for Object Storage by his displayName. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -445,7 +447,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get list of S3 compatible object storage credentials for user.
-        api_response = api_instance.list_object_storage_credentials(x_request_id, user_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, object_storage_id=object_storage_id)
+        api_response = api_instance.list_object_storage_credentials(x_request_id, user_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, object_storage_id=object_storage_id, region_name=region_name, display_name=display_name)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling UsersApi->list_object_storage_credentials: %s\n" % e)
@@ -463,6 +465,8 @@ Name | Type | Description  | Notes
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **object_storage_id** | **str**| The identifier of the S3 object storage | [optional]
+ **region_name** | **str**| Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central) | [optional]
+ **display_name** | **str**| Filter for Object Storage by his displayName. | [optional]
 
 ### Return type
 

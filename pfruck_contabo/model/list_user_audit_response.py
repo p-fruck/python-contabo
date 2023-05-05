@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+    from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     from pfruck_contabo.model.list_user_audit_response_links import ListUserAuditResponseLinks
     from pfruck_contabo.model.user_audit_response import UserAuditResponse
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+    globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
     globals()['ListUserAuditResponseLinks'] = ListUserAuditResponseLinks
     globals()['UserAuditResponse'] = UserAuditResponse
 
@@ -91,7 +91,7 @@ class ListUserAuditResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesResponsePagination,),  # noqa: E501
             'data': ([UserAuditResponse],),  # noqa: E501
             'links': (ListUserAuditResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListUserAuditResponse(ModelNormal):
         """ListUserAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([UserAuditResponse]):
             links (ListUserAuditResponseLinks):
 
@@ -211,7 +211,7 @@ class ListUserAuditResponse(ModelNormal):
         """ListUserAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([UserAuditResponse]):
             links (ListUserAuditResponseLinks):
 

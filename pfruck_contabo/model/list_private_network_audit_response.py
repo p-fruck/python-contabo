@@ -30,10 +30,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+    from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     from pfruck_contabo.model.list_private_network_audit_response_links import ListPrivateNetworkAuditResponseLinks
     from pfruck_contabo.model.private_network_audit_response import PrivateNetworkAuditResponse
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+    globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
     globals()['ListPrivateNetworkAuditResponseLinks'] = ListPrivateNetworkAuditResponseLinks
     globals()['PrivateNetworkAuditResponse'] = PrivateNetworkAuditResponse
 
@@ -91,7 +91,7 @@ class ListPrivateNetworkAuditResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesResponsePagination,),  # noqa: E501
             'data': ([PrivateNetworkAuditResponse],),  # noqa: E501
             'links': (ListPrivateNetworkAuditResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListPrivateNetworkAuditResponse(ModelNormal):
         """ListPrivateNetworkAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([PrivateNetworkAuditResponse]):
             links (ListPrivateNetworkAuditResponseLinks):
 
@@ -211,7 +211,7 @@ class ListPrivateNetworkAuditResponse(ModelNormal):
         """ListPrivateNetworkAuditResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([PrivateNetworkAuditResponse]):
             links (ListPrivateNetworkAuditResponseLinks):
 

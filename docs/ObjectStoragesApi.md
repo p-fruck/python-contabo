@@ -52,7 +52,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_storages_api.ObjectStoragesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
+    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
@@ -79,7 +79,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage |
+ **object_storage_id** | **str**| The identifier of the object storage. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -342,7 +342,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_storages_api.ObjectStoragesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
+    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
@@ -369,7 +369,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage |
+ **object_storage_id** | **str**| The identifier of the object storage. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -534,7 +534,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_storages_api.ObjectStoragesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
+    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
     # example passing only required values which don't have defaults set
@@ -561,7 +561,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage |
+ **object_storage_id** | **str**| The identifier of the object storage. |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
 ### Return type
@@ -625,7 +625,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_storages_api.ObjectStoragesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
+    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
     patch_object_storage_request = PatchObjectStorageRequest(
         display_name="Object storage 1",
     ) # PatchObjectStorageRequest | 
@@ -655,7 +655,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage |
+ **object_storage_id** | **str**| The identifier of the object storage. |
  **patch_object_storage_request** | [**PatchObjectStorageRequest**](PatchObjectStorageRequest.md)|  |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 
@@ -720,7 +720,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_storages_api.ObjectStoragesApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage
+    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
     upgrade_object_storage_request = UpgradeObjectStorageRequest(
         auto_scaling=UpgradeObjectStorageRequestAutoScaling(None),
         total_purchased_space_tb=8,
@@ -751,7 +751,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage |
+ **object_storage_id** | **str**| The identifier of the object storage. |
  **upgrade_object_storage_request** | [**UpgradeObjectStorageRequest**](UpgradeObjectStorageRequest.md)|  |
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
 

@@ -57,8 +57,8 @@ class ImageAuditResponseData(ModelNormal):
     allowed_values = {
         ('action',): {
             'CREATED': "CREATED",
-            'DELETED': "DELETED",
             'UPDATED': "UPDATED",
+            'DELETED': "DELETED",
         },
     }
 
@@ -95,16 +95,16 @@ class ImageAuditResponseData(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'tenant_id': (str,),  # noqa: E501
-            'customer_id': (str,),  # noqa: E501
-            'id': (float,),  # noqa: E501
-            'image_id': (str,),  # noqa: E501
+            'id': (int,),  # noqa: E501
             'action': (str,),  # noqa: E501
             'timestamp': (datetime,),  # noqa: E501
+            'tenant_id': (str,),  # noqa: E501
+            'customer_id': (str,),  # noqa: E501
             'changed_by': (str,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
             'trace_id': (str,),  # noqa: E501
+            'image_id': (str,),  # noqa: E501
             'changes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
@@ -114,16 +114,16 @@ class ImageAuditResponseData(ModelNormal):
 
 
     attribute_map = {
-        'tenant_id': 'tenantId',  # noqa: E501
-        'customer_id': 'customerId',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'image_id': 'imageId',  # noqa: E501
         'action': 'action',  # noqa: E501
         'timestamp': 'timestamp',  # noqa: E501
+        'tenant_id': 'tenantId',  # noqa: E501
+        'customer_id': 'customerId',  # noqa: E501
         'changed_by': 'changedBy',  # noqa: E501
         'username': 'username',  # noqa: E501
         'request_id': 'requestId',  # noqa: E501
         'trace_id': 'traceId',  # noqa: E501
+        'image_id': 'imageId',  # noqa: E501
         'changes': 'changes',  # noqa: E501
     }
 
@@ -134,20 +134,20 @@ class ImageAuditResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, id, image_id, action, timestamp, changed_by, username, request_id, trace_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, action, timestamp, tenant_id, customer_id, changed_by, username, request_id, trace_id, image_id, *args, **kwargs):  # noqa: E501
         """ImageAuditResponseData - a model defined in OpenAPI
 
         Args:
-            tenant_id (str): Your customer tenant id
-            customer_id (str): Your customer number
-            id (float): The identifier of the audit entry.
-            image_id (str): The identifier of the image
+            id (int): The ID of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
+            tenant_id (str): Customer tenant id
+            customer_id (str): Customer ID
             changed_by (str): Id of user who performed the change
             username (str): Name of the user which led to the change.
             request_id (str): The requestId of the API call which led to the change.
             trace_id (str): The traceId of the API call which led to the change.
+            image_id (str): The identifier of the image
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -212,16 +212,16 @@ class ImageAuditResponseData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
         self.id = id
-        self.image_id = image_id
         self.action = action
         self.timestamp = timestamp
+        self.tenant_id = tenant_id
+        self.customer_id = customer_id
         self.changed_by = changed_by
         self.username = username
         self.request_id = request_id
         self.trace_id = trace_id
+        self.image_id = image_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -242,20 +242,20 @@ class ImageAuditResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, id, image_id, action, timestamp, changed_by, username, request_id, trace_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, action, timestamp, tenant_id, customer_id, changed_by, username, request_id, trace_id, image_id, *args, **kwargs):  # noqa: E501
         """ImageAuditResponseData - a model defined in OpenAPI
 
         Args:
-            tenant_id (str): Your customer tenant id
-            customer_id (str): Your customer number
-            id (float): The identifier of the audit entry.
-            image_id (str): The identifier of the image
+            id (int): The ID of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
+            tenant_id (str): Customer tenant id
+            customer_id (str): Customer ID
             changed_by (str): Id of user who performed the change
             username (str): Name of the user which led to the change.
             request_id (str): The requestId of the API call which led to the change.
             trace_id (str): The traceId of the API call which led to the change.
+            image_id (str): The identifier of the image
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -318,16 +318,16 @@ class ImageAuditResponseData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.tenant_id = tenant_id
-        self.customer_id = customer_id
         self.id = id
-        self.image_id = image_id
         self.action = action
         self.timestamp = timestamp
+        self.tenant_id = tenant_id
+        self.customer_id = customer_id
         self.changed_by = changed_by
         self.username = username
         self.request_id = request_id
         self.trace_id = trace_id
+        self.image_id = image_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

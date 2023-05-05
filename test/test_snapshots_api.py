@@ -54,7 +54,7 @@ class TestSnapshotsApi(unittest.TestCase):
     def test_rollback_snapshot(self):
         """Test case for rollback_snapshot
 
-        Rollback the instance to a specific snapshot by id  # noqa: E501
+        Revert the instance to a particular snapshot based on its identifier  # noqa: E501
         """
         pass
 

@@ -12,6 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.create_instance_request_add_ons import CreateInstanceRequestAddOns
+globals()['CreateInstanceRequestAddOns'] = CreateInstanceRequestAddOns
 from pfruck_contabo.model.create_instance_request import CreateInstanceRequest
 
 

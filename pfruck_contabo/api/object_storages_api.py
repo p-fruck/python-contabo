@@ -709,7 +709,7 @@ class ObjectStoragesApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            object_storage_id (str): The identifier of the object storage
+            object_storage_id (str): The identifier of the object storage.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -976,7 +976,7 @@ class ObjectStoragesApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            object_storage_id (str): The identifier of the object storage
+            object_storage_id (str): The identifier of the object storage.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1154,7 +1154,7 @@ class ObjectStoragesApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            object_storage_id (str): The identifier of the object storage
+            object_storage_id (str): The identifier of the object storage.
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -1243,7 +1243,7 @@ class ObjectStoragesApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            object_storage_id (str): The identifier of the object storage
+            object_storage_id (str): The identifier of the object storage.
             patch_object_storage_request (PatchObjectStorageRequest):
 
         Keyword Args:
@@ -1335,7 +1335,7 @@ class ObjectStoragesApi(object):
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-            object_storage_id (str): The identifier of the object storage
+            object_storage_id (str): The identifier of the object storage.
             upgrade_object_storage_request (UpgradeObjectStorageRequest):
 
         Keyword Args:

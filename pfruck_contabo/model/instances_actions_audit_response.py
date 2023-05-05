@@ -141,7 +141,7 @@ class InstancesActionsAuditResponse(ModelNormal):
         """InstancesActionsAuditResponse - a model defined in OpenAPI
 
         Args:
-            id (int): The identifier of the audit entry.
+            id (int): The ID of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
             tenant_id (str): Customer tenant id
@@ -249,7 +249,7 @@ class InstancesActionsAuditResponse(ModelNormal):
         """InstancesActionsAuditResponse - a model defined in OpenAPI
 
         Args:
-            id (int): The identifier of the audit entry.
+            id (int): The ID of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
             tenant_id (str): Customer tenant id

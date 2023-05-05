@@ -573,7 +573,7 @@ class ImagesApi(object):
     ):
         """Delete an uploaded custom image by its id  # noqa: E501
 
-        Your are free to delete a previously uploaded custom images at any time.  # noqa: E501
+        Your are free to delete a previously uploaded custom images at any time  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -745,7 +745,7 @@ class ImagesApi(object):
     ):
         """Get details about a specific image by its id  # noqa: E501
 
-        Get details about a specific image. This could be either a standard or custom image. In case of an custom image you can also check the download status.  # noqa: E501
+        Get details about a specific image. This could be either a standard or custom image. In case of an custom image you can also check the download status  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -923,7 +923,7 @@ class ImagesApi(object):
     ):
         """Update custom image name by its id  # noqa: E501
 
-        Update name of the custom image.  # noqa: E501
+        Update name of the custom image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

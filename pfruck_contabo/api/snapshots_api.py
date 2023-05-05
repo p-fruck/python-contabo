@@ -371,12 +371,14 @@ class SnapshotsApi(object):
                     'x_request_id',
                     'instance_id',
                     'snapshot_id',
+                    'body',
                     'x_trace_id',
                 ],
                 'required': [
                     'x_request_id',
                     'instance_id',
                     'snapshot_id',
+                    'body',
                 ],
                 'nullable': [
                 ],
@@ -404,6 +406,8 @@ class SnapshotsApi(object):
                         (int,),
                     'snapshot_id':
                         (str,),
+                    'body':
+                        ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                     'x_trace_id':
                         (str,),
                 },
@@ -417,6 +421,7 @@ class SnapshotsApi(object):
                     'x_request_id': 'header',
                     'instance_id': 'path',
                     'snapshot_id': 'path',
+                    'body': 'body',
                     'x_trace_id': 'header',
                 },
                 'collection_format_map': {
@@ -426,7 +431,9 @@ class SnapshotsApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -886,21 +893,23 @@ class SnapshotsApi(object):
         x_request_id,
         instance_id,
         snapshot_id,
+        body,
         **kwargs
     ):
-        """Rollback the instance to a specific snapshot by id  # noqa: E501
+        """Revert the instance to a particular snapshot based on its identifier  # noqa: E501
 
         Rollback instance to a specific snapshot. The snapshot must be the latest one in order to be able to restore it, otherwise you will receive an error informing you that the snapshot is not the latest  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.rollback_snapshot(x_request_id, instance_id, snapshot_id, async_req=True)
+        >>> thread = api.rollback_snapshot(x_request_id, instance_id, snapshot_id, body, async_req=True)
         >>> result = thread.get()
 
         Args:
             x_request_id (str): [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
             instance_id (int): The identifier of the instance
             snapshot_id (str): The identifier of the snapshot
+            body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             x_trace_id (str): Identifier to trace group of requests.. [optional]
@@ -971,6 +980,8 @@ class SnapshotsApi(object):
             instance_id
         kwargs['snapshot_id'] = \
             snapshot_id
+        kwargs['body'] = \
+            body
         return self.rollback_snapshot_endpoint.call_with_http_info(**kwargs)
 
     def update_snapshot(

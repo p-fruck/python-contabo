@@ -145,9 +145,9 @@ class TagsAuditsApi(object):
         x_request_id,
         **kwargs
     ):
-        """List history about your tags (audit)  # noqa: E501
+        """List history about your assignments (audit)  # noqa: E501
 
-        List and filters the history about your tags.  # noqa: E501
+        List and filters the history about your assignments.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

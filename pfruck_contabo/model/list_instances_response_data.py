@@ -127,9 +127,12 @@ class ListInstancesResponseData(ModelNormal):
             'name': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'instance_id': (int,),  # noqa: E501
+            'data_center': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
+            'region_name': (str,),  # noqa: E501
             'product_id': (str,),  # noqa: E501
             'image_id': (str,),  # noqa: E501
+            'ip_config': (IpConfig,),  # noqa: E501
             'mac_address': (str,),  # noqa: E501
             'ram_mb': (float,),  # noqa: E501
             'cpu_cores': (int,),  # noqa: E501
@@ -142,9 +145,8 @@ class ListInstancesResponseData(ModelNormal):
             'v_host_id': (int,),  # noqa: E501
             'add_ons': ([AddOnResponse],),  # noqa: E501
             'product_type': (str,),  # noqa: E501
-            'default_user': (str,),  # noqa: E501
-            'ip_config': (IpConfig,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
+            'default_user': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -159,9 +161,12 @@ class ListInstancesResponseData(ModelNormal):
         'name': 'name',  # noqa: E501
         'display_name': 'displayName',  # noqa: E501
         'instance_id': 'instanceId',  # noqa: E501
+        'data_center': 'dataCenter',  # noqa: E501
         'region': 'region',  # noqa: E501
+        'region_name': 'regionName',  # noqa: E501
         'product_id': 'productId',  # noqa: E501
         'image_id': 'imageId',  # noqa: E501
+        'ip_config': 'ipConfig',  # noqa: E501
         'mac_address': 'macAddress',  # noqa: E501
         'ram_mb': 'ramMb',  # noqa: E501
         'cpu_cores': 'cpuCores',  # noqa: E501
@@ -174,9 +179,8 @@ class ListInstancesResponseData(ModelNormal):
         'v_host_id': 'vHostId',  # noqa: E501
         'add_ons': 'addOns',  # noqa: E501
         'product_type': 'productType',  # noqa: E501
-        'default_user': 'defaultUser',  # noqa: E501
-        'ip_config': 'ipConfig',  # noqa: E501
         'error_message': 'errorMessage',  # noqa: E501
+        'default_user': 'defaultUser',  # noqa: E501
     }
 
     read_only_vars = {
@@ -186,7 +190,7 @@ class ListInstancesResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -196,9 +200,12 @@ class ListInstancesResponseData(ModelNormal):
             name (str): Instance Name
             display_name (str): Instance display name
             instance_id (int): Instance ID
-            region (str): Instance Region where the compute instance should be located.
+            data_center (str): The data center where your Private Network is located
+            region (str): Instance region where the compute instance should be located.
+            region_name (str): The name of the region where the instance is located.
             product_id (str): Product ID
             image_id (str): Image's id
+            ip_config (IpConfig):
             mac_address (str): MAC Address
             ram_mb (float): Image RAM size in MB
             cpu_cores (int): CPU core count
@@ -211,7 +218,6 @@ class ListInstancesResponseData(ModelNormal):
             v_host_id (int): ID of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
-            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -244,8 +250,8 @@ class ListInstancesResponseData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ip_config (IpConfig): [optional]  # noqa: E501
             error_message (str): Message in case of an error.. [optional]  # noqa: E501
+            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,9 +289,12 @@ class ListInstancesResponseData(ModelNormal):
         self.name = name
         self.display_name = display_name
         self.instance_id = instance_id
+        self.data_center = data_center
         self.region = region
+        self.region_name = region_name
         self.product_id = product_id
         self.image_id = image_id
+        self.ip_config = ip_config
         self.mac_address = mac_address
         self.ram_mb = ram_mb
         self.cpu_cores = cpu_cores
@@ -298,7 +307,6 @@ class ListInstancesResponseData(ModelNormal):
         self.v_host_id = v_host_id
         self.add_ons = add_ons
         self.product_type = product_type
-        self.default_user = default_user
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -319,7 +327,7 @@ class ListInstancesResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, region, product_id, image_id, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, default_user, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -329,9 +337,12 @@ class ListInstancesResponseData(ModelNormal):
             name (str): Instance Name
             display_name (str): Instance display name
             instance_id (int): Instance ID
-            region (str): Instance Region where the compute instance should be located.
+            data_center (str): The data center where your Private Network is located
+            region (str): Instance region where the compute instance should be located.
+            region_name (str): The name of the region where the instance is located.
             product_id (str): Product ID
             image_id (str): Image's id
+            ip_config (IpConfig):
             mac_address (str): MAC Address
             ram_mb (float): Image RAM size in MB
             cpu_cores (int): CPU core count
@@ -344,7 +355,6 @@ class ListInstancesResponseData(ModelNormal):
             v_host_id (int): ID of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
-            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -377,8 +387,8 @@ class ListInstancesResponseData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ip_config (IpConfig): [optional]  # noqa: E501
             error_message (str): Message in case of an error.. [optional]  # noqa: E501
+            default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -414,9 +424,12 @@ class ListInstancesResponseData(ModelNormal):
         self.name = name
         self.display_name = display_name
         self.instance_id = instance_id
+        self.data_center = data_center
         self.region = region
+        self.region_name = region_name
         self.product_id = product_id
         self.image_id = image_id
+        self.ip_config = ip_config
         self.mac_address = mac_address
         self.ram_mb = ram_mb
         self.cpu_cores = cpu_cores
@@ -429,7 +442,6 @@ class ListInstancesResponseData(ModelNormal):
         self.v_host_id = v_host_id
         self.add_ons = add_ons
         self.product_type = product_type
-        self.default_user = default_user
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

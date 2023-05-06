@@ -345,6 +345,8 @@ class UsersApi(object):
                     'size',
                     'order_by',
                     'object_storage_id',
+                    'region_name',
+                    'display_name',
                 ],
                 'required': [
                     'x_request_id',
@@ -384,6 +386,10 @@ class UsersApi(object):
                         ([str],),
                     'object_storage_id':
                         (str,),
+                    'region_name':
+                        (str,),
+                    'display_name':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -393,6 +399,8 @@ class UsersApi(object):
                     'size': 'size',
                     'order_by': 'orderBy',
                     'object_storage_id': 'objectStorageId',
+                    'region_name': 'regionName',
+                    'display_name': 'displayName',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -402,6 +410,8 @@ class UsersApi(object):
                     'size': 'query',
                     'order_by': 'query',
                     'object_storage_id': 'query',
+                    'region_name': 'query',
+                    'display_name': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -415,14 +425,14 @@ class UsersApi(object):
             },
             api_client=api_client
         )
-        self.regenerate_credentials_endpoint = _Endpoint(
+        self.regenerate_object_storage_credentials_endpoint = _Endpoint(
             settings={
                 'response_type': (FindCredentialResponse,),
                 'auth': [
                     'bearer'
                 ],
                 'endpoint_path': '/v1/users/{userId}/object-storages/{objectStorageId}/credentials/{credentialId}',
-                'operation_id': 'regenerate_credentials',
+                'operation_id': 'regenerate_object_storage_credentials',
                 'http_method': 'PATCH',
                 'servers': None,
             },
@@ -1324,6 +1334,8 @@ class UsersApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             object_storage_id (str): The identifier of the S3 object storage. [optional]
+            region_name (str): Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central). [optional]
+            display_name (str): Filter for Object Storage by his displayName.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1391,7 +1403,7 @@ class UsersApi(object):
             user_id
         return self.list_object_storage_credentials_endpoint.call_with_http_info(**kwargs)
 
-    def regenerate_credentials(
+    def regenerate_object_storage_credentials(
         self,
         x_request_id,
         user_id,
@@ -1405,7 +1417,7 @@ class UsersApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.regenerate_credentials(x_request_id, user_id, object_storage_id, credential_id, async_req=True)
+        >>> thread = api.regenerate_object_storage_credentials(x_request_id, user_id, object_storage_id, credential_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -1485,7 +1497,7 @@ class UsersApi(object):
             object_storage_id
         kwargs['credential_id'] = \
             credential_id
-        return self.regenerate_credentials_endpoint.call_with_http_info(**kwargs)
+        return self.regenerate_object_storage_credentials_endpoint.call_with_http_info(**kwargs)
 
     def resend_email_verification(
         self,

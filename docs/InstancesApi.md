@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The response will be a JSON object and contains standard instance attributes. |  -  |
+**201** | The response will be a JSON object and contains standard custom image attributes |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 Create a new instance
 
-Create a new instance for your account with the provided parameters.       <table>         <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>         <tr><td>V1</td><td>VPS S SSD</td><td>200 GB SSD</td></tr>         <tr><td>V35</td><td>VPS S Storage</td><td>400 GB SSD</td></tr>         <tr><td>V12</td><td>VPS S NVMe</td><td>50 GB NVMe</td></tr>         <tr><td>V2</td><td>VPS M SSD</td><td>400 GB SSD</td></tr>         <tr><td>V36</td><td>VPS M Storage</td><td>800 GB SSD</td></tr>         <tr><td>V13</td><td>VPS M NVMe</td><td>100 GB NVMe</td></tr>         <tr><td>V3</td><td>VPS L SSD</td><td>800 GB SSD</td></tr>         <tr><td>V37</td><td>VPS L Storage</td><td>1600 GB SSD</td></tr>         <tr><td>V14</td><td>VPS L NVMe</td><td>200 GB NVMe</td></tr>         <tr><td>V4</td><td>VPS XL SSD</td><td>1600 GB SSD</td></tr>         <tr><td>V38</td><td>VPS XL SSD</td><td>3200 GB SSD</td></tr>         <tr><td>V15</td><td>VPS XL NVMe</td><td>400 GB NVMe</td></tr>         <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>         <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>         <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>         <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>         <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>         </table>
+Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V1</td><td>VPS S SSD</td><td>200 GB SSD</td></tr>           <tr><td>V35</td><td>VPS S Storage</td><td>400 GB SSD</td></tr>           <tr><td>V12</td><td>VPS S NVMe</td><td>50 GB NVMe</td></tr>           <tr><td>V2</td><td>VPS M SSD</td><td>400 GB SSD</td></tr>           <tr><td>V36</td><td>VPS M Storage</td><td>800 GB SSD</td></tr>           <tr><td>V13</td><td>VPS M NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V3</td><td>VPS L SSD</td><td>800 GB SSD</td></tr>           <tr><td>V37</td><td>VPS L Storage</td><td>1600 GB SSD</td></tr>           <tr><td>V14</td><td>VPS L NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V4</td><td>VPS XL SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V38</td><td>VPS XL SSD</td><td>3200 GB SSD</td></tr>           <tr><td>V15</td><td>VPS XL NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
 
 ### Example
 
@@ -159,6 +159,7 @@ chpasswd:
         period=6,
         display_name="VPS",
         default_user="root",
+        add_ons=CreateInstanceRequestAddOns(None),
     ) # CreateInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -546,6 +547,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = "vmd12345" # str | The name of the instance (optional)
+    display_name = "myTestInstance" # str | The display name of the instance (optional)
+    data_center = "European Union (Germany) 1" # str | The data center of the instance (optional)
     region = "EU" # str | The Region of the instance (optional)
     instance_id = 100 # int | The identifier of the instance (deprecated) (optional)
     instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)
@@ -565,7 +568,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List instances
-        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types)
+        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, display_name=display_name, data_center=data_center, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling InstancesApi->retrieve_instances_list: %s\n" % e)
@@ -582,6 +585,8 @@ Name | Type | Description  | Notes
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **name** | **str**| The name of the instance | [optional]
+ **display_name** | **str**| The display name of the instance | [optional]
+ **data_center** | **str**| The data center of the instance | [optional]
  **region** | **str**| The Region of the instance | [optional]
  **instance_id** | **int**| The identifier of the instance (deprecated) | [optional]
  **instance_ids** | **str**| Comma separated instances identifiers | [optional]
@@ -616,7 +621,7 @@ Name | Type | Description  | Notes
 
 Upgrading instance capabilities
 
-In order to enhance your instance with additional features you can purchase add-ons. Currently only firewalling and private network addon is allowed.
+In order to enhance your instance with additional features you can purchase add-ons.   Currently only firewalling and private network addon is allowed.
 
 ### Example
 
@@ -652,7 +657,6 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     instance_id = 12345 # int | The identifier of the instance
     upgrade_instance_request = UpgradeInstanceRequest(
-        firewalling=UpgradeInstanceRequestFirewalling(None),
         private_networking=None,
     ) # UpgradeInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)

@@ -58,8 +58,8 @@ class TestUsersApi(unittest.TestCase):
         """
         pass
 
-    def test_regenerate_credentials(self):
-        """Test case for regenerate_credentials
+    def test_regenerate_object_storage_credentials(self):
+        """Test case for regenerate_object_storage_credentials
 
         Regenerates secret key of specified user for the S3 compatible object storages.  # noqa: E501
         """

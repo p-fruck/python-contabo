@@ -32,10 +32,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 def lazy_import():
     from pfruck_contabo.model.assignment_audit_response import AssignmentAuditResponse
     from pfruck_contabo.model.list_assignment_audits_response_links import ListAssignmentAuditsResponseLinks
-    from pfruck_contabo.model.list_instances_actions_audit_response_pagination import ListInstancesActionsAuditResponsePagination
+    from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     globals()['AssignmentAuditResponse'] = AssignmentAuditResponse
     globals()['ListAssignmentAuditsResponseLinks'] = ListAssignmentAuditsResponseLinks
-    globals()['ListInstancesActionsAuditResponsePagination'] = ListInstancesActionsAuditResponsePagination
+    globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
 
 
 class ListAssignmentAuditsResponse(ModelNormal):
@@ -91,7 +91,7 @@ class ListAssignmentAuditsResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesActionsAuditResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesResponsePagination,),  # noqa: E501
             'data': ([AssignmentAuditResponse],),  # noqa: E501
             'links': (ListAssignmentAuditsResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListAssignmentAuditsResponse(ModelNormal):
         """ListAssignmentAuditsResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([AssignmentAuditResponse]):
             links (ListAssignmentAuditsResponseLinks):
 
@@ -211,7 +211,7 @@ class ListAssignmentAuditsResponse(ModelNormal):
         """ListAssignmentAuditsResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesActionsAuditResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([AssignmentAuditResponse]):
             links (ListAssignmentAuditsResponseLinks):
 

@@ -134,7 +134,7 @@ class FirewallingUpgradeRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            assign_firewalls ([str]): List of IDs of firewalls the upgraded instance should be assigned to immediately. If the list is empty or this property is not provided the instance will be assigned to your current default firewall.. [optional]  # noqa: E501
+            assign_firewalls ([str]): List of IDs of firewalls the upgraded instance should be assigned to immediately.   If the list is empty or this property is not provided the instance will be assigned to   your current default firewall.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,7 +220,7 @@ class FirewallingUpgradeRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            assign_firewalls ([str]): List of IDs of firewalls the upgraded instance should be assigned to immediately. If the list is empty or this property is not provided the instance will be assigned to your current default firewall.. [optional]  # noqa: E501
+            assign_firewalls ([str]): List of IDs of firewalls the upgraded instance should be assigned to immediately.   If the list is empty or this property is not provided the instance will be assigned to   your current default firewall.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

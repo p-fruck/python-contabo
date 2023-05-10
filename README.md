@@ -192,6 +192,10 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VNCApi* | [**disable_vnc_instance**](docs/VNCApi.md#disable_vnc_instance) | **DELETE** /v1/compute/instances/{instanceId}/vnc | Disable VNC for instance
+*VNCApi* | [**enable_vnc_instance**](docs/VNCApi.md#enable_vnc_instance) | **POST** /v1/compute/instances/{instanceId}/vnc | Enable VNC for instance
+*VNCApi* | [**reset_password_vnc**](docs/VNCApi.md#reset_password_vnc) | **PATCH** /v1/compute/instances/{instanceId}/vnc | Reset VNC password for instance
+*VNCApi* | [**retrieve_vnc_instance**](docs/VNCApi.md#retrieve_vnc_instance) | **GET** /v1/compute/instances/{instanceId}/vnc | Retrieve VNC status for instance
 
 
 ## Documentation For Models
@@ -280,6 +284,8 @@ Class | Method | HTTP request | Description
  - [FindUserIsPasswordSetResponse](docs/FindUserIsPasswordSetResponse.md)
  - [FindUserIsPasswordSetResponseLinks](docs/FindUserIsPasswordSetResponseLinks.md)
  - [FindUserResponse](docs/FindUserResponse.md)
+ - [FindVncResponse](docs/FindVncResponse.md)
+ - [FindVncResponseLinks](docs/FindVncResponseLinks.md)
  - [FirewallingUpgradeRequest](docs/FirewallingUpgradeRequest.md)
  - [GenerateClientSecretResponse](docs/GenerateClientSecretResponse.md)
  - [GenerateClientSecretResponseLinks](docs/GenerateClientSecretResponseLinks.md)
@@ -337,7 +343,6 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](docs/ListInstancesResponseLinks.md)
- - [ListInstancesResponsePagination](docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](docs/ListObjectStorageResponse.md)
@@ -367,6 +372,7 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
+ - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
  - [ObjectStorageResponseAutoScaling](docs/ObjectStorageResponseAutoScaling.md)
@@ -381,6 +387,7 @@ Class | Method | HTTP request | Description
  - [PatchObjectStorageRequest](docs/PatchObjectStorageRequest.md)
  - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
+ - [PatchVncRequest](docs/PatchVncRequest.md)
  - [PermissionRequest](docs/PermissionRequest.md)
  - [PermissionResponse](docs/PermissionResponse.md)
  - [PrivateIpConfig](docs/PrivateIpConfig.md)
@@ -432,6 +439,7 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
+ - [VncResponse](docs/VncResponse.md)
 
 
 ## Documentation For Authorization

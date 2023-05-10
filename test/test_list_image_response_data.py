@@ -12,8 +12,8 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.tag_response import TagResponse
-globals()['TagResponse'] = TagResponse
+from pfruck_contabo.model.tag_response1 import TagResponse1
+globals()['TagResponse1'] = TagResponse1
 from pfruck_contabo.model.list_image_response_data import ListImageResponseData
 
 

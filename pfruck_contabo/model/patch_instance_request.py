@@ -85,6 +85,7 @@ class PatchInstanceRequest(ModelNormal):
         """
         return {
             'display_name': (str,),  # noqa: E501
+            'vnc_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class PatchInstanceRequest(ModelNormal):
 
     attribute_map = {
         'display_name': 'displayName',  # noqa: E501
+        'vnc_enabled': 'vncEnabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,6 +140,7 @@ class PatchInstanceRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): The display name of the instance. [optional]  # noqa: E501
+            vnc_enabled (bool): Enable/Disable the VNC option for instance. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,6 +227,7 @@ class PatchInstanceRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): The display name of the instance. [optional]  # noqa: E501
+            vnc_enabled (bool): Enable/Disable the VNC option for instance. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

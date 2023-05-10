@@ -254,6 +254,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     instance_id = 12345 # int | The identifier of the instance
     patch_instance_request = PatchInstanceRequest(
         display_name="VPS",
+        vnc_enabled=True,
     ) # PatchInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 

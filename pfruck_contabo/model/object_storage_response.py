@@ -67,6 +67,7 @@ class ObjectStorageResponse(ModelNormal):
             'ERROR': "ERROR",
             'ENABLED': "ENABLED",
             'DISABLED': "DISABLED",
+            'PENDING_PAYMENT': "PENDING PAYMENT",
         },
     }
 

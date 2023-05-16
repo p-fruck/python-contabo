@@ -231,10 +231,6 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
-*VNCApi* | [**disable_vnc_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/VNCApi.md#disable_vnc_instance) | **DELETE** /v1/compute/instances/{instanceId}/vnc | Disable VNC for instance
-*VNCApi* | [**enable_vnc_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/VNCApi.md#enable_vnc_instance) | **POST** /v1/compute/instances/{instanceId}/vnc | Enable VNC for instance
-*VNCApi* | [**reset_password_vnc**](https://github.com/p-fruck/python-contabo/blob/main/docs/VNCApi.md#reset_password_vnc) | **PATCH** /v1/compute/instances/{instanceId}/vnc | Reset VNC password for instance
-*VNCApi* | [**retrieve_vnc_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/VNCApi.md#retrieve_vnc_instance) | **GET** /v1/compute/instances/{instanceId}/vnc | Retrieve VNC status for instance
 
 
 ## Documentation For Models
@@ -382,6 +378,7 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseLinks.md)
+ - [ListInstancesResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageResponse.md)
@@ -411,7 +408,6 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponsePagination.md)
  - [ObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponse.md)
  - [ObjectStorageResponseAutoScaling](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponseAutoScaling.md)

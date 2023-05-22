@@ -431,6 +431,7 @@ class InstancesApi(object):
                     'status',
                     'add_on_ids',
                     'product_types',
+                    'ip_config',
                 ],
                 'required': [
                     'x_request_id',
@@ -492,6 +493,8 @@ class InstancesApi(object):
                         (str,),
                     'product_types':
                         (str,),
+                    'ip_config':
+                        (bool,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -508,6 +511,7 @@ class InstancesApi(object):
                     'status': 'status',
                     'add_on_ids': 'addOnIds',
                     'product_types': 'productTypes',
+                    'ip_config': 'ipConfig',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -524,6 +528,7 @@ class InstancesApi(object):
                     'status': 'query',
                     'add_on_ids': 'query',
                     'product_types': 'query',
+                    'ip_config': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -1093,6 +1098,7 @@ class InstancesApi(object):
             status (str): The status of the instance. [optional]
             add_on_ids (str): Identifiers of Addons the instances have. [optional]
             product_types (str): Comma separated instance's category depending on Product Id. [optional]
+            ip_config (bool): Filter instances that have an ip config. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -30,12 +30,12 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     from pfruck_contabo.model.list_tag_response_links import ListTagResponseLinks
-    from pfruck_contabo.model.tag_response1 import TagResponse1
-    globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
+    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
+    from pfruck_contabo.model.tag_response import TagResponse
     globals()['ListTagResponseLinks'] = ListTagResponseLinks
-    globals()['TagResponse1'] = TagResponse1
+    globals()['ListUserResponsePagination'] = ListUserResponsePagination
+    globals()['TagResponse'] = TagResponse
 
 
 class ListTagResponse(ModelNormal):
@@ -91,8 +91,8 @@ class ListTagResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListInstancesResponsePagination,),  # noqa: E501
-            'data': ([TagResponse1],),  # noqa: E501
+            'pagination': (ListUserResponsePagination,),  # noqa: E501
+            'data': ([TagResponse],),  # noqa: E501
             'links': (ListTagResponseLinks,),  # noqa: E501
         }
 
@@ -118,8 +118,8 @@ class ListTagResponse(ModelNormal):
         """ListTagResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesResponsePagination):
-            data ([TagResponse1]):
+            pagination (ListUserResponsePagination):
+            data ([TagResponse]):
             links (ListTagResponseLinks):
 
         Keyword Args:
@@ -211,8 +211,8 @@ class ListTagResponse(ModelNormal):
         """ListTagResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListInstancesResponsePagination):
-            data ([TagResponse1]):
+            pagination (ListUserResponsePagination):
+            data ([TagResponse]):
             links (ListTagResponseLinks):
 
         Keyword Args:

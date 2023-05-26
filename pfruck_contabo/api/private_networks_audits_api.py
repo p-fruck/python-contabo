@@ -162,7 +162,7 @@ class PrivateNetworksAuditsApi(object):
             page (int): Number of page to be fetched.. [optional]
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
-            private_network_id (int): The identifier of the Private Network.. [optional]
+            private_network_id (int): The identifier of the Private Network. [optional]
             request_id (str): The requestId of the API call which led to the change.. [optional]
             changed_by (str): User name which did the change.. [optional]
             start_date (date): Start of search time range.. [optional]

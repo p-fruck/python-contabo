@@ -752,7 +752,7 @@ class PrivateNetworksApi(object):
     ):
         """Delete existing Private Network by id  # noqa: E501
 
-        Delete existing Private Network by id and automatically unassign all instances from it  # noqa: E501
+        Delete existing Virtual Private Cloud by id and automatically unassign all instances from it  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

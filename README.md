@@ -316,6 +316,7 @@ Class | Method | HTTP request | Description
  - [InstancesAuditResponse](docs/InstancesAuditResponse.md)
  - [InstancesResetPasswordActionsRequest](docs/InstancesResetPasswordActionsRequest.md)
  - [IpConfig](docs/IpConfig.md)
+ - [IpConfig1](docs/IpConfig1.md)
  - [IpV4](docs/IpV4.md)
  - [IpV6](docs/IpV6.md)
  - [Links](docs/Links.md)

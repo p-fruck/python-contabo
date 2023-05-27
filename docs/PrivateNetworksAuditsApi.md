@@ -51,11 +51,11 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    private_network_id = 12345 # int | The identifier of the Private Network. (optional)
+    private_network_id = 12345 # int | The identifier of the Private Network (optional)
     request_id = "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" # str | The requestId of the API call which led to the change. (optional)
     changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | User name which did the change. (optional)
     start_date = dateutil_parser('2021-01-01').date() # date | Start of search time range. (optional)
-    end_date = dateutil_parser('2021-01-01').date() # date | End of search time range. (optional)
+    end_date = dateutil_parser('2023-05-31').date() # date | End of search time range. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Number of page to be fetched. | [optional]
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **private_network_id** | **int**| The identifier of the Private Network. | [optional]
+ **private_network_id** | **int**| The identifier of the Private Network | [optional]
  **request_id** | **str**| The requestId of the API call which led to the change. | [optional]
  **changed_by** | **str**| User name which did the change. | [optional]
  **start_date** | **date**| Start of search time range. | [optional]

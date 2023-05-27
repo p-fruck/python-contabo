@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 Delete existing Private Network by id
 
-Delete existing Private Network by id and automatically unassign all instances from it
+Delete existing Virtual Private Cloud by id and automatically unassign all instances from it
 
 ### Example
 
@@ -611,7 +611,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = private_networks_api.PrivateNetworksApi(api_client)
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    private_network_id = 12345 # int | The identifier of the Private Network
+    private_network_id = 100 # int | The identifier of the Private Network
     instance_id = 100 # int | The identifier of the instance
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 

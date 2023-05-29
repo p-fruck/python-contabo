@@ -70,9 +70,6 @@ class CreateInstanceRequest(ModelNormal):
             'JPN': "JPN",
         },
         ('license',): {
-            'PLESKHOST': "PleskHost",
-            'PLESKPRO': "PleskPro",
-            'PLESKADMIN': "PleskAdmin",
             'CPANEL5': "cPanel5",
             'CPANEL30': "cPanel30",
             'CPANEL50': "cPanel50",
@@ -95,6 +92,9 @@ class CreateInstanceRequest(ModelNormal):
             'CPANEL900': "cPanel900",
             'CPANEL950': "cPanel950",
             'CPANEL1000': "cPanel1000",
+            'PLESKADMIN': "PleskAdmin",
+            'PLESKHOST': "PleskHost",
+            'PLESKPRO': "PleskPro",
         },
         ('default_user',): {
             'ROOT': "root",

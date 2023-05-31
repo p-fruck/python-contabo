@@ -519,6 +519,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = "myPrivateNetwork" # str | The name of the Private Network (optional)
     instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)
+    region = "EU" # str | The slug of the region where your Private Network is located (optional)
+    data_center = "European Union (Germany) 1" # str | The data center where your Private Network is located (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -532,7 +534,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Private Networks
-        api_response = api_instance.retrieve_private_network_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, instance_ids=instance_ids)
+        api_response = api_instance.retrieve_private_network_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, instance_ids=instance_ids, region=region, data_center=data_center)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling PrivateNetworksApi->retrieve_private_network_list: %s\n" % e)
@@ -550,6 +552,8 @@ Name | Type | Description  | Notes
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **name** | **str**| The name of the Private Network | [optional]
  **instance_ids** | **str**| Comma separated instances identifiers | [optional]
+ **region** | **str**| The slug of the region where your Private Network is located | [optional]
+ **data_center** | **str**| The data center where your Private Network is located | [optional]
 
 ### Return type
 

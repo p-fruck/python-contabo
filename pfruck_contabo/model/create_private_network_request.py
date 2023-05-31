@@ -58,11 +58,11 @@ class CreatePrivateNetworkRequest(ModelNormal):
     }
 
     validations = {
-        ('region',): {
-            'min_length': 1,
-        },
         ('name',): {
             'max_length': 255,
+            'min_length': 1,
+        },
+        ('region',): {
             'min_length': 1,
         },
         ('description',): {
@@ -91,8 +91,8 @@ class CreatePrivateNetworkRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'region': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
         }
 
@@ -102,8 +102,8 @@ class CreatePrivateNetworkRequest(ModelNormal):
 
 
     attribute_map = {
-        'region': 'region',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'region': 'region',  # noqa: E501
         'description': 'description',  # noqa: E501
     }
 
@@ -121,7 +121,6 @@ class CreatePrivateNetworkRequest(ModelNormal):
             name (str): The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per Private Network name.
 
         Keyword Args:
-            region (str): Region where the Private Network should be located. Default is `EU`. defaults to "EU"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,10 +151,10 @@ class CreatePrivateNetworkRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            region (str): Region where the Private Network should be located. Default is `EU`. [optional] if omitted the server will use the default value of "EU"  # noqa: E501
             description (str): The description of the Private Network. There is a limit of 255 characters per Private Network description.. [optional]  # noqa: E501
         """
 
-        region = kwargs.get('region', "EU")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -185,7 +184,6 @@ class CreatePrivateNetworkRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.region = region
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -214,7 +212,6 @@ class CreatePrivateNetworkRequest(ModelNormal):
             name (str): The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per Private Network name.
 
         Keyword Args:
-            region (str): Region where the Private Network should be located. Default is `EU`. defaults to "EU"  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -245,10 +242,10 @@ class CreatePrivateNetworkRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            region (str): Region where the Private Network should be located. Default is `EU`. [optional] if omitted the server will use the default value of "EU"  # noqa: E501
             description (str): The description of the Private Network. There is a limit of 255 characters per Private Network description.. [optional]  # noqa: E501
         """
 
-        region = kwargs.get('region', "EU")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -276,7 +273,6 @@ class CreatePrivateNetworkRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.region = region
         self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

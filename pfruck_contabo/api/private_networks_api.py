@@ -419,6 +419,8 @@ class PrivateNetworksApi(object):
                     'order_by',
                     'name',
                     'instance_ids',
+                    'region',
+                    'data_center',
                 ],
                 'required': [
                     'x_request_id',
@@ -457,6 +459,10 @@ class PrivateNetworksApi(object):
                         (str,),
                     'instance_ids':
                         (str,),
+                    'region':
+                        (str,),
+                    'data_center':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_request_id': 'x-request-id',
@@ -466,6 +472,8 @@ class PrivateNetworksApi(object):
                     'order_by': 'orderBy',
                     'name': 'name',
                     'instance_ids': 'instanceIds',
+                    'region': 'region',
+                    'data_center': 'dataCenter',
                 },
                 'location_map': {
                     'x_request_id': 'header',
@@ -475,6 +483,8 @@ class PrivateNetworksApi(object):
                     'order_by': 'query',
                     'name': 'query',
                     'instance_ids': 'query',
+                    'region': 'query',
+                    'data_center': 'query',
                 },
                 'collection_format_map': {
                     'order_by': 'multi',
@@ -1036,6 +1046,8 @@ class PrivateNetworksApi(object):
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             name (str): The name of the Private Network. [optional]
             instance_ids (str): Comma separated instances identifiers. [optional]
+            region (str): The slug of the region where your Private Network is located. [optional]
+            data_center (str): The data center where your Private Network is located. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

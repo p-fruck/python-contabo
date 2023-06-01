@@ -89,8 +89,8 @@ class IpConfig1(ModelNormal):
         """
         lazy_import()
         return {
-            'v4': ([IpV4],),  # noqa: E501
-            'v6': ([IpV6],),  # noqa: E501
+            'v4': (IpV4,),  # noqa: E501
+            'v6': (IpV6,),  # noqa: E501
         }
 
     @cached_property
@@ -114,8 +114,8 @@ class IpConfig1(ModelNormal):
         """IpConfig1 - a model defined in OpenAPI
 
         Args:
-            v4 ([IpV4]):
-            v6 ([IpV6]):
+            v4 (IpV4):
+            v6 (IpV6):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,8 +205,8 @@ class IpConfig1(ModelNormal):
         """IpConfig1 - a model defined in OpenAPI
 
         Args:
-            v4 ([IpV4]):
-            v6 ([IpV6]):
+            v4 (IpV4):
+            v6 (IpV6):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -15,11 +15,11 @@ import pfruck_contabo
 from pfruck_contabo.model.add_on_response import AddOnResponse
 from pfruck_contabo.model.additional_ip import AdditionalIp
 from pfruck_contabo.model.instance_status import InstanceStatus
-from pfruck_contabo.model.ip_config import IpConfig
+from pfruck_contabo.model.ip_config1 import IpConfig1
 globals()['AddOnResponse'] = AddOnResponse
 globals()['AdditionalIp'] = AdditionalIp
 globals()['InstanceStatus'] = InstanceStatus
-globals()['IpConfig'] = IpConfig
+globals()['IpConfig1'] = IpConfig1
 from pfruck_contabo.model.instance_response import InstanceResponse
 
 

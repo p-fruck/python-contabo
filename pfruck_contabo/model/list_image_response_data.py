@@ -30,8 +30,8 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.tag_response import TagResponse
-    globals()['TagResponse'] = TagResponse
+    from pfruck_contabo.model.tag_response1 import TagResponse1
+    globals()['TagResponse1'] = TagResponse1
 
 
 class ListImageResponseData(ModelNormal):
@@ -117,7 +117,7 @@ class ListImageResponseData(ModelNormal):
             'standard_image': (bool,),  # noqa: E501
             'creation_date': (datetime,),  # noqa: E501
             'last_modified_date': (datetime,),  # noqa: E501
-            'tags': ([TagResponse],),  # noqa: E501
+            'tags': ([TagResponse1],),  # noqa: E501
         }
 
     @cached_property
@@ -172,7 +172,7 @@ class ListImageResponseData(ModelNormal):
             standard_image (bool): Flag indicating that image is either a standard (true) or a custom image (false)
             creation_date (datetime): The creation date time for the image
             last_modified_date (datetime): The last modified date time for the image
-            tags ([TagResponse]): The tags assigned to the image
+            tags ([TagResponse1]): The tags assigned to the image
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -293,7 +293,7 @@ class ListImageResponseData(ModelNormal):
             standard_image (bool): Flag indicating that image is either a standard (true) or a custom image (false)
             creation_date (datetime): The creation date time for the image
             last_modified_date (datetime): The last modified date time for the image
-            tags ([TagResponse]): The tags assigned to the image
+            tags ([TagResponse1]): The tags assigned to the image
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

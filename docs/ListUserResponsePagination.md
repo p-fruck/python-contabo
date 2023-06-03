@@ -1,4 +1,4 @@
-# ListInstancesResponsePagination
+# ListUserResponsePagination
 
 Data about pagination like how many results, pages, page size.
 

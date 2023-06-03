@@ -13,9 +13,9 @@ import unittest
 
 import pfruck_contabo
 from pfruck_contabo.model.create_tag_response_links import CreateTagResponseLinks
-from pfruck_contabo.model.tag_response1 import TagResponse1
+from pfruck_contabo.model.tag_response import TagResponse
 globals()['CreateTagResponseLinks'] = CreateTagResponseLinks
-globals()['TagResponse1'] = TagResponse1
+globals()['TagResponse'] = TagResponse
 from pfruck_contabo.model.find_tag_response import FindTagResponse
 
 

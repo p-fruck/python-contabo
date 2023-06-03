@@ -33,11 +33,11 @@ def lazy_import():
     from pfruck_contabo.model.add_on_response import AddOnResponse
     from pfruck_contabo.model.additional_ip import AdditionalIp
     from pfruck_contabo.model.instance_status import InstanceStatus
-    from pfruck_contabo.model.ip_config import IpConfig
+    from pfruck_contabo.model.ip_config1 import IpConfig1
     globals()['AddOnResponse'] = AddOnResponse
     globals()['AdditionalIp'] = AdditionalIp
     globals()['InstanceStatus'] = InstanceStatus
-    globals()['IpConfig'] = IpConfig
+    globals()['IpConfig1'] = IpConfig1
 
 
 class InstanceResponse(ModelNormal):
@@ -132,7 +132,7 @@ class InstanceResponse(ModelNormal):
             'region_name': (str,),  # noqa: E501
             'product_id': (str,),  # noqa: E501
             'image_id': (str,),  # noqa: E501
-            'ip_config': (IpConfig,),  # noqa: E501
+            'ip_config': (IpConfig1,),  # noqa: E501
             'mac_address': (str,),  # noqa: E501
             'ram_mb': (float,),  # noqa: E501
             'cpu_cores': (int,),  # noqa: E501
@@ -205,7 +205,7 @@ class InstanceResponse(ModelNormal):
             region_name (str): The name of the region where the instance is located.
             product_id (str): Product ID
             image_id (str): Image's id
-            ip_config (IpConfig):
+            ip_config (IpConfig1):
             mac_address (str): MAC Address
             ram_mb (float): Image RAM size in MB
             cpu_cores (int): CPU core count
@@ -342,7 +342,7 @@ class InstanceResponse(ModelNormal):
             region_name (str): The name of the region where the instance is located.
             product_id (str): Product ID
             image_id (str): Image's id
-            ip_config (IpConfig):
+            ip_config (IpConfig1):
             mac_address (str): MAC Address
             ram_mb (float): Image RAM size in MB
             cpu_cores (int): CPU core count

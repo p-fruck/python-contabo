@@ -30,9 +30,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from pfruck_contabo.model.ip_config import IpConfig
+    from pfruck_contabo.model.ip_config1 import IpConfig1
     from pfruck_contabo.model.private_ip_config import PrivateIpConfig
-    globals()['IpConfig'] = IpConfig
+    globals()['IpConfig1'] = IpConfig1
     globals()['PrivateIpConfig'] = PrivateIpConfig
 
 
@@ -101,7 +101,7 @@ class Instances(ModelNormal):
             'name': (str,),  # noqa: E501
             'product_id': (str,),  # noqa: E501
             'private_ip_config': (PrivateIpConfig,),  # noqa: E501
-            'ip_config': (IpConfig,),  # noqa: E501
+            'ip_config': (IpConfig1,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
         }
@@ -138,7 +138,7 @@ class Instances(ModelNormal):
             name (str): Instance name
             product_id (str): Product id
             private_ip_config (PrivateIpConfig):
-            ip_config (IpConfig):
+            ip_config (IpConfig1):
             status (str): State of the instance in the Private Network
 
         Keyword Args:
@@ -240,7 +240,7 @@ class Instances(ModelNormal):
             name (str): Instance name
             product_id (str): Product id
             private_ip_config (PrivateIpConfig):
-            ip_config (IpConfig):
+            ip_config (IpConfig1):
             status (str): State of the instance in the Private Network
 
         Keyword Args:

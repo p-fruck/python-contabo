@@ -68,6 +68,9 @@ class SecretResponse(ModelNormal):
         ('customer_id',): {
             'min_length': 1,
         },
+        ('secret_id',): {
+            'inclusive_minimum': 0,
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 1,
@@ -141,7 +144,7 @@ class SecretResponse(ModelNormal):
 
         Args:
             tenant_id (str): Your customer tenant id
-            customer_id (str): Your customer number
+            customer_id (str): Your Customer number
             secret_id (float): Secret's id
             name (str): The name assigned to the password/ssh
             type (str): The type of the secret. This will be available only when retrieving secrets
@@ -244,7 +247,7 @@ class SecretResponse(ModelNormal):
 
         Args:
             tenant_id (str): Your customer tenant id
-            customer_id (str): Your customer number
+            customer_id (str): Your Customer number
             secret_id (float): Secret's id
             name (str): The name assigned to the password/ssh
             type (str): The type of the secret. This will be available only when retrieving secrets

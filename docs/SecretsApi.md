@@ -52,7 +52,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     create_secret_request = CreateSecretRequest(
         name="my-password",
-        value="value_example",
+        value="PwdA?2092w#",
         type="password",
     ) # CreateSecretRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 Delete existing secret by id
 
-You can remove a specific secret from your account
+You can remove a specific secret from your account.
 
 ### Example
 

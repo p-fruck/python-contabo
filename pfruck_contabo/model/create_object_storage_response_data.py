@@ -67,7 +67,13 @@ class CreateObjectStorageResponseData(ModelNormal):
             'ERROR': "ERROR",
             'ENABLED': "ENABLED",
             'DISABLED': "DISABLED",
-            'PENDING_PAYMENT': "PENDING PAYMENT",
+            'MANUAL_PROVISIONING': "MANUAL_PROVISIONING",
+            'PRODUCT_NOT_AVAILABLE': "PRODUCT_NOT_AVAILABLE",
+            'LIMIT_EXCEEDED': "LIMIT_EXCEEDED",
+            'VERIFICATION_REQUIRED': "VERIFICATION_REQUIRED",
+            'COMPLETED': "COMPLETED",
+            'PENDING_PAYMENT': "PENDING_PAYMENT",
+            'UNKNOWN': "UNKNOWN",
         },
     }
 

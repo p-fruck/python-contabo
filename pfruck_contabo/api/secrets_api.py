@@ -514,7 +514,7 @@ class SecretsApi(object):
     ):
         """Delete existing secret by id  # noqa: E501
 
-        You can remove a specific secret from your account  # noqa: E501
+        You can remove a specific secret from your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

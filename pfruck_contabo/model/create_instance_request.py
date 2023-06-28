@@ -215,7 +215,7 @@ class CreateInstanceRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 20.04. [optional] if omitted the server will use the default value of "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90"  # noqa: E501
+            image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 22.04. [optional] if omitted the server will use the default value of "afecbb85-e2fc-46f0-9684-b46b1faf00bb"  # noqa: E501
             region (str): Instance Region where the compute instance should be located. Default is EU. [optional] if omitted the server will use the default value of "EU"  # noqa: E501
             ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
             root_password (int): `secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
@@ -317,7 +317,7 @@ class CreateInstanceRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 20.04. [optional] if omitted the server will use the default value of "db1409d2-ed92-4f2f-978e-7b2fa4a1ec90"  # noqa: E501
+            image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 22.04. [optional] if omitted the server will use the default value of "afecbb85-e2fc-46f0-9684-b46b1faf00bb"  # noqa: E501
             region (str): Instance Region where the compute instance should be located. Default is EU. [optional] if omitted the server will use the default value of "EU"  # noqa: E501
             ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
             root_password (int): `secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501

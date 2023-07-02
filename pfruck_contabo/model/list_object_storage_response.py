@@ -30,11 +30,11 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     from pfruck_contabo.model.list_object_storage_response_links import ListObjectStorageResponseLinks
-    from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
     from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
+    globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
     globals()['ListObjectStorageResponseLinks'] = ListObjectStorageResponseLinks
-    globals()['ListUserResponsePagination'] = ListUserResponsePagination
     globals()['ObjectStorageResponse'] = ObjectStorageResponse
 
 
@@ -91,7 +91,7 @@ class ListObjectStorageResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (ListUserResponsePagination,),  # noqa: E501
+            'pagination': (ListInstancesResponsePagination,),  # noqa: E501
             'data': ([ObjectStorageResponse],),  # noqa: E501
             'links': (ListObjectStorageResponseLinks,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class ListObjectStorageResponse(ModelNormal):
         """ListObjectStorageResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([ObjectStorageResponse]):
             links (ListObjectStorageResponseLinks):
 
@@ -211,7 +211,7 @@ class ListObjectStorageResponse(ModelNormal):
         """ListObjectStorageResponse - a model defined in OpenAPI
 
         Args:
-            pagination (ListUserResponsePagination):
+            pagination (ListInstancesResponsePagination):
             data ([ObjectStorageResponse]):
             links (ListObjectStorageResponseLinks):
 

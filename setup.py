@@ -299,7 +299,6 @@ Class | Method | HTTP request | Description
  - [CustomImagesStatsResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/CustomImagesStatsResponseLinks.md)
  - [DataCenterResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/DataCenterResponse.md)
- - [DatacenterCapabilities](https://github.com/p-fruck/python-contabo/blob/main/docs/DatacenterCapabilities.md)
  - [ExtraStorageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/ExtraStorageRequest.md)
  - [FindAssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/FindAssignmentResponseLinks.md)

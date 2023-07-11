@@ -260,7 +260,6 @@ Class | Method | HTTP request | Description
  - [CustomImagesStatsResponseData](docs/CustomImagesStatsResponseData.md)
  - [CustomImagesStatsResponseLinks](docs/CustomImagesStatsResponseLinks.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
- - [DatacenterCapabilities](docs/DatacenterCapabilities.md)
  - [ExtraStorageRequest](docs/ExtraStorageRequest.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)

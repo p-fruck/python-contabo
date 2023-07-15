@@ -12,8 +12,6 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.datacenter_capabilities import DatacenterCapabilities
-globals()['DatacenterCapabilities'] = DatacenterCapabilities
 from pfruck_contabo.model.data_center_response import DataCenterResponse
 
 

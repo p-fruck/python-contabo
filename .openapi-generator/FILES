@@ -66,7 +66,6 @@ docs/CustomImagesStatsResponse.md
 docs/CustomImagesStatsResponseData.md
 docs/CustomImagesStatsResponseLinks.md
 docs/DataCenterResponse.md
-docs/DatacenterCapabilities.md
 docs/ExtraStorageRequest.md
 docs/FindAssignmentResponse.md
 docs/FindAssignmentResponseLinks.md
@@ -359,7 +358,6 @@ pfruck_contabo/model/custom_images_stats_response.py
 pfruck_contabo/model/custom_images_stats_response_data.py
 pfruck_contabo/model/custom_images_stats_response_links.py
 pfruck_contabo/model/data_center_response.py
-pfruck_contabo/model/datacenter_capabilities.py
 pfruck_contabo/model/extra_storage_request.py
 pfruck_contabo/model/find_assignment_response.py
 pfruck_contabo/model/find_assignment_response_links.py
@@ -607,7 +605,6 @@ test/test_custom_images_stats_response.py
 test/test_custom_images_stats_response_data.py
 test/test_custom_images_stats_response_links.py
 test/test_data_center_response.py
-test/test_datacenter_capabilities.py
 test/test_extra_storage_request.py
 test/test_find_assignment_response.py
 test/test_find_assignment_response_links.py

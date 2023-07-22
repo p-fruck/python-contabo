@@ -64,6 +64,9 @@ class CreateTicketRequest(ModelNormal):
         ('note',): {
             'min_length': 1,
         },
+        ('sender',): {
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -89,6 +92,7 @@ class CreateTicketRequest(ModelNormal):
         return {
             'subject': (str,),  # noqa: E501
             'note': (str,),  # noqa: E501
+            'sender': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +103,7 @@ class CreateTicketRequest(ModelNormal):
     attribute_map = {
         'subject': 'subject',  # noqa: E501
         'note': 'note',  # noqa: E501
+        'sender': 'sender',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,12 +113,13 @@ class CreateTicketRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, subject, note, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, subject, note, sender, *args, **kwargs):  # noqa: E501
         """CreateTicketRequest - a model defined in OpenAPI
 
         Args:
             subject (str): The ticket subject
             note (str): The ticket note
+            sender (str): Customer email
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -179,6 +185,7 @@ class CreateTicketRequest(ModelNormal):
 
         self.subject = subject
         self.note = note
+        self.sender = sender
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,12 +206,13 @@ class CreateTicketRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, subject, note, *args, **kwargs):  # noqa: E501
+    def __init__(self, subject, note, sender, *args, **kwargs):  # noqa: E501
         """CreateTicketRequest - a model defined in OpenAPI
 
         Args:
             subject (str): The ticket subject
             note (str): The ticket note
+            sender (str): Customer email
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -268,6 +276,7 @@ class CreateTicketRequest(ModelNormal):
 
         self.subject = subject
         self.note = note
+        self.sender = sender
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -50,6 +50,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     create_ticket_request = CreateTicketRequest(
         subject="Subject",
         note="Note",
+        sender="your@mail.com",
     ) # CreateTicketRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 

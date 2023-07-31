@@ -72,6 +72,7 @@ class ObjectStorageResponse(ModelNormal):
             'LIMIT_EXCEEDED': "LIMIT_EXCEEDED",
             'VERIFICATION_REQUIRED': "VERIFICATION_REQUIRED",
             'COMPLETED': "COMPLETED",
+            'ORDER_PROCESSING': "ORDER_PROCESSING",
             'PENDING_PAYMENT': "PENDING_PAYMENT",
             'UNKNOWN': "UNKNOWN",
         },

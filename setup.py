@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AddOnQuantityRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnQuantityRequest.md)
  - [AddOnRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnRequest.md)
  - [AddOnResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnResponse.md)
  - [AdditionalIp](https://github.com/p-fruck/python-contabo/blob/main/docs/AdditionalIp.md)

@@ -196,6 +196,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AddOnQuantityRequest](docs/AddOnQuantityRequest.md)
  - [AddOnRequest](docs/AddOnRequest.md)
  - [AddOnResponse](docs/AddOnResponse.md)
  - [AdditionalIp](docs/AdditionalIp.md)

@@ -2,6 +2,7 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/AddOnQuantityRequest.md
 docs/AddOnRequest.md
 docs/AddOnResponse.md
 docs/AdditionalIp.md
@@ -294,6 +295,7 @@ pfruck_contabo/apis/__init__.py
 pfruck_contabo/configuration.py
 pfruck_contabo/exceptions.py
 pfruck_contabo/model/__init__.py
+pfruck_contabo/model/add_on_quantity_request.py
 pfruck_contabo/model/add_on_request.py
 pfruck_contabo/model/add_on_response.py
 pfruck_contabo/model/additional_ip.py
@@ -541,6 +543,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_add_on_quantity_request.py
 test/test_add_on_request.py
 test/test_add_on_response.py
 test/test_additional_ip.py

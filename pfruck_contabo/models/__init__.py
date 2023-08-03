@@ -9,6 +9,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from pfruck_contabo.model.add_on_quantity_request import AddOnQuantityRequest
 from pfruck_contabo.model.add_on_request import AddOnRequest
 from pfruck_contabo.model.add_on_response import AddOnResponse
 from pfruck_contabo.model.additional_ip import AdditionalIp

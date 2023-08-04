@@ -9,6 +9,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from pfruck_contabo.model.add_on_quantity_request import AddOnQuantityRequest
 from pfruck_contabo.model.add_on_request import AddOnRequest
 from pfruck_contabo.model.add_on_response import AddOnResponse
 from pfruck_contabo.model.additional_ip import AdditionalIp
@@ -151,7 +152,6 @@ from pfruck_contabo.model.list_instances_audit_response_links import ListInstanc
 from pfruck_contabo.model.list_instances_response import ListInstancesResponse
 from pfruck_contabo.model.list_instances_response_data import ListInstancesResponseData
 from pfruck_contabo.model.list_instances_response_links import ListInstancesResponseLinks
-from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
 from pfruck_contabo.model.list_object_storage_audit_response import ListObjectStorageAuditResponse
 from pfruck_contabo.model.list_object_storage_audit_response_links import ListObjectStorageAuditResponseLinks
 from pfruck_contabo.model.list_object_storage_response import ListObjectStorageResponse
@@ -181,6 +181,7 @@ from pfruck_contabo.model.list_user_audit_response import ListUserAuditResponse
 from pfruck_contabo.model.list_user_audit_response_links import ListUserAuditResponseLinks
 from pfruck_contabo.model.list_user_response import ListUserResponse
 from pfruck_contabo.model.list_user_response_links import ListUserResponseLinks
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.object_storage_audit_response import ObjectStorageAuditResponse
 from pfruck_contabo.model.object_storage_response import ObjectStorageResponse
 from pfruck_contabo.model.object_storage_response_auto_scaling import ObjectStorageResponseAutoScaling

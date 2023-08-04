@@ -196,6 +196,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AddOnQuantityRequest](docs/AddOnQuantityRequest.md)
  - [AddOnRequest](docs/AddOnRequest.md)
  - [AddOnResponse](docs/AddOnResponse.md)
  - [AdditionalIp](docs/AdditionalIp.md)
@@ -338,7 +339,6 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](docs/ListInstancesResponseLinks.md)
- - [ListInstancesResponsePagination](docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](docs/ListObjectStorageResponse.md)
@@ -368,6 +368,7 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
+ - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
  - [ObjectStorageResponseAutoScaling](docs/ObjectStorageResponseAutoScaling.md)

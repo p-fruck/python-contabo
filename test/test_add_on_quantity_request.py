@@ -12,13 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.tag_response1 import TagResponse1
-globals()['TagResponse1'] = TagResponse1
-from pfruck_contabo.model.list_image_response_data import ListImageResponseData
+from pfruck_contabo.model.add_on_quantity_request import AddOnQuantityRequest
 
 
-class TestListImageResponseData(unittest.TestCase):
-    """ListImageResponseData unit test stubs"""
+class TestAddOnQuantityRequest(unittest.TestCase):
+    """AddOnQuantityRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +24,10 @@ class TestListImageResponseData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListImageResponseData(self):
-        """Test ListImageResponseData"""
+    def testAddOnQuantityRequest(self):
+        """Test AddOnQuantityRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListImageResponseData()  # noqa: E501
+        # model = AddOnQuantityRequest()  # noqa: E501
         pass
 
 

@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AddOnQuantityRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnQuantityRequest.md)
  - [AddOnRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnRequest.md)
  - [AddOnResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AddOnResponse.md)
  - [AdditionalIp](https://github.com/p-fruck/python-contabo/blob/main/docs/AdditionalIp.md)
@@ -377,7 +378,6 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseLinks.md)
- - [ListInstancesResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageResponse.md)
@@ -407,6 +407,7 @@ Class | Method | HTTP request | Description
  - [ListUserAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
+ - [ListUserResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponsePagination.md)
  - [ObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponse.md)
  - [ObjectStorageResponseAutoScaling](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponseAutoScaling.md)

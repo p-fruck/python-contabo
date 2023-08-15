@@ -14,10 +14,10 @@ import unittest
 import pfruck_contabo
 from pfruck_contabo.model.credential_data import CredentialData
 from pfruck_contabo.model.list_credential_response_links import ListCredentialResponseLinks
-from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
+from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 globals()['CredentialData'] = CredentialData
 globals()['ListCredentialResponseLinks'] = ListCredentialResponseLinks
-globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
+globals()['ListUserResponsePagination'] = ListUserResponsePagination
 from pfruck_contabo.model.list_credential_response import ListCredentialResponse
 
 

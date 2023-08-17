@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pagination** | [**ListInstancesResponsePagination**](ListInstancesResponsePagination.md) |  | 
+**pagination** | [**ListUserResponsePagination**](ListUserResponsePagination.md) |  | 
 **data** | [**[RoleResponse]**](RoleResponse.md) |  | 
 **links** | [**ListRoleResponseLinks**](ListRoleResponseLinks.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

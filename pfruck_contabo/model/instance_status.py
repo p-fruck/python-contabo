@@ -59,16 +59,12 @@ class InstanceStatus(ModelSimple):
             'ERROR': "error",
             'INSTALLING': "installing",
             'UNKNOWN': "unknown",
-            'INSTALLED': "installed",
             'MANUAL_PROVISIONING': "manual_provisioning",
             'PRODUCT_NOT_AVAILABLE': "product_not_available",
-            'LIMIT_EXCEEDED': "limit_exceeded",
-            'CANCELLED': "cancelled",
             'VERIFICATION_REQUIRED': "verification_required",
-            'COMPLETED': "completed",
-            'ORDER_PROCESSING': "order_processing",
             'RESCUE': "rescue",
             'PENDING_PAYMENT': "pending_payment",
+            'OTHER': "other",
         },
     }
 
@@ -120,10 +116,10 @@ class InstanceStatus(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "installed", "manual_provisioning", "product_not_available", "limit_exceeded", "cancelled", "verification_required", "completed", "order_processing", "rescue", "pending_payment", ]  # noqa: E501
+            args[0] (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "manual_provisioning", "product_not_available", "verification_required", "rescue", "pending_payment", "other", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "installed", "manual_provisioning", "product_not_available", "limit_exceeded", "cancelled", "verification_required", "completed", "order_processing", "rescue", "pending_payment", ]  # noqa: E501
+            value (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "manual_provisioning", "product_not_available", "verification_required", "rescue", "pending_payment", "other", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -214,10 +210,10 @@ class InstanceStatus(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "installed", "manual_provisioning", "product_not_available", "limit_exceeded", "cancelled", "verification_required", "completed", "order_processing", "rescue", "pending_payment", ]  # noqa: E501
+            args[0] (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "manual_provisioning", "product_not_available", "verification_required", "rescue", "pending_payment", "other", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "installed", "manual_provisioning", "product_not_available", "limit_exceeded", "cancelled", "verification_required", "completed", "order_processing", "rescue", "pending_payment", ]  # noqa: E501
+            value (str):, must be one of ["provisioning", "uninstalled", "running", "stopped", "error", "installing", "unknown", "manual_provisioning", "product_not_available", "verification_required", "rescue", "pending_payment", "other", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

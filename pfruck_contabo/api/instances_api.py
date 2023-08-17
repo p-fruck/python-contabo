@@ -459,8 +459,16 @@ class InstancesApi(object):
 
                         "PROVISIONING": "provisioning",
                         "UNINSTALLED": "uninstalled",
+                        "RUNNING": "running",
+                        "STOPPED": "stopped",
                         "ERROR": "error",
                         "INSTALLING": "installing",
+                        "UNKNOWN": "unknown",
+                        "MANUAL_PROVISIONING": "manual_provisioning",
+                        "PRODUCT_NOT_AVAILABLE": "product_not_available",
+                        "VERIFICATION_REQUIRED": "verification_required",
+                        "RESCUE": "rescue",
+                        "PENDING_PAYMENT": "pending_payment",
                         "OTHER": "other"
                     },
                 },

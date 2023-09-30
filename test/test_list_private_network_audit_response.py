@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
+from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
 from pfruck_contabo.model.list_private_network_audit_response_links import ListPrivateNetworkAuditResponseLinks
-from pfruck_contabo.model.list_user_response_pagination import ListUserResponsePagination
 from pfruck_contabo.model.private_network_audit_response import PrivateNetworkAuditResponse
+globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
 globals()['ListPrivateNetworkAuditResponseLinks'] = ListPrivateNetworkAuditResponseLinks
-globals()['ListUserResponsePagination'] = ListUserResponsePagination
 globals()['PrivateNetworkAuditResponse'] = PrivateNetworkAuditResponse
 from pfruck_contabo.model.list_private_network_audit_response import ListPrivateNetworkAuditResponse
 

@@ -58,9 +58,19 @@ class TagResponse1(ModelNormal):
     }
 
     validations = {
-        ('tag_name',): {
+        ('tenant_id',): {
+            'min_length': 1,
+        },
+        ('customer_id',): {
+            'min_length': 1,
+        },
+        ('name',): {
             'max_length': 255,
             'min_length': 1,
+        },
+        ('color',): {
+            'max_length': 7,
+            'min_length': 4,
         },
     }
 
@@ -85,8 +95,11 @@ class TagResponse1(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'tenant_id': (str,),  # noqa: E501
+            'customer_id': (str,),  # noqa: E501
             'tag_id': (float,),  # noqa: E501
-            'tag_name': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'color': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,8 +108,11 @@ class TagResponse1(ModelNormal):
 
 
     attribute_map = {
+        'tenant_id': 'tenantId',  # noqa: E501
+        'customer_id': 'customerId',  # noqa: E501
         'tag_id': 'tagId',  # noqa: E501
-        'tag_name': 'tagName',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'color': 'color',  # noqa: E501
     }
 
     read_only_vars = {
@@ -106,12 +122,15 @@ class TagResponse1(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tag_id, tag_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, tag_id, name, color, *args, **kwargs):  # noqa: E501
         """TagResponse1 - a model defined in OpenAPI
 
         Args:
+            tenant_id (str): Your customer tenant id
+            customer_id (str): Your customer number
             tag_id (float): Tag's id
-            tag_name (str): Tag's name
+            name (str): Tag's name
+            color (str): Tag's color
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -175,8 +194,11 @@ class TagResponse1(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.tenant_id = tenant_id
+        self.customer_id = customer_id
         self.tag_id = tag_id
-        self.tag_name = tag_name
+        self.name = name
+        self.color = color
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,12 +219,15 @@ class TagResponse1(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tag_id, tag_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, tag_id, name, color, *args, **kwargs):  # noqa: E501
         """TagResponse1 - a model defined in OpenAPI
 
         Args:
+            tenant_id (str): Your customer tenant id
+            customer_id (str): Your customer number
             tag_id (float): Tag's id
-            tag_name (str): Tag's name
+            name (str): Tag's name
+            color (str): Tag's color
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -264,8 +289,11 @@ class TagResponse1(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.tenant_id = tenant_id
+        self.customer_id = customer_id
         self.tag_id = tag_id
-        self.tag_name = tag_name
+        self.name = name
+        self.color = color
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

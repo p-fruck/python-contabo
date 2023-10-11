@@ -31,19 +31,19 @@ jobs:
         run: make
 
       - name: "Commit and publish the changes"
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "nightly API update"
           committer: "GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>"
           branch: nightly
           delete-branch: true
           base: main
-          title: "Automatic API-Update"
+          title: "API-Update: <nightly>"
           body: |
             Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
 
             Make sure to review the changes before approving and merging. Provide a small summary of the given changes.
-          labels: "auto-update,need review"
+          labels: "auto-update"
           assignees: p-fruck
           reviewers: p-fruck
           draft: true

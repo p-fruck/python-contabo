@@ -1,6 +1,7 @@
 name: Auto update
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   schedule:
@@ -32,13 +33,12 @@ jobs:
       - name: "Commit and publish the changes"
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: "update to latest API spec"
+          commit-message: "nightly API update"
           committer: "GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>"
-          branch: actions/auto-update
+          branch: nightly
           delete-branch: true
-          branch-suffix: timestamp
           base: main
-          title: "API-Update: <Short description goes here>"
+          title: "Automatic API-Update"
           body: |
             Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
 
@@ -46,3 +46,4 @@ jobs:
           labels: "auto-update,need review"
           assignees: p-fruck
           reviewers: p-fruck
+          draft: true

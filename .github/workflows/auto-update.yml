@@ -34,7 +34,8 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "nightly API update"
-          committer: "GitHub Actions <41898282+github-actions[bot]@users.noreply.github.com>"
+          committer: "Philipp Fruck <p-fruck@users.noreply.github.com>"
+          author: "Philipp Fruck <p-fruck@users.noreply.github.com>"
           branch: nightly
           delete-branch: true
           base: main

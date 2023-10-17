@@ -7,6 +7,12 @@ docs/AddOnRequest.md
 docs/AddOnResponse.md
 docs/AdditionalIp.md
 docs/ApiPermissionsResponse.md
+docs/ApplicationConfig.md
+docs/ApplicationRequirements.md
+docs/ApplicationRequirementsMinimum.md
+docs/ApplicationRequirementsOptimal.md
+docs/ApplicationResponse.md
+docs/ApplicationResponseRequirements.md
 docs/AssignInstancePrivateNetworkResponse.md
 docs/AssignInstancePrivateNetworkResponseLinks.md
 docs/AssignmentAuditResponse.md
@@ -134,6 +140,8 @@ docs/IpV6.md
 docs/Links.md
 docs/ListApiPermissionResponse.md
 docs/ListApiPermissionResponseLinks.md
+docs/ListApplicationsResponse.md
+docs/ListApplicationsResponseLinks.md
 docs/ListAssignmentAuditsResponse.md
 docs/ListAssignmentAuditsResponseLinks.md
 docs/ListAssignmentResponse.md
@@ -182,6 +190,7 @@ docs/ListUserAuditResponseLinks.md
 docs/ListUserResponse.md
 docs/ListUserResponseLinks.md
 docs/ListUserResponsePagination.md
+docs/MinimumRequirements.md
 docs/ObjectStorageAuditResponse.md
 docs/ObjectStorageResponse.md
 docs/ObjectStorageResponseAutoScaling.md
@@ -190,6 +199,7 @@ docs/ObjectStoragesAuditsApi.md
 docs/ObjectStoragesStatsResponse.md
 docs/ObjectStoragesStatsResponseData.md
 docs/ObjectStoragesStatsResponseLinks.md
+docs/OptimalRequirements.md
 docs/PaginationMeta.md
 docs/PatchInstanceRequest.md
 docs/PatchInstanceResponse.md
@@ -300,6 +310,12 @@ pfruck_contabo/model/add_on_request.py
 pfruck_contabo/model/add_on_response.py
 pfruck_contabo/model/additional_ip.py
 pfruck_contabo/model/api_permissions_response.py
+pfruck_contabo/model/application_config.py
+pfruck_contabo/model/application_requirements.py
+pfruck_contabo/model/application_requirements_minimum.py
+pfruck_contabo/model/application_requirements_optimal.py
+pfruck_contabo/model/application_response.py
+pfruck_contabo/model/application_response_requirements.py
 pfruck_contabo/model/assign_instance_private_network_response.py
 pfruck_contabo/model/assign_instance_private_network_response_links.py
 pfruck_contabo/model/assignment_audit_response.py
@@ -420,6 +436,8 @@ pfruck_contabo/model/ip_v6.py
 pfruck_contabo/model/links.py
 pfruck_contabo/model/list_api_permission_response.py
 pfruck_contabo/model/list_api_permission_response_links.py
+pfruck_contabo/model/list_applications_response.py
+pfruck_contabo/model/list_applications_response_links.py
 pfruck_contabo/model/list_assignment_audits_response.py
 pfruck_contabo/model/list_assignment_audits_response_links.py
 pfruck_contabo/model/list_assignment_response.py
@@ -468,12 +486,14 @@ pfruck_contabo/model/list_user_audit_response_links.py
 pfruck_contabo/model/list_user_response.py
 pfruck_contabo/model/list_user_response_links.py
 pfruck_contabo/model/list_user_response_pagination.py
+pfruck_contabo/model/minimum_requirements.py
 pfruck_contabo/model/object_storage_audit_response.py
 pfruck_contabo/model/object_storage_response.py
 pfruck_contabo/model/object_storage_response_auto_scaling.py
 pfruck_contabo/model/object_storages_stats_response.py
 pfruck_contabo/model/object_storages_stats_response_data.py
 pfruck_contabo/model/object_storages_stats_response_links.py
+pfruck_contabo/model/optimal_requirements.py
 pfruck_contabo/model/pagination_meta.py
 pfruck_contabo/model/patch_instance_request.py
 pfruck_contabo/model/patch_instance_response.py
@@ -548,6 +568,12 @@ test/test_add_on_request.py
 test/test_add_on_response.py
 test/test_additional_ip.py
 test/test_api_permissions_response.py
+test/test_application_config.py
+test/test_application_requirements.py
+test/test_application_requirements_minimum.py
+test/test_application_requirements_optimal.py
+test/test_application_response.py
+test/test_application_response_requirements.py
 test/test_assign_instance_private_network_response.py
 test/test_assign_instance_private_network_response_links.py
 test/test_assignment_audit_response.py
@@ -675,6 +701,8 @@ test/test_ip_v6.py
 test/test_links.py
 test/test_list_api_permission_response.py
 test/test_list_api_permission_response_links.py
+test/test_list_applications_response.py
+test/test_list_applications_response_links.py
 test/test_list_assignment_audits_response.py
 test/test_list_assignment_audits_response_links.py
 test/test_list_assignment_response.py
@@ -723,6 +751,7 @@ test/test_list_user_audit_response_links.py
 test/test_list_user_response.py
 test/test_list_user_response_links.py
 test/test_list_user_response_pagination.py
+test/test_minimum_requirements.py
 test/test_object_storage_audit_response.py
 test/test_object_storage_response.py
 test/test_object_storage_response_auto_scaling.py
@@ -731,6 +760,7 @@ test/test_object_storages_audits_api.py
 test/test_object_storages_stats_response.py
 test/test_object_storages_stats_response_data.py
 test/test_object_storages_stats_response_links.py
+test/test_optimal_requirements.py
 test/test_pagination_meta.py
 test/test_patch_instance_request.py
 test/test_patch_instance_response.py

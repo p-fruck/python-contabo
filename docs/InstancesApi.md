@@ -160,6 +160,7 @@ chpasswd:
         display_name="VPS",
         default_user="root",
         add_ons=CreateInstanceRequestAddOns(None),
+        application_id="3f184ab8-a600-4e7c-8c9b-3413e21a3752",
     ) # CreateInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 
@@ -360,6 +361,7 @@ timezone: Europe/Berlin
 chpasswd:
  expire: False''',
         default_user="root",
+        application_id="3f184ab8-a600-4e7c-8c9b-3413e21a3752",
     ) # ReinstallInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 

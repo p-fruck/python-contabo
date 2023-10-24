@@ -149,6 +149,7 @@ class CreateInstanceRequest(ModelNormal):
             'display_name': (str,),  # noqa: E501
             'default_user': (str,),  # noqa: E501
             'add_ons': (CreateInstanceRequestAddOns,),  # noqa: E501
+            'application_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -168,6 +169,7 @@ class CreateInstanceRequest(ModelNormal):
         'display_name': 'displayName',  # noqa: E501
         'default_user': 'defaultUser',  # noqa: E501
         'add_ons': 'addOns',  # noqa: E501
+        'application_id': 'applicationId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -224,6 +226,7 @@ class CreateInstanceRequest(ModelNormal):
             display_name (str): The display name of the instance. [optional]  # noqa: E501
             default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.. [optional] if omitted the server will use the default value of "admin"  # noqa: E501
             add_ons (CreateInstanceRequestAddOns): [optional]  # noqa: E501
+            application_id (str): Application ID. [optional]  # noqa: E501
         """
 
         product_id = kwargs.get('product_id', "V1")
@@ -326,6 +329,7 @@ class CreateInstanceRequest(ModelNormal):
             display_name (str): The display name of the instance. [optional]  # noqa: E501
             default_user (str): Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.. [optional] if omitted the server will use the default value of "admin"  # noqa: E501
             add_ons (CreateInstanceRequestAddOns): [optional]  # noqa: E501
+            application_id (str): Application ID. [optional]  # noqa: E501
         """
 
         product_id = kwargs.get('product_id', "V1")

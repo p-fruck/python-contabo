@@ -145,6 +145,7 @@ class ListInstancesResponseData(ModelNormal):
             'v_host_id': (int,),  # noqa: E501
             'add_ons': ([AddOnResponse],),  # noqa: E501
             'product_type': (str,),  # noqa: E501
+            'product_name': (str,),  # noqa: E501
             'error_message': (str,),  # noqa: E501
             'default_user': (str,),  # noqa: E501
         }
@@ -179,6 +180,7 @@ class ListInstancesResponseData(ModelNormal):
         'v_host_id': 'vHostId',  # noqa: E501
         'add_ons': 'addOns',  # noqa: E501
         'product_type': 'productType',  # noqa: E501
+        'product_name': 'productName',  # noqa: E501
         'error_message': 'errorMessage',  # noqa: E501
         'default_user': 'defaultUser',  # noqa: E501
     }
@@ -190,7 +192,7 @@ class ListInstancesResponseData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, product_name, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -218,6 +220,7 @@ class ListInstancesResponseData(ModelNormal):
             v_host_id (int): ID of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
+            product_name (str): Instance's Product Name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -307,6 +310,7 @@ class ListInstancesResponseData(ModelNormal):
         self.v_host_id = v_host_id
         self.add_ons = add_ons
         self.product_type = product_type
+        self.product_name = product_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -327,7 +331,7 @@ class ListInstancesResponseData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, product_name, *args, **kwargs):  # noqa: E501
         """ListInstancesResponseData - a model defined in OpenAPI
 
         Args:
@@ -355,6 +359,7 @@ class ListInstancesResponseData(ModelNormal):
             v_host_id (int): ID of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
+            product_name (str): Instance's Product Name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -442,6 +447,7 @@ class ListInstancesResponseData(ModelNormal):
         self.v_host_id = v_host_id
         self.add_ons = add_ons
         self.product_type = product_type
+        self.product_name = product_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

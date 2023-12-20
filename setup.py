@@ -218,6 +218,8 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**retrieve_tag_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagsApi.md#retrieve_tag_list) | **GET** /v1/tags | List tags
 *TagsApi* | [**update_tag**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagsApi.md#update_tag) | **PATCH** /v1/tags/{tagId} | Update specific tag by id
 *TagsAuditsApi* | [**retrieve_tag_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagsAuditsApi.md#retrieve_tag_audits_list) | **GET** /v1/tags/audits | List history about your assignments (audit)
+*TicketsApi* | [**create_support_ticket**](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketsApi.md#create_support_ticket) | **POST** /v1/tickets | Create a new support ticket
+*TicketsApi* | [**retrieve_ticket_metadata**](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketsApi.md#retrieve_ticket_metadata) | **GET** /v1/tickets/metadata | Retrieve ticket metadata
 *UsersApi* | [**create_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
@@ -386,6 +388,7 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponseLinks.md)
+ - [ListInstancesResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListObjectStorageResponse.md)
@@ -411,11 +414,13 @@ Class | Method | HTTP request | Description
  - [ListTagAuditsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagResponse.md)
  - [ListTagResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagResponseLinks.md)
+ - [ListTicketMetadataResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTicketMetadataResponse.md)
+ - [ListTicketMetadataResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTicketMetadataResponseLinks.md)
  - [ListUserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponse.md)
  - [ListUserAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponsePagination.md)
+ - [MetadataType](https://github.com/p-fruck/python-contabo/blob/main/docs/MetadataType.md)
  - [MinimumRequirements](https://github.com/p-fruck/python-contabo/blob/main/docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponse.md)
@@ -455,6 +460,10 @@ Class | Method | HTTP request | Description
  - [TagAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAuditResponse.md)
  - [TagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse.md)
  - [TagResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse1.md)
+ - [TicketCreateRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketCreateRequest.md)
+ - [TicketCreateResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketCreateResponse.md)
+ - [TicketCreateResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketCreateResponseLinks.md)
+ - [TicketResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketResponse.md)
  - [UnassignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponse.md)

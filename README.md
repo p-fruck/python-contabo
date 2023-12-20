@@ -179,6 +179,8 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**retrieve_tag_list**](docs/TagsApi.md#retrieve_tag_list) | **GET** /v1/tags | List tags
 *TagsApi* | [**update_tag**](docs/TagsApi.md#update_tag) | **PATCH** /v1/tags/{tagId} | Update specific tag by id
 *TagsAuditsApi* | [**retrieve_tag_audits_list**](docs/TagsAuditsApi.md#retrieve_tag_audits_list) | **GET** /v1/tags/audits | List history about your assignments (audit)
+*TicketsApi* | [**create_support_ticket**](docs/TicketsApi.md#create_support_ticket) | **POST** /v1/tickets | Create a new support ticket
+*TicketsApi* | [**retrieve_ticket_metadata**](docs/TicketsApi.md#retrieve_ticket_metadata) | **GET** /v1/tickets/metadata | Retrieve ticket metadata
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
@@ -347,6 +349,7 @@ Class | Method | HTTP request | Description
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](docs/ListInstancesResponseData.md)
  - [ListInstancesResponseLinks](docs/ListInstancesResponseLinks.md)
+ - [ListInstancesResponsePagination](docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](docs/ListObjectStorageAuditResponse.md)
  - [ListObjectStorageAuditResponseLinks](docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](docs/ListObjectStorageResponse.md)
@@ -372,11 +375,13 @@ Class | Method | HTTP request | Description
  - [ListTagAuditsResponseLinks](docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](docs/ListTagResponse.md)
  - [ListTagResponseLinks](docs/ListTagResponseLinks.md)
+ - [ListTicketMetadataResponse](docs/ListTicketMetadataResponse.md)
+ - [ListTicketMetadataResponseLinks](docs/ListTicketMetadataResponseLinks.md)
  - [ListUserAuditResponse](docs/ListUserAuditResponse.md)
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
- - [ListUserResponsePagination](docs/ListUserResponsePagination.md)
+ - [MetadataType](docs/MetadataType.md)
  - [MinimumRequirements](docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
@@ -416,6 +421,10 @@ Class | Method | HTTP request | Description
  - [TagAuditResponse](docs/TagAuditResponse.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagResponse1](docs/TagResponse1.md)
+ - [TicketCreateRequest](docs/TicketCreateRequest.md)
+ - [TicketCreateResponse](docs/TicketCreateResponse.md)
+ - [TicketCreateResponseLinks](docs/TicketCreateResponseLinks.md)
+ - [TicketResponse](docs/TicketResponse.md)
  - [UnassignInstancePrivateNetworkResponse](docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)

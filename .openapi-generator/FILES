@@ -160,7 +160,6 @@ docs/ListInstancesAuditResponseLinks.md
 docs/ListInstancesResponse.md
 docs/ListInstancesResponseData.md
 docs/ListInstancesResponseLinks.md
-docs/ListInstancesResponsePagination.md
 docs/ListObjectStorageAuditResponse.md
 docs/ListObjectStorageAuditResponseLinks.md
 docs/ListObjectStorageResponse.md
@@ -192,6 +191,7 @@ docs/ListUserAuditResponse.md
 docs/ListUserAuditResponseLinks.md
 docs/ListUserResponse.md
 docs/ListUserResponseLinks.md
+docs/ListUserResponsePagination.md
 docs/MetadataType.md
 docs/MinimumRequirements.md
 docs/ObjectStorageAuditResponse.md
@@ -465,7 +465,6 @@ pfruck_contabo/model/list_instances_audit_response_links.py
 pfruck_contabo/model/list_instances_response.py
 pfruck_contabo/model/list_instances_response_data.py
 pfruck_contabo/model/list_instances_response_links.py
-pfruck_contabo/model/list_instances_response_pagination.py
 pfruck_contabo/model/list_object_storage_audit_response.py
 pfruck_contabo/model/list_object_storage_audit_response_links.py
 pfruck_contabo/model/list_object_storage_response.py
@@ -497,6 +496,7 @@ pfruck_contabo/model/list_user_audit_response.py
 pfruck_contabo/model/list_user_audit_response_links.py
 pfruck_contabo/model/list_user_response.py
 pfruck_contabo/model/list_user_response_links.py
+pfruck_contabo/model/list_user_response_pagination.py
 pfruck_contabo/model/metadata_type.py
 pfruck_contabo/model/minimum_requirements.py
 pfruck_contabo/model/object_storage_audit_response.py
@@ -737,7 +737,6 @@ test/test_list_instances_audit_response_links.py
 test/test_list_instances_response.py
 test/test_list_instances_response_data.py
 test/test_list_instances_response_links.py
-test/test_list_instances_response_pagination.py
 test/test_list_object_storage_audit_response.py
 test/test_list_object_storage_audit_response_links.py
 test/test_list_object_storage_response.py
@@ -769,6 +768,7 @@ test/test_list_user_audit_response.py
 test/test_list_user_audit_response_links.py
 test/test_list_user_response.py
 test/test_list_user_response_links.py
+test/test_list_user_response_pagination.py
 test/test_metadata_type.py
 test/test_minimum_requirements.py
 test/test_object_storage_audit_response.py

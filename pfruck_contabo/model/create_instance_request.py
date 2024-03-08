@@ -138,9 +138,9 @@ class CreateInstanceRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'product_id': (str,),  # noqa: E501
             'period': (int,),  # noqa: E501
             'image_id': (str,),  # noqa: E501
+            'product_id': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'ssh_keys': ([int],),  # noqa: E501
             'root_password': (int,),  # noqa: E501
@@ -158,9 +158,9 @@ class CreateInstanceRequest(ModelNormal):
 
 
     attribute_map = {
-        'product_id': 'productId',  # noqa: E501
         'period': 'period',  # noqa: E501
         'image_id': 'imageId',  # noqa: E501
+        'product_id': 'productId',  # noqa: E501
         'region': 'region',  # noqa: E501
         'ssh_keys': 'sshKeys',  # noqa: E501
         'root_password': 'rootPassword',  # noqa: E501
@@ -185,7 +185,6 @@ class CreateInstanceRequest(ModelNormal):
         Args:
 
         Keyword Args:
-            product_id (str): Default is V1. defaults to "V1"  # noqa: E501
             period (int): Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month. defaults to 1  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -218,6 +217,7 @@ class CreateInstanceRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 22.04. [optional] if omitted the server will use the default value of "afecbb85-e2fc-46f0-9684-b46b1faf00bb"  # noqa: E501
+            product_id (str): Default is V45. [optional] if omitted the server will use the default value of "V45"  # noqa: E501
             region (str): Instance Region where the compute instance should be located. Default is EU. [optional] if omitted the server will use the default value of "EU"  # noqa: E501
             ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
             root_password (int): `secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
@@ -229,7 +229,6 @@ class CreateInstanceRequest(ModelNormal):
             application_id (str): Application ID. [optional]  # noqa: E501
         """
 
-        product_id = kwargs.get('product_id', "V1")
         period = kwargs.get('period', 1)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', True)
@@ -260,7 +259,6 @@ class CreateInstanceRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.product_id = product_id
         self.period = period
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -288,7 +286,6 @@ class CreateInstanceRequest(ModelNormal):
         Args:
 
         Keyword Args:
-            product_id (str): Default is V1. defaults to "V1"  # noqa: E501
             period (int): Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month. defaults to 1  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -321,6 +318,7 @@ class CreateInstanceRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             image_id (str): ImageId to be used to setup the compute instance. Default is Ubuntu 22.04. [optional] if omitted the server will use the default value of "afecbb85-e2fc-46f0-9684-b46b1faf00bb"  # noqa: E501
+            product_id (str): Default is V45. [optional] if omitted the server will use the default value of "V45"  # noqa: E501
             region (str): Instance Region where the compute instance should be located. Default is EU. [optional] if omitted the server will use the default value of "EU"  # noqa: E501
             ssh_keys ([int]): Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.. [optional]  # noqa: E501
             root_password (int): `secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.. [optional]  # noqa: E501
@@ -332,7 +330,6 @@ class CreateInstanceRequest(ModelNormal):
             application_id (str): Application ID. [optional]  # noqa: E501
         """
 
-        product_id = kwargs.get('product_id', "V1")
         period = kwargs.get('period', 1)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -361,7 +358,6 @@ class CreateInstanceRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.product_id = product_id
         self.period = period
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

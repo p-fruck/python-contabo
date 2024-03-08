@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **cancel_date** | **date** | The date on which the instance will be cancelled | 
 **status** | [**InstanceStatus**](InstanceStatus.md) |  | 
 **v_host_id** | **int** | ID of host system | 
+**v_host_number** | **int** | Number of host system | 
+**v_host_name** | **str** | Name of host system | 
 **add_ons** | [**[AddOnResponse]**](AddOnResponse.md) |  | 
 **product_type** | **str** | Instance&#39;s category depending on Product Id | 
 **product_name** | **str** | Instance&#39;s Product Name | 

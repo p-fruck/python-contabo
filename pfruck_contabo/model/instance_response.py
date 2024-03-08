@@ -143,6 +143,8 @@ class InstanceResponse(ModelNormal):
             'cancel_date': (date,),  # noqa: E501
             'status': (InstanceStatus,),  # noqa: E501
             'v_host_id': (int,),  # noqa: E501
+            'v_host_number': (int,),  # noqa: E501
+            'v_host_name': (str,),  # noqa: E501
             'add_ons': ([AddOnResponse],),  # noqa: E501
             'product_type': (str,),  # noqa: E501
             'product_name': (str,),  # noqa: E501
@@ -178,6 +180,8 @@ class InstanceResponse(ModelNormal):
         'cancel_date': 'cancelDate',  # noqa: E501
         'status': 'status',  # noqa: E501
         'v_host_id': 'vHostId',  # noqa: E501
+        'v_host_number': 'vHostNumber',  # noqa: E501
+        'v_host_name': 'vHostName',  # noqa: E501
         'add_ons': 'addOns',  # noqa: E501
         'product_type': 'productType',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
@@ -192,7 +196,7 @@ class InstanceResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, product_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, v_host_number, v_host_name, add_ons, product_type, product_name, *args, **kwargs):  # noqa: E501
         """InstanceResponse - a model defined in OpenAPI
 
         Args:
@@ -218,6 +222,8 @@ class InstanceResponse(ModelNormal):
             cancel_date (date): The date on which the instance will be cancelled
             status (InstanceStatus):
             v_host_id (int): ID of host system
+            v_host_number (int): Number of host system
+            v_host_name (str): Name of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
             product_name (str): Instance's Product Name
@@ -308,6 +314,8 @@ class InstanceResponse(ModelNormal):
         self.cancel_date = cancel_date
         self.status = status
         self.v_host_id = v_host_id
+        self.v_host_number = v_host_number
+        self.v_host_name = v_host_name
         self.add_ons = add_ons
         self.product_type = product_type
         self.product_name = product_name
@@ -331,7 +339,7 @@ class InstanceResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, add_ons, product_type, product_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, tenant_id, customer_id, additional_ips, name, display_name, instance_id, data_center, region, region_name, product_id, image_id, ip_config, mac_address, ram_mb, cpu_cores, os_type, disk_mb, ssh_keys, created_date, cancel_date, status, v_host_id, v_host_number, v_host_name, add_ons, product_type, product_name, *args, **kwargs):  # noqa: E501
         """InstanceResponse - a model defined in OpenAPI
 
         Args:
@@ -357,6 +365,8 @@ class InstanceResponse(ModelNormal):
             cancel_date (date): The date on which the instance will be cancelled
             status (InstanceStatus):
             v_host_id (int): ID of host system
+            v_host_number (int): Number of host system
+            v_host_name (str): Name of host system
             add_ons ([AddOnResponse]):
             product_type (str): Instance's category depending on Product Id
             product_name (str): Instance's Product Name
@@ -445,6 +455,8 @@ class InstanceResponse(ModelNormal):
         self.cancel_date = cancel_date
         self.status = status
         self.v_host_id = v_host_id
+        self.v_host_number = v_host_number
+        self.v_host_name = v_host_name
         self.add_ons = add_ons
         self.product_type = product_type
         self.product_name = product_name

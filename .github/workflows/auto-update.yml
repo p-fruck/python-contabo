@@ -31,7 +31,7 @@ jobs:
         run: make
 
       - name: "Commit and publish the changes"
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "nightly API update"
           committer: "Philipp Fruck <p-fruck@users.noreply.github.com>"

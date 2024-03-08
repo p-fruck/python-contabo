@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**product_id** | **str** | Default is V1 | defaults to "V1"
 **period** | **int** | Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month | defaults to 1
 **image_id** | **str** | ImageId to be used to setup the compute instance. Default is Ubuntu 22.04 | [optional]  if omitted the server will use the default value of "afecbb85-e2fc-46f0-9684-b46b1faf00bb"
+**product_id** | **str** | Default is V45 | [optional]  if omitted the server will use the default value of "V45"
 **region** | **str** | Instance Region where the compute instance should be located. Default is EU | [optional]  if omitted the server will use the default value of "EU"
 **ssh_keys** | **[int]** | Array of &#x60;secretId&#x60;s of public SSH keys for logging into as &#x60;defaultUser&#x60; with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API. | [optional] 
 **root_password** | **int** | &#x60;secretId&#x60; of the password for the &#x60;defaultUser&#x60; with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API. | [optional] 

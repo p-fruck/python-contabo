@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 Create a new instance
 
-Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V1</td><td>VPS S SSD</td><td>200 GB SSD</td></tr>           <tr><td>V35</td><td>VPS S Storage</td><td>400 GB SSD</td></tr>           <tr><td>V12</td><td>VPS S NVMe</td><td>50 GB NVMe</td></tr>           <tr><td>V2</td><td>VPS M SSD</td><td>400 GB SSD</td></tr>           <tr><td>V36</td><td>VPS M Storage</td><td>800 GB SSD</td></tr>           <tr><td>V13</td><td>VPS M NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V3</td><td>VPS L SSD</td><td>800 GB SSD</td></tr>           <tr><td>V37</td><td>VPS L Storage</td><td>1600 GB SSD</td></tr>           <tr><td>V14</td><td>VPS L NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V4</td><td>VPS XL SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V38</td><td>VPS XL Storage</td><td>3200 GB SSD</td></tr>           <tr><td>V15</td><td>VPS XL NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V42</td><td>VPS XXXL SSD</td><td>2400 GB SSD</td></tr>           <tr><td>V44</td><td>VPS XXXL Storage</td><td>4800 GB SSD</td></tr>           <tr><td>V43</td><td>VPS XXXL NVMe</td><td>600 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
+Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V45</td><td>VPS 1 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V47</td><td>VPS 1 Storage</td><td>800 GB SSD</td></tr>           <tr><td>V46</td><td>VPS 1 NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V48</td><td>VPS 2 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V50</td><td>VPS 2 Storage</td><td>800 GB SSD</td></tr>          <tr><td>V49</td><td>VPS 2 NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V51</td><td>VPS 3 SSD</td><td>1200 GB SSD</td></tr>           <tr><td>V53</td><td>VPS 3 Storage</td><td>2400 GB SSD</td></tr>          <tr><td>V52</td><td>VPS 3 NVMe</td><td>300 GB NVMe</td></tr>           <tr><td>V54</td><td>VPS 4 SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V56</td><td>VPS 4 Storage</td><td>3200 GB SSD</td></tr>          <tr><td>V55</td><td>VPS 4 NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V57</td><td>VPS 5 SSD</td><td>2000 GB SSD</td></tr>           <tr><td>V59</td><td>VPS 5 Storage</td><td>4000 GB SSD</td></tr>           <tr><td>V58</td><td>VPS 5 NVMe</td><td>500 GB NVMe</td></tr>           <tr><td>V60</td><td>VPS 6 SSD</td><td>2400 GB SSD</td></tr>           <tr><td>V62</td><td>VPS 6 Storage</td><td>4800 GB SSD</td></tr>           <tr><td>V61</td><td>VPS 6 NVMe</td><td>600 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
 
 ### Example
 
@@ -144,7 +144,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     create_instance_request = CreateInstanceRequest(
         image_id="3f184ab8-a600-4e7c-8c9b-3413e21a3752",
-        product_id="V3",
+        product_id="V45",
         region="EU",
         ssh_keys=[
             [123, 125],
@@ -255,7 +255,6 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     instance_id = 12345 # int | The identifier of the instance
     patch_instance_request = PatchInstanceRequest(
         display_name="VPS",
-        vnc_enabled=True,
     ) # PatchInstanceRequest | 
     x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
 

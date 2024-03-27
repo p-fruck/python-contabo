@@ -31,9 +31,9 @@ from pfruck_contabo.exceptions import ApiAttributeError
 
 def lazy_import():
     from pfruck_contabo.model.create_tag_response_links import CreateTagResponseLinks
-    from pfruck_contabo.model.tag_response1 import TagResponse1
+    from pfruck_contabo.model.tag_response import TagResponse
     globals()['CreateTagResponseLinks'] = CreateTagResponseLinks
-    globals()['TagResponse1'] = TagResponse1
+    globals()['TagResponse'] = TagResponse
 
 
 class FindTagResponse(ModelNormal):
@@ -89,7 +89,7 @@ class FindTagResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([TagResponse1],),  # noqa: E501
+            'data': ([TagResponse],),  # noqa: E501
             'links': (CreateTagResponseLinks,),  # noqa: E501
         }
 
@@ -114,7 +114,7 @@ class FindTagResponse(ModelNormal):
         """FindTagResponse - a model defined in OpenAPI
 
         Args:
-            data ([TagResponse1]):
+            data ([TagResponse]):
             links (CreateTagResponseLinks):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class FindTagResponse(ModelNormal):
         """FindTagResponse - a model defined in OpenAPI
 
         Args:
-            data ([TagResponse1]):
+            data ([TagResponse]):
             links (CreateTagResponseLinks):
 
         Keyword Args:

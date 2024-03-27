@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **float** | The identifier of the audit entry. | 
 **resource_id** | **str** | Resource&#39;s id | 
 **resource_type** | **str** | Resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | 
-**tag_id** | **float** | Tag&#39;s id | 
+**tag_id** | **int** | Tag&#39;s id | 
 **action** | **str** | Audit Action | 
 **timestamp** | **datetime** | Audit creation date | 
 **changed_by** | **str** | User ID | 

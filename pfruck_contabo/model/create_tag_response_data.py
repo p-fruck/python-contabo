@@ -89,7 +89,7 @@ class CreateTagResponseData(ModelNormal):
         return {
             'tenant_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
-            'tag_id': (float,),  # noqa: E501
+            'tag_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -116,7 +116,7 @@ class CreateTagResponseData(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            tag_id (float): Tag's id
+            tag_id (int): Tag's id
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -209,7 +209,7 @@ class CreateTagResponseData(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            tag_id (float): Tag's id
+            tag_id (int): Tag's id
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

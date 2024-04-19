@@ -661,9 +661,9 @@ class InstanceActionsApi(object):
         instance_id,
         **kwargs
     ):
-        """Retrieve a list of your custom images history.  # noqa: E501
+        """Restart a compute instance / resource identified by its id.  # noqa: E501
 
-        List of your custom images history, with the ability to apply filters.  # noqa: E501
+        To restart a compute instance that has been identified by its id, you should perform a restart action on it.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

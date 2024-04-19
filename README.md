@@ -116,7 +116,7 @@ Class | Method | HTTP request | Description
 *ImagesAuditsApi* | [**retrieve_image_audits_list**](docs/ImagesAuditsApi.md#retrieve_image_audits_list) | **GET** /v1/compute/images/audits | List history about your custom images (audit)
 *InstanceActionsApi* | [**rescue**](docs/InstanceActionsApi.md#rescue) | **POST** /v1/compute/instances/{instanceId}/actions/rescue | Rescue a compute instance / resource identified by its id
 *InstanceActionsApi* | [**reset_password_action**](docs/InstanceActionsApi.md#reset_password_action) | **POST** /v1/compute/instances/{instanceId}/actions/resetPassword | Reset password for a compute instance / resource referenced by an id
-*InstanceActionsApi* | [**restart**](docs/InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Retrieve a list of your custom images history.
+*InstanceActionsApi* | [**restart**](docs/InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Restart a compute instance / resource identified by its id.
 *InstanceActionsApi* | [**shutdown**](docs/InstanceActionsApi.md#shutdown) | **POST** /v1/compute/instances/{instanceId}/actions/shutdown | Shutdown compute instance / resource by its id
 *InstanceActionsApi* | [**start**](docs/InstanceActionsApi.md#start) | **POST** /v1/compute/instances/{instanceId}/actions/start | Start a compute instance / resource identified by its id
 *InstanceActionsApi* | [**stop**](docs/InstanceActionsApi.md#stop) | **POST** /v1/compute/instances/{instanceId}/actions/stop | Stop compute instance / resource by its id
@@ -128,7 +128,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**retrieve_instance**](docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
 *InstancesApi* | [**upgrade_instance**](docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrading instance capabilities
-*InstancesAuditsApi* | [**retrieve_instances_audits_list**](docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your custom images (audit)
+*InstancesAuditsApi* | [**retrieve_instances_audits_list**](docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit)
 *InternalApi* | [**create_ticket**](docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
 *InternalApi* | [**retrieve_user_is_password_set**](docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
 *ObjectStoragesApi* | [**cancel_object_storage**](docs/ObjectStoragesApi.md#cancel_object_storage) | **PATCH** /v1/object-storages/{objectStorageId}/cancel | Cancels the specified object storage at the next possible date
@@ -179,8 +179,6 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**retrieve_tag_list**](docs/TagsApi.md#retrieve_tag_list) | **GET** /v1/tags | List tags
 *TagsApi* | [**update_tag**](docs/TagsApi.md#update_tag) | **PATCH** /v1/tags/{tagId} | Update specific tag by id
 *TagsAuditsApi* | [**retrieve_tag_audits_list**](docs/TagsAuditsApi.md#retrieve_tag_audits_list) | **GET** /v1/tags/audits | List history about your assignments (audit)
-*TicketsApi* | [**create_support_ticket**](docs/TicketsApi.md#create_support_ticket) | **POST** /v1/tickets | Create a new support ticket
-*TicketsApi* | [**retrieve_ticket_metadata**](docs/TicketsApi.md#retrieve_ticket_metadata) | **GET** /v1/tickets/metadata | Retrieve ticket metadata
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
@@ -211,6 +209,7 @@ Class | Method | HTTP request | Description
  - [ApplicationResponseRequirements](docs/ApplicationResponseRequirements.md)
  - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](docs/AssignInstancePrivateNetworkResponseLinks.md)
+ - [AssignedTagResponse](docs/AssignedTagResponse.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
  - [AutoScalingTypeRequest](docs/AutoScalingTypeRequest.md)
@@ -375,13 +374,10 @@ Class | Method | HTTP request | Description
  - [ListTagAuditsResponseLinks](docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](docs/ListTagResponse.md)
  - [ListTagResponseLinks](docs/ListTagResponseLinks.md)
- - [ListTicketMetadataResponse](docs/ListTicketMetadataResponse.md)
- - [ListTicketMetadataResponseLinks](docs/ListTicketMetadataResponseLinks.md)
  - [ListUserAuditResponse](docs/ListUserAuditResponse.md)
  - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
  - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
- - [MetadataType](docs/MetadataType.md)
  - [MinimumRequirements](docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
@@ -420,11 +416,6 @@ Class | Method | HTTP request | Description
  - [TagAssignmentSelfLinks](docs/TagAssignmentSelfLinks.md)
  - [TagAuditResponse](docs/TagAuditResponse.md)
  - [TagResponse](docs/TagResponse.md)
- - [TagResponse1](docs/TagResponse1.md)
- - [TicketCreateRequest](docs/TicketCreateRequest.md)
- - [TicketCreateResponse](docs/TicketCreateResponse.md)
- - [TicketCreateResponseLinks](docs/TicketCreateResponseLinks.md)
- - [TicketResponse](docs/TicketResponse.md)
  - [UnassignInstancePrivateNetworkResponse](docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](docs/UpdateCustomImageResponse.md)

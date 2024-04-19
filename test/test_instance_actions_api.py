@@ -40,7 +40,7 @@ class TestInstanceActionsApi(unittest.TestCase):
     def test_restart(self):
         """Test case for restart
 
-        Retrieve a list of your custom images history.  # noqa: E501
+        Restart a compute instance / resource identified by its id.  # noqa: E501
         """
         pass
 

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**rescue**](InstanceActionsApi.md#rescue) | **POST** /v1/compute/instances/{instanceId}/actions/rescue | Rescue a compute instance / resource identified by its id
 [**reset_password_action**](InstanceActionsApi.md#reset_password_action) | **POST** /v1/compute/instances/{instanceId}/actions/resetPassword | Reset password for a compute instance / resource referenced by an id
-[**restart**](InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Retrieve a list of your custom images history.
+[**restart**](InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Restart a compute instance / resource identified by its id.
 [**shutdown**](InstanceActionsApi.md#shutdown) | **POST** /v1/compute/instances/{instanceId}/actions/shutdown | Shutdown compute instance / resource by its id
 [**start**](InstanceActionsApi.md#start) | **POST** /v1/compute/instances/{instanceId}/actions/start | Start a compute instance / resource identified by its id
 [**stop**](InstanceActionsApi.md#stop) | **POST** /v1/compute/instances/{instanceId}/actions/stop | Stop compute instance / resource by its id
@@ -233,9 +233,9 @@ Name | Type | Description  | Notes
 # **restart**
 > InstanceRestartActionResponse restart(x_request_id, instance_id)
 
-Retrieve a list of your custom images history.
+Restart a compute instance / resource identified by its id.
 
-List of your custom images history, with the ability to apply filters.
+To restart a compute instance that has been identified by its id, you should perform a restart action on it.
 
 ### Example
 
@@ -273,7 +273,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Retrieve a list of your custom images history.
+        # Restart a compute instance / resource identified by its id.
         api_response = api_instance.restart(x_request_id, instance_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -282,7 +282,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Retrieve a list of your custom images history.
+        # Restart a compute instance / resource identified by its id.
         api_response = api_instance.restart(x_request_id, instance_id, x_trace_id=x_trace_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:

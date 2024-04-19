@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **standard_image** | **bool** | Flag indicating that image is either a standard (true) or a custom image (false) | 
 **creation_date** | **datetime** | The creation date time for the image | 
 **last_modified_date** | **datetime** | The last modified date time for the image | 
-**tags** | [**[TagResponse]**](TagResponse.md) | The tags assigned to the image | 
+**tags** | [**[AssignedTagResponse]**](AssignedTagResponse.md) | The tags assigned to the image | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

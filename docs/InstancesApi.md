@@ -550,7 +550,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = "vmd12345" # str | The name of the instance (optional)
     display_name = "myTestInstance" # str | The display name of the instance (optional)
-    data_center = "European Union (Germany) 1" # str | The data center of the instance (optional)
+    data_center = "European Union 1" # str | The data center of the instance (optional)
     region = "EU" # str | The Region of the instance (optional)
     instance_id = 100 # int | The identifier of the instance (deprecated) (optional)
     instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)

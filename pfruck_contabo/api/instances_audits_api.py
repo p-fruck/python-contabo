@@ -145,9 +145,9 @@ class InstancesAuditsApi(object):
         x_request_id,
         **kwargs
     ):
-        """List history about your custom images (audit)  # noqa: E501
+        """List history about your instances (audit)  # noqa: E501
 
-        List and filters the history about your custom images.  # noqa: E501
+        List and filters the history about your instances.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

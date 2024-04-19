@@ -155,7 +155,7 @@ Class | Method | HTTP request | Description
 *ImagesAuditsApi* | [**retrieve_image_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/ImagesAuditsApi.md#retrieve_image_audits_list) | **GET** /v1/compute/images/audits | List history about your custom images (audit)
 *InstanceActionsApi* | [**rescue**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#rescue) | **POST** /v1/compute/instances/{instanceId}/actions/rescue | Rescue a compute instance / resource identified by its id
 *InstanceActionsApi* | [**reset_password_action**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#reset_password_action) | **POST** /v1/compute/instances/{instanceId}/actions/resetPassword | Reset password for a compute instance / resource referenced by an id
-*InstanceActionsApi* | [**restart**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Retrieve a list of your custom images history.
+*InstanceActionsApi* | [**restart**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#restart) | **POST** /v1/compute/instances/{instanceId}/actions/restart | Restart a compute instance / resource identified by its id.
 *InstanceActionsApi* | [**shutdown**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#shutdown) | **POST** /v1/compute/instances/{instanceId}/actions/shutdown | Shutdown compute instance / resource by its id
 *InstanceActionsApi* | [**start**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#start) | **POST** /v1/compute/instances/{instanceId}/actions/start | Start a compute instance / resource identified by its id
 *InstanceActionsApi* | [**stop**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstanceActionsApi.md#stop) | **POST** /v1/compute/instances/{instanceId}/actions/stop | Stop compute instance / resource by its id
@@ -167,7 +167,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**retrieve_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instance) | **GET** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**retrieve_instances_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#retrieve_instances_list) | **GET** /v1/compute/instances | List instances
 *InstancesApi* | [**upgrade_instance**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesApi.md#upgrade_instance) | **POST** /v1/compute/instances/{instanceId}/upgrade | Upgrading instance capabilities
-*InstancesAuditsApi* | [**retrieve_instances_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your custom images (audit)
+*InstancesAuditsApi* | [**retrieve_instances_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit)
 *InternalApi* | [**create_ticket**](https://github.com/p-fruck/python-contabo/blob/main/docs/InternalApi.md#create_ticket) | **POST** /v1/create-ticket | Create a new support ticket
 *InternalApi* | [**retrieve_user_is_password_set**](https://github.com/p-fruck/python-contabo/blob/main/docs/InternalApi.md#retrieve_user_is_password_set) | **GET** /v1/users/is-password-set | Get user is password set status
 *ObjectStoragesApi* | [**cancel_object_storage**](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStoragesApi.md#cancel_object_storage) | **PATCH** /v1/object-storages/{objectStorageId}/cancel | Cancels the specified object storage at the next possible date
@@ -218,8 +218,6 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**retrieve_tag_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagsApi.md#retrieve_tag_list) | **GET** /v1/tags | List tags
 *TagsApi* | [**update_tag**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagsApi.md#update_tag) | **PATCH** /v1/tags/{tagId} | Update specific tag by id
 *TagsAuditsApi* | [**retrieve_tag_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/TagsAuditsApi.md#retrieve_tag_audits_list) | **GET** /v1/tags/audits | List history about your assignments (audit)
-*TicketsApi* | [**create_support_ticket**](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketsApi.md#create_support_ticket) | **POST** /v1/tickets | Create a new support ticket
-*TicketsApi* | [**retrieve_ticket_metadata**](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketsApi.md#retrieve_ticket_metadata) | **GET** /v1/tickets/metadata | Retrieve ticket metadata
 *UsersApi* | [**create_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#create_user) | **POST** /v1/users | Create a new user
 *UsersApi* | [**delete_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete existing user by id
 *UsersApi* | [**generate_client_secret**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#generate_client_secret) | **PUT** /v1/users/client/secret | Generate new client secret
@@ -250,6 +248,7 @@ Class | Method | HTTP request | Description
  - [ApplicationResponseRequirements](https://github.com/p-fruck/python-contabo/blob/main/docs/ApplicationResponseRequirements.md)
  - [AssignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponse.md)
  - [AssignInstancePrivateNetworkResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponseLinks.md)
+ - [AssignedTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignedTagResponse.md)
  - [AssignmentAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentResponse.md)
  - [AutoScalingTypeRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/AutoScalingTypeRequest.md)
@@ -414,13 +413,10 @@ Class | Method | HTTP request | Description
  - [ListTagAuditsResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagResponse.md)
  - [ListTagResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagResponseLinks.md)
- - [ListTicketMetadataResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTicketMetadataResponse.md)
- - [ListTicketMetadataResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTicketMetadataResponseLinks.md)
  - [ListUserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponse.md)
  - [ListUserAuditResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
  - [ListUserResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponseLinks.md)
- - [MetadataType](https://github.com/p-fruck/python-contabo/blob/main/docs/MetadataType.md)
  - [MinimumRequirements](https://github.com/p-fruck/python-contabo/blob/main/docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponse.md)
@@ -459,11 +455,6 @@ Class | Method | HTTP request | Description
  - [TagAssignmentSelfLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAssignmentSelfLinks.md)
  - [TagAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagAuditResponse.md)
  - [TagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse.md)
- - [TagResponse1](https://github.com/p-fruck/python-contabo/blob/main/docs/TagResponse1.md)
- - [TicketCreateRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketCreateRequest.md)
- - [TicketCreateResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketCreateResponse.md)
- - [TicketCreateResponseLinks](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketCreateResponseLinks.md)
- - [TicketResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/TicketResponse.md)
  - [UnassignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UnassignInstancePrivateNetworkResponse.md)
  - [UpdateCustomImageRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageRequest.md)
  - [UpdateCustomImageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UpdateCustomImageResponse.md)

@@ -432,7 +432,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     object_storage_id = "d8417276-d2d9-43a9-a0a8-9a6fa6060246" # str | The identifier of the S3 object storage (optional)
-    region_name = "Asia (Singapore)" # str | Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central) (optional)
+    region_name = "Asia (Singapore)" # str | Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union, United States (Central) (optional)
     display_name = "Object Storage EU 420" # str | Filter for Object Storage by his displayName. (optional)
 
     # example passing only required values which don't have defaults set
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
  **size** | **int**| Number of elements per page. | [optional]
  **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
  **object_storage_id** | **str**| The identifier of the S3 object storage | [optional]
- **region_name** | **str**| Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central) | [optional]
+ **region_name** | **str**| Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union, United States (Central) | [optional]
  **display_name** | **str**| Filter for Object Storage by his displayName. | [optional]
 
 ### Return type

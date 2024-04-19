@@ -101,7 +101,7 @@ class TagAuditResponse(ModelNormal):
             'tenant_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
             'id': (float,),  # noqa: E501
-            'tag_id': (float,),  # noqa: E501
+            'tag_id': (int,),  # noqa: E501
             'action': (str,),  # noqa: E501
             'timestamp': (datetime,),  # noqa: E501
             'changed_by': (str,),  # noqa: E501
@@ -144,7 +144,7 @@ class TagAuditResponse(ModelNormal):
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
             id (float): The identifier of the audit entry.
-            tag_id (float): The identifier of the audit entry.
+            tag_id (int): The identifier of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
             changed_by (str): User ID
@@ -252,7 +252,7 @@ class TagAuditResponse(ModelNormal):
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
             id (float): The identifier of the audit entry.
-            tag_id (float): The identifier of the audit entry.
+            tag_id (int): The identifier of the audit entry.
             action (str): Type of the action.
             timestamp (datetime): When the change took place.
             changed_by (str): User ID

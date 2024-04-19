@@ -32,10 +32,10 @@ from pfruck_contabo.exceptions import ApiAttributeError
 def lazy_import():
     from pfruck_contabo.model.list_instances_response_pagination import ListInstancesResponsePagination
     from pfruck_contabo.model.list_tag_response_links import ListTagResponseLinks
-    from pfruck_contabo.model.tag_response1 import TagResponse1
+    from pfruck_contabo.model.tag_response import TagResponse
     globals()['ListInstancesResponsePagination'] = ListInstancesResponsePagination
     globals()['ListTagResponseLinks'] = ListTagResponseLinks
-    globals()['TagResponse1'] = TagResponse1
+    globals()['TagResponse'] = TagResponse
 
 
 class ListTagResponse(ModelNormal):
@@ -92,7 +92,7 @@ class ListTagResponse(ModelNormal):
         lazy_import()
         return {
             'pagination': (ListInstancesResponsePagination,),  # noqa: E501
-            'data': ([TagResponse1],),  # noqa: E501
+            'data': ([TagResponse],),  # noqa: E501
             'links': (ListTagResponseLinks,),  # noqa: E501
         }
 
@@ -119,7 +119,7 @@ class ListTagResponse(ModelNormal):
 
         Args:
             pagination (ListInstancesResponsePagination):
-            data ([TagResponse1]):
+            data ([TagResponse]):
             links (ListTagResponseLinks):
 
         Keyword Args:
@@ -212,7 +212,7 @@ class ListTagResponse(ModelNormal):
 
         Args:
             pagination (ListInstancesResponsePagination):
-            data ([TagResponse1]):
+            data ([TagResponse]):
             links (ListTagResponseLinks):
 
         Keyword Args:

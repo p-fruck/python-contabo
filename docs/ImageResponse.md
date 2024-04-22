@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image_id** | **str** | Image&#39;s id | 
@@ -20,8 +21,24 @@ Name | Type | Description | Notes
 **standard_image** | **bool** | Flag indicating that image is either a standard (true) or a custom image (false) | 
 **creation_date** | **datetime** | The creation date time for the image | 
 **last_modified_date** | **datetime** | The last modified date time for the image | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from pfruck_contabo.models.image_response import ImageResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ImageResponse from a JSON string
+image_response_instance = ImageResponse.from_json(json)
+# print the JSON string representation of the object
+print(ImageResponse.to_json())
+
+# convert the object into a dict
+image_response_dict = image_response_instance.to_dict()
+# create an instance of ImageResponse from a dict
+image_response_from_dict = ImageResponse.from_dict(image_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

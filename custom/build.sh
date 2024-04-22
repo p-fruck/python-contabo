@@ -8,7 +8,7 @@ set -e
 git_user_id=p-fruck
 git_repo_id=python-contabo
 proj_dir="$(readlink -f $(dirname $0))/.." # root directory of the project
-generator_version=v6.1.0 # version of the openapi-generator-cli
+generator_version=v7.5.0 # version of the openapi-generator-cli
 
 function customize_readme() {
     mv README.md README.md.gen
@@ -24,7 +24,7 @@ function customize_readme() {
 # by default, the Contabo API documentation is set as package description for the PyPI package.
 # Instead, the GitHub README should be defined as description.
 function customize_pypi_description() {
-    line_no=$(grep -n 'long_description' setup.py | cut -d ':' -f 1)
+    line_no=$(grep -n 'long_description=' setup.py | cut -d ':' -f 1)
     head -n ${line_no} setup.py > setup.py.new
 
     # add README content with absolute links to GitHub repo
@@ -33,7 +33,6 @@ function customize_pypi_description() {
     # add additional metadata
     cat << EOF >> setup.py.new
     """,
-    long_description_content_type='text/markdown',
     project_urls={
         "Bug Tracker": "https://github.com/${git_user_id}/${git_repo_id}/issues",
     },

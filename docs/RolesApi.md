@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_role**
-> CreateRoleResponse create_role(x_request_id, create_role_request)
+> CreateRoleResponse create_role(x_request_id, create_role_request, x_trace_id=x_trace_id)
 
 Create a new role
 
@@ -24,12 +24,12 @@ Create a new role. In order to get a list availbale api enpoints (apiName) and t
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import roles_api
-from pfruck_contabo.model.create_role_response import CreateRoleResponse
-from pfruck_contabo.model.create_role_request import CreateRoleRequest
+from pfruck_contabo.models.create_role_request import CreateRoleRequest
+from pfruck_contabo.models.create_role_response import CreateRoleResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -43,54 +43,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    create_role_request = CreateRoleRequest(
-        name="infrastructure",
-        admin=False,
-        access_all_resources=False,
-        permissions=[
-            PermissionRequest(
-                api_name="infrastructure",
-                actions=["CREATE","READ"],
-                resources=[1,2,3],
-            ),
-        ],
-    ) # CreateRoleRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.RolesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    create_role_request = pfruck_contabo.CreateRoleRequest() # CreateRoleRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a new role
-        api_response = api_instance.create_role(x_request_id, create_role_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling RolesApi->create_role: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a new role
         api_response = api_instance.create_role(x_request_id, create_role_request, x_trace_id=x_trace_id)
+        print("The response of RolesApi->create_role:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling RolesApi->create_role: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **create_role_request** | [**CreateRoleRequest**](CreateRoleRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **create_role_request** | [**CreateRoleRequest**](CreateRoleRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -105,7 +87,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -115,7 +96,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_role**
-> delete_role(x_request_id, role_id)
+> delete_role(x_request_id, role_id, x_trace_id=x_trace_id)
 
 Delete existing role by id
 
@@ -126,10 +107,10 @@ You can't delete a role if it is still assigned to a user. In such cases please 
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import roles_api
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -143,41 +124,34 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.RolesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     role_id = 12345 # int | The identifier of the role
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete existing role by id
-        api_instance.delete_role(x_request_id, role_id)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling RolesApi->delete_role: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete existing role by id
         api_instance.delete_role(x_request_id, role_id, x_trace_id=x_trace_id)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling RolesApi->delete_role: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **role_id** | **int**| The identifier of the role |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **role_id** | **int**| The identifier of the role | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -192,7 +166,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -202,7 +175,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_api_permissions_list**
-> ListApiPermissionResponse retrieve_api_permissions_list(x_request_id)
+> ListApiPermissionResponse retrieve_api_permissions_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, api_name=api_name)
 
 List of API permissions
 
@@ -213,11 +186,11 @@ List all available API permissions. This list serves as a reference for specifyi
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import roles_api
-from pfruck_contabo.model.list_api_permission_response import ListApiPermissionResponse
+from pfruck_contabo.models.list_api_permission_response import ListApiPermissionResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -231,51 +204,42 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.RolesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    api_name = "/v1/compute/instances" # str | The name of api (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    api_name = '/v1/compute/instances' # str | The name of api (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List of API permissions
-        api_response = api_instance.retrieve_api_permissions_list(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling RolesApi->retrieve_api_permissions_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of API permissions
         api_response = api_instance.retrieve_api_permissions_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, api_name=api_name)
+        print("The response of RolesApi->retrieve_api_permissions_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling RolesApi->retrieve_api_permissions_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **api_name** | **str**| The name of api | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **api_name** | **str**| The name of api | [optional] 
 
 ### Return type
 
@@ -290,7 +254,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -300,7 +263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_role**
-> FindRoleResponse retrieve_role(x_request_id, role_id)
+> FindRoleResponse retrieve_role(x_request_id, role_id, x_trace_id=x_trace_id)
 
 Get specific role by id
 
@@ -311,11 +274,11 @@ Get attributes of specific role.
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import roles_api
-from pfruck_contabo.model.find_role_response import FindRoleResponse
+from pfruck_contabo.models.find_role_response import FindRoleResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -329,43 +292,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.RolesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     role_id = 12345 # int | The identifier of the role
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get specific role by id
-        api_response = api_instance.retrieve_role(x_request_id, role_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling RolesApi->retrieve_role: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get specific role by id
         api_response = api_instance.retrieve_role(x_request_id, role_id, x_trace_id=x_trace_id)
+        print("The response of RolesApi->retrieve_role:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling RolesApi->retrieve_role: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **role_id** | **int**| The identifier of the role |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **role_id** | **int**| The identifier of the role | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -380,7 +336,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -390,7 +345,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_role_list**
-> ListRoleResponse retrieve_role_list(x_request_id)
+> ListRoleResponse retrieve_role_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, api_name=api_name, tag_name=tag_name, type=type)
 
 List roles
 
@@ -401,11 +356,11 @@ List and filter all your roles. A role allows you to specify permission to api e
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import roles_api
-from pfruck_contabo.model.list_role_response import ListRoleResponse
+from pfruck_contabo.models.list_role_response import ListRoleResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -419,57 +374,48 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.RolesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    name = "Web" # str | The name of the role (optional)
-    api_name = "/v1/compute/instances" # str | The name of api (optional)
-    tag_name = "Web" # str | The name of the tag (optional)
-    type = "custom" # str | The type of the tag. Can be either `default` or `custom` (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    name = 'Web' # str | The name of the role (optional)
+    api_name = '/v1/compute/instances' # str | The name of api (optional)
+    tag_name = 'Web' # str | The name of the tag (optional)
+    type = 'custom' # str | The type of the tag. Can be either `default` or `custom` (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List roles
-        api_response = api_instance.retrieve_role_list(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling RolesApi->retrieve_role_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List roles
         api_response = api_instance.retrieve_role_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, api_name=api_name, tag_name=tag_name, type=type)
+        print("The response of RolesApi->retrieve_role_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling RolesApi->retrieve_role_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **name** | **str**| The name of the role | [optional]
- **api_name** | **str**| The name of api | [optional]
- **tag_name** | **str**| The name of the tag | [optional]
- **type** | **str**| The type of the tag. Can be either &#x60;default&#x60; or &#x60;custom&#x60; | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **name** | **str**| The name of the role | [optional] 
+ **api_name** | **str**| The name of api | [optional] 
+ **tag_name** | **str**| The name of the tag | [optional] 
+ **type** | **str**| The type of the tag. Can be either &#x60;default&#x60; or &#x60;custom&#x60; | [optional] 
 
 ### Return type
 
@@ -484,7 +430,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -494,7 +439,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_role**
-> UpdateRoleResponse update_role(x_request_id, role_id, update_role_request)
+> UpdateRoleResponse update_role(x_request_id, role_id, update_role_request, x_trace_id=x_trace_id)
 
 Update specific role by id
 
@@ -505,12 +450,12 @@ Update attributes to your role. Attributes are optional. If not set, the attribu
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import roles_api
-from pfruck_contabo.model.update_role_request import UpdateRoleRequest
-from pfruck_contabo.model.update_role_response import UpdateRoleResponse
+from pfruck_contabo.models.update_role_request import UpdateRoleRequest
+from pfruck_contabo.models.update_role_response import UpdateRoleResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -524,56 +469,38 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = roles_api.RolesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.RolesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     role_id = 12345 # int | The identifier of the role
-    update_role_request = UpdateRoleRequest(
-        name="infrastructure",
-        admin=False,
-        access_all_resources=False,
-        permissions=[
-            PermissionRequest(
-                api_name="infrastructure",
-                actions=["CREATE","READ"],
-                resources=[1,2,3],
-            ),
-        ],
-    ) # UpdateRoleRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    update_role_request = pfruck_contabo.UpdateRoleRequest() # UpdateRoleRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update specific role by id
-        api_response = api_instance.update_role(x_request_id, role_id, update_role_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling RolesApi->update_role: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update specific role by id
         api_response = api_instance.update_role(x_request_id, role_id, update_role_request, x_trace_id=x_trace_id)
+        print("The response of RolesApi->update_role:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling RolesApi->update_role: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **role_id** | **int**| The identifier of the role |
- **update_role_request** | [**UpdateRoleRequest**](UpdateRoleRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **role_id** | **int**| The identifier of the role | 
+ **update_role_request** | [**UpdateRoleRequest**](UpdateRoleRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -587,7 +514,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

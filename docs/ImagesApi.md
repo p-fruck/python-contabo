@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_custom_image**
-> CreateCustomImageResponse create_custom_image(x_request_id, create_custom_image_request)
+> CreateCustomImageResponse create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
 
 Provide a custom image
 
@@ -24,13 +24,12 @@ In order to provide a custom image please specify an URL from where the image ca
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.create_custom_image_request import CreateCustomImageRequest
-from pfruck_contabo.model.create_custom_image_response import CreateCustomImageResponse
-from pfruck_contabo.model.create_custom_image_fail_response import CreateCustomImageFailResponse
+from pfruck_contabo.models.create_custom_image_request import CreateCustomImageRequest
+from pfruck_contabo.models.create_custom_image_response import CreateCustomImageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -44,49 +43,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    create_custom_image_request = CreateCustomImageRequest(
-        name="Ubuntu Custom Image",
-        description="Ubuntu Server 20.04.2 LTS",
-        url="https://example.com/image.qcow2",
-        os_type="Linux",
-        version="20.04.2",
-    ) # CreateCustomImageRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    create_custom_image_request = pfruck_contabo.CreateCustomImageRequest() # CreateCustomImageRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Provide a custom image
-        api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Provide a custom image
         api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
+        print("The response of ImagesApi->create_custom_image:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **create_custom_image_request** | [**CreateCustomImageRequest**](CreateCustomImageRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **create_custom_image_request** | [**CreateCustomImageRequest**](CreateCustomImageRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -101,7 +87,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -112,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_image**
-> delete_image(x_request_id, image_id)
+> delete_image(x_request_id, image_id, x_trace_id=x_trace_id)
 
 Delete an uploaded custom image by its id
 
@@ -123,10 +108,10 @@ Your are free to delete a previously uploaded custom images at any time
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import images_api
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -140,41 +125,34 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    image_id = "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d" # str | The identifier of the image
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d' # str | The identifier of the image
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete an uploaded custom image by its id
-        api_instance.delete_image(x_request_id, image_id)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->delete_image: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete an uploaded custom image by its id
         api_instance.delete_image(x_request_id, image_id, x_trace_id=x_trace_id)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ImagesApi->delete_image: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **image_id** | **str**| The identifier of the image |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **image_id** | **str**| The identifier of the image | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -189,7 +167,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -199,7 +176,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_custom_images_stats**
-> CustomImagesStatsResponse retrieve_custom_images_stats(x_request_id)
+> CustomImagesStatsResponse retrieve_custom_images_stats(x_request_id, x_trace_id=x_trace_id)
 
 List statistics regarding the customer's custom images
 
@@ -210,11 +187,11 @@ List statistics regarding the customer's custom images such as the number of cus
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
+from pfruck_contabo.models.custom_images_stats_response import CustomImagesStatsResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -228,41 +205,34 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List statistics regarding the customer's custom images
-        api_response = api_instance.retrieve_custom_images_stats(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->retrieve_custom_images_stats: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List statistics regarding the customer's custom images
         api_response = api_instance.retrieve_custom_images_stats(x_request_id, x_trace_id=x_trace_id)
+        print("The response of ImagesApi->retrieve_custom_images_stats:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ImagesApi->retrieve_custom_images_stats: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -277,7 +247,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -287,7 +256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_image**
-> FindImageResponse retrieve_image(x_request_id, image_id)
+> FindImageResponse retrieve_image(x_request_id, image_id, x_trace_id=x_trace_id)
 
 Get details about a specific image by its id
 
@@ -298,11 +267,11 @@ Get details about a specific image. This could be either a standard or custom im
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.find_image_response import FindImageResponse
+from pfruck_contabo.models.find_image_response import FindImageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -316,43 +285,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    image_id = "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d" # str | The identifier of the image
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d' # str | The identifier of the image
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get details about a specific image by its id
-        api_response = api_instance.retrieve_image(x_request_id, image_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->retrieve_image: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get details about a specific image by its id
         api_response = api_instance.retrieve_image(x_request_id, image_id, x_trace_id=x_trace_id)
+        print("The response of ImagesApi->retrieve_image:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ImagesApi->retrieve_image: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **image_id** | **str**| The identifier of the image |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **image_id** | **str**| The identifier of the image | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -367,7 +329,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -377,7 +338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_image_list**
-> ListImageResponse retrieve_image_list(x_request_id)
+> ListImageResponse retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image)
 
 List available standard and custom images
 
@@ -388,11 +349,11 @@ List and filter all available standard images provided by [Contabo](https://cont
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.list_image_response import ListImageResponse
+from pfruck_contabo.models.list_image_response import ListImageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -406,53 +367,44 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    name = "Ubuntu" # str | The name of the image (optional)
-    standard_image = True # bool | Flag indicating that image is either a standard (true) or a custom image (false) (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    name = 'Ubuntu' # str | The name of the image (optional)
+    standard_image = true # bool | Flag indicating that image is either a standard (true) or a custom image (false) (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List available standard and custom images
-        api_response = api_instance.retrieve_image_list(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->retrieve_image_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List available standard and custom images
         api_response = api_instance.retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image)
+        print("The response of ImagesApi->retrieve_image_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ImagesApi->retrieve_image_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **name** | **str**| The name of the image | [optional]
- **standard_image** | **bool**| Flag indicating that image is either a standard (true) or a custom image (false) | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **name** | **str**| The name of the image | [optional] 
+ **standard_image** | **bool**| Flag indicating that image is either a standard (true) or a custom image (false) | [optional] 
 
 ### Return type
 
@@ -467,7 +419,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -477,7 +428,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_image**
-> UpdateCustomImageResponse update_image(x_request_id, image_id, update_custom_image_request)
+> UpdateCustomImageResponse update_image(x_request_id, image_id, update_custom_image_request, x_trace_id=x_trace_id)
 
 Update custom image name by its id
 
@@ -488,12 +439,12 @@ Update name of the custom image
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.update_custom_image_request import UpdateCustomImageRequest
-from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
+from pfruck_contabo.models.update_custom_image_request import UpdateCustomImageRequest
+from pfruck_contabo.models.update_custom_image_response import UpdateCustomImageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -507,48 +458,38 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    image_id = "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d" # str | The identifier of the image
-    update_custom_image_request = UpdateCustomImageRequest(
-        name="Ubuntu Custom Image",
-        description="Ubuntu 20.04 image",
-    ) # UpdateCustomImageRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d' # str | The identifier of the image
+    update_custom_image_request = pfruck_contabo.UpdateCustomImageRequest() # UpdateCustomImageRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update custom image name by its id
-        api_response = api_instance.update_image(x_request_id, image_id, update_custom_image_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ImagesApi->update_image: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update custom image name by its id
         api_response = api_instance.update_image(x_request_id, image_id, update_custom_image_request, x_trace_id=x_trace_id)
+        print("The response of ImagesApi->update_image:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ImagesApi->update_image: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **image_id** | **str**| The identifier of the image |
- **update_custom_image_request** | [**UpdateCustomImageRequest**](UpdateCustomImageRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **image_id** | **str**| The identifier of the image | 
+ **update_custom_image_request** | [**UpdateCustomImageRequest**](UpdateCustomImageRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -562,7 +503,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

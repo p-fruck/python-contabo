@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenant_id** | **str** | Your customer tenant id | 
@@ -15,9 +16,25 @@ Name | Type | Description | Notes
 **cidr** | **str** | The cidr range of the Private Network | 
 **available_ips** | **int** | The total available IPs of the Private Network | 
 **created_date** | **datetime** | The creation date of the Private Network | 
-**instances** | [**[Instances]**](Instances.md) |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**instances** | [**List[Instances]**](Instances.md) |  | 
 
+## Example
+
+```python
+from pfruck_contabo.models.private_network_response import PrivateNetworkResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of PrivateNetworkResponse from a JSON string
+private_network_response_instance = PrivateNetworkResponse.from_json(json)
+# print the JSON string representation of the object
+print(PrivateNetworkResponse.to_json())
+
+# convert the object into a dict
+private_network_response_dict = private_network_response_instance.to_dict()
+# create an instance of PrivateNetworkResponse from a dict
+private_network_response_from_dict = PrivateNetworkResponse.from_dict(private_network_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

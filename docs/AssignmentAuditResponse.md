@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenant_id** | **str** | Your customer tenant id | 
@@ -16,9 +17,25 @@ Name | Type | Description | Notes
 **username** | **str** | User Full Name | 
 **request_id** | **str** | Request ID | 
 **trace_id** | **str** | Trace ID | 
-**changes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | Changes made for a specific Tag | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**changes** | **object** | Changes made for a specific Tag | [optional] 
 
+## Example
+
+```python
+from pfruck_contabo.models.assignment_audit_response import AssignmentAuditResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of AssignmentAuditResponse from a JSON string
+assignment_audit_response_instance = AssignmentAuditResponse.from_json(json)
+# print the JSON string representation of the object
+print(AssignmentAuditResponse.to_json())
+
+# convert the object into a dict
+assignment_audit_response_dict = assignment_audit_response_instance.to_dict()
+# create an instance of AssignmentAuditResponse from a dict
+assignment_audit_response_from_dict = AssignmentAuditResponse.from_dict(assignment_audit_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

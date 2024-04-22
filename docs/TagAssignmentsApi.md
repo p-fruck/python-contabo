@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_assignment**
-> CreateAssignmentResponse create_assignment(x_request_id, tag_id, resource_type, resource_id)
+> CreateAssignmentResponse create_assignment(x_request_id, tag_id, resource_type, resource_id, x_trace_id=x_trace_id)
 
 Create a new assignment for the tag
 
@@ -22,11 +22,11 @@ Create a new tag assignment. This marks the specified resource with the specifie
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import tag_assignments_api
-from pfruck_contabo.model.create_assignment_response import CreateAssignmentResponse
+from pfruck_contabo.models.create_assignment_response import CreateAssignmentResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -40,47 +40,40 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.TagAssignmentsApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
-    resource_id = "d65ecf3b-30db-4dc2-9e88-dfc21a14a6bc" # str | The identifier of the resource id
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    resource_type = 'instance' # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
+    resource_id = 'd65ecf3b-30db-4dc2-9e88-dfc21a14a6bc' # str | The identifier of the resource id
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a new assignment for the tag
-        api_response = api_instance.create_assignment(x_request_id, tag_id, resource_type, resource_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling TagAssignmentsApi->create_assignment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a new assignment for the tag
         api_response = api_instance.create_assignment(x_request_id, tag_id, resource_type, resource_id, x_trace_id=x_trace_id)
+        print("The response of TagAssignmentsApi->create_assignment:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagAssignmentsApi->create_assignment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **tag_id** | **int**| The identifier of the tag. |
- **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. |
- **resource_id** | **str**| The identifier of the resource id |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **tag_id** | **int**| The identifier of the tag. | 
+ **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | 
+ **resource_id** | **str**| The identifier of the resource id | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -95,7 +88,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -105,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_assignment**
-> delete_assignment(x_request_id, tag_id, resource_type, resource_id)
+> delete_assignment(x_request_id, tag_id, resource_type, resource_id, x_trace_id=x_trace_id)
 
 Delete existing tag assignment
 
@@ -116,10 +108,10 @@ Tag assignment will be removed from the specified resource. If this tag is being
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import tag_assignments_api
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -133,45 +125,38 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.TagAssignmentsApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
-    resource_id = "d65ecf3b-30db-4dc2-9e88-dfc21a14a6bc" # str | The identifier of the resource id
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    resource_type = 'instance' # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
+    resource_id = 'd65ecf3b-30db-4dc2-9e88-dfc21a14a6bc' # str | The identifier of the resource id
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete existing tag assignment
-        api_instance.delete_assignment(x_request_id, tag_id, resource_type, resource_id)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling TagAssignmentsApi->delete_assignment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete existing tag assignment
         api_instance.delete_assignment(x_request_id, tag_id, resource_type, resource_id, x_trace_id=x_trace_id)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagAssignmentsApi->delete_assignment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **tag_id** | **int**| The identifier of the tag. |
- **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. |
- **resource_id** | **str**| The identifier of the resource id |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **tag_id** | **int**| The identifier of the tag. | 
+ **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | 
+ **resource_id** | **str**| The identifier of the resource id | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -186,7 +171,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -196,7 +180,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_assignment**
-> FindAssignmentResponse retrieve_assignment(x_request_id, tag_id, resource_type, resource_id)
+> FindAssignmentResponse retrieve_assignment(x_request_id, tag_id, resource_type, resource_id, x_trace_id=x_trace_id)
 
 Get specific assignment for the tag
 
@@ -207,11 +191,11 @@ Get attributes for a specific tag assignment in your account. For this the resou
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import tag_assignments_api
-from pfruck_contabo.model.find_assignment_response import FindAssignmentResponse
+from pfruck_contabo.models.find_assignment_response import FindAssignmentResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -225,47 +209,40 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.TagAssignmentsApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    resource_type = "instance" # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
-    resource_id = "d65ecf3b-30db-4dc2-9e88-dfc21a14a6bc" # str | The identifier of the resource id
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    resource_type = 'instance' # str | The identifier of the resource type. Resource type is one of `instance|image|object-storage`.
+    resource_id = 'd65ecf3b-30db-4dc2-9e88-dfc21a14a6bc' # str | The identifier of the resource id
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get specific assignment for the tag
-        api_response = api_instance.retrieve_assignment(x_request_id, tag_id, resource_type, resource_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling TagAssignmentsApi->retrieve_assignment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get specific assignment for the tag
         api_response = api_instance.retrieve_assignment(x_request_id, tag_id, resource_type, resource_id, x_trace_id=x_trace_id)
+        print("The response of TagAssignmentsApi->retrieve_assignment:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagAssignmentsApi->retrieve_assignment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **tag_id** | **int**| The identifier of the tag. |
- **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. |
- **resource_id** | **str**| The identifier of the resource id |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **tag_id** | **int**| The identifier of the tag. | 
+ **resource_type** | **str**| The identifier of the resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | 
+ **resource_id** | **str**| The identifier of the resource id | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -280,7 +257,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -290,7 +266,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_assignment_list**
-> ListAssignmentResponse retrieve_assignment_list(x_request_id, tag_id)
+> ListAssignmentResponse retrieve_assignment_list(x_request_id, tag_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, resource_type=resource_type)
 
 List tag assignments
 
@@ -301,11 +277,11 @@ List and filter all existing assignments for a tag in your account
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import tag_assignments_api
-from pfruck_contabo.model.list_assignment_response import ListAssignmentResponse
+from pfruck_contabo.models.list_assignment_response import ListAssignmentResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -319,53 +295,44 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tag_assignments_api.TagAssignmentsApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    api_instance = pfruck_contabo.TagAssignmentsApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     tag_id = 12345 # int | The identifier of the tag.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    resource_type = "instance" # str | Filter as substring match for assignment resource type. Resource type is one of `instance|image|object-storage`. (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    resource_type = 'instance' # str | Filter as substring match for assignment resource type. Resource type is one of `instance|image|object-storage`. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List tag assignments
-        api_response = api_instance.retrieve_assignment_list(x_request_id, tag_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling TagAssignmentsApi->retrieve_assignment_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List tag assignments
         api_response = api_instance.retrieve_assignment_list(x_request_id, tag_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, resource_type=resource_type)
+        print("The response of TagAssignmentsApi->retrieve_assignment_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling TagAssignmentsApi->retrieve_assignment_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **tag_id** | **int**| The identifier of the tag. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **resource_type** | **str**| Filter as substring match for assignment resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **tag_id** | **int**| The identifier of the tag. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **resource_type** | **str**| Filter as substring match for assignment resource type. Resource type is one of &#x60;instance|image|object-storage&#x60;. | [optional] 
 
 ### Return type
 
@@ -379,7 +346,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

@@ -50,18 +50,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 
-import time
 import pfruck_contabo
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
-from pfruck_contabo.api import images_api
-from pfruck_contabo.model.create_custom_image_fail_response import CreateCustomImageFailResponse
-from pfruck_contabo.model.create_custom_image_request import CreateCustomImageRequest
-from pfruck_contabo.model.create_custom_image_response import CreateCustomImageResponse
-from pfruck_contabo.model.custom_images_stats_response import CustomImagesStatsResponse
-from pfruck_contabo.model.find_image_response import FindImageResponse
-from pfruck_contabo.model.list_image_response import ListImageResponse
-from pfruck_contabo.model.update_custom_image_request import UpdateCustomImageRequest
-from pfruck_contabo.model.update_custom_image_response import UpdateCustomImageResponse
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -75,30 +67,26 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = images_api.ImagesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    create_custom_image_request = CreateCustomImageRequest(
-        name="Ubuntu Custom Image",
-        description="Ubuntu Server 20.04.2 LTS",
-        url="https://example.com/image.qcow2",
-        os_type="Linux",
-        version="20.04.2",
-    ) # CreateCustomImageRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ImagesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    create_custom_image_request = pfruck_contabo.CreateCustomImageRequest() # CreateCustomImageRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
     try:
         # Provide a custom image
         api_response = api_instance.create_custom_image(x_request_id, create_custom_image_request, x_trace_id=x_trace_id)
+        print("The response of ImagesApi->create_custom_image:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except ApiException as e:
         print("Exception when calling ImagesApi->create_custom_image: %s\n" % e)
+
 ```
 
 ## Documentation for API Endpoints
@@ -203,12 +191,8 @@ Class | Method | HTTP request | Description
  - [ApiPermissionsResponse](docs/ApiPermissionsResponse.md)
  - [ApplicationConfig](docs/ApplicationConfig.md)
  - [ApplicationRequirements](docs/ApplicationRequirements.md)
- - [ApplicationRequirementsMinimum](docs/ApplicationRequirementsMinimum.md)
- - [ApplicationRequirementsOptimal](docs/ApplicationRequirementsOptimal.md)
  - [ApplicationResponse](docs/ApplicationResponse.md)
- - [ApplicationResponseRequirements](docs/ApplicationResponseRequirements.md)
  - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
- - [AssignInstancePrivateNetworkResponseLinks](docs/AssignInstancePrivateNetworkResponseLinks.md)
  - [AssignedTagResponse](docs/AssignedTagResponse.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
@@ -221,63 +205,45 @@ Class | Method | HTTP request | Description
  - [ClientResponse](docs/ClientResponse.md)
  - [ClientSecretResponse](docs/ClientSecretResponse.md)
  - [CreateAssignmentResponse](docs/CreateAssignmentResponse.md)
- - [CreateAssignmentResponseLinks](docs/CreateAssignmentResponseLinks.md)
  - [CreateCustomImageFailResponse](docs/CreateCustomImageFailResponse.md)
  - [CreateCustomImageRequest](docs/CreateCustomImageRequest.md)
  - [CreateCustomImageResponse](docs/CreateCustomImageResponse.md)
  - [CreateCustomImageResponseData](docs/CreateCustomImageResponseData.md)
- - [CreateCustomImageResponseLinks](docs/CreateCustomImageResponseLinks.md)
  - [CreateInstanceAddons](docs/CreateInstanceAddons.md)
- - [CreateInstanceAddonsExtraStorage](docs/CreateInstanceAddonsExtraStorage.md)
  - [CreateInstanceRequest](docs/CreateInstanceRequest.md)
- - [CreateInstanceRequestAddOns](docs/CreateInstanceRequestAddOns.md)
  - [CreateInstanceResponse](docs/CreateInstanceResponse.md)
  - [CreateInstanceResponseData](docs/CreateInstanceResponseData.md)
  - [CreateObjectStorageRequest](docs/CreateObjectStorageRequest.md)
- - [CreateObjectStorageRequestAutoScaling](docs/CreateObjectStorageRequestAutoScaling.md)
  - [CreateObjectStorageResponse](docs/CreateObjectStorageResponse.md)
  - [CreateObjectStorageResponseData](docs/CreateObjectStorageResponseData.md)
- - [CreateObjectStorageResponseLinks](docs/CreateObjectStorageResponseLinks.md)
  - [CreatePrivateNetworkRequest](docs/CreatePrivateNetworkRequest.md)
  - [CreatePrivateNetworkResponse](docs/CreatePrivateNetworkResponse.md)
- - [CreatePrivateNetworkResponseLinks](docs/CreatePrivateNetworkResponseLinks.md)
  - [CreateRoleRequest](docs/CreateRoleRequest.md)
  - [CreateRoleResponse](docs/CreateRoleResponse.md)
  - [CreateRoleResponseData](docs/CreateRoleResponseData.md)
- - [CreateRoleResponseLinks](docs/CreateRoleResponseLinks.md)
  - [CreateSecretRequest](docs/CreateSecretRequest.md)
  - [CreateSecretResponse](docs/CreateSecretResponse.md)
- - [CreateSecretResponseLinks](docs/CreateSecretResponseLinks.md)
  - [CreateSnapshotRequest](docs/CreateSnapshotRequest.md)
  - [CreateSnapshotResponse](docs/CreateSnapshotResponse.md)
- - [CreateSnapshotResponseLinks](docs/CreateSnapshotResponseLinks.md)
  - [CreateTagRequest](docs/CreateTagRequest.md)
  - [CreateTagResponse](docs/CreateTagResponse.md)
  - [CreateTagResponseData](docs/CreateTagResponseData.md)
- - [CreateTagResponseLinks](docs/CreateTagResponseLinks.md)
  - [CreateTicketRequest](docs/CreateTicketRequest.md)
  - [CreateTicketResponse](docs/CreateTicketResponse.md)
  - [CreateTicketResponseData](docs/CreateTicketResponseData.md)
- - [CreateTicketResponseLinks](docs/CreateTicketResponseLinks.md)
  - [CreateUserRequest](docs/CreateUserRequest.md)
  - [CreateUserResponse](docs/CreateUserResponse.md)
  - [CreateUserResponseData](docs/CreateUserResponseData.md)
- - [CreateUserResponseLinks](docs/CreateUserResponseLinks.md)
  - [CredentialData](docs/CredentialData.md)
  - [CustomImagesStatsResponse](docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](docs/CustomImagesStatsResponseData.md)
- - [CustomImagesStatsResponseLinks](docs/CustomImagesStatsResponseLinks.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
  - [ExtraStorageRequest](docs/ExtraStorageRequest.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
- - [FindAssignmentResponseLinks](docs/FindAssignmentResponseLinks.md)
  - [FindClientResponse](docs/FindClientResponse.md)
- - [FindClientResponseLinks](docs/FindClientResponseLinks.md)
  - [FindCredentialResponse](docs/FindCredentialResponse.md)
- - [FindCredentialResponseLinks](docs/FindCredentialResponseLinks.md)
  - [FindImageResponse](docs/FindImageResponse.md)
  - [FindInstanceResponse](docs/FindInstanceResponse.md)
- - [FindInstanceResponseLinks](docs/FindInstanceResponseLinks.md)
  - [FindObjectStorageResponse](docs/FindObjectStorageResponse.md)
  - [FindPrivateNetworkResponse](docs/FindPrivateNetworkResponse.md)
  - [FindRoleResponse](docs/FindRoleResponse.md)
@@ -285,38 +251,28 @@ Class | Method | HTTP request | Description
  - [FindSnapshotResponse](docs/FindSnapshotResponse.md)
  - [FindTagResponse](docs/FindTagResponse.md)
  - [FindUserIsPasswordSetResponse](docs/FindUserIsPasswordSetResponse.md)
- - [FindUserIsPasswordSetResponseLinks](docs/FindUserIsPasswordSetResponseLinks.md)
  - [FindUserResponse](docs/FindUserResponse.md)
  - [FindVncResponse](docs/FindVncResponse.md)
- - [FindVncResponseLinks](docs/FindVncResponseLinks.md)
  - [FirewallingUpgradeRequest](docs/FirewallingUpgradeRequest.md)
  - [GenerateClientSecretResponse](docs/GenerateClientSecretResponse.md)
- - [GenerateClientSecretResponseLinks](docs/GenerateClientSecretResponseLinks.md)
  - [ImageAuditResponse](docs/ImageAuditResponse.md)
  - [ImageAuditResponseData](docs/ImageAuditResponseData.md)
- - [ImageAuditResponseLinks](docs/ImageAuditResponseLinks.md)
  - [ImageResponse](docs/ImageResponse.md)
  - [InstanceAssignmentSelfLinks](docs/InstanceAssignmentSelfLinks.md)
  - [InstanceRescueActionResponse](docs/InstanceRescueActionResponse.md)
  - [InstanceRescueActionResponseData](docs/InstanceRescueActionResponseData.md)
- - [InstanceRescueActionResponseLinks](docs/InstanceRescueActionResponseLinks.md)
  - [InstanceResetPasswordActionResponse](docs/InstanceResetPasswordActionResponse.md)
  - [InstanceResetPasswordActionResponseData](docs/InstanceResetPasswordActionResponseData.md)
- - [InstanceResetPasswordActionResponseLinks](docs/InstanceResetPasswordActionResponseLinks.md)
  - [InstanceResponse](docs/InstanceResponse.md)
  - [InstanceRestartActionResponse](docs/InstanceRestartActionResponse.md)
  - [InstanceRestartActionResponseData](docs/InstanceRestartActionResponseData.md)
- - [InstanceRestartActionResponseLinks](docs/InstanceRestartActionResponseLinks.md)
  - [InstanceShutdownActionResponse](docs/InstanceShutdownActionResponse.md)
  - [InstanceShutdownActionResponseData](docs/InstanceShutdownActionResponseData.md)
- - [InstanceShutdownActionResponseLinks](docs/InstanceShutdownActionResponseLinks.md)
  - [InstanceStartActionResponse](docs/InstanceStartActionResponse.md)
  - [InstanceStartActionResponseData](docs/InstanceStartActionResponseData.md)
- - [InstanceStartActionResponseLinks](docs/InstanceStartActionResponseLinks.md)
  - [InstanceStatus](docs/InstanceStatus.md)
  - [InstanceStopActionResponse](docs/InstanceStopActionResponse.md)
  - [InstanceStopActionResponseData](docs/InstanceStopActionResponseData.md)
- - [InstanceStopActionResponseLinks](docs/InstanceStopActionResponseLinks.md)
  - [Instances](docs/Instances.md)
  - [InstancesActionsAuditResponse](docs/InstancesActionsAuditResponse.md)
  - [InstancesActionsRescueRequest](docs/InstancesActionsRescueRequest.md)
@@ -327,70 +283,42 @@ Class | Method | HTTP request | Description
  - [IpV6](docs/IpV6.md)
  - [Links](docs/Links.md)
  - [ListApiPermissionResponse](docs/ListApiPermissionResponse.md)
- - [ListApiPermissionResponseLinks](docs/ListApiPermissionResponseLinks.md)
  - [ListApplicationsResponse](docs/ListApplicationsResponse.md)
- - [ListApplicationsResponseLinks](docs/ListApplicationsResponseLinks.md)
  - [ListAssignmentAuditsResponse](docs/ListAssignmentAuditsResponse.md)
- - [ListAssignmentAuditsResponseLinks](docs/ListAssignmentAuditsResponseLinks.md)
  - [ListAssignmentResponse](docs/ListAssignmentResponse.md)
- - [ListAssignmentResponseLinks](docs/ListAssignmentResponseLinks.md)
  - [ListCredentialResponse](docs/ListCredentialResponse.md)
- - [ListCredentialResponseLinks](docs/ListCredentialResponseLinks.md)
  - [ListDataCenterResponse](docs/ListDataCenterResponse.md)
- - [ListDataCenterResponseLinks](docs/ListDataCenterResponseLinks.md)
  - [ListImageResponse](docs/ListImageResponse.md)
  - [ListImageResponseData](docs/ListImageResponseData.md)
- - [ListImageResponseLinks](docs/ListImageResponseLinks.md)
  - [ListInstancesActionsAuditResponse](docs/ListInstancesActionsAuditResponse.md)
- - [ListInstancesActionsAuditResponseLinks](docs/ListInstancesActionsAuditResponseLinks.md)
  - [ListInstancesAuditResponse](docs/ListInstancesAuditResponse.md)
- - [ListInstancesAuditResponseLinks](docs/ListInstancesAuditResponseLinks.md)
  - [ListInstancesResponse](docs/ListInstancesResponse.md)
  - [ListInstancesResponseData](docs/ListInstancesResponseData.md)
- - [ListInstancesResponseLinks](docs/ListInstancesResponseLinks.md)
- - [ListInstancesResponsePagination](docs/ListInstancesResponsePagination.md)
  - [ListObjectStorageAuditResponse](docs/ListObjectStorageAuditResponse.md)
- - [ListObjectStorageAuditResponseLinks](docs/ListObjectStorageAuditResponseLinks.md)
  - [ListObjectStorageResponse](docs/ListObjectStorageResponse.md)
- - [ListObjectStorageResponseLinks](docs/ListObjectStorageResponseLinks.md)
  - [ListPrivateNetworkAuditResponse](docs/ListPrivateNetworkAuditResponse.md)
- - [ListPrivateNetworkAuditResponseLinks](docs/ListPrivateNetworkAuditResponseLinks.md)
  - [ListPrivateNetworkResponse](docs/ListPrivateNetworkResponse.md)
  - [ListPrivateNetworkResponseData](docs/ListPrivateNetworkResponseData.md)
- - [ListPrivateNetworkResponseLinks](docs/ListPrivateNetworkResponseLinks.md)
  - [ListRoleAuditResponse](docs/ListRoleAuditResponse.md)
- - [ListRoleAuditResponseLinks](docs/ListRoleAuditResponseLinks.md)
  - [ListRoleResponse](docs/ListRoleResponse.md)
- - [ListRoleResponseLinks](docs/ListRoleResponseLinks.md)
  - [ListSecretAuditResponse](docs/ListSecretAuditResponse.md)
- - [ListSecretAuditResponseLinks](docs/ListSecretAuditResponseLinks.md)
  - [ListSecretResponse](docs/ListSecretResponse.md)
- - [ListSecretResponseLinks](docs/ListSecretResponseLinks.md)
  - [ListSnapshotResponse](docs/ListSnapshotResponse.md)
- - [ListSnapshotResponseLinks](docs/ListSnapshotResponseLinks.md)
  - [ListSnapshotsAuditResponse](docs/ListSnapshotsAuditResponse.md)
- - [ListSnapshotsAuditResponseLinks](docs/ListSnapshotsAuditResponseLinks.md)
  - [ListTagAuditsResponse](docs/ListTagAuditsResponse.md)
- - [ListTagAuditsResponseLinks](docs/ListTagAuditsResponseLinks.md)
  - [ListTagResponse](docs/ListTagResponse.md)
- - [ListTagResponseLinks](docs/ListTagResponseLinks.md)
  - [ListUserAuditResponse](docs/ListUserAuditResponse.md)
- - [ListUserAuditResponseLinks](docs/ListUserAuditResponseLinks.md)
  - [ListUserResponse](docs/ListUserResponse.md)
- - [ListUserResponseLinks](docs/ListUserResponseLinks.md)
  - [MinimumRequirements](docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
- - [ObjectStorageResponseAutoScaling](docs/ObjectStorageResponseAutoScaling.md)
  - [ObjectStoragesStatsResponse](docs/ObjectStoragesStatsResponse.md)
  - [ObjectStoragesStatsResponseData](docs/ObjectStoragesStatsResponseData.md)
- - [ObjectStoragesStatsResponseLinks](docs/ObjectStoragesStatsResponseLinks.md)
  - [OptimalRequirements](docs/OptimalRequirements.md)
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PatchInstanceRequest](docs/PatchInstanceRequest.md)
  - [PatchInstanceResponse](docs/PatchInstanceResponse.md)
  - [PatchInstanceResponseData](docs/PatchInstanceResponseData.md)
- - [PatchInstanceResponseLinks](docs/PatchInstanceResponseLinks.md)
  - [PatchObjectStorageRequest](docs/PatchObjectStorageRequest.md)
  - [PatchPrivateNetworkRequest](docs/PatchPrivateNetworkRequest.md)
  - [PatchPrivateNetworkResponse](docs/PatchPrivateNetworkResponse.md)
@@ -407,7 +335,6 @@ Class | Method | HTTP request | Description
  - [RoleAuditResponse](docs/RoleAuditResponse.md)
  - [RoleResponse](docs/RoleResponse.md)
  - [RollbackSnapshotResponse](docs/RollbackSnapshotResponse.md)
- - [RollbackSnapshotResponseLinks](docs/RollbackSnapshotResponseLinks.md)
  - [SecretAuditResponse](docs/SecretAuditResponse.md)
  - [SecretResponse](docs/SecretResponse.md)
  - [SelfLinks](docs/SelfLinks.md)
@@ -422,36 +349,32 @@ Class | Method | HTTP request | Description
  - [UpdateCustomImageResponseData](docs/UpdateCustomImageResponseData.md)
  - [UpdateRoleRequest](docs/UpdateRoleRequest.md)
  - [UpdateRoleResponse](docs/UpdateRoleResponse.md)
- - [UpdateRoleResponseLinks](docs/UpdateRoleResponseLinks.md)
  - [UpdateSecretRequest](docs/UpdateSecretRequest.md)
  - [UpdateSecretResponse](docs/UpdateSecretResponse.md)
- - [UpdateSecretResponseLinks](docs/UpdateSecretResponseLinks.md)
  - [UpdateSnapshotRequest](docs/UpdateSnapshotRequest.md)
  - [UpdateSnapshotResponse](docs/UpdateSnapshotResponse.md)
  - [UpdateTagRequest](docs/UpdateTagRequest.md)
  - [UpdateTagResponse](docs/UpdateTagResponse.md)
- - [UpdateTagResponseLinks](docs/UpdateTagResponseLinks.md)
  - [UpdateUserRequest](docs/UpdateUserRequest.md)
  - [UpdateUserResponse](docs/UpdateUserResponse.md)
- - [UpdateUserResponseLinks](docs/UpdateUserResponseLinks.md)
  - [UpgradeAutoScalingType](docs/UpgradeAutoScalingType.md)
  - [UpgradeInstanceRequest](docs/UpgradeInstanceRequest.md)
  - [UpgradeObjectStorageRequest](docs/UpgradeObjectStorageRequest.md)
- - [UpgradeObjectStorageRequestAutoScaling](docs/UpgradeObjectStorageRequestAutoScaling.md)
  - [UpgradeObjectStorageResponse](docs/UpgradeObjectStorageResponse.md)
  - [UpgradeObjectStorageResponseData](docs/UpgradeObjectStorageResponseData.md)
- - [UpgradeObjectStorageResponseDataAutoScaling](docs/UpgradeObjectStorageResponseDataAutoScaling.md)
- - [UpgradeObjectStorageResponseLinks](docs/UpgradeObjectStorageResponseLinks.md)
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
  - [VncResponse](docs/VncResponse.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation For Authorization
 
 
-## bearer
+Authentication schemes defined for the API:
+<a id="bearer"></a>
+### bearer
 
 - **Type**: Bearer authentication (JWT)
 
@@ -460,23 +383,4 @@ Class | Method | HTTP request | Description
 
 support@contabo.com
 
-
-## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in pfruck_contabo.apis and pfruck_contabo.models may fail with a
-RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
-
-Solution 1:
-Use specific imports for apis and models like:
-- `from pfruck_contabo.api.default_api import DefaultApi`
-- `from pfruck_contabo.model.pet import Pet`
-
-Solution 2:
-Before importing the package, adjust the maximum recursion limit as shown below:
-```
-import sys
-sys.setrecursionlimit(1500)
-import pfruck_contabo
-from pfruck_contabo.apis import *
-from pfruck_contabo.models import *
-```
 

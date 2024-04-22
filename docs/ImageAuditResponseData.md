@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The ID of the audit entry. | 
@@ -14,9 +15,25 @@ Name | Type | Description | Notes
 **request_id** | **str** | The requestId of the API call which led to the change. | 
 **trace_id** | **str** | The traceId of the API call which led to the change. | 
 **image_id** | **str** | The identifier of the image | 
-**changes** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | List of actual changes. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**changes** | **object** | List of actual changes. | [optional] 
 
+## Example
+
+```python
+from pfruck_contabo.models.image_audit_response_data import ImageAuditResponseData
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ImageAuditResponseData from a JSON string
+image_audit_response_data_instance = ImageAuditResponseData.from_json(json)
+# print the JSON string representation of the object
+print(ImageAuditResponseData.to_json())
+
+# convert the object into a dict
+image_audit_response_data_dict = image_audit_response_data_instance.to_dict()
+# create an instance of ImageAuditResponseData from a dict
+image_audit_response_data_from_dict = ImageAuditResponseData.from_dict(image_audit_response_data_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

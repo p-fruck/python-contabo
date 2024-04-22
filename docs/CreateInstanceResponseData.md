@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenant_id** | **str** | Your customer tenant id | 
@@ -11,12 +12,28 @@ Name | Type | Description | Notes
 **image_id** | **str** | Image&#39;s id | 
 **product_id** | **str** | Product ID | 
 **region** | **str** | Instance Region where the compute instance should be located. | 
-**add_ons** | [**[AddOnResponse]**](AddOnResponse.md) |  | 
+**add_ons** | [**List[AddOnResponse]**](AddOnResponse.md) |  | 
 **os_type** | **str** | Type of operating system (OS) | 
 **status** | [**InstanceStatus**](InstanceStatus.md) |  | 
-**ssh_keys** | **[int]** | Array of &#x60;secretId&#x60;s of public SSH keys for logging into as &#x60;defaultUser&#x60; with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API. | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**ssh_keys** | **List[int]** | Array of &#x60;secretId&#x60;s of public SSH keys for logging into as &#x60;defaultUser&#x60; with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API. | 
 
+## Example
+
+```python
+from pfruck_contabo.models.create_instance_response_data import CreateInstanceResponseData
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of CreateInstanceResponseData from a JSON string
+create_instance_response_data_instance = CreateInstanceResponseData.from_json(json)
+# print the JSON string representation of the object
+print(CreateInstanceResponseData.to_json())
+
+# convert the object into a dict
+create_instance_response_data_dict = create_instance_response_data_instance.to_dict()
+# create an instance of CreateInstanceResponseData from a dict
+create_instance_response_data_from_dict = CreateInstanceResponseData.from_dict(create_instance_response_data_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

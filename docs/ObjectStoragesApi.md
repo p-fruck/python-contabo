@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **cancel_object_storage**
-> CancelObjectStorageResponse cancel_object_storage(x_request_id, object_storage_id)
+> CancelObjectStorageResponse cancel_object_storage(x_request_id, object_storage_id, x_trace_id=x_trace_id)
 
 Cancels the specified object storage at the next possible date
 
@@ -26,11 +26,11 @@ Cancels the specified object storage at the next possible date. Please be aware 
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.cancel_object_storage_response import CancelObjectStorageResponse
+from pfruck_contabo.models.cancel_object_storage_response import CancelObjectStorageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -44,43 +44,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    object_storage_id = '4a6f95be-2ac0-4e3c-8eed-0dc67afed640' # str | The identifier of the object storage.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Cancels the specified object storage at the next possible date
-        api_response = api_instance.cancel_object_storage(x_request_id, object_storage_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->cancel_object_storage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Cancels the specified object storage at the next possible date
         api_response = api_instance.cancel_object_storage(x_request_id, object_storage_id, x_trace_id=x_trace_id)
+        print("The response of ObjectStoragesApi->cancel_object_storage:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->cancel_object_storage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **object_storage_id** | **str**| The identifier of the object storage. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -95,7 +88,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -105,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_object_storage**
-> CreateObjectStorageResponse create_object_storage(x_request_id, create_object_storage_request)
+> CreateObjectStorageResponse create_object_storage(x_request_id, create_object_storage_request, x_trace_id=x_trace_id)
 
 Create a new object storage
 
@@ -116,12 +108,12 @@ Create / purchase a new object storage in your account. Please note that you can
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.create_object_storage_response import CreateObjectStorageResponse
-from pfruck_contabo.model.create_object_storage_request import CreateObjectStorageRequest
+from pfruck_contabo.models.create_object_storage_request import CreateObjectStorageRequest
+from pfruck_contabo.models.create_object_storage_response import CreateObjectStorageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -135,48 +127,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    create_object_storage_request = CreateObjectStorageRequest(
-        region="EU",
-        auto_scaling=CreateObjectStorageRequestAutoScaling(None),
-        total_purchased_space_tb=6,
-        display_name="Object storage 1",
-    ) # CreateObjectStorageRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    create_object_storage_request = pfruck_contabo.CreateObjectStorageRequest() # CreateObjectStorageRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a new object storage
-        api_response = api_instance.create_object_storage(x_request_id, create_object_storage_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->create_object_storage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a new object storage
         api_response = api_instance.create_object_storage(x_request_id, create_object_storage_request, x_trace_id=x_trace_id)
+        print("The response of ObjectStoragesApi->create_object_storage:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->create_object_storage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **create_object_storage_request** | [**CreateObjectStorageRequest**](CreateObjectStorageRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **create_object_storage_request** | [**CreateObjectStorageRequest**](CreateObjectStorageRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -191,7 +171,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -201,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_data_center_list**
-> ListDataCenterResponse retrieve_data_center_list(x_request_id)
+> ListDataCenterResponse retrieve_data_center_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, slug=slug, name=name, region_name=region_name, region_slug=region_slug)
 
 List data centers
 
@@ -212,11 +191,11 @@ List all data centers and their corresponding regions.
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.list_data_center_response import ListDataCenterResponse
+from pfruck_contabo.models.list_data_center_response import ListDataCenterResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -230,57 +209,48 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    slug = "EU1" # str | Filter as match for data centers. (optional)
-    name = "European Union 1" # str | Filter for Object Storages regions. (optional)
-    region_name = "European Union" # str | Filter for Object Storage region names. (optional)
-    region_slug = "EU" # str | Filter for Object Storage region slugs. (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    slug = 'EU1' # str | Filter as match for data centers. (optional)
+    name = 'European Union 1' # str | Filter for Object Storages regions. (optional)
+    region_name = 'European Union' # str | Filter for Object Storage region names. (optional)
+    region_slug = 'EU' # str | Filter for Object Storage region slugs. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List data centers
-        api_response = api_instance.retrieve_data_center_list(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->retrieve_data_center_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List data centers
         api_response = api_instance.retrieve_data_center_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, slug=slug, name=name, region_name=region_name, region_slug=region_slug)
+        print("The response of ObjectStoragesApi->retrieve_data_center_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->retrieve_data_center_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **slug** | **str**| Filter as match for data centers. | [optional]
- **name** | **str**| Filter for Object Storages regions. | [optional]
- **region_name** | **str**| Filter for Object Storage region names. | [optional]
- **region_slug** | **str**| Filter for Object Storage region slugs. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **slug** | **str**| Filter as match for data centers. | [optional] 
+ **name** | **str**| Filter for Object Storages regions. | [optional] 
+ **region_name** | **str**| Filter for Object Storage region names. | [optional] 
+ **region_slug** | **str**| Filter for Object Storage region slugs. | [optional] 
 
 ### Return type
 
@@ -295,7 +265,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -305,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_object_storage**
-> FindObjectStorageResponse retrieve_object_storage(x_request_id, object_storage_id)
+> FindObjectStorageResponse retrieve_object_storage(x_request_id, object_storage_id, x_trace_id=x_trace_id)
 
 Get specific object storage by its id
 
@@ -316,11 +285,11 @@ Get data for a specific object storage on your account.
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.find_object_storage_response import FindObjectStorageResponse
+from pfruck_contabo.models.find_object_storage_response import FindObjectStorageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -334,43 +303,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    object_storage_id = '4a6f95be-2ac0-4e3c-8eed-0dc67afed640' # str | The identifier of the object storage.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get specific object storage by its id
-        api_response = api_instance.retrieve_object_storage(x_request_id, object_storage_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->retrieve_object_storage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get specific object storage by its id
         api_response = api_instance.retrieve_object_storage(x_request_id, object_storage_id, x_trace_id=x_trace_id)
+        print("The response of ObjectStoragesApi->retrieve_object_storage:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->retrieve_object_storage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **object_storage_id** | **str**| The identifier of the object storage. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -385,7 +347,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -395,7 +356,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_object_storage_list**
-> ListObjectStorageResponse retrieve_object_storage_list(x_request_id)
+> ListObjectStorageResponse retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id, region=region, display_name=display_name)
 
 List all your object storages
 
@@ -406,11 +367,11 @@ List and filter all object storages in your account
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.list_object_storage_response import ListObjectStorageResponse
+from pfruck_contabo.models.list_object_storage_response import ListObjectStorageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -424,57 +385,48 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    data_center_name = "European Union 2" # str | Filter for Object Storage locations. (optional)
-    s3_tenant_id = "2cd2e5e1444a41b0bed16c6410ecaa84" # str | Filter for Object Storage S3 tenantId. (optional)
-    region = "EU" # str | Filter for Object Storage by regions. Available regions: EU, US-central, SIN (optional)
-    display_name = "MyObjectStorage" # str | Filter for Object Storage by display name. (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    data_center_name = 'European Union 2' # str | Filter for Object Storage locations. (optional)
+    s3_tenant_id = '2cd2e5e1444a41b0bed16c6410ecaa84' # str | Filter for Object Storage S3 tenantId. (optional)
+    region = 'EU' # str | Filter for Object Storage by regions. Available regions: EU, US-central, SIN (optional)
+    display_name = 'MyObjectStorage' # str | Filter for Object Storage by display name. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List all your object storages
-        api_response = api_instance.retrieve_object_storage_list(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->retrieve_object_storage_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List all your object storages
         api_response = api_instance.retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id, region=region, display_name=display_name)
+        print("The response of ObjectStoragesApi->retrieve_object_storage_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->retrieve_object_storage_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **data_center_name** | **str**| Filter for Object Storage locations. | [optional]
- **s3_tenant_id** | **str**| Filter for Object Storage S3 tenantId. | [optional]
- **region** | **str**| Filter for Object Storage by regions. Available regions: EU, US-central, SIN | [optional]
- **display_name** | **str**| Filter for Object Storage by display name. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **data_center_name** | **str**| Filter for Object Storage locations. | [optional] 
+ **s3_tenant_id** | **str**| Filter for Object Storage S3 tenantId. | [optional] 
+ **region** | **str**| Filter for Object Storage by regions. Available regions: EU, US-central, SIN | [optional] 
+ **display_name** | **str**| Filter for Object Storage by display name. | [optional] 
 
 ### Return type
 
@@ -489,7 +441,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -499,7 +450,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_object_storages_stats**
-> ObjectStoragesStatsResponse retrieve_object_storages_stats(x_request_id, object_storage_id)
+> ObjectStoragesStatsResponse retrieve_object_storages_stats(x_request_id, object_storage_id, x_trace_id=x_trace_id)
 
 List usage statistics about the specified object storage
 
@@ -510,11 +461,11 @@ List usage statistics about the specified object storage such as the number of o
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.object_storages_stats_response import ObjectStoragesStatsResponse
+from pfruck_contabo.models.object_storages_stats_response import ObjectStoragesStatsResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -528,43 +479,36 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    object_storage_id = '4a6f95be-2ac0-4e3c-8eed-0dc67afed640' # str | The identifier of the object storage.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List usage statistics about the specified object storage
-        api_response = api_instance.retrieve_object_storages_stats(x_request_id, object_storage_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->retrieve_object_storages_stats: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List usage statistics about the specified object storage
         api_response = api_instance.retrieve_object_storages_stats(x_request_id, object_storage_id, x_trace_id=x_trace_id)
+        print("The response of ObjectStoragesApi->retrieve_object_storages_stats:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->retrieve_object_storages_stats: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **object_storage_id** | **str**| The identifier of the object storage. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -579,7 +523,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -589,7 +532,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_object_storage**
-> CancelObjectStorageResponse update_object_storage(x_request_id, object_storage_id, patch_object_storage_request)
+> CancelObjectStorageResponse update_object_storage(x_request_id, object_storage_id, patch_object_storage_request, x_trace_id=x_trace_id)
 
 Modifies the display name of object storage
 
@@ -600,12 +543,12 @@ Modifies the display name of object storage. Display name must be unique.
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.patch_object_storage_request import PatchObjectStorageRequest
-from pfruck_contabo.model.cancel_object_storage_response import CancelObjectStorageResponse
+from pfruck_contabo.models.cancel_object_storage_response import CancelObjectStorageResponse
+from pfruck_contabo.models.patch_object_storage_request import PatchObjectStorageRequest
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -619,47 +562,38 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
-    patch_object_storage_request = PatchObjectStorageRequest(
-        display_name="Object storage 1",
-    ) # PatchObjectStorageRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    object_storage_id = '4a6f95be-2ac0-4e3c-8eed-0dc67afed640' # str | The identifier of the object storage.
+    patch_object_storage_request = pfruck_contabo.PatchObjectStorageRequest() # PatchObjectStorageRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Modifies the display name of object storage
-        api_response = api_instance.update_object_storage(x_request_id, object_storage_id, patch_object_storage_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->update_object_storage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Modifies the display name of object storage
         api_response = api_instance.update_object_storage(x_request_id, object_storage_id, patch_object_storage_request, x_trace_id=x_trace_id)
+        print("The response of ObjectStoragesApi->update_object_storage:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->update_object_storage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage. |
- **patch_object_storage_request** | [**PatchObjectStorageRequest**](PatchObjectStorageRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **object_storage_id** | **str**| The identifier of the object storage. | 
+ **patch_object_storage_request** | [**PatchObjectStorageRequest**](PatchObjectStorageRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -674,7 +608,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -684,7 +617,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upgrade_object_storage**
-> UpgradeObjectStorageResponse upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request)
+> UpgradeObjectStorageResponse upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request, x_trace_id=x_trace_id)
 
 Upgrade object storage size resp. update autoscaling settings.
 
@@ -695,12 +628,12 @@ Upgrade object storage size. You can also adjust the autoscaling settings for yo
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import object_storages_api
-from pfruck_contabo.model.upgrade_object_storage_request import UpgradeObjectStorageRequest
-from pfruck_contabo.model.upgrade_object_storage_response import UpgradeObjectStorageResponse
+from pfruck_contabo.models.upgrade_object_storage_request import UpgradeObjectStorageRequest
+from pfruck_contabo.models.upgrade_object_storage_response import UpgradeObjectStorageResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -714,48 +647,38 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_storages_api.ObjectStoragesApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    object_storage_id = "4a6f95be-2ac0-4e3c-8eed-0dc67afed640" # str | The identifier of the object storage.
-    upgrade_object_storage_request = UpgradeObjectStorageRequest(
-        auto_scaling=UpgradeObjectStorageRequestAutoScaling(None),
-        total_purchased_space_tb=8,
-    ) # UpgradeObjectStorageRequest | 
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.ObjectStoragesApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    object_storage_id = '4a6f95be-2ac0-4e3c-8eed-0dc67afed640' # str | The identifier of the object storage.
+    upgrade_object_storage_request = pfruck_contabo.UpgradeObjectStorageRequest() # UpgradeObjectStorageRequest | 
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Upgrade object storage size resp. update autoscaling settings.
-        api_response = api_instance.upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling ObjectStoragesApi->upgrade_object_storage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Upgrade object storage size resp. update autoscaling settings.
         api_response = api_instance.upgrade_object_storage(x_request_id, object_storage_id, upgrade_object_storage_request, x_trace_id=x_trace_id)
+        print("The response of ObjectStoragesApi->upgrade_object_storage:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectStoragesApi->upgrade_object_storage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **object_storage_id** | **str**| The identifier of the object storage. |
- **upgrade_object_storage_request** | [**UpgradeObjectStorageRequest**](UpgradeObjectStorageRequest.md)|  |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **object_storage_id** | **str**| The identifier of the object storage. | 
+ **upgrade_object_storage_request** | [**UpgradeObjectStorageRequest**](UpgradeObjectStorageRequest.md)|  | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
 
@@ -769,7 +692,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

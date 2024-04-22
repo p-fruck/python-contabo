@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image_id** | **str** | Image&#39;s id | 
@@ -20,9 +21,25 @@ Name | Type | Description | Notes
 **standard_image** | **bool** | Flag indicating that image is either a standard (true) or a custom image (false) | 
 **creation_date** | **datetime** | The creation date time for the image | 
 **last_modified_date** | **datetime** | The last modified date time for the image | 
-**tags** | [**[AssignedTagResponse]**](AssignedTagResponse.md) | The tags assigned to the image | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**tags** | [**List[AssignedTagResponse]**](AssignedTagResponse.md) | The tags assigned to the image | 
 
+## Example
+
+```python
+from pfruck_contabo.models.list_image_response_data import ListImageResponseData
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ListImageResponseData from a JSON string
+list_image_response_data_instance = ListImageResponseData.from_json(json)
+# print the JSON string representation of the object
+print(ListImageResponseData.to_json())
+
+# convert the object into a dict
+list_image_response_data_dict = list_image_response_data_instance.to_dict()
+# create an instance of ListImageResponseData from a dict
+list_image_response_data_from_dict = ListImageResponseData.from_dict(list_image_response_data_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

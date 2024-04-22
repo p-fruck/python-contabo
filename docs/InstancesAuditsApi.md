@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **retrieve_instances_audits_list**
-> ListInstancesAuditResponse retrieve_instances_audits_list(x_request_id)
+> ListInstancesAuditResponse retrieve_instances_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, instance_id=instance_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
 
 List history about your instances (audit)
 
@@ -19,11 +19,11 @@ List and filters the history about your instances.
 * Bearer (JWT) Authentication (bearer):
 
 ```python
-import time
 import pfruck_contabo
-from pfruck_contabo.api import instances_audits_api
-from pfruck_contabo.model.list_instances_audit_response import ListInstancesAuditResponse
+from pfruck_contabo.models.list_instances_audit_response import ListInstancesAuditResponse
+from pfruck_contabo.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.contabo.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pfruck_contabo.Configuration(
@@ -37,59 +37,50 @@ configuration = pfruck_contabo.Configuration(
 
 # Configure Bearer authorization (JWT): bearer
 configuration = pfruck_contabo.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pfruck_contabo.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = instances_audits_api.InstancesAuditsApi(api_client)
-    x_request_id = "04e0f898-37b4-48bc-a794-1a57abe6aa31" # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    x_trace_id = "x-trace-id_example" # str | Identifier to trace group of requests. (optional)
+    api_instance = pfruck_contabo.InstancesAuditsApi(api_client)
+    x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
+    x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
     page = 1 # int | Number of page to be fetched. (optional)
     size = 10 # int | Number of elements per page. (optional)
-    order_by = [
-        "name:asc",
-    ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
+    order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     instance_id = 12345 # int | The identifier of the instances. (optional)
-    request_id = "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" # str | The requestId of the API call which led to the change. (optional)
-    changed_by = "23cbb6d6-cb11-4330-bdff-7bb791df2e23" # str | changedBy of the user which led to the change. (optional)
-    start_date = dateutil_parser('2021-06-02').date() # date | Start of search time range. (optional)
-    end_date = dateutil_parser('2021-06-02').date() # date | End of search time range. (optional)
+    request_id = 'D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3' # str | The requestId of the API call which led to the change. (optional)
+    changed_by = '23cbb6d6-cb11-4330-bdff-7bb791df2e23' # str | changedBy of the user which led to the change. (optional)
+    start_date = '2021-06-02' # date | Start of search time range. (optional)
+    end_date = '2021-06-02' # date | End of search time range. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List history about your instances (audit)
-        api_response = api_instance.retrieve_instances_audits_list(x_request_id)
-        pprint(api_response)
-    except pfruck_contabo.ApiException as e:
-        print("Exception when calling InstancesAuditsApi->retrieve_instances_audits_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List history about your instances (audit)
         api_response = api_instance.retrieve_instances_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, instance_id=instance_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
+        print("The response of InstancesAuditsApi->retrieve_instances_audits_list:\n")
         pprint(api_response)
-    except pfruck_contabo.ApiException as e:
+    except Exception as e:
         print("Exception when calling InstancesAuditsApi->retrieve_instances_audits_list: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. |
- **x_trace_id** | **str**| Identifier to trace group of requests. | [optional]
- **page** | **int**| Number of page to be fetched. | [optional]
- **size** | **int**| Number of elements per page. | [optional]
- **order_by** | **[str]**| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional]
- **instance_id** | **int**| The identifier of the instances. | [optional]
- **request_id** | **str**| The requestId of the API call which led to the change. | [optional]
- **changed_by** | **str**| changedBy of the user which led to the change. | [optional]
- **start_date** | **date**| Start of search time range. | [optional]
- **end_date** | **date**| End of search time range. | [optional]
+ **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
+ **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
+ **page** | **int**| Number of page to be fetched. | [optional] 
+ **size** | **int**| Number of elements per page. | [optional] 
+ **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
+ **instance_id** | **int**| The identifier of the instances. | [optional] 
+ **request_id** | **str**| The requestId of the API call which led to the change. | [optional] 
+ **changed_by** | **str**| changedBy of the user which led to the change. | [optional] 
+ **start_date** | **date**| Start of search time range. | [optional] 
+ **end_date** | **date**| End of search time range. | [optional] 
 
 ### Return type
 
@@ -103,7 +94,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

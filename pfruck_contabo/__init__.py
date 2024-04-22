@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.12.0"
+__version__ = "2.0.0"
 
 # import apis into sdk package
 from pfruck_contabo.api.images_api import ImagesApi

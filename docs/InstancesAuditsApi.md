@@ -4,15 +4,15 @@ All URIs are relative to *https://api.contabo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieve_instances_audits_list**](InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your custom images (audit)
+[**retrieve_instances_audits_list**](InstancesAuditsApi.md#retrieve_instances_audits_list) | **GET** /v1/compute/instances/audits | List history about your instances (audit)
 
 
 # **retrieve_instances_audits_list**
 > ListInstancesAuditResponse retrieve_instances_audits_list(x_request_id)
 
-List history about your custom images (audit)
+List history about your instances (audit)
 
-List and filters the history about your custom images.
+List and filters the history about your instances.
 
 ### Example
 
@@ -59,7 +59,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List history about your custom images (audit)
+        # List history about your instances (audit)
         api_response = api_instance.retrieve_instances_audits_list(x_request_id)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
@@ -68,7 +68,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List history about your custom images (audit)
+        # List history about your instances (audit)
         api_response = api_instance.retrieve_instances_audits_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, instance_id=instance_id, request_id=request_id, changed_by=changed_by, start_date=start_date, end_date=end_date)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:

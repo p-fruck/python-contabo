@@ -102,7 +102,7 @@ class AssignmentResponse(ModelNormal):
         return {
             'tenant_id': (str,),  # noqa: E501
             'customer_id': (str,),  # noqa: E501
-            'tag_id': (float,),  # noqa: E501
+            'tag_id': (int,),  # noqa: E501
             'tag_name': (str,),  # noqa: E501
             'resource_type': (str,),  # noqa: E501
             'resource_id': (str,),  # noqa: E501
@@ -137,7 +137,7 @@ class AssignmentResponse(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            tag_id (float): Tag's id
+            tag_id (int): The identifier of the tag.
             tag_name (str): Tag's name
             resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): Resource id
@@ -238,7 +238,7 @@ class AssignmentResponse(ModelNormal):
         Args:
             tenant_id (str): Your customer tenant id
             customer_id (str): Your customer number
-            tag_id (float): Tag's id
+            tag_id (int): The identifier of the tag.
             tag_name (str): Tag's name
             resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
             resource_id (str): Resource id

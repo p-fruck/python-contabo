@@ -1334,7 +1334,7 @@ class UsersApi(object):
             size (int): Number of elements per page.. [optional]
             order_by ([str]): Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.. [optional]
             object_storage_id (str): The identifier of the S3 object storage. [optional]
-            region_name (str): Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union (Germany), United States (Central). [optional]
+            region_name (str): Filter for Object Storage by regions. Available regions: Asia (Singapore), European Union, United States (Central). [optional]
             display_name (str): Filter for Object Storage by his displayName.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

@@ -12,11 +12,11 @@ import sys
 import unittest
 
 import pfruck_contabo
-from pfruck_contabo.model.metadata_type import MetadataType
+from pfruck_contabo.model.assigned_tag_response import AssignedTagResponse
 
 
-class TestMetadataType(unittest.TestCase):
-    """MetadataType unit test stubs"""
+class TestAssignedTagResponse(unittest.TestCase):
+    """AssignedTagResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -24,10 +24,10 @@ class TestMetadataType(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testMetadataType(self):
-        """Test MetadataType"""
+    def testAssignedTagResponse(self):
+        """Test AssignedTagResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = MetadataType()  # noqa: E501
+        # model = AssignedTagResponse()  # noqa: E501
         pass
 
 

@@ -520,7 +520,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     name = "myPrivateNetwork" # str | The name of the Private Network (optional)
     instance_ids = "100, 101, 102" # str | Comma separated instances identifiers (optional)
     region = "EU" # str | The slug of the region where your Private Network is located (optional)
-    data_center = "European Union (Germany) 1" # str | The data center where your Private Network is located (optional)
+    data_center = "European Union 1" # str | The data center where your Private Network is located (optional)
 
     # example passing only required values which don't have defaults set
     try:

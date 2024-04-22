@@ -245,8 +245,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     slug = "EU1" # str | Filter as match for data centers. (optional)
-    name = "European Union (Germany) 1" # str | Filter for Object Storages regions. (optional)
-    region_name = "European Union (Germany)" # str | Filter for Object Storage region names. (optional)
+    name = "European Union 1" # str | Filter for Object Storages regions. (optional)
+    region_name = "European Union" # str | Filter for Object Storage region names. (optional)
     region_slug = "EU" # str | Filter for Object Storage region slugs. (optional)
 
     # example passing only required values which don't have defaults set
@@ -438,9 +438,10 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = [
         "name:asc",
     ] # [str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    data_center_name = "European Union (Germany) 2" # str | Filter for Object Storage locations. (optional)
+    data_center_name = "European Union 2" # str | Filter for Object Storage locations. (optional)
     s3_tenant_id = "2cd2e5e1444a41b0bed16c6410ecaa84" # str | Filter for Object Storage S3 tenantId. (optional)
     region = "EU" # str | Filter for Object Storage by regions. Available regions: EU, US-central, SIN (optional)
+    display_name = "MyObjectStorage" # str | Filter for Object Storage by display name. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -454,7 +455,7 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List all your object storages
-        api_response = api_instance.retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id, region=region)
+        api_response = api_instance.retrieve_object_storage_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, data_center_name=data_center_name, s3_tenant_id=s3_tenant_id, region=region, display_name=display_name)
         pprint(api_response)
     except pfruck_contabo.ApiException as e:
         print("Exception when calling ObjectStoragesApi->retrieve_object_storage_list: %s\n" % e)
@@ -473,6 +474,7 @@ Name | Type | Description  | Notes
  **data_center_name** | **str**| Filter for Object Storage locations. | [optional]
  **s3_tenant_id** | **str**| Filter for Object Storage S3 tenantId. | [optional]
  **region** | **str**| Filter for Object Storage by regions. Available regions: EU, US-central, SIN | [optional]
+ **display_name** | **str**| Filter for Object Storage by display name. | [optional]
 
 ### Return type
 

@@ -102,7 +102,7 @@ class AssignmentAuditResponse(ModelNormal):
             'id': (float,),  # noqa: E501
             'resource_id': (str,),  # noqa: E501
             'resource_type': (str,),  # noqa: E501
-            'tag_id': (float,),  # noqa: E501
+            'tag_id': (int,),  # noqa: E501
             'action': (str,),  # noqa: E501
             'timestamp': (datetime,),  # noqa: E501
             'changed_by': (str,),  # noqa: E501
@@ -149,7 +149,7 @@ class AssignmentAuditResponse(ModelNormal):
             id (float): The identifier of the audit entry.
             resource_id (str): Resource's id
             resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
-            tag_id (float): Tag's id
+            tag_id (int): Tag's id
             action (str): Audit Action
             timestamp (datetime): Audit creation date
             changed_by (str): User ID
@@ -261,7 +261,7 @@ class AssignmentAuditResponse(ModelNormal):
             id (float): The identifier of the audit entry.
             resource_id (str): Resource's id
             resource_type (str): Resource type. Resource type is one of `instance|image|object-storage`.
-            tag_id (float): Tag's id
+            tag_id (int): Tag's id
             action (str): Audit Action
             timestamp (datetime): Audit creation date
             changed_by (str): User ID

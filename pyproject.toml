@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pfruck_contabo"
-version = "1.12.0"
+version = "2.0.0"
 description = "Contabo API"
 authors = ["OpenAPI Generator Community <support@contabo.com>"]
 license = "NoLicense"

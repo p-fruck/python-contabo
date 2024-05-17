@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 Revert the instance to a particular snapshot based on its identifier
 
-Rollback instance to a specific snapshot. The snapshot must be the latest one in order to be able to restore it, otherwise you will receive an error informing you that the snapshot is not the latest
+Rollback the instance to a specific snapshot. In case the snapshot is not the latest one, it will automatically delete all the newer snapshots of the instance
 
 ### Example
 

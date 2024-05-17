@@ -1341,7 +1341,7 @@ class SnapshotsApi:
     ) -> RollbackSnapshotResponse:
         """Revert the instance to a particular snapshot based on its identifier
 
-        Rollback instance to a specific snapshot. The snapshot must be the latest one in order to be able to restore it, otherwise you will receive an error informing you that the snapshot is not the latest
+        Rollback the instance to a specific snapshot. In case the snapshot is not the latest one, it will automatically delete all the newer snapshots of the instance
 
         :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
         :type x_request_id: str
@@ -1424,7 +1424,7 @@ class SnapshotsApi:
     ) -> ApiResponse[RollbackSnapshotResponse]:
         """Revert the instance to a particular snapshot based on its identifier
 
-        Rollback instance to a specific snapshot. The snapshot must be the latest one in order to be able to restore it, otherwise you will receive an error informing you that the snapshot is not the latest
+        Rollback the instance to a specific snapshot. In case the snapshot is not the latest one, it will automatically delete all the newer snapshots of the instance
 
         :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
         :type x_request_id: str
@@ -1507,7 +1507,7 @@ class SnapshotsApi:
     ) -> RESTResponseType:
         """Revert the instance to a particular snapshot based on its identifier
 
-        Rollback instance to a specific snapshot. The snapshot must be the latest one in order to be able to restore it, otherwise you will receive an error informing you that the snapshot is not the latest
+        Rollback the instance to a specific snapshot. In case the snapshot is not the latest one, it will automatically delete all the newer snapshots of the instance
 
         :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
         :type x_request_id: str

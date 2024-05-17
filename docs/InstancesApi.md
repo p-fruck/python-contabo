@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_instances_list**
-> ListInstancesResponse retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, display_name=display_name, data_center=data_center, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types, ip_config=ip_config)
+> ListInstancesResponse retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, display_name=display_name, data_center=data_center, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types, ip_config=ip_config, search=search)
 
 List instances
 
@@ -482,10 +482,11 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     add_on_ids = '1044,827' # str | Identifiers of Addons the instances have (optional)
     product_types = 'ssd, hdd, nvme' # str | Comma separated instance's category depending on Product Id (optional)
     ip_config = true # bool | Filter instances that have an ip config (optional)
+    search = 'vmd12345' # str | Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress` (optional)
 
     try:
         # List instances
-        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, display_name=display_name, data_center=data_center, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types, ip_config=ip_config)
+        api_response = api_instance.retrieve_instances_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, display_name=display_name, data_center=data_center, region=region, instance_id=instance_id, instance_ids=instance_ids, status=status, add_on_ids=add_on_ids, product_types=product_types, ip_config=ip_config, search=search)
         print("The response of InstancesApi->retrieve_instances_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -514,6 +515,7 @@ Name | Type | Description  | Notes
  **add_on_ids** | **str**| Identifiers of Addons the instances have | [optional] 
  **product_types** | **str**| Comma separated instance&#39;s category depending on Product Id | [optional] 
  **ip_config** | **bool**| Filter instances that have an ip config | [optional] 
+ **search** | **str**| Full text search when listing the instances. Can be searched by &#x60;name&#x60;, &#x60;displayName&#x60;, &#x60;ipAddress&#x60; | [optional] 
 
 ### Return type
 

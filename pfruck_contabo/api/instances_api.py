@@ -1575,6 +1575,7 @@ class InstancesApi:
         add_on_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of Addons the instances have")] = None,
         product_types: Annotated[Optional[StrictStr], Field(description="Comma separated instance's category depending on Product Id")] = None,
         ip_config: Annotated[Optional[StrictBool], Field(description="Filter instances that have an ip config")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1622,6 +1623,8 @@ class InstancesApi:
         :type product_types: str
         :param ip_config: Filter instances that have an ip config
         :type ip_config: bool
+        :param search: Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`
+        :type search: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1660,6 +1663,7 @@ class InstancesApi:
             add_on_ids=add_on_ids,
             product_types=product_types,
             ip_config=ip_config,
+            search=search,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1698,6 +1702,7 @@ class InstancesApi:
         add_on_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of Addons the instances have")] = None,
         product_types: Annotated[Optional[StrictStr], Field(description="Comma separated instance's category depending on Product Id")] = None,
         ip_config: Annotated[Optional[StrictBool], Field(description="Filter instances that have an ip config")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1745,6 +1750,8 @@ class InstancesApi:
         :type product_types: str
         :param ip_config: Filter instances that have an ip config
         :type ip_config: bool
+        :param search: Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`
+        :type search: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1783,6 +1790,7 @@ class InstancesApi:
             add_on_ids=add_on_ids,
             product_types=product_types,
             ip_config=ip_config,
+            search=search,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1821,6 +1829,7 @@ class InstancesApi:
         add_on_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of Addons the instances have")] = None,
         product_types: Annotated[Optional[StrictStr], Field(description="Comma separated instance's category depending on Product Id")] = None,
         ip_config: Annotated[Optional[StrictBool], Field(description="Filter instances that have an ip config")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1868,6 +1877,8 @@ class InstancesApi:
         :type product_types: str
         :param ip_config: Filter instances that have an ip config
         :type ip_config: bool
+        :param search: Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`
+        :type search: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1906,6 +1917,7 @@ class InstancesApi:
             add_on_ids=add_on_ids,
             product_types=product_types,
             ip_config=ip_config,
+            search=search,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1939,6 +1951,7 @@ class InstancesApi:
         add_on_ids,
         product_types,
         ip_config,
+        search,
         _request_auth,
         _content_type,
         _headers,
@@ -2011,6 +2024,10 @@ class InstancesApi:
         if ip_config is not None:
             
             _query_params.append(('ipConfig', ip_config))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         # process the header parameters
         if x_request_id is not None:

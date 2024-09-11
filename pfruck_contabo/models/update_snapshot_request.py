@@ -27,7 +27,7 @@ class UpdateSnapshotRequest(BaseModel):
     """
     UpdateSnapshotRequest
     """ # noqa: E501
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The name of the snapshot. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per snapshot.")
+    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=30)]] = Field(default=None, description="The name of the snapshot. Tags may contain only letters, numbers, spaces, dashes. There is a limit of 30 characters per snapshot.")
     description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The description of the snapshot. There is a limit of 255 characters per snapshot.")
     __properties: ClassVar[List[str]] = ["name", "description"]
 

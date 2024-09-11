@@ -40,6 +40,8 @@ from pfruck_contabo.api.tags_api import TagsApi
 from pfruck_contabo.api.tags_audits_api import TagsAuditsApi
 from pfruck_contabo.api.users_api import UsersApi
 from pfruck_contabo.api.users_audits_api import UsersAuditsApi
+from pfruck_contabo.api.vip_api import VIPApi
+from pfruck_contabo.api.vip_audits_api import VipAuditsApi
 
 # import ApiClient
 from pfruck_contabo.api_response import ApiResponse
@@ -62,6 +64,7 @@ from pfruck_contabo.models.application_config import ApplicationConfig
 from pfruck_contabo.models.application_requirements import ApplicationRequirements
 from pfruck_contabo.models.application_response import ApplicationResponse
 from pfruck_contabo.models.assign_instance_private_network_response import AssignInstancePrivateNetworkResponse
+from pfruck_contabo.models.assign_vip_response import AssignVipResponse
 from pfruck_contabo.models.assigned_tag_response import AssignedTagResponse
 from pfruck_contabo.models.assignment_audit_response import AssignmentAuditResponse
 from pfruck_contabo.models.assignment_response import AssignmentResponse
@@ -121,6 +124,7 @@ from pfruck_contabo.models.find_snapshot_response import FindSnapshotResponse
 from pfruck_contabo.models.find_tag_response import FindTagResponse
 from pfruck_contabo.models.find_user_is_password_set_response import FindUserIsPasswordSetResponse
 from pfruck_contabo.models.find_user_response import FindUserResponse
+from pfruck_contabo.models.find_vip_response import FindVipResponse
 from pfruck_contabo.models.find_vnc_response import FindVncResponse
 from pfruck_contabo.models.firewalling_upgrade_request import FirewallingUpgradeRequest
 from pfruck_contabo.models.generate_client_secret_response import GenerateClientSecretResponse
@@ -149,6 +153,7 @@ from pfruck_contabo.models.instances_audit_response import InstancesAuditRespons
 from pfruck_contabo.models.instances_reset_password_actions_request import InstancesResetPasswordActionsRequest
 from pfruck_contabo.models.ip_config import IpConfig
 from pfruck_contabo.models.ip_v4 import IpV4
+from pfruck_contabo.models.ip_v41 import IpV41
 from pfruck_contabo.models.ip_v6 import IpV6
 from pfruck_contabo.models.links import Links
 from pfruck_contabo.models.list_api_permission_response import ListApiPermissionResponse
@@ -178,6 +183,9 @@ from pfruck_contabo.models.list_tag_audits_response import ListTagAuditsResponse
 from pfruck_contabo.models.list_tag_response import ListTagResponse
 from pfruck_contabo.models.list_user_audit_response import ListUserAuditResponse
 from pfruck_contabo.models.list_user_response import ListUserResponse
+from pfruck_contabo.models.list_vip_audit_response import ListVipAuditResponse
+from pfruck_contabo.models.list_vip_response import ListVipResponse
+from pfruck_contabo.models.list_vip_response_data import ListVipResponseData
 from pfruck_contabo.models.minimum_requirements import MinimumRequirements
 from pfruck_contabo.models.object_storage_audit_response import ObjectStorageAuditResponse
 from pfruck_contabo.models.object_storage_response import ObjectStorageResponse
@@ -234,4 +242,6 @@ from pfruck_contabo.models.upgrade_object_storage_response_data import UpgradeOb
 from pfruck_contabo.models.user_audit_response import UserAuditResponse
 from pfruck_contabo.models.user_is_password_set_response import UserIsPasswordSetResponse
 from pfruck_contabo.models.user_response import UserResponse
+from pfruck_contabo.models.vip_audit_response import VipAuditResponse
+from pfruck_contabo.models.vip_response import VipResponse
 from pfruck_contabo.models.vnc_response import VncResponse

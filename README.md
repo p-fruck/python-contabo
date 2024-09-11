@@ -180,6 +180,11 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VIPApi* | [**assign_ip**](docs/VIPApi.md#assign_ip) | **POST** /v1/vips/{ip}/{resourceType}/{resourceId} | Assign a VIP to an VPS/VDS/Bare Metal
+*VIPApi* | [**retrieve_vip**](docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
+*VIPApi* | [**retrieve_vip_list**](docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
+*VIPApi* | [**unassign_ip**](docs/VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/{resourceType}/{resourceId} | Unassign a VIP to a VPS/VDS/Bare Metal
+*VipAuditsApi* | [**retrieve_vip_audits_list**](docs/VipAuditsApi.md#retrieve_vip_audits_list) | **GET** /v1/vips/audits | List history about your VIPs (audit)
 
 
 ## Documentation For Models
@@ -193,6 +198,7 @@ Class | Method | HTTP request | Description
  - [ApplicationRequirements](docs/ApplicationRequirements.md)
  - [ApplicationResponse](docs/ApplicationResponse.md)
  - [AssignInstancePrivateNetworkResponse](docs/AssignInstancePrivateNetworkResponse.md)
+ - [AssignVipResponse](docs/AssignVipResponse.md)
  - [AssignedTagResponse](docs/AssignedTagResponse.md)
  - [AssignmentAuditResponse](docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](docs/AssignmentResponse.md)
@@ -252,6 +258,7 @@ Class | Method | HTTP request | Description
  - [FindTagResponse](docs/FindTagResponse.md)
  - [FindUserIsPasswordSetResponse](docs/FindUserIsPasswordSetResponse.md)
  - [FindUserResponse](docs/FindUserResponse.md)
+ - [FindVipResponse](docs/FindVipResponse.md)
  - [FindVncResponse](docs/FindVncResponse.md)
  - [FirewallingUpgradeRequest](docs/FirewallingUpgradeRequest.md)
  - [GenerateClientSecretResponse](docs/GenerateClientSecretResponse.md)
@@ -280,6 +287,7 @@ Class | Method | HTTP request | Description
  - [InstancesResetPasswordActionsRequest](docs/InstancesResetPasswordActionsRequest.md)
  - [IpConfig](docs/IpConfig.md)
  - [IpV4](docs/IpV4.md)
+ - [IpV41](docs/IpV41.md)
  - [IpV6](docs/IpV6.md)
  - [Links](docs/Links.md)
  - [ListApiPermissionResponse](docs/ListApiPermissionResponse.md)
@@ -309,6 +317,9 @@ Class | Method | HTTP request | Description
  - [ListTagResponse](docs/ListTagResponse.md)
  - [ListUserAuditResponse](docs/ListUserAuditResponse.md)
  - [ListUserResponse](docs/ListUserResponse.md)
+ - [ListVipAuditResponse](docs/ListVipAuditResponse.md)
+ - [ListVipResponse](docs/ListVipResponse.md)
+ - [ListVipResponseData](docs/ListVipResponseData.md)
  - [MinimumRequirements](docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](docs/ObjectStorageResponse.md)
@@ -365,6 +376,8 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](docs/UserIsPasswordSetResponse.md)
  - [UserResponse](docs/UserResponse.md)
+ - [VipAuditResponse](docs/VipAuditResponse.md)
+ - [VipResponse](docs/VipResponse.md)
  - [VncResponse](docs/VncResponse.md)
 
 

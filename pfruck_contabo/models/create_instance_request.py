@@ -48,8 +48,8 @@ class CreateInstanceRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN']):
-            raise ValueError("must be one of enum values ('EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN')")
+        if value not in set(['EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN', 'SIN', 'IND']):
+            raise ValueError("must be one of enum values ('EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN', 'SIN', 'IND')")
         return value
 
     @field_validator('license')

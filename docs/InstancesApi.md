@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **cancel_instance**
-> CancelInstanceResponse cancel_instance(x_request_id, instance_id, x_trace_id=x_trace_id)
+> CancelInstanceResponse cancel_instance(x_request_id, instance_id, body, x_trace_id=x_trace_id)
 
 Cancel specific instance by id
 
@@ -52,11 +52,12 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     api_instance = pfruck_contabo.InstancesApi(api_client)
     x_request_id = '04e0f898-37b4-48bc-a794-1a57abe6aa31' # str | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
     instance_id = 12345 # int | The identifier of the instance
+    body = None # object | 
     x_trace_id = 'x_trace_id_example' # str | Identifier to trace group of requests. (optional)
 
     try:
         # Cancel specific instance by id
-        api_response = api_instance.cancel_instance(x_request_id, instance_id, x_trace_id=x_trace_id)
+        api_response = api_instance.cancel_instance(x_request_id, instance_id, body, x_trace_id=x_trace_id)
         print("The response of InstancesApi->cancel_instance:\n")
         pprint(api_response)
     except Exception as e:
@@ -72,6 +73,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_request_id** | **str**| [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. | 
  **instance_id** | **int**| The identifier of the instance | 
+ **body** | **object**|  | 
  **x_trace_id** | **str**| Identifier to trace group of requests. | [optional] 
 
 ### Return type
@@ -84,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

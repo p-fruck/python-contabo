@@ -18,18 +18,19 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import Any, ClassVar, Dict, List
+from pfruck_contabo.models.self_links import SelfLinks
+from pfruck_contabo.models.vip_response import VipResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequest(BaseModel):
+class FindVipResponse(BaseModel):
     """
-    CreateSnapshotRequest
+    FindVipResponse
     """ # noqa: E501
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=30)] = Field(description="The name of the snapshot. It may contain letters, numbers, spaces, dashes. There is a limit of 30 characters per snapshot.")
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The description of the snapshot. There is a limit of 255 characters per snapshot.")
-    __properties: ClassVar[List[str]] = ["name", "description"]
+    data: List[VipResponse]
+    links: SelfLinks = Field(alias="_links")
+    __properties: ClassVar[List[str]] = ["data", "_links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +50,7 @@ class CreateSnapshotRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequest from a JSON string"""
+        """Create an instance of FindVipResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +71,21 @@ class CreateSnapshotRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        _items = []
+        if self.data:
+            for _item in self.data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['data'] = _items
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['_links'] = self.links.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequest from a dict"""
+        """Create an instance of FindVipResponse from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +93,8 @@ class CreateSnapshotRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "description": obj.get("description")
+            "data": [VipResponse.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "_links": SelfLinks.from_dict(obj["_links"]) if obj.get("_links") is not None else None
         })
         return _obj
 

@@ -17,19 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequest(BaseModel):
+class IpV41(BaseModel):
     """
-    CreateSnapshotRequest
+    IpV41
     """ # noqa: E501
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=30)] = Field(description="The name of the snapshot. It may contain letters, numbers, spaces, dashes. There is a limit of 30 characters per snapshot.")
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The description of the snapshot. There is a limit of 255 characters per snapshot.")
-    __properties: ClassVar[List[str]] = ["name", "description"]
+    ip: StrictStr = Field(description="IP address")
+    gateway: StrictStr = Field(description="Gateway")
+    netmask_cidr: StrictInt = Field(description="Netmask CIDR", alias="netmaskCidr")
+    broadcast: StrictStr = Field(description="Broadcast address")
+    net: StrictStr = Field(description="Net address")
+    __properties: ClassVar[List[str]] = ["ip", "gateway", "netmaskCidr", "broadcast", "net"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +51,7 @@ class CreateSnapshotRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequest from a JSON string"""
+        """Create an instance of IpV41 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +76,7 @@ class CreateSnapshotRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequest from a dict"""
+        """Create an instance of IpV41 from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +84,11 @@ class CreateSnapshotRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "description": obj.get("description")
+            "ip": obj.get("ip"),
+            "gateway": obj.get("gateway"),
+            "netmaskCidr": obj.get("netmaskCidr"),
+            "broadcast": obj.get("broadcast"),
+            "net": obj.get("net")
         })
         return _obj
 

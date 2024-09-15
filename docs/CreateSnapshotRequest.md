@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | The name of the snapshot. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per snapshot. | 
+**name** | **str** | The name of the snapshot. It may contain letters, numbers, spaces, dashes. There is a limit of 30 characters per snapshot. | 
 **description** | **str** | The description of the snapshot. There is a limit of 255 characters per snapshot. | [optional] 
 
 ## Example

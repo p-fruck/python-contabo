@@ -18,18 +18,21 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from typing import Any, ClassVar, Dict, List
+from pfruck_contabo.models.links import Links
+from pfruck_contabo.models.list_vip_response_data import ListVipResponseData
+from pfruck_contabo.models.pagination_meta import PaginationMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateSnapshotRequest(BaseModel):
+class ListVipResponse(BaseModel):
     """
-    CreateSnapshotRequest
+    ListVipResponse
     """ # noqa: E501
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=30)] = Field(description="The name of the snapshot. It may contain letters, numbers, spaces, dashes. There is a limit of 30 characters per snapshot.")
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The description of the snapshot. There is a limit of 255 characters per snapshot.")
-    __properties: ClassVar[List[str]] = ["name", "description"]
+    pagination: PaginationMeta = Field(description="Data about pagination like how many results, pages, page size.", alias="_pagination")
+    data: List[ListVipResponseData]
+    links: Links = Field(alias="_links")
+    __properties: ClassVar[List[str]] = ["_pagination", "data", "_links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +52,7 @@ class CreateSnapshotRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequest from a JSON string"""
+        """Create an instance of ListVipResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +73,24 @@ class CreateSnapshotRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pagination
+        if self.pagination:
+            _dict['_pagination'] = self.pagination.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        _items = []
+        if self.data:
+            for _item in self.data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['data'] = _items
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['_links'] = self.links.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateSnapshotRequest from a dict"""
+        """Create an instance of ListVipResponse from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +98,9 @@ class CreateSnapshotRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "description": obj.get("description")
+            "_pagination": PaginationMeta.from_dict(obj["_pagination"]) if obj.get("_pagination") is not None else None,
+            "data": [ListVipResponseData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "_links": Links.from_dict(obj["_links"]) if obj.get("_links") is not None else None
         })
         return _obj
 

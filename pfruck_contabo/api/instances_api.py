@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated
 from pfruck_contabo.models.cancel_instance_response import CancelInstanceResponse
 from pfruck_contabo.models.create_instance_request import CreateInstanceRequest
@@ -53,6 +53,7 @@ class InstancesApi:
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
         instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        body: Dict[str, Any],
         x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
         _request_timeout: Union[
             None,
@@ -75,6 +76,8 @@ class InstancesApi:
         :type x_request_id: str
         :param instance_id: The identifier of the instance (required)
         :type instance_id: int
+        :param body: (required)
+        :type body: object
         :param x_trace_id: Identifier to trace group of requests.
         :type x_trace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -102,6 +105,7 @@ class InstancesApi:
         _param = self._cancel_instance_serialize(
             x_request_id=x_request_id,
             instance_id=instance_id,
+            body=body,
             x_trace_id=x_trace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -128,6 +132,7 @@ class InstancesApi:
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
         instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        body: Dict[str, Any],
         x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
         _request_timeout: Union[
             None,
@@ -150,6 +155,8 @@ class InstancesApi:
         :type x_request_id: str
         :param instance_id: The identifier of the instance (required)
         :type instance_id: int
+        :param body: (required)
+        :type body: object
         :param x_trace_id: Identifier to trace group of requests.
         :type x_trace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -177,6 +184,7 @@ class InstancesApi:
         _param = self._cancel_instance_serialize(
             x_request_id=x_request_id,
             instance_id=instance_id,
+            body=body,
             x_trace_id=x_trace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -203,6 +211,7 @@ class InstancesApi:
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
         instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        body: Dict[str, Any],
         x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
         _request_timeout: Union[
             None,
@@ -225,6 +234,8 @@ class InstancesApi:
         :type x_request_id: str
         :param instance_id: The identifier of the instance (required)
         :type instance_id: int
+        :param body: (required)
+        :type body: object
         :param x_trace_id: Identifier to trace group of requests.
         :type x_trace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -252,6 +263,7 @@ class InstancesApi:
         _param = self._cancel_instance_serialize(
             x_request_id=x_request_id,
             instance_id=instance_id,
+            body=body,
             x_trace_id=x_trace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -273,6 +285,7 @@ class InstancesApi:
         self,
         x_request_id,
         instance_id,
+        body,
         x_trace_id,
         _request_auth,
         _content_type,
@@ -303,6 +316,8 @@ class InstancesApi:
             _header_params['x-trace-id'] = x_trace_id
         # process the form parameters
         # process the body parameter
+        if body is not None:
+            _body_params = body
 
 
         # set the HTTP header `Accept`
@@ -312,6 +327,19 @@ class InstancesApi:
             ]
         )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

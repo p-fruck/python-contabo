@@ -12,6 +12,7 @@ docs/ApplicationConfig.md
 docs/ApplicationRequirements.md
 docs/ApplicationResponse.md
 docs/AssignInstancePrivateNetworkResponse.md
+docs/AssignVipResponse.md
 docs/AssignedTagResponse.md
 docs/AssignmentAuditResponse.md
 docs/AssignmentResponse.md
@@ -71,6 +72,7 @@ docs/FindSnapshotResponse.md
 docs/FindTagResponse.md
 docs/FindUserIsPasswordSetResponse.md
 docs/FindUserResponse.md
+docs/FindVipResponse.md
 docs/FindVncResponse.md
 docs/FirewallingUpgradeRequest.md
 docs/GenerateClientSecretResponse.md
@@ -106,6 +108,7 @@ docs/InstancesResetPasswordActionsRequest.md
 docs/InternalApi.md
 docs/IpConfig.md
 docs/IpV4.md
+docs/IpV41.md
 docs/IpV6.md
 docs/Links.md
 docs/ListApiPermissionResponse.md
@@ -135,6 +138,9 @@ docs/ListTagAuditsResponse.md
 docs/ListTagResponse.md
 docs/ListUserAuditResponse.md
 docs/ListUserResponse.md
+docs/ListVipAuditResponse.md
+docs/ListVipResponse.md
+docs/ListVipResponseData.md
 docs/MinimumRequirements.md
 docs/ObjectStorageAuditResponse.md
 docs/ObjectStorageResponse.md
@@ -207,6 +213,10 @@ docs/UserIsPasswordSetResponse.md
 docs/UserResponse.md
 docs/UsersApi.md
 docs/UsersAuditsApi.md
+docs/VIPApi.md
+docs/VipAuditResponse.md
+docs/VipAuditsApi.md
+docs/VipResponse.md
 docs/VncResponse.md
 pfruck_contabo/__init__.py
 pfruck_contabo/api/__init__.py
@@ -233,6 +243,8 @@ pfruck_contabo/api/tags_api.py
 pfruck_contabo/api/tags_audits_api.py
 pfruck_contabo/api/users_api.py
 pfruck_contabo/api/users_audits_api.py
+pfruck_contabo/api/vip_api.py
+pfruck_contabo/api/vip_audits_api.py
 pfruck_contabo/api_client.py
 pfruck_contabo/api_response.py
 pfruck_contabo/configuration.py
@@ -247,6 +259,7 @@ pfruck_contabo/models/application_config.py
 pfruck_contabo/models/application_requirements.py
 pfruck_contabo/models/application_response.py
 pfruck_contabo/models/assign_instance_private_network_response.py
+pfruck_contabo/models/assign_vip_response.py
 pfruck_contabo/models/assigned_tag_response.py
 pfruck_contabo/models/assignment_audit_response.py
 pfruck_contabo/models/assignment_response.py
@@ -306,6 +319,7 @@ pfruck_contabo/models/find_snapshot_response.py
 pfruck_contabo/models/find_tag_response.py
 pfruck_contabo/models/find_user_is_password_set_response.py
 pfruck_contabo/models/find_user_response.py
+pfruck_contabo/models/find_vip_response.py
 pfruck_contabo/models/find_vnc_response.py
 pfruck_contabo/models/firewalling_upgrade_request.py
 pfruck_contabo/models/generate_client_secret_response.py
@@ -334,6 +348,7 @@ pfruck_contabo/models/instances_audit_response.py
 pfruck_contabo/models/instances_reset_password_actions_request.py
 pfruck_contabo/models/ip_config.py
 pfruck_contabo/models/ip_v4.py
+pfruck_contabo/models/ip_v41.py
 pfruck_contabo/models/ip_v6.py
 pfruck_contabo/models/links.py
 pfruck_contabo/models/list_api_permission_response.py
@@ -363,6 +378,9 @@ pfruck_contabo/models/list_tag_audits_response.py
 pfruck_contabo/models/list_tag_response.py
 pfruck_contabo/models/list_user_audit_response.py
 pfruck_contabo/models/list_user_response.py
+pfruck_contabo/models/list_vip_audit_response.py
+pfruck_contabo/models/list_vip_response.py
+pfruck_contabo/models/list_vip_response_data.py
 pfruck_contabo/models/minimum_requirements.py
 pfruck_contabo/models/object_storage_audit_response.py
 pfruck_contabo/models/object_storage_response.py
@@ -419,6 +437,8 @@ pfruck_contabo/models/upgrade_object_storage_response_data.py
 pfruck_contabo/models/user_audit_response.py
 pfruck_contabo/models/user_is_password_set_response.py
 pfruck_contabo/models/user_response.py
+pfruck_contabo/models/vip_audit_response.py
+pfruck_contabo/models/vip_response.py
 pfruck_contabo/models/vnc_response.py
 pfruck_contabo/py.typed
 pfruck_contabo/rest.py
@@ -437,6 +457,7 @@ test/test_application_config.py
 test/test_application_requirements.py
 test/test_application_response.py
 test/test_assign_instance_private_network_response.py
+test/test_assign_vip_response.py
 test/test_assigned_tag_response.py
 test/test_assignment_audit_response.py
 test/test_assignment_response.py
@@ -496,6 +517,7 @@ test/test_find_snapshot_response.py
 test/test_find_tag_response.py
 test/test_find_user_is_password_set_response.py
 test/test_find_user_response.py
+test/test_find_vip_response.py
 test/test_find_vnc_response.py
 test/test_firewalling_upgrade_request.py
 test/test_generate_client_secret_response.py
@@ -531,6 +553,7 @@ test/test_instances_reset_password_actions_request.py
 test/test_internal_api.py
 test/test_ip_config.py
 test/test_ip_v4.py
+test/test_ip_v41.py
 test/test_ip_v6.py
 test/test_links.py
 test/test_list_api_permission_response.py
@@ -560,6 +583,9 @@ test/test_list_tag_audits_response.py
 test/test_list_tag_response.py
 test/test_list_user_audit_response.py
 test/test_list_user_response.py
+test/test_list_vip_audit_response.py
+test/test_list_vip_response.py
+test/test_list_vip_response_data.py
 test/test_minimum_requirements.py
 test/test_object_storage_audit_response.py
 test/test_object_storage_response.py
@@ -632,5 +658,9 @@ test/test_user_is_password_set_response.py
 test/test_user_response.py
 test/test_users_api.py
 test/test_users_audits_api.py
+test/test_vip_api.py
+test/test_vip_audit_response.py
+test/test_vip_audits_api.py
+test/test_vip_response.py
 test/test_vnc_response.py
 tox.ini

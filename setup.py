@@ -225,6 +225,11 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**retrieve_user_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#retrieve_user_list) | **GET** /v1/users | List users
 *UsersApi* | [**update_user**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersApi.md#update_user) | **PATCH** /v1/users/{userId} | Update specific user by id
 *UsersAuditsApi* | [**retrieve_user_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/UsersAuditsApi.md#retrieve_user_audits_list) | **GET** /v1/users/audits | List history about your users (audit)
+*VIPApi* | [**assign_ip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#assign_ip) | **POST** /v1/vips/{ip}/{resourceType}/{resourceId} | Assign a VIP to an VPS/VDS/Bare Metal
+*VIPApi* | [**retrieve_vip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip) | **GET** /v1/vips/{ip} | Get specific VIP by ip
+*VIPApi* | [**retrieve_vip_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#retrieve_vip_list) | **GET** /v1/vips | List VIPs
+*VIPApi* | [**unassign_ip**](https://github.com/p-fruck/python-contabo/blob/main/docs/VIPApi.md#unassign_ip) | **DELETE** /v1/vips/{ip}/{resourceType}/{resourceId} | Unassign a VIP to a VPS/VDS/Bare Metal
+*VipAuditsApi* | [**retrieve_vip_audits_list**](https://github.com/p-fruck/python-contabo/blob/main/docs/VipAuditsApi.md#retrieve_vip_audits_list) | **GET** /v1/vips/audits | List history about your VIPs (audit)
 
 
 ## Documentation For Models
@@ -238,6 +243,7 @@ Class | Method | HTTP request | Description
  - [ApplicationRequirements](https://github.com/p-fruck/python-contabo/blob/main/docs/ApplicationRequirements.md)
  - [ApplicationResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ApplicationResponse.md)
  - [AssignInstancePrivateNetworkResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignInstancePrivateNetworkResponse.md)
+ - [AssignVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignVipResponse.md)
  - [AssignedTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignedTagResponse.md)
  - [AssignmentAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentAuditResponse.md)
  - [AssignmentResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/AssignmentResponse.md)
@@ -297,6 +303,7 @@ Class | Method | HTTP request | Description
  - [FindTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindTagResponse.md)
  - [FindUserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserIsPasswordSetResponse.md)
  - [FindUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindUserResponse.md)
+ - [FindVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindVipResponse.md)
  - [FindVncResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/FindVncResponse.md)
  - [FirewallingUpgradeRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/FirewallingUpgradeRequest.md)
  - [GenerateClientSecretResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/GenerateClientSecretResponse.md)
@@ -325,6 +332,7 @@ Class | Method | HTTP request | Description
  - [InstancesResetPasswordActionsRequest](https://github.com/p-fruck/python-contabo/blob/main/docs/InstancesResetPasswordActionsRequest.md)
  - [IpConfig](https://github.com/p-fruck/python-contabo/blob/main/docs/IpConfig.md)
  - [IpV4](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV4.md)
+ - [IpV41](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV41.md)
  - [IpV6](https://github.com/p-fruck/python-contabo/blob/main/docs/IpV6.md)
  - [Links](https://github.com/p-fruck/python-contabo/blob/main/docs/Links.md)
  - [ListApiPermissionResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListApiPermissionResponse.md)
@@ -354,6 +362,9 @@ Class | Method | HTTP request | Description
  - [ListTagResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListTagResponse.md)
  - [ListUserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserAuditResponse.md)
  - [ListUserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListUserResponse.md)
+ - [ListVipAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipAuditResponse.md)
+ - [ListVipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponse.md)
+ - [ListVipResponseData](https://github.com/p-fruck/python-contabo/blob/main/docs/ListVipResponseData.md)
  - [MinimumRequirements](https://github.com/p-fruck/python-contabo/blob/main/docs/MinimumRequirements.md)
  - [ObjectStorageAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageAuditResponse.md)
  - [ObjectStorageResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/ObjectStorageResponse.md)
@@ -410,6 +421,8 @@ Class | Method | HTTP request | Description
  - [UserAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserAuditResponse.md)
  - [UserIsPasswordSetResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserIsPasswordSetResponse.md)
  - [UserResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/UserResponse.md)
+ - [VipAuditResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/VipAuditResponse.md)
+ - [VipResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/VipResponse.md)
  - [VncResponse](https://github.com/p-fruck/python-contabo/blob/main/docs/VncResponse.md)
 
 

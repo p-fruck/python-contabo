@@ -35,7 +35,7 @@ class TestIpConfig(unittest.TestCase):
         model = IpConfig()
         if include_optional:
             return IpConfig(
-                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                v4 = pfruck_contabo.models.ip_v41.IpV41(
                     ip = '192.168.0.1', 
                     netmask_cidr = 19, 
                     gateway = '1.1.1.1', ),
@@ -46,7 +46,7 @@ class TestIpConfig(unittest.TestCase):
             )
         else:
             return IpConfig(
-                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                v4 = pfruck_contabo.models.ip_v41.IpV41(
                     ip = '192.168.0.1', 
                     netmask_cidr = 19, 
                     gateway = '1.1.1.1', ),

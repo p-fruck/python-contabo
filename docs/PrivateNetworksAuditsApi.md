@@ -52,8 +52,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     private_network_id = 12345 # int | The identifier of the Private Network (optional)
     request_id = 'D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3' # str | The requestId of the API call which led to the change. (optional)
     changed_by = '23cbb6d6-cb11-4330-bdff-7bb791df2e23' # str | User name which did the change. (optional)
-    start_date = '2021-01-01' # date | Start of search time range. (optional)
-    end_date = '2023-05-31' # date | End of search time range. (optional)
+    start_date = 'Fri Jan 01 00:00:00 UTC 2021' # date | Start of search time range. (optional)
+    end_date = 'Wed May 31 00:00:00 UTC 2023' # date | End of search time range. (optional)
 
     try:
         # List history about your Private Networks (audit)

@@ -17,20 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pfruck_contabo.models.ip_v41 import IpV41
-from pfruck_contabo.models.ip_v6 import IpV6
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IpConfig(BaseModel):
+class IpV42(BaseModel):
     """
-    IpConfig
+    IpV42
     """ # noqa: E501
-    v4: IpV41
-    v6: IpV6
-    __properties: ClassVar[List[str]] = ["v4", "v6"]
+    ip: StrictStr = Field(description="IP Address")
+    netmask_cidr: StrictInt = Field(description="Netmask CIDR", alias="netmaskCidr")
+    gateway: StrictStr = Field(description="Gateway")
+    __properties: ClassVar[List[str]] = ["ip", "netmaskCidr", "gateway"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class IpConfig(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IpConfig from a JSON string"""
+        """Create an instance of IpV42 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,17 +70,11 @@ class IpConfig(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of v4
-        if self.v4:
-            _dict['v4'] = self.v4.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of v6
-        if self.v6:
-            _dict['v6'] = self.v6.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IpConfig from a dict"""
+        """Create an instance of IpV42 from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +82,9 @@ class IpConfig(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "v4": IpV41.from_dict(obj["v4"]) if obj.get("v4") is not None else None,
-            "v6": IpV6.from_dict(obj["v6"]) if obj.get("v6") is not None else None
+            "ip": obj.get("ip"),
+            "netmaskCidr": obj.get("netmaskCidr"),
+            "gateway": obj.get("gateway")
         })
         return _obj
 

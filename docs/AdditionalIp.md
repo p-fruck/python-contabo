@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**v4** | [**IpV4**](IpV4.md) |  | 
+**v4** | [**IpV42**](IpV42.md) |  | 
 
 ## Example
 

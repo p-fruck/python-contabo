@@ -52,8 +52,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     vip_id = '1b943b25a-c8b5-4570-9135-4bbaa7615b812345' # str | The identifier of the VIP. (optional)
     request_id = 'D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3' # str | The requestId of the API call which led to the change. (optional)
     changed_by = '23cbb6d6-cb11-4330-bdff-7bb791df2e23' # str | User name which did the change. (optional)
-    start_date = '2021-01-01' # date | Start of search time range. (optional)
-    end_date = '2021-12-31' # date | End of search time range. (optional)
+    start_date = 'Fri Jan 01 00:00:00 UTC 2021' # date | Start of search time range. (optional)
+    end_date = 'Fri Dec 31 00:00:00 UTC 2021' # date | End of search time range. (optional)
 
     try:
         # List history about your VIPs (audit)

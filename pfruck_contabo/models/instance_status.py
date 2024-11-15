@@ -39,6 +39,7 @@ class InstanceStatus(str, Enum):
     RESCUE = 'rescue'
     PENDING_PAYMENT = 'pending_payment'
     OTHER = 'other'
+    RESET_PASSWORD = 'reset_password'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

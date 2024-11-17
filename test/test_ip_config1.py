@@ -14,10 +14,10 @@
 
 import unittest
 
-from pfruck_contabo.models.additional_ip import AdditionalIp
+from pfruck_contabo.models.ip_config1 import IpConfig1
 
-class TestAdditionalIp(unittest.TestCase):
-    """AdditionalIp unit test stubs"""
+class TestIpConfig1(unittest.TestCase):
+    """IpConfig1 unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,32 +25,40 @@ class TestAdditionalIp(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AdditionalIp:
-        """Test AdditionalIp
+    def make_instance(self, include_optional) -> IpConfig1:
+        """Test IpConfig1
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AdditionalIp`
+        # uncomment below to create an instance of `IpConfig1`
         """
-        model = AdditionalIp()
+        model = IpConfig1()
         if include_optional:
-            return AdditionalIp(
-                v4 = pfruck_contabo.models.ip_v42.IpV42(
-                    ip = '192.168.0.1', 
-                    netmask_cidr = 19, 
-                    gateway = '1.1.1.1', )
-            )
-        else:
-            return AdditionalIp(
+            return IpConfig1(
                 v4 = pfruck_contabo.models.ip_v42.IpV42(
                     ip = '192.168.0.1', 
                     netmask_cidr = 19, 
                     gateway = '1.1.1.1', ),
+                v6 = pfruck_contabo.models.ip_v6.IpV6(
+                    ip = '1:2:3:4:5:6:7:8', 
+                    netmask_cidr = 64, 
+                    gateway = '1:2:3:4:5:6:7:8', )
+            )
+        else:
+            return IpConfig1(
+                v4 = pfruck_contabo.models.ip_v42.IpV42(
+                    ip = '192.168.0.1', 
+                    netmask_cidr = 19, 
+                    gateway = '1.1.1.1', ),
+                v6 = pfruck_contabo.models.ip_v6.IpV6(
+                    ip = '1:2:3:4:5:6:7:8', 
+                    netmask_cidr = 64, 
+                    gateway = '1:2:3:4:5:6:7:8', ),
         )
         """
 
-    def testAdditionalIp(self):
-        """Test AdditionalIp"""
+    def testIpConfig1(self):
+        """Test IpConfig1"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -107,8 +107,10 @@ docs/InstancesAuditsApi.md
 docs/InstancesResetPasswordActionsRequest.md
 docs/InternalApi.md
 docs/IpConfig.md
+docs/IpConfig1.md
 docs/IpV4.md
 docs/IpV41.md
+docs/IpV42.md
 docs/IpV6.md
 docs/Links.md
 docs/ListApiPermissionResponse.md
@@ -347,8 +349,10 @@ pfruck_contabo/models/instances_actions_rescue_request.py
 pfruck_contabo/models/instances_audit_response.py
 pfruck_contabo/models/instances_reset_password_actions_request.py
 pfruck_contabo/models/ip_config.py
+pfruck_contabo/models/ip_config1.py
 pfruck_contabo/models/ip_v4.py
 pfruck_contabo/models/ip_v41.py
+pfruck_contabo/models/ip_v42.py
 pfruck_contabo/models/ip_v6.py
 pfruck_contabo/models/links.py
 pfruck_contabo/models/list_api_permission_response.py
@@ -552,8 +556,10 @@ test/test_instances_audits_api.py
 test/test_instances_reset_password_actions_request.py
 test/test_internal_api.py
 test/test_ip_config.py
+test/test_ip_config1.py
 test/test_ip_v4.py
 test/test_ip_v41.py
+test/test_ip_v42.py
 test/test_ip_v6.py
 test/test_links.py
 test/test_list_api_permission_response.py

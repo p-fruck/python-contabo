@@ -36,7 +36,7 @@ class TestPrivateIpConfig(unittest.TestCase):
         if include_optional:
             return PrivateIpConfig(
                 v4 = [
-                    pfruck_contabo.models.ip_v4.IpV4(
+                    pfruck_contabo.models.ip_v41.IpV41(
                         ip = '192.168.0.1', 
                         netmask_cidr = 19, 
                         gateway = '1.1.1.1', )
@@ -45,7 +45,7 @@ class TestPrivateIpConfig(unittest.TestCase):
         else:
             return PrivateIpConfig(
                 v4 = [
-                    pfruck_contabo.models.ip_v4.IpV4(
+                    pfruck_contabo.models.ip_v41.IpV41(
                         ip = '192.168.0.1', 
                         netmask_cidr = 19, 
                         gateway = '1.1.1.1', )

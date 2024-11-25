@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **resource_display_name** | **str** | Resource display name. | 
 **ip_version** | **str** | Version of Ip. | 
 **type** | **str** | The VIP type. | [optional] 
-**v4** | [**IpV41**](IpV41.md) |  | [optional] 
+**v4** | [**IpV4**](IpV4.md) |  | [optional] 
 
 ## Example
 

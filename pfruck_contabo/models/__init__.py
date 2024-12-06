@@ -111,8 +111,10 @@ from pfruck_contabo.models.instances_actions_rescue_request import InstancesActi
 from pfruck_contabo.models.instances_audit_response import InstancesAuditResponse
 from pfruck_contabo.models.instances_reset_password_actions_request import InstancesResetPasswordActionsRequest
 from pfruck_contabo.models.ip_config import IpConfig
+from pfruck_contabo.models.ip_config1 import IpConfig1
 from pfruck_contabo.models.ip_v4 import IpV4
 from pfruck_contabo.models.ip_v41 import IpV41
+from pfruck_contabo.models.ip_v42 import IpV42
 from pfruck_contabo.models.ip_v6 import IpV6
 from pfruck_contabo.models.links import Links
 from pfruck_contabo.models.list_api_permission_response import ListApiPermissionResponse

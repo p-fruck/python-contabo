@@ -46,7 +46,7 @@ class TestListVipResponseData(unittest.TestCase):
                 resource_display_name = 'My Instance 12',
                 ip_version = 'v4',
                 type = 'additional',
-                v4 = pfruck_contabo.models.ip_v41.IpV41(
+                v4 = pfruck_contabo.models.ip_v4.IpV4(
                     ip = '195.123.123.1', 
                     gateway = '255.255.255.1', 
                     netmask_cidr = 24, 

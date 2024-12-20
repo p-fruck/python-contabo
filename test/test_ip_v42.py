@@ -14,10 +14,10 @@
 
 import unittest
 
-from pfruck_contabo.models.ip_v41 import IpV41
+from pfruck_contabo.models.ip_v42 import IpV42
 
-class TestIpV41(unittest.TestCase):
-    """IpV41 unit test stubs"""
+class TestIpV42(unittest.TestCase):
+    """IpV42 unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,30 +25,30 @@ class TestIpV41(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> IpV41:
-        """Test IpV41
+    def make_instance(self, include_optional) -> IpV42:
+        """Test IpV42
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `IpV41`
+        # uncomment below to create an instance of `IpV42`
         """
-        model = IpV41()
+        model = IpV42()
         if include_optional:
-            return IpV41(
+            return IpV42(
                 ip = '192.168.0.1',
                 netmask_cidr = 19,
                 gateway = '1.1.1.1'
             )
         else:
-            return IpV41(
+            return IpV42(
                 ip = '192.168.0.1',
                 netmask_cidr = 19,
                 gateway = '1.1.1.1',
         )
         """
 
-    def testIpV41(self):
-        """Test IpV41"""
+    def testIpV42(self):
+        """Test IpV42"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

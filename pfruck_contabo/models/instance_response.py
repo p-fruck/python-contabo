@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from pfruck_contabo.models.add_on_response import AddOnResponse
 from pfruck_contabo.models.additional_ip import AdditionalIp
 from pfruck_contabo.models.instance_status import InstanceStatus
-from pfruck_contabo.models.ip_config import IpConfig
+from pfruck_contabo.models.ip_config1 import IpConfig1
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -43,7 +43,7 @@ class InstanceResponse(BaseModel):
     region_name: StrictStr = Field(description="The name of the region where the instance is located.", alias="regionName")
     product_id: StrictStr = Field(description="Product ID", alias="productId")
     image_id: StrictStr = Field(description="Image's id", alias="imageId")
-    ip_config: IpConfig = Field(alias="ipConfig")
+    ip_config: IpConfig1 = Field(alias="ipConfig")
     mac_address: StrictStr = Field(description="MAC Address", alias="macAddress")
     ram_mb: Union[StrictFloat, StrictInt] = Field(description="Image RAM size in MB", alias="ramMb")
     cpu_cores: StrictInt = Field(description="CPU core count", alias="cpuCores")
@@ -173,7 +173,7 @@ class InstanceResponse(BaseModel):
             "regionName": obj.get("regionName"),
             "productId": obj.get("productId"),
             "imageId": obj.get("imageId"),
-            "ipConfig": IpConfig.from_dict(obj["ipConfig"]) if obj.get("ipConfig") is not None else None,
+            "ipConfig": IpConfig1.from_dict(obj["ipConfig"]) if obj.get("ipConfig") is not None else None,
             "macAddress": obj.get("macAddress"),
             "ramMb": obj.get("ramMb"),
             "cpuCores": obj.get("cpuCores"),

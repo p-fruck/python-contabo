@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **region_name** | **str** | The name of the region where the instance is located. | 
 **product_id** | **str** | Product ID | 
 **image_id** | **str** | Image&#39;s id | 
-**ip_config** | [**IpConfig**](IpConfig.md) |  | 
+**ip_config** | [**IpConfig1**](IpConfig1.md) |  | 
 **mac_address** | **str** | MAC Address | 
 **ram_mb** | **float** | Image RAM size in MB | 
 **cpu_cores** | **int** | CPU core count | 

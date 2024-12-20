@@ -46,7 +46,7 @@ class TestListInstancesResponse(unittest.TestCase):
                         customer_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752', 
                         additional_ips = [
                             pfruck_contabo.models.additional_ip.AdditionalIp(
-                                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                                v4 = pfruck_contabo.models.ip_v42.IpV42(
                                     ip = '192.168.0.1', 
                                     netmask_cidr = 19, 
                                     gateway = '1.1.1.1', ), )
@@ -59,8 +59,8 @@ class TestListInstancesResponse(unittest.TestCase):
                         region_name = 'European Union', 
                         product_id = 'V5', 
                         image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', 
-                        ip_config = pfruck_contabo.models.ip_config.IpConfig(
-                            v4 = pfruck_contabo.models.ip_v4.IpV4(
+                        ip_config = pfruck_contabo.models.ip_config1.IpConfig1(
+                            v4 = pfruck_contabo.models.ip_v42.IpV42(
                                 ip = '192.168.0.1', 
                                 netmask_cidr = 19, 
                                 gateway = '1.1.1.1', ), 
@@ -110,7 +110,7 @@ class TestListInstancesResponse(unittest.TestCase):
                         customer_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752', 
                         additional_ips = [
                             pfruck_contabo.models.additional_ip.AdditionalIp(
-                                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                                v4 = pfruck_contabo.models.ip_v42.IpV42(
                                     ip = '192.168.0.1', 
                                     netmask_cidr = 19, 
                                     gateway = '1.1.1.1', ), )
@@ -123,8 +123,8 @@ class TestListInstancesResponse(unittest.TestCase):
                         region_name = 'European Union', 
                         product_id = 'V5', 
                         image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', 
-                        ip_config = pfruck_contabo.models.ip_config.IpConfig(
-                            v4 = pfruck_contabo.models.ip_v4.IpV4(
+                        ip_config = pfruck_contabo.models.ip_config1.IpConfig1(
+                            v4 = pfruck_contabo.models.ip_v42.IpV42(
                                 ip = '192.168.0.1', 
                                 netmask_cidr = 19, 
                                 gateway = '1.1.1.1', ), 

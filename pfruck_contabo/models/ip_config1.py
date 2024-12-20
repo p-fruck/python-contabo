@@ -19,16 +19,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from pfruck_contabo.models.ip_v41 import IpV41
+from pfruck_contabo.models.ip_v42 import IpV42
 from pfruck_contabo.models.ip_v6 import IpV6
 from typing import Optional, Set
 from typing_extensions import Self
 
-class IpConfig(BaseModel):
+class IpConfig1(BaseModel):
     """
-    IpConfig
+    IpConfig1
     """ # noqa: E501
-    v4: IpV41
+    v4: IpV42
     v6: IpV6
     __properties: ClassVar[List[str]] = ["v4", "v6"]
 
@@ -50,7 +50,7 @@ class IpConfig(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IpConfig from a JSON string"""
+        """Create an instance of IpConfig1 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +81,7 @@ class IpConfig(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IpConfig from a dict"""
+        """Create an instance of IpConfig1 from a dict"""
         if obj is None:
             return None
 
@@ -89,7 +89,7 @@ class IpConfig(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "v4": IpV41.from_dict(obj["v4"]) if obj.get("v4") is not None else None,
+            "v4": IpV42.from_dict(obj["v4"]) if obj.get("v4") is not None else None,
             "v6": IpV6.from_dict(obj["v6"]) if obj.get("v6") is not None else None
         })
         return _obj

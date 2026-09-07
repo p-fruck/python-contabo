@@ -56,7 +56,8 @@ class TestListApplicationsResponse(unittest.TestCase):
 user: admin
 timezone: Europe/Berlin
 chpasswd:
- expire: False', )
+ expire: False', 
+                                meta_data = null, )
                             ], 
                         requirements = null, )
                     ],
@@ -90,7 +91,8 @@ chpasswd:
 user: admin
 timezone: Europe/Berlin
 chpasswd:
- expire: False', )
+ expire: False', 
+                                meta_data = null, )
                             ], 
                         requirements = null, )
                     ],

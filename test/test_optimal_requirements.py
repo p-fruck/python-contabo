@@ -37,7 +37,8 @@ class TestOptimalRequirements(unittest.TestCase):
             return OptimalRequirements(
                 cpu_cores = 2,
                 ram_mb = 100,
-                disk_mb = 500
+                disk_mb = 500,
+                valid_product_ids = ["V13","V15"]
             )
         else:
             return OptimalRequirements(

@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_image_list**
-> ListImageResponse retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image)
+> ListImageResponse retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image, search=search)
 
 List available standard and custom images
 
@@ -381,10 +381,11 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     order_by = ['name:asc'] # List[str] | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
     name = 'Ubuntu' # str | The name of the image (optional)
     standard_image = true # bool | Flag indicating that image is either a standard (true) or a custom image (false) (optional)
+    search = 'windows or Debian' # str | full text search on image name or image os type (optional)
 
     try:
         # List available standard and custom images
-        api_response = api_instance.retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image)
+        api_response = api_instance.retrieve_image_list(x_request_id, x_trace_id=x_trace_id, page=page, size=size, order_by=order_by, name=name, standard_image=standard_image, search=search)
         print("The response of ImagesApi->retrieve_image_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -405,6 +406,7 @@ Name | Type | Description  | Notes
  **order_by** | [**List[str]**](str.md)| Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | [optional] 
  **name** | **str**| The name of the image | [optional] 
  **standard_image** | **bool**| Flag indicating that image is either a standard (true) or a custom image (false) | [optional] 
+ **search** | **str**| full text search on image name or image os type | [optional] 
 
 ### Return type
 

@@ -42,7 +42,7 @@ class TestCreateInstanceResponse(unittest.TestCase):
                         instance_id = 12345, 
                         created_date = '2021-06-02T12:32:03.363Z', 
                         image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', 
-                        product_id = 'V45', 
+                        product_id = 'V153', 
                         region = 'EU', 
                         add_ons = [
                             pfruck_contabo.models.add_on_response.AddOnResponse(
@@ -50,7 +50,7 @@ class TestCreateInstanceResponse(unittest.TestCase):
                                 quantity = 4, )
                             ], 
                         os_type = 'Linux', 
-                        status = 'provisioning', 
+                        status = running, 
                         ssh_keys = [123,125], )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
@@ -65,7 +65,7 @@ class TestCreateInstanceResponse(unittest.TestCase):
                         instance_id = 12345, 
                         created_date = '2021-06-02T12:32:03.363Z', 
                         image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', 
-                        product_id = 'V45', 
+                        product_id = 'V153', 
                         region = 'EU', 
                         add_ons = [
                             pfruck_contabo.models.add_on_response.AddOnResponse(
@@ -73,7 +73,7 @@ class TestCreateInstanceResponse(unittest.TestCase):
                                 quantity = 4, )
                             ], 
                         os_type = 'Linux', 
-                        status = 'provisioning', 
+                        status = running, 
                         ssh_keys = [123,125], )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(

@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from pfruck_contabo.models.add_on_response import AddOnResponse
 from pfruck_contabo.models.additional_ip import AdditionalIp
 from pfruck_contabo.models.instance_status import InstanceStatus
-from pfruck_contabo.models.ip_config import IpConfig
+from pfruck_contabo.models.ip_config2 import IpConfig2
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -42,8 +42,8 @@ class InstanceResponse(BaseModel):
     region: StrictStr = Field(description="Instance region where the compute instance should be located.")
     region_name: StrictStr = Field(description="The name of the region where the instance is located.", alias="regionName")
     product_id: StrictStr = Field(description="Product ID", alias="productId")
-    image_id: StrictStr = Field(description="Image's id", alias="imageId")
-    ip_config: IpConfig = Field(alias="ipConfig")
+    image_id: Optional[StrictStr] = Field(default=None, description="Image's id. Null for empty (imageless) instances.", alias="imageId")
+    ip_config: IpConfig2 = Field(alias="ipConfig")
     mac_address: StrictStr = Field(description="MAC Address", alias="macAddress")
     ram_mb: Union[StrictFloat, StrictInt] = Field(description="Image RAM size in MB", alias="ramMb")
     cpu_cores: StrictInt = Field(description="CPU core count", alias="cpuCores")
@@ -52,7 +52,7 @@ class InstanceResponse(BaseModel):
     ssh_keys: List[StrictInt] = Field(description="Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.", alias="sshKeys")
     created_date: datetime = Field(description="The creation date for the instance", alias="createdDate")
     cancel_date: date = Field(description="The date on which the instance will be cancelled", alias="cancelDate")
-    status: InstanceStatus
+    status: InstanceStatus = Field(description="Instance's status")
     v_host_id: StrictInt = Field(description="ID of host system", alias="vHostId")
     v_host_number: StrictInt = Field(description="Number of host system", alias="vHostNumber")
     v_host_name: StrictStr = Field(description="Name of host system", alias="vHostName")
@@ -61,7 +61,8 @@ class InstanceResponse(BaseModel):
     product_type: StrictStr = Field(description="Instance's category depending on Product Id", alias="productType")
     product_name: StrictStr = Field(description="Instance's Product Name", alias="productName")
     default_user: Optional[StrictStr] = Field(default=None, description="Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.", alias="defaultUser")
-    __properties: ClassVar[List[str]] = ["tenantId", "customerId", "additionalIps", "name", "displayName", "instanceId", "dataCenter", "region", "regionName", "productId", "imageId", "ipConfig", "macAddress", "ramMb", "cpuCores", "osType", "diskMb", "sshKeys", "createdDate", "cancelDate", "status", "vHostId", "vHostNumber", "vHostName", "addOns", "errorMessage", "productType", "productName", "defaultUser"]
+    application_id: StrictStr = Field(description="Application ID", alias="applicationId")
+    __properties: ClassVar[List[str]] = ["tenantId", "customerId", "additionalIps", "name", "displayName", "instanceId", "dataCenter", "region", "regionName", "productId", "imageId", "ipConfig", "macAddress", "ramMb", "cpuCores", "osType", "diskMb", "sshKeys", "createdDate", "cancelDate", "status", "vHostId", "vHostNumber", "vHostName", "addOns", "errorMessage", "productType", "productName", "defaultUser", "applicationId"]
 
     @field_validator('tenant_id')
     def tenant_id_validate_enum(cls, value):
@@ -80,8 +81,8 @@ class InstanceResponse(BaseModel):
     @field_validator('product_type')
     def product_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['hdd', 'ssd', 'vds', 'nvme']):
-            raise ValueError("must be one of enum values ('hdd', 'ssd', 'vds', 'nvme')")
+        if value not in set(['hdd', 'ssd', 'vds', 'nvme', 'performance']):
+            raise ValueError("must be one of enum values ('hdd', 'ssd', 'vds', 'nvme', 'performance')")
         return value
 
     @field_validator('default_user')
@@ -150,6 +151,11 @@ class InstanceResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['addOns'] = _items
+        # set to None if image_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.image_id is None and "image_id" in self.model_fields_set:
+            _dict['imageId'] = None
+
         return _dict
 
     @classmethod
@@ -173,7 +179,7 @@ class InstanceResponse(BaseModel):
             "regionName": obj.get("regionName"),
             "productId": obj.get("productId"),
             "imageId": obj.get("imageId"),
-            "ipConfig": IpConfig.from_dict(obj["ipConfig"]) if obj.get("ipConfig") is not None else None,
+            "ipConfig": IpConfig2.from_dict(obj["ipConfig"]) if obj.get("ipConfig") is not None else None,
             "macAddress": obj.get("macAddress"),
             "ramMb": obj.get("ramMb"),
             "cpuCores": obj.get("cpuCores"),
@@ -190,7 +196,8 @@ class InstanceResponse(BaseModel):
             "errorMessage": obj.get("errorMessage"),
             "productType": obj.get("productType"),
             "productName": obj.get("productName"),
-            "defaultUser": obj.get("defaultUser")
+            "defaultUser": obj.get("defaultUser"),
+            "applicationId": obj.get("applicationId")
         })
         return _obj
 

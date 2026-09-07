@@ -46,7 +46,7 @@ class TestListInstancesResponse(unittest.TestCase):
                         customer_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752', 
                         additional_ips = [
                             pfruck_contabo.models.additional_ip.AdditionalIp(
-                                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                                v4 = pfruck_contabo.models.ip_v43.IpV43(
                                     ip = '192.168.0.1', 
                                     netmask_cidr = 19, 
                                     gateway = '1.1.1.1', ), )
@@ -59,8 +59,8 @@ class TestListInstancesResponse(unittest.TestCase):
                         region_name = 'European Union', 
                         product_id = 'V5', 
                         image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', 
-                        ip_config = pfruck_contabo.models.ip_config.IpConfig(
-                            v4 = pfruck_contabo.models.ip_v4.IpV4(
+                        ip_config = pfruck_contabo.models.ip_config2.IpConfig2(
+                            v4 = pfruck_contabo.models.ip_v43.IpV43(
                                 ip = '192.168.0.1', 
                                 netmask_cidr = 19, 
                                 gateway = '1.1.1.1', ), 
@@ -76,7 +76,7 @@ class TestListInstancesResponse(unittest.TestCase):
                         ssh_keys = [123,125], 
                         created_date = '2021-06-03T06:27:12Z', 
                         cancel_date = 'Thu Jun 03 00:00:00 UTC 2021', 
-                        status = 'provisioning', 
+                        status = running, 
                         v_host_id = 73395, 
                         v_host_number = 1001, 
                         v_host_name = 'm1000', 
@@ -88,7 +88,8 @@ class TestListInstancesResponse(unittest.TestCase):
                         error_message = '', 
                         product_type = 'ssd', 
                         product_name = 'VPS M', 
-                        default_user = 'root', )
+                        default_user = 'root', 
+                        application_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752', )
                     ],
                 links = pfruck_contabo.models.links.Links(
                     self = '', 
@@ -110,7 +111,7 @@ class TestListInstancesResponse(unittest.TestCase):
                         customer_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752', 
                         additional_ips = [
                             pfruck_contabo.models.additional_ip.AdditionalIp(
-                                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                                v4 = pfruck_contabo.models.ip_v43.IpV43(
                                     ip = '192.168.0.1', 
                                     netmask_cidr = 19, 
                                     gateway = '1.1.1.1', ), )
@@ -123,8 +124,8 @@ class TestListInstancesResponse(unittest.TestCase):
                         region_name = 'European Union', 
                         product_id = 'V5', 
                         image_id = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', 
-                        ip_config = pfruck_contabo.models.ip_config.IpConfig(
-                            v4 = pfruck_contabo.models.ip_v4.IpV4(
+                        ip_config = pfruck_contabo.models.ip_config2.IpConfig2(
+                            v4 = pfruck_contabo.models.ip_v43.IpV43(
                                 ip = '192.168.0.1', 
                                 netmask_cidr = 19, 
                                 gateway = '1.1.1.1', ), 
@@ -140,7 +141,7 @@ class TestListInstancesResponse(unittest.TestCase):
                         ssh_keys = [123,125], 
                         created_date = '2021-06-03T06:27:12Z', 
                         cancel_date = 'Thu Jun 03 00:00:00 UTC 2021', 
-                        status = 'provisioning', 
+                        status = running, 
                         v_host_id = 73395, 
                         v_host_number = 1001, 
                         v_host_name = 'm1000', 
@@ -152,7 +153,8 @@ class TestListInstancesResponse(unittest.TestCase):
                         error_message = '', 
                         product_type = 'ssd', 
                         product_name = 'VPS M', 
-                        default_user = 'root', )
+                        default_user = 'root', 
+                        application_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752', )
                     ],
                 links = pfruck_contabo.models.links.Links(
                     self = '', 

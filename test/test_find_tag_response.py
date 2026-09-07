@@ -41,7 +41,8 @@ class TestFindTagResponse(unittest.TestCase):
                         customer_id = '54321', 
                         tag_id = 12345, 
                         name = 'Web-Server', 
-                        color = '#0A78C3', )
+                        color = '#0A78C3', 
+                        description = 'Tag Description', )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
                     self = '', )
@@ -54,7 +55,8 @@ class TestFindTagResponse(unittest.TestCase):
                         customer_id = '54321', 
                         tag_id = 12345, 
                         name = 'Web-Server', 
-                        color = '#0A78C3', )
+                        color = '#0A78C3', 
+                        description = 'Tag Description', )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
                     self = '', ),

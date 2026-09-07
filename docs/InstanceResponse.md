@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **region** | **str** | Instance region where the compute instance should be located. | 
 **region_name** | **str** | The name of the region where the instance is located. | 
 **product_id** | **str** | Product ID | 
-**image_id** | **str** | Image&#39;s id | 
-**ip_config** | [**IpConfig**](IpConfig.md) |  | 
+**image_id** | **str** | Image&#39;s id. Null for empty (imageless) instances. | [optional] 
+**ip_config** | [**IpConfig2**](IpConfig2.md) |  | 
 **mac_address** | **str** | MAC Address | 
 **ram_mb** | **float** | Image RAM size in MB | 
 **cpu_cores** | **int** | CPU core count | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **ssh_keys** | **List[int]** | Array of &#x60;secretId&#x60;s of public SSH keys for logging into as &#x60;defaultUser&#x60; with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API. | 
 **created_date** | **datetime** | The creation date for the instance | 
 **cancel_date** | **date** | The date on which the instance will be cancelled | 
-**status** | [**InstanceStatus**](InstanceStatus.md) |  | 
+**status** | [**InstanceStatus**](InstanceStatus.md) | Instance&#39;s status | 
 **v_host_id** | **int** | ID of host system | 
 **v_host_number** | **int** | Number of host system | 
 **v_host_name** | **str** | Name of host system | 
@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **product_type** | **str** | Instance&#39;s category depending on Product Id | 
 **product_name** | **str** | Instance&#39;s Product Name | 
 **default_user** | **str** | Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are &#x60;admin&#x60; (use sudo to apply administrative privileges like root) or &#x60;root&#x60;. Allowed values for Windows are &#x60;admin&#x60; (has administrative privileges like administrator) or &#x60;administrator&#x60;. | [optional] 
+**application_id** | **str** | Application ID | 
 
 ## Example
 

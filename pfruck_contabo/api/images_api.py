@@ -1202,6 +1202,7 @@ class ImagesApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the image")] = None,
         standard_image: Annotated[Optional[StrictBool], Field(description="Flag indicating that image is either a standard (true) or a custom image (false)")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="full text search on image name or image os type")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1233,6 +1234,8 @@ class ImagesApi:
         :type name: str
         :param standard_image: Flag indicating that image is either a standard (true) or a custom image (false)
         :type standard_image: bool
+        :param search: full text search on image name or image os type
+        :type search: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1263,6 +1266,7 @@ class ImagesApi:
             order_by=order_by,
             name=name,
             standard_image=standard_image,
+            search=search,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1293,6 +1297,7 @@ class ImagesApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the image")] = None,
         standard_image: Annotated[Optional[StrictBool], Field(description="Flag indicating that image is either a standard (true) or a custom image (false)")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="full text search on image name or image os type")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1324,6 +1329,8 @@ class ImagesApi:
         :type name: str
         :param standard_image: Flag indicating that image is either a standard (true) or a custom image (false)
         :type standard_image: bool
+        :param search: full text search on image name or image os type
+        :type search: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1354,6 +1361,7 @@ class ImagesApi:
             order_by=order_by,
             name=name,
             standard_image=standard_image,
+            search=search,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1384,6 +1392,7 @@ class ImagesApi:
         order_by: Annotated[Optional[List[StrictStr]], Field(description="Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`.")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the image")] = None,
         standard_image: Annotated[Optional[StrictBool], Field(description="Flag indicating that image is either a standard (true) or a custom image (false)")] = None,
+        search: Annotated[Optional[StrictStr], Field(description="full text search on image name or image os type")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1415,6 +1424,8 @@ class ImagesApi:
         :type name: str
         :param standard_image: Flag indicating that image is either a standard (true) or a custom image (false)
         :type standard_image: bool
+        :param search: full text search on image name or image os type
+        :type search: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1445,6 +1456,7 @@ class ImagesApi:
             order_by=order_by,
             name=name,
             standard_image=standard_image,
+            search=search,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1470,6 +1482,7 @@ class ImagesApi:
         order_by,
         name,
         standard_image,
+        search,
         _request_auth,
         _content_type,
         _headers,
@@ -1510,6 +1523,10 @@ class ImagesApi:
         if standard_image is not None:
             
             _query_params.append(('standardImage', standard_image))
+            
+        if search is not None:
+            
+            _query_params.append(('search', search))
             
         # process the header parameters
         if x_request_id is not None:

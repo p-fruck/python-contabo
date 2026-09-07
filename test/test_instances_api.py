@@ -33,6 +33,13 @@ class TestInstancesApi(unittest.TestCase):
         """
         pass
 
+    def test_check_set_new_host(self) -> None:
+        """Test case for check_set_new_host
+
+        Check if the instance can be moved to another host
+        """
+        pass
+
     def test_create_instance(self) -> None:
         """Test case for create_instance
 
@@ -51,6 +58,20 @@ class TestInstancesApi(unittest.TestCase):
         """Test case for reinstall_instance
 
         Reinstall specific instance
+        """
+        pass
+
+    def test_request_region_change(self) -> None:
+        """Test case for request_region_change
+
+        Request instance region change
+        """
+        pass
+
+    def test_retrieve_available_instance_products(self) -> None:
+        """Test case for retrieve_available_instance_products
+
+        Get the available products of a specific instance
         """
         pass
 

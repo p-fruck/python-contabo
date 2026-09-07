@@ -36,7 +36,8 @@ class TestCreateTagRequest(unittest.TestCase):
         if include_optional:
             return CreateTagRequest(
                 name = 'Web-Server',
-                color = '#0A78C3'
+                color = '#0A78C3',
+                description = 'Tag to differenciate the bad vhosts'
             )
         else:
             return CreateTagRequest(

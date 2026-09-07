@@ -37,16 +37,17 @@ class UserResponse(BaseModel):
     email_verified: StrictBool = Field(description="User email verification status.", alias="emailVerified")
     enabled: StrictBool = Field(description="If uses is not enabled, he can't login and thus use services any longer.")
     totp: StrictBool = Field(description="Enable or disable two-factor authentication (2FA) via time based OTP.")
-    locale: StrictStr = Field(description="The locale of the user. This can be `de-DE`, `de`, `en-US`, `en`")
+    locale: StrictStr = Field(description="The locale of the user. This can be `de-DE`, `de`, `en-US`, `en`, `es-ES`, `es`, `pt-BR`, `pt`.")
     roles: List[RoleResponse] = Field(description="The roles as list of `roleId`s of the user.")
     owner: StrictBool = Field(description="If user is owner he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and `accessAllResources`.")
-    __properties: ClassVar[List[str]] = ["tenantId", "customerId", "userId", "firstName", "lastName", "email", "emailVerified", "enabled", "totp", "locale", "roles", "owner"]
+    send_invoice_email: StrictBool = Field(description="If enabled, the user receives invoice emails and is registered as an invoice contact in CMS.", alias="sendInvoiceEmail")
+    __properties: ClassVar[List[str]] = ["tenantId", "customerId", "userId", "firstName", "lastName", "email", "emailVerified", "enabled", "totp", "locale", "roles", "owner", "sendInvoiceEmail"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['de-DE', 'de', 'en-US', 'en']):
-            raise ValueError("must be one of enum values ('de-DE', 'de', 'en-US', 'en')")
+        if value not in set(['de-DE', 'de', 'en-US', 'en', 'es', 'es-ES', 'pt-BR', 'pt']):
+            raise ValueError("must be one of enum values ('de-DE', 'de', 'en-US', 'en', 'es', 'es-ES', 'pt-BR', 'pt')")
         return value
 
     model_config = ConfigDict(
@@ -118,7 +119,8 @@ class UserResponse(BaseModel):
             "totp": obj.get("totp"),
             "locale": obj.get("locale"),
             "roles": [RoleResponse.from_dict(_item) for _item in obj["roles"]] if obj.get("roles") is not None else None,
-            "owner": obj.get("owner")
+            "owner": obj.get("owner"),
+            "sendInvoiceEmail": obj.get("sendInvoiceEmail")
         })
         return _obj
 

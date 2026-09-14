@@ -67,7 +67,8 @@ class TestFindUserResponse(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        owner = False, )
+                        owner = False, 
+                        send_invoice_email = False, )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
                     self = '', )
@@ -106,7 +107,8 @@ class TestFindUserResponse(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        owner = False, )
+                        owner = False, 
+                        send_invoice_email = False, )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
                     self = '', ),

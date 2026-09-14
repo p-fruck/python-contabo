@@ -27,20 +27,21 @@ class CreateUserRequest(BaseModel):
     """
     CreateUserRequest
     """ # noqa: E501
-    first_name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The name of the user. Names may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.", alias="firstName")
-    last_name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The last name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.", alias="lastName")
+    first_name: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="The name of the user. Names may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.", alias="firstName")
+    last_name: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="The last name of the user. Users may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per user.", alias="lastName")
     email: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="The email of the user to which activation and forgot password links are being sent to. There is a limit of 255 characters per email.")
     enabled: StrictBool = Field(description="If user is not enabled, he can't login and thus use services any longer.")
     totp: StrictBool = Field(description="Enable or disable two-factor authentication (2FA) via time based OTP.")
-    locale: StrictStr = Field(description="The locale of the user. This can be `de-DE`, `de`, `en-US`, `en`")
+    locale: StrictStr = Field(description="The locale of the user. This can be `de-DE`, `de`, `en-US`, `en`, `es-ES`, `es`, `pt-BR`, `pt`.")
     roles: Optional[List[StrictInt]] = Field(default=None, description="The roles as list of `roleId`s of the user.")
-    __properties: ClassVar[List[str]] = ["firstName", "lastName", "email", "enabled", "totp", "locale", "roles"]
+    send_invoice_email: Optional[StrictBool] = Field(default=None, description="If enabled, the user receives invoice emails and is registered as an invoice contact in CMS. Only available for users with the Full Access role.", alias="sendInvoiceEmail")
+    __properties: ClassVar[List[str]] = ["firstName", "lastName", "email", "enabled", "totp", "locale", "roles", "sendInvoiceEmail"]
 
     @field_validator('locale')
     def locale_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['de-DE', 'de', 'en-US', 'en']):
-            raise ValueError("must be one of enum values ('de-DE', 'de', 'en-US', 'en')")
+        if value not in set(['de-DE', 'de', 'en-US', 'en', 'es', 'es-ES', 'pt-BR', 'pt']):
+            raise ValueError("must be one of enum values ('de-DE', 'de', 'en-US', 'en', 'es', 'es-ES', 'pt-BR', 'pt')")
         return value
 
     model_config = ConfigDict(
@@ -100,7 +101,8 @@ class CreateUserRequest(BaseModel):
             "enabled": obj.get("enabled"),
             "totp": obj.get("totp"),
             "locale": obj.get("locale"),
-            "roles": obj.get("roles")
+            "roles": obj.get("roles"),
+            "sendInvoiceEmail": obj.get("sendInvoiceEmail")
         })
         return _obj
 

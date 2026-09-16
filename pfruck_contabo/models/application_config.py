@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from pfruck_contabo.models.application_meta_data import ApplicationMetaData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,8 @@ class ApplicationConfig(BaseModel):
     image_id: StrictStr = Field(description="Image ID", alias="imageId")
     user_data_id: StrictStr = Field(description="User Data ID", alias="userDataId")
     user_data: StrictStr = Field(description="[Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.", alias="userData")
-    __properties: ClassVar[List[str]] = ["imageId", "userDataId", "userData"]
+    meta_data: ApplicationMetaData = Field(description="Metadata of the application configuration", alias="metaData")
+    __properties: ClassVar[List[str]] = ["imageId", "userDataId", "userData", "metaData"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +72,9 @@ class ApplicationConfig(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of meta_data
+        if self.meta_data:
+            _dict['metaData'] = self.meta_data.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +89,8 @@ class ApplicationConfig(BaseModel):
         _obj = cls.model_validate({
             "imageId": obj.get("imageId"),
             "userDataId": obj.get("userDataId"),
-            "userData": obj.get("userData")
+            "userData": obj.get("userData"),
+            "metaData": ApplicationMetaData.from_dict(obj["metaData"]) if obj.get("metaData") is not None else None
         })
         return _obj
 

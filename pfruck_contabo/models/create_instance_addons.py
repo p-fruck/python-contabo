@@ -30,10 +30,11 @@ class CreateInstanceAddons(BaseModel):
     """ # noqa: E501
     private_networking: Optional[Dict[str, Any]] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Private Networking addon.   Please provide an empty object for the time being as value. There will be more configuration possible   in the future.", alias="privateNetworking")
     additional_ips: Optional[Dict[str, Any]] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Additional IPs addon. Please provide an empty object for the time being as value. There will be more configuration possible in the future.", alias="additionalIps")
+    backup: Optional[Dict[str, Any]] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Automated backup addon.     Please provide an empty object for the time being as value. There will be more configuration possible     in the future.")
     extra_storage: Optional[ExtraStorageRequest] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Extra Storage addon.", alias="extraStorage")
     custom_image: Optional[Dict[str, Any]] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Custom Images addon.   Please provide an empty object for the time being as value. There will be more configuration possible   in the future.", alias="customImage")
     addons_ids: Optional[List[AddOnRequest]] = Field(default=None, alias="addonsIds")
-    __properties: ClassVar[List[str]] = ["privateNetworking", "additionalIps", "extraStorage", "customImage", "addonsIds"]
+    __properties: ClassVar[List[str]] = ["privateNetworking", "additionalIps", "backup", "extraStorage", "customImage", "addonsIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,6 +99,7 @@ class CreateInstanceAddons(BaseModel):
         _obj = cls.model_validate({
             "privateNetworking": obj.get("privateNetworking"),
             "additionalIps": obj.get("additionalIps"),
+            "backup": obj.get("backup"),
             "extraStorage": ExtraStorageRequest.from_dict(obj["extraStorage"]) if obj.get("extraStorage") is not None else None,
             "customImage": obj.get("customImage"),
             "addonsIds": [AddOnRequest.from_dict(_item) for _item in obj["addonsIds"]] if obj.get("addonsIds") is not None else None

@@ -65,7 +65,8 @@ class TestUserResponse(unittest.TestCase):
                                     ], )
                             ], )
                     ],
-                owner = False
+                owner = False,
+                send_invoice_email = False
             )
         else:
             return UserResponse(
@@ -100,6 +101,7 @@ class TestUserResponse(unittest.TestCase):
                             ], )
                     ],
                 owner = False,
+                send_invoice_email = False,
         )
         """
 

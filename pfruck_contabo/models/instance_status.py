@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class InstanceStatus(str, Enum):
     """
-    InstanceStatus
+    Instance's status
     """
 
     """

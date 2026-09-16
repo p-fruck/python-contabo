@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from pfruck_contabo.models.ip_v4 import IpV4
+from pfruck_contabo.models.ip_v41 import IpV41
 from pfruck_contabo.models.ip_v6 import IpV6
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class IpConfig(BaseModel):
     """
     IpConfig
     """ # noqa: E501
-    v4: IpV4
+    v4: IpV41
     v6: IpV6
     __properties: ClassVar[List[str]] = ["v4", "v6"]
 
@@ -89,7 +89,7 @@ class IpConfig(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "v4": IpV4.from_dict(obj["v4"]) if obj.get("v4") is not None else None,
+            "v4": IpV41.from_dict(obj["v4"]) if obj.get("v4") is not None else None,
             "v6": IpV6.from_dict(obj["v6"]) if obj.get("v6") is not None else None
         })
         return _obj

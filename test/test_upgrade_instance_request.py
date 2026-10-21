@@ -35,7 +35,8 @@ class TestUpgradeInstanceRequest(unittest.TestCase):
         model = UpgradeInstanceRequest()
         if include_optional:
             return UpgradeInstanceRequest(
-                private_networking = None
+                private_networking = None,
+                backup = None
             )
         else:
             return UpgradeInstanceRequest(

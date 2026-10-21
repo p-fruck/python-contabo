@@ -36,7 +36,7 @@ class TestCreateInstanceRequest(unittest.TestCase):
         if include_optional:
             return CreateInstanceRequest(
                 image_id = 'afecbb85-e2fc-46f0-9684-b46b1faf00bb',
-                product_id = 'V45',
+                product_id = 'V153',
                 region = 'EU',
                 ssh_keys = [123, 125],
                 root_password = 1,
@@ -52,6 +52,7 @@ chpasswd:
                 add_ons = pfruck_contabo.models.create_instance_addons.CreateInstanceAddons(
                     private_networking = {}, 
                     additional_ips = {}, 
+                    backup = {}, 
                     extra_storage = {}, 
                     custom_image = {}, 
                     addons_ids = [

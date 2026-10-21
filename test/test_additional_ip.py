@@ -35,14 +35,14 @@ class TestAdditionalIp(unittest.TestCase):
         model = AdditionalIp()
         if include_optional:
             return AdditionalIp(
-                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                v4 = pfruck_contabo.models.ip_v43.IpV43(
                     ip = '192.168.0.1', 
                     netmask_cidr = 19, 
                     gateway = '1.1.1.1', )
             )
         else:
             return AdditionalIp(
-                v4 = pfruck_contabo.models.ip_v4.IpV4(
+                v4 = pfruck_contabo.models.ip_v43.IpV43(
                     ip = '192.168.0.1', 
                     netmask_cidr = 19, 
                     gateway = '1.1.1.1', ),

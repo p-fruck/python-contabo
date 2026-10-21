@@ -41,10 +41,13 @@ class TestCreateUserRequest(unittest.TestCase):
                 enabled = False,
                 totp = False,
                 locale = 'de',
-                roles = [1,2,3,4]
+                roles = [1,2,3,4],
+                send_invoice_email = False
             )
         else:
             return CreateUserRequest(
+                first_name = 'John',
+                last_name = 'Doe',
                 email = 'john.doe@example.com',
                 enabled = False,
                 totp = False,

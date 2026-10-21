@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -32,7 +32,8 @@ class TagResponse(BaseModel):
     tag_id: StrictInt = Field(description="Tag's id", alias="tagId")
     name: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="Tag's name")
     color: Annotated[str, Field(min_length=4, strict=True, max_length=7)] = Field(description="Tag's color")
-    __properties: ClassVar[List[str]] = ["tenantId", "customerId", "tagId", "name", "color"]
+    description: StrictStr = Field(description="The description of the Tag")
+    __properties: ClassVar[List[str]] = ["tenantId", "customerId", "tagId", "name", "color", "description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +90,8 @@ class TagResponse(BaseModel):
             "customerId": obj.get("customerId"),
             "tagId": obj.get("tagId"),
             "name": obj.get("name"),
-            "color": obj.get("color")
+            "color": obj.get("color"),
+            "description": obj.get("description")
         })
         return _obj
 

@@ -1,17 +1,29 @@
 # flake8: noqa
 
 # import apis into api package
+from pfruck_contabo.api.check_collection_templates_api import CheckCollectionTemplatesApi
+from pfruck_contabo.api.check_collections_api import CheckCollectionsApi
+from pfruck_contabo.api.checks_api import ChecksApi
+from pfruck_contabo.api.dns_api import DNSApi
+from pfruck_contabo.api.dns_audits_api import DNSAuditsApi
+from pfruck_contabo.api.domains_api import DomainsApi
+from pfruck_contabo.api.domains_audits_api import DomainsAuditsApi
+from pfruck_contabo.api.firewalls_api import FirewallsApi
+from pfruck_contabo.api.firewalls_audits_api import FirewallsAuditsApi
+from pfruck_contabo.api.handles_api import HandlesApi
+from pfruck_contabo.api.handles_audits_api import HandlesAuditsApi
 from pfruck_contabo.api.images_api import ImagesApi
 from pfruck_contabo.api.images_audits_api import ImagesAuditsApi
 from pfruck_contabo.api.instance_actions_api import InstanceActionsApi
 from pfruck_contabo.api.instance_actions_audits_api import InstanceActionsAuditsApi
 from pfruck_contabo.api.instances_api import InstancesApi
 from pfruck_contabo.api.instances_audits_api import InstancesAuditsApi
-from pfruck_contabo.api.internal_api import InternalApi
+from pfruck_contabo.api.instances_products_api import InstancesProductsApi
 from pfruck_contabo.api.object_storages_api import ObjectStoragesApi
 from pfruck_contabo.api.object_storages_audits_api import ObjectStoragesAuditsApi
 from pfruck_contabo.api.private_networks_api import PrivateNetworksApi
 from pfruck_contabo.api.private_networks_audits_api import PrivateNetworksAuditsApi
+from pfruck_contabo.api.remedies_api import RemediesApi
 from pfruck_contabo.api.roles_api import RolesApi
 from pfruck_contabo.api.roles_audits_api import RolesAuditsApi
 from pfruck_contabo.api.secrets_api import SecretsApi
@@ -22,8 +34,10 @@ from pfruck_contabo.api.tag_assignments_api import TagAssignmentsApi
 from pfruck_contabo.api.tag_assignments_audits_api import TagAssignmentsAuditsApi
 from pfruck_contabo.api.tags_api import TagsApi
 from pfruck_contabo.api.tags_audits_api import TagsAuditsApi
+from pfruck_contabo.api.user_accounts_api import UserAccountsApi
 from pfruck_contabo.api.users_api import UsersApi
 from pfruck_contabo.api.users_audits_api import UsersAuditsApi
+from pfruck_contabo.api.users_object_storage_credentials_api import UsersObjectStorageCredentialsApi
 from pfruck_contabo.api.vip_api import VIPApi
 from pfruck_contabo.api.vip_audits_api import VipAuditsApi
 

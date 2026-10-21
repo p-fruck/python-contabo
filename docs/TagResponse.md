@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **tag_id** | **int** | Tag&#39;s id | 
 **name** | **str** | Tag&#39;s name | 
 **color** | **str** | Tag&#39;s color | 
+**description** | **str** | The description of the Tag | 
 
 ## Example
 

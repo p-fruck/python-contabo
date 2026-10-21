@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display_name** | **str** | The display name of the instance | [optional] 
+**display_name** | **str** | The display name of the instance. Pass an empty string to clear it. | [optional] 
 
 ## Example
 

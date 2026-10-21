@@ -39,7 +39,8 @@ class TestTagResponse(unittest.TestCase):
                 customer_id = '54321',
                 tag_id = 12345,
                 name = 'Web-Server',
-                color = '#0A78C3'
+                color = '#0A78C3',
+                description = 'Tag Description'
             )
         else:
             return TagResponse(
@@ -48,6 +49,7 @@ class TestTagResponse(unittest.TestCase):
                 tag_id = 12345,
                 name = 'Web-Server',
                 color = '#0A78C3',
+                description = 'Tag Description',
         )
         """
 

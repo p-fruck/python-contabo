@@ -52,8 +52,8 @@ with pfruck_contabo.ApiClient(configuration) as api_client:
     instance_id = 12345 # int | The identifier of the instances. (optional)
     request_id = 'D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3' # str | The requestId of the API call which led to the change. (optional)
     changed_by = '23cbb6d6-cb11-4330-bdff-7bb791df2e23' # str | changedBy of the user which led to the change. (optional)
-    start_date = '2021-06-02' # date | Start of search time range. (optional)
-    end_date = '2021-06-02' # date | End of search time range. (optional)
+    start_date = 'Wed Jun 02 00:00:00 UTC 2021' # date | Start of search time range. (optional)
+    end_date = 'Wed Jun 02 00:00:00 UTC 2021' # date | End of search time range. (optional)
 
     try:
         # List history about your instances (audit)

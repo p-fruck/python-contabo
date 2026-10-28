@@ -30,7 +30,7 @@ class ReinstallInstanceRequest(BaseModel):
     ssh_keys: Optional[List[StrictInt]] = Field(default=None, description="Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.", alias="sshKeys")
     root_password: Optional[StrictInt] = Field(default=None, description="`secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.", alias="rootPassword")
     user_data: Optional[StrictStr] = Field(default=None, description="[Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.", alias="userData")
-    default_user: Optional[StrictStr] = Field(default='admin', description="Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.", alias="defaultUser")
+    default_user: Optional[StrictStr] = Field(default=None, description="Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.", alias="defaultUser")
     application_id: Optional[StrictStr] = Field(default=None, description="Application ID", alias="applicationId")
     __properties: ClassVar[List[str]] = ["imageId", "sshKeys", "rootPassword", "userData", "defaultUser", "applicationId"]
 
@@ -99,7 +99,7 @@ class ReinstallInstanceRequest(BaseModel):
             "sshKeys": obj.get("sshKeys"),
             "rootPassword": obj.get("rootPassword"),
             "userData": obj.get("userData"),
-            "defaultUser": obj.get("defaultUser") if obj.get("defaultUser") is not None else 'admin',
+            "defaultUser": obj.get("defaultUser"),
             "applicationId": obj.get("applicationId")
         })
         return _obj

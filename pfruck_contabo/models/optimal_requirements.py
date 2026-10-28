@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,8 @@ class OptimalRequirements(BaseModel):
     cpu_cores: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CPU Cores Requirement", alias="cpuCores")
     ram_mb: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Memory Requirement in MB", alias="ramMb")
     disk_mb: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Storage Requirement in MB", alias="diskMb")
-    __properties: ClassVar[List[str]] = ["cpuCores", "ramMb", "diskMb"]
+    valid_product_ids: Optional[List[StrictStr]] = Field(default=None, description="Valid Product IDs for this application", alias="validProductIds")
+    __properties: ClassVar[List[str]] = ["cpuCores", "ramMb", "diskMb", "validProductIds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +85,8 @@ class OptimalRequirements(BaseModel):
         _obj = cls.model_validate({
             "cpuCores": obj.get("cpuCores"),
             "ramMb": obj.get("ramMb"),
-            "diskMb": obj.get("diskMb")
+            "diskMb": obj.get("diskMb"),
+            "validProductIds": obj.get("validProductIds")
         })
         return _obj
 

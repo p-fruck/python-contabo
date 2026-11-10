@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **cpu_cores** | **float** | CPU Cores Requirement | [optional] 
 **ram_mb** | **float** | Memory Requirement in MB | [optional] 
 **disk_mb** | **float** | Storage Requirement in MB | [optional] 
+**valid_product_ids** | **List[str]** | Valid Product IDs for this application | [optional] 
 
 ## Example
 

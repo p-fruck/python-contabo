@@ -14,9 +14,12 @@ Name | Type | Description | Notes
 **email_verified** | **bool** | User email verification status. | 
 **enabled** | **bool** | If uses is not enabled, he can&#39;t login and thus use services any longer. | 
 **totp** | **bool** | Enable or disable two-factor authentication (2FA) via time based OTP. | 
-**locale** | **str** | The locale of the user. This can be &#x60;de-DE&#x60;, &#x60;de&#x60;, &#x60;en-US&#x60;, &#x60;en&#x60; | 
+**secondary_email** | **bool** | Enable or disable two-factor authentication (2FA) via a code sent to a secondary email address. | 
+**secondary_email_address** | **str** | The verified secondary email address used for 2FA. Read-only. &#x60;null&#x60; when secondary email 2FA is disabled or its setup is still pending. | 
+**locale** | **str** | The locale of the user. This can be &#x60;de-DE&#x60;, &#x60;de&#x60;, &#x60;en-US&#x60;, &#x60;en&#x60;, &#x60;es-ES&#x60;, &#x60;es&#x60;, &#x60;pt-BR&#x60;, &#x60;pt&#x60;. | 
 **roles** | [**List[RoleResponse]**](RoleResponse.md) | The roles as list of &#x60;roleId&#x60;s of the user. | 
 **owner** | **bool** | If user is owner he will have permissions to all API endpoints and resources. Enabling this will superseed all role definitions and &#x60;accessAllResources&#x60;. | 
+**send_invoice_email** | **bool** | If enabled, the user receives invoice emails and is registered as an invoice contact in CMS. | 
 
 ## Example
 

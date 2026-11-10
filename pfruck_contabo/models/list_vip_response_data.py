@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from pfruck_contabo.models.ip_v41 import IpV41
+from pfruck_contabo.models.ip_v4 import IpV4
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -39,7 +39,7 @@ class ListVipResponseData(BaseModel):
     resource_display_name: StrictStr = Field(description="Resource display name.", alias="resourceDisplayName")
     ip_version: StrictStr = Field(description="Version of Ip.", alias="ipVersion")
     type: Optional[StrictStr] = Field(default=None, description="The VIP type.")
-    v4: Optional[IpV41] = None
+    v4: Optional[IpV4] = None
     __properties: ClassVar[List[str]] = ["tenantId", "customerId", "vipId", "dataCenter", "region", "resourceId", "resourceType", "resourceName", "resourceDisplayName", "ipVersion", "type", "v4"]
 
     @field_validator('resource_type')
@@ -134,7 +134,7 @@ class ListVipResponseData(BaseModel):
             "resourceDisplayName": obj.get("resourceDisplayName"),
             "ipVersion": obj.get("ipVersion"),
             "type": obj.get("type"),
-            "v4": IpV41.from_dict(obj["v4"]) if obj.get("v4") is not None else None
+            "v4": IpV4.from_dict(obj["v4"]) if obj.get("v4") is not None else None
         })
         return _obj
 

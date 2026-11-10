@@ -56,13 +56,13 @@ class TestFindPrivateNetworkResponse(unittest.TestCase):
                                 product_id = 'V1', 
                                 private_ip_config = pfruck_contabo.models.private_ip_config.PrivateIpConfig(
                                     v4 = [
-                                        pfruck_contabo.models.ip_v4.IpV4(
+                                        pfruck_contabo.models.ip_v41.IpV41(
                                             ip = '192.168.0.1', 
                                             netmask_cidr = 19, 
                                             gateway = '1.1.1.1', )
                                         ], ), 
                                 ip_config = pfruck_contabo.models.ip_config.IpConfig(
-                                    v4 = pfruck_contabo.models.ip_v4.IpV4(
+                                    v4 = pfruck_contabo.models.ip_v41.IpV41(
                                         ip = '192.168.0.1', 
                                         netmask_cidr = 19, 
                                         gateway = '1.1.1.1', ), 
@@ -100,13 +100,13 @@ class TestFindPrivateNetworkResponse(unittest.TestCase):
                                 product_id = 'V1', 
                                 private_ip_config = pfruck_contabo.models.private_ip_config.PrivateIpConfig(
                                     v4 = [
-                                        pfruck_contabo.models.ip_v4.IpV4(
+                                        pfruck_contabo.models.ip_v41.IpV41(
                                             ip = '192.168.0.1', 
                                             netmask_cidr = 19, 
                                             gateway = '1.1.1.1', )
                                         ], ), 
                                 ip_config = pfruck_contabo.models.ip_config.IpConfig(
-                                    v4 = pfruck_contabo.models.ip_v4.IpV4(
+                                    v4 = pfruck_contabo.models.ip_v41.IpV41(
                                         ip = '192.168.0.1', 
                                         netmask_cidr = 19, 
                                         gateway = '1.1.1.1', ), 

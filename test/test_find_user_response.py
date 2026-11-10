@@ -46,6 +46,8 @@ class TestFindUserResponse(unittest.TestCase):
                         email_verified = False, 
                         enabled = False, 
                         totp = False, 
+                        secondary_email = False, 
+                        secondary_email_address = 'john.doe@example.org', 
                         locale = 'de', 
                         roles = [
                             pfruck_contabo.models.role_response.RoleResponse(
@@ -67,7 +69,8 @@ class TestFindUserResponse(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        owner = False, )
+                        owner = False, 
+                        send_invoice_email = False, )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
                     self = '', )
@@ -85,6 +88,8 @@ class TestFindUserResponse(unittest.TestCase):
                         email_verified = False, 
                         enabled = False, 
                         totp = False, 
+                        secondary_email = False, 
+                        secondary_email_address = 'john.doe@example.org', 
                         locale = 'de', 
                         roles = [
                             pfruck_contabo.models.role_response.RoleResponse(
@@ -106,7 +111,8 @@ class TestFindUserResponse(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        owner = False, )
+                        owner = False, 
+                        send_invoice_email = False, )
                     ],
                 links = pfruck_contabo.models.self_links.SelfLinks(
                     self = '', ),

@@ -47,24 +47,24 @@ class TestUsersApi(unittest.TestCase):
         """
         pass
 
-    def test_get_object_storage_credentials(self) -> None:
-        """Test case for get_object_storage_credentials
+    def test_generate_sso_token(self) -> None:
+        """Test case for generate_sso_token
 
-        Get S3 compatible object storage credentials.
+        Generate one time SSO token
         """
         pass
 
-    def test_list_object_storage_credentials(self) -> None:
-        """Test case for list_object_storage_credentials
+    def test_request_email_change(self) -> None:
+        """Test case for request_email_change
 
-        Get list of S3 compatible object storage credentials for user.
+        Request email change
         """
         pass
 
-    def test_regenerate_object_storage_credentials(self) -> None:
-        """Test case for regenerate_object_storage_credentials
+    def test_request_recovery_codes_reset(self) -> None:
+        """Test case for request_recovery_codes_reset
 
-        Regenerates secret key of specified user for the S3 compatible object storages.
+        Request recovery codes reset
         """
         pass
 
@@ -93,6 +93,13 @@ class TestUsersApi(unittest.TestCase):
         """Test case for retrieve_user_client
 
         Get client
+        """
+        pass
+
+    def test_retrieve_user_is_password_set(self) -> None:
+        """Test case for retrieve_user_is_password_set
+
+        Get user is password set status
         """
         pass
 

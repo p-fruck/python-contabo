@@ -49,7 +49,9 @@ class TestApplicationResponse(unittest.TestCase):
 user: admin
 timezone: Europe/Berlin
 chpasswd:
- expire: False', )
+ expire: False', 
+                        meta_data = null, 
+                        gpu = False, )
                     ],
                 requirements = pfruck_contabo.models.application_requirements.ApplicationRequirements(
                     minimum = null, 
@@ -71,7 +73,9 @@ chpasswd:
 user: admin
 timezone: Europe/Berlin
 chpasswd:
- expire: False', )
+ expire: False', 
+                        meta_data = null, 
+                        gpu = False, )
                     ],
                 requirements = pfruck_contabo.models.application_requirements.ApplicationRequirements(
                     minimum = null, 

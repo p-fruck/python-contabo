@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag. | [optional] 
 **color** | **str** | The color of the tag. Color can be specified using hexadecimal value. Default color is #0A78C3 | [optional] 
+**description** | **str** | The description of the Tag name.  | [optional] 
 
 ## Example
 

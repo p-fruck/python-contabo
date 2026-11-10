@@ -1,5 +1,6 @@
 # InstanceStatus
 
+Instance's status
 
 ## Properties
 

@@ -17,15 +17,19 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
+from pfruck_contabo.models.cancel_instance_request import CancelInstanceRequest
 from pfruck_contabo.models.cancel_instance_response import CancelInstanceResponse
 from pfruck_contabo.models.create_instance_request import CreateInstanceRequest
 from pfruck_contabo.models.create_instance_response import CreateInstanceResponse
 from pfruck_contabo.models.find_instance_response import FindInstanceResponse
+from pfruck_contabo.models.instance_region_change_response import InstanceRegionChangeResponse
+from pfruck_contabo.models.list_instance_products_response import ListInstanceProductsResponse
 from pfruck_contabo.models.list_instances_response import ListInstancesResponse
 from pfruck_contabo.models.patch_instance_request import PatchInstanceRequest
 from pfruck_contabo.models.patch_instance_response import PatchInstanceResponse
+from pfruck_contabo.models.region_change_request import RegionChangeRequest
 from pfruck_contabo.models.reinstall_instance_request import ReinstallInstanceRequest
 from pfruck_contabo.models.reinstall_instance_response import ReinstallInstanceResponse
 from pfruck_contabo.models.upgrade_instance_request import UpgradeInstanceRequest
@@ -53,7 +57,7 @@ class InstancesApi:
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
         instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
-        body: Dict[str, Any],
+        cancel_instance_request: CancelInstanceRequest,
         x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
         _request_timeout: Union[
             None,
@@ -76,8 +80,8 @@ class InstancesApi:
         :type x_request_id: str
         :param instance_id: The identifier of the instance (required)
         :type instance_id: int
-        :param body: (required)
-        :type body: object
+        :param cancel_instance_request: (required)
+        :type cancel_instance_request: CancelInstanceRequest
         :param x_trace_id: Identifier to trace group of requests.
         :type x_trace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -105,7 +109,7 @@ class InstancesApi:
         _param = self._cancel_instance_serialize(
             x_request_id=x_request_id,
             instance_id=instance_id,
-            body=body,
+            cancel_instance_request=cancel_instance_request,
             x_trace_id=x_trace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -132,7 +136,7 @@ class InstancesApi:
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
         instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
-        body: Dict[str, Any],
+        cancel_instance_request: CancelInstanceRequest,
         x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
         _request_timeout: Union[
             None,
@@ -155,8 +159,8 @@ class InstancesApi:
         :type x_request_id: str
         :param instance_id: The identifier of the instance (required)
         :type instance_id: int
-        :param body: (required)
-        :type body: object
+        :param cancel_instance_request: (required)
+        :type cancel_instance_request: CancelInstanceRequest
         :param x_trace_id: Identifier to trace group of requests.
         :type x_trace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -184,7 +188,7 @@ class InstancesApi:
         _param = self._cancel_instance_serialize(
             x_request_id=x_request_id,
             instance_id=instance_id,
-            body=body,
+            cancel_instance_request=cancel_instance_request,
             x_trace_id=x_trace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -211,7 +215,7 @@ class InstancesApi:
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
         instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
-        body: Dict[str, Any],
+        cancel_instance_request: CancelInstanceRequest,
         x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
         _request_timeout: Union[
             None,
@@ -234,8 +238,8 @@ class InstancesApi:
         :type x_request_id: str
         :param instance_id: The identifier of the instance (required)
         :type instance_id: int
-        :param body: (required)
-        :type body: object
+        :param cancel_instance_request: (required)
+        :type cancel_instance_request: CancelInstanceRequest
         :param x_trace_id: Identifier to trace group of requests.
         :type x_trace_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -263,7 +267,7 @@ class InstancesApi:
         _param = self._cancel_instance_serialize(
             x_request_id=x_request_id,
             instance_id=instance_id,
-            body=body,
+            cancel_instance_request=cancel_instance_request,
             x_trace_id=x_trace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -285,7 +289,7 @@ class InstancesApi:
         self,
         x_request_id,
         instance_id,
-        body,
+        cancel_instance_request,
         x_trace_id,
         _request_auth,
         _content_type,
@@ -316,8 +320,8 @@ class InstancesApi:
             _header_params['x-trace-id'] = x_trace_id
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if cancel_instance_request is not None:
+            _body_params = cancel_instance_request
 
 
         # set the HTTP header `Accept`
@@ -365,6 +369,300 @@ class InstancesApi:
 
 
     @validate_call
+    def check_set_new_host(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """Check if the instance can be moved to another host
+
+        Verifies preconditions with CMS before relocating the instance from its current host. Returns no content when the check succeeds. When CMS responds with an error list, returns that payload with the same HTTP status as CMS.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._check_set_new_host_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '400': "CmsErrorsResponse",
+            '500': "CmsErrorsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def check_set_new_host_with_http_info(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """Check if the instance can be moved to another host
+
+        Verifies preconditions with CMS before relocating the instance from its current host. Returns no content when the check succeeds. When CMS responds with an error list, returns that payload with the same HTTP status as CMS.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._check_set_new_host_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '400': "CmsErrorsResponse",
+            '500': "CmsErrorsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def check_set_new_host_without_preload_content(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Check if the instance can be moved to another host
+
+        Verifies preconditions with CMS before relocating the instance from its current host. Returns no content when the check succeeds. When CMS responds with an error list, returns that payload with the same HTTP status as CMS.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._check_set_new_host_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '400': "CmsErrorsResponse",
+            '500': "CmsErrorsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _check_set_new_host_serialize(
+        self,
+        x_request_id,
+        instance_id,
+        x_trace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if instance_id is not None:
+            _path_params['instanceId'] = instance_id
+        # process the query parameters
+        # process the header parameters
+        if x_request_id is not None:
+            _header_params['x-request-id'] = x_request_id
+        if x_trace_id is not None:
+            _header_params['x-trace-id'] = x_trace_id
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/compute/instances/{instanceId}/regionChange/check',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def create_instance(
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
@@ -385,7 +683,7 @@ class InstancesApi:
     ) -> CreateInstanceResponse:
         """Create a new instance
 
-        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V45</td><td>VPS 1 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V47</td><td>VPS 1 Storage</td><td>800 GB SSD</td></tr>           <tr><td>V46</td><td>VPS 1 NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V48</td><td>VPS 2 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V50</td><td>VPS 2 Storage</td><td>800 GB SSD</td></tr>          <tr><td>V49</td><td>VPS 2 NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V51</td><td>VPS 3 SSD</td><td>1200 GB SSD</td></tr>           <tr><td>V53</td><td>VPS 3 Storage</td><td>2400 GB SSD</td></tr>          <tr><td>V52</td><td>VPS 3 NVMe</td><td>300 GB NVMe</td></tr>           <tr><td>V54</td><td>VPS 4 SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V56</td><td>VPS 4 Storage</td><td>3200 GB SSD</td></tr>          <tr><td>V55</td><td>VPS 4 NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V57</td><td>VPS 5 SSD</td><td>2000 GB SSD</td></tr>           <tr><td>V59</td><td>VPS 5 Storage</td><td>4000 GB SSD</td></tr>           <tr><td>V58</td><td>VPS 5 NVMe</td><td>500 GB NVMe</td></tr>           <tr><td>V60</td><td>VPS 6 SSD</td><td>2400 GB SSD</td></tr>           <tr><td>V62</td><td>VPS 6 Storage</td><td>4800 GB SSD</td></tr>           <tr><td>V61</td><td>VPS 6 NVMe</td><td>600 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
+        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V153</td><td>Cloud VPS 4</td><td>100 GB SSD</td></tr>           <tr><td>V154</td><td>Cloud VPS 6</td><td>200 GB SSD</td></tr>           <tr><td>V155</td><td>Cloud VPS 8</td><td>300 GB SSD</td></tr>           <tr><td>V156</td><td>Cloud VPS 12</td><td>400 GB SSD</td></tr>           <tr><td>V157</td><td>Cloud VPS 16</td><td>500 GB SSD</td></tr>           <tr><td>V158</td><td>Cloud VPS 18</td><td>600 GB SSD</td></tr>           <tr><td>V159</td><td>Cloud VPS Plus 4</td><td>150 GB NVMe</td></tr>           <tr><td>V160</td><td>Cloud VPS Plus 6</td><td>300 GB NVMe</td></tr>           <tr><td>V161</td><td>Cloud VPS Plus 8</td><td>450 GB NVMe</td></tr>           <tr><td>V162</td><td>Cloud VPS Plus 12</td><td>600 GB NVMe</td></tr>           <tr><td>V163</td><td>Cloud VPS Plus 16</td><td>750 GB NVMe</td></tr>           <tr><td>V164</td><td>Cloud VPS Plus 18</td><td>900 GB NVMe</td></tr>           <tr><td>V93</td><td>VPS 10 Storage</td><td>300 GB SSD</td></tr>          <tr><td>V96</td><td>VPS 20 Storage</td><td>400 GB SSD</td></tr>           <tr><td>V99</td><td>VPS 30 Storage</td><td>1000 GB SSD</td></tr>           <tr><td>V102</td><td>VPS 40 Storage</td><td>1200 GB SSD</td></tr>           <tr><td>V105</td><td>VPS 50 Storage</td><td>1400 GB SSD</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
 
         :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
         :type x_request_id: str
@@ -460,7 +758,7 @@ class InstancesApi:
     ) -> ApiResponse[CreateInstanceResponse]:
         """Create a new instance
 
-        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V45</td><td>VPS 1 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V47</td><td>VPS 1 Storage</td><td>800 GB SSD</td></tr>           <tr><td>V46</td><td>VPS 1 NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V48</td><td>VPS 2 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V50</td><td>VPS 2 Storage</td><td>800 GB SSD</td></tr>          <tr><td>V49</td><td>VPS 2 NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V51</td><td>VPS 3 SSD</td><td>1200 GB SSD</td></tr>           <tr><td>V53</td><td>VPS 3 Storage</td><td>2400 GB SSD</td></tr>          <tr><td>V52</td><td>VPS 3 NVMe</td><td>300 GB NVMe</td></tr>           <tr><td>V54</td><td>VPS 4 SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V56</td><td>VPS 4 Storage</td><td>3200 GB SSD</td></tr>          <tr><td>V55</td><td>VPS 4 NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V57</td><td>VPS 5 SSD</td><td>2000 GB SSD</td></tr>           <tr><td>V59</td><td>VPS 5 Storage</td><td>4000 GB SSD</td></tr>           <tr><td>V58</td><td>VPS 5 NVMe</td><td>500 GB NVMe</td></tr>           <tr><td>V60</td><td>VPS 6 SSD</td><td>2400 GB SSD</td></tr>           <tr><td>V62</td><td>VPS 6 Storage</td><td>4800 GB SSD</td></tr>           <tr><td>V61</td><td>VPS 6 NVMe</td><td>600 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
+        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V153</td><td>Cloud VPS 4</td><td>100 GB SSD</td></tr>           <tr><td>V154</td><td>Cloud VPS 6</td><td>200 GB SSD</td></tr>           <tr><td>V155</td><td>Cloud VPS 8</td><td>300 GB SSD</td></tr>           <tr><td>V156</td><td>Cloud VPS 12</td><td>400 GB SSD</td></tr>           <tr><td>V157</td><td>Cloud VPS 16</td><td>500 GB SSD</td></tr>           <tr><td>V158</td><td>Cloud VPS 18</td><td>600 GB SSD</td></tr>           <tr><td>V159</td><td>Cloud VPS Plus 4</td><td>150 GB NVMe</td></tr>           <tr><td>V160</td><td>Cloud VPS Plus 6</td><td>300 GB NVMe</td></tr>           <tr><td>V161</td><td>Cloud VPS Plus 8</td><td>450 GB NVMe</td></tr>           <tr><td>V162</td><td>Cloud VPS Plus 12</td><td>600 GB NVMe</td></tr>           <tr><td>V163</td><td>Cloud VPS Plus 16</td><td>750 GB NVMe</td></tr>           <tr><td>V164</td><td>Cloud VPS Plus 18</td><td>900 GB NVMe</td></tr>           <tr><td>V93</td><td>VPS 10 Storage</td><td>300 GB SSD</td></tr>          <tr><td>V96</td><td>VPS 20 Storage</td><td>400 GB SSD</td></tr>           <tr><td>V99</td><td>VPS 30 Storage</td><td>1000 GB SSD</td></tr>           <tr><td>V102</td><td>VPS 40 Storage</td><td>1200 GB SSD</td></tr>           <tr><td>V105</td><td>VPS 50 Storage</td><td>1400 GB SSD</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
 
         :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
         :type x_request_id: str
@@ -535,7 +833,7 @@ class InstancesApi:
     ) -> RESTResponseType:
         """Create a new instance
 
-        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V45</td><td>VPS 1 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V47</td><td>VPS 1 Storage</td><td>800 GB SSD</td></tr>           <tr><td>V46</td><td>VPS 1 NVMe</td><td>100 GB NVMe</td></tr>           <tr><td>V48</td><td>VPS 2 SSD</td><td>400 GB SSD</td></tr>           <tr><td>V50</td><td>VPS 2 Storage</td><td>800 GB SSD</td></tr>          <tr><td>V49</td><td>VPS 2 NVMe</td><td>200 GB NVMe</td></tr>           <tr><td>V51</td><td>VPS 3 SSD</td><td>1200 GB SSD</td></tr>           <tr><td>V53</td><td>VPS 3 Storage</td><td>2400 GB SSD</td></tr>          <tr><td>V52</td><td>VPS 3 NVMe</td><td>300 GB NVMe</td></tr>           <tr><td>V54</td><td>VPS 4 SSD</td><td>1600 GB SSD</td></tr>           <tr><td>V56</td><td>VPS 4 Storage</td><td>3200 GB SSD</td></tr>          <tr><td>V55</td><td>VPS 4 NVMe</td><td>400 GB NVMe</td></tr>           <tr><td>V57</td><td>VPS 5 SSD</td><td>2000 GB SSD</td></tr>           <tr><td>V59</td><td>VPS 5 Storage</td><td>4000 GB SSD</td></tr>           <tr><td>V58</td><td>VPS 5 NVMe</td><td>500 GB NVMe</td></tr>           <tr><td>V60</td><td>VPS 6 SSD</td><td>2400 GB SSD</td></tr>           <tr><td>V62</td><td>VPS 6 Storage</td><td>4800 GB SSD</td></tr>           <tr><td>V61</td><td>VPS 6 NVMe</td><td>600 GB NVMe</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
+        Create a new instance for your account with the provided parameters.         <table>           <tr><th>ProductId</th><th>Product</th><th>Disk Size</th></tr>           <tr><td>V153</td><td>Cloud VPS 4</td><td>100 GB SSD</td></tr>           <tr><td>V154</td><td>Cloud VPS 6</td><td>200 GB SSD</td></tr>           <tr><td>V155</td><td>Cloud VPS 8</td><td>300 GB SSD</td></tr>           <tr><td>V156</td><td>Cloud VPS 12</td><td>400 GB SSD</td></tr>           <tr><td>V157</td><td>Cloud VPS 16</td><td>500 GB SSD</td></tr>           <tr><td>V158</td><td>Cloud VPS 18</td><td>600 GB SSD</td></tr>           <tr><td>V159</td><td>Cloud VPS Plus 4</td><td>150 GB NVMe</td></tr>           <tr><td>V160</td><td>Cloud VPS Plus 6</td><td>300 GB NVMe</td></tr>           <tr><td>V161</td><td>Cloud VPS Plus 8</td><td>450 GB NVMe</td></tr>           <tr><td>V162</td><td>Cloud VPS Plus 12</td><td>600 GB NVMe</td></tr>           <tr><td>V163</td><td>Cloud VPS Plus 16</td><td>750 GB NVMe</td></tr>           <tr><td>V164</td><td>Cloud VPS Plus 18</td><td>900 GB NVMe</td></tr>           <tr><td>V93</td><td>VPS 10 Storage</td><td>300 GB SSD</td></tr>          <tr><td>V96</td><td>VPS 20 Storage</td><td>400 GB SSD</td></tr>           <tr><td>V99</td><td>VPS 30 Storage</td><td>1000 GB SSD</td></tr>           <tr><td>V102</td><td>VPS 40 Storage</td><td>1200 GB SSD</td></tr>           <tr><td>V105</td><td>VPS 50 Storage</td><td>1400 GB SSD</td></tr>           <tr><td>V8</td><td>VDS S</td><td>180 GB NVMe</td></tr>           <tr><td>V9</td><td>VDS M</td><td>240 GB NVMe</td></tr>           <tr><td>V10</td><td>VDS L</td><td>360 GB NVMe</td></tr>           <tr><td>V11</td><td>VDS XL</td><td>480 GB NVMe</td></tr>           <tr><td>V16</td><td>VDS XXL</td><td>720 GB NVMe</td></tr>           </table>
 
         :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
         :type x_request_id: str
@@ -1298,6 +1596,616 @@ class InstancesApi:
 
 
     @validate_call
+    def request_region_change(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        region_change_request: RegionChangeRequest,
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> InstanceRegionChangeResponse:
+        """Request instance region change
+
+        Starts a region change for the instance via CMS. Returns the support ticket number when the operation was accepted.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param region_change_request: (required)
+        :type region_change_request: RegionChangeRequest
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._request_region_change_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            region_change_request=region_change_request,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "InstanceRegionChangeResponse",
+            '400': "CmsErrorsResponse",
+            '500': "CmsErrorsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def request_region_change_with_http_info(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        region_change_request: RegionChangeRequest,
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[InstanceRegionChangeResponse]:
+        """Request instance region change
+
+        Starts a region change for the instance via CMS. Returns the support ticket number when the operation was accepted.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param region_change_request: (required)
+        :type region_change_request: RegionChangeRequest
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._request_region_change_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            region_change_request=region_change_request,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "InstanceRegionChangeResponse",
+            '400': "CmsErrorsResponse",
+            '500': "CmsErrorsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def request_region_change_without_preload_content(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        region_change_request: RegionChangeRequest,
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Request instance region change
+
+        Starts a region change for the instance via CMS. Returns the support ticket number when the operation was accepted.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param region_change_request: (required)
+        :type region_change_request: RegionChangeRequest
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._request_region_change_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            region_change_request=region_change_request,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "InstanceRegionChangeResponse",
+            '400': "CmsErrorsResponse",
+            '500': "CmsErrorsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _request_region_change_serialize(
+        self,
+        x_request_id,
+        instance_id,
+        region_change_request,
+        x_trace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if instance_id is not None:
+            _path_params['instanceId'] = instance_id
+        # process the query parameters
+        # process the header parameters
+        if x_request_id is not None:
+            _header_params['x-request-id'] = x_request_id
+        if x_trace_id is not None:
+            _header_params['x-trace-id'] = x_trace_id
+        # process the form parameters
+        # process the body parameter
+        if region_change_request is not None:
+            _body_params = region_change_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v1/compute/instances/{instanceId}/regionChange',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def retrieve_available_instance_products(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ListInstanceProductsResponse:
+        """Get the available products of a specific instance
+
+        Get all products the instance can be upgraded to, excluding the currently assigned one. Use the `offerId` of the desired product to submit the upgrade.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_available_instance_products_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListInstanceProductsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def retrieve_available_instance_products_with_http_info(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ListInstanceProductsResponse]:
+        """Get the available products of a specific instance
+
+        Get all products the instance can be upgraded to, excluding the currently assigned one. Use the `offerId` of the desired product to submit the upgrade.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_available_instance_products_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListInstanceProductsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def retrieve_available_instance_products_without_preload_content(
+        self,
+        x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
+        instance_id: Annotated[StrictInt, Field(description="The identifier of the instance")],
+        x_trace_id: Annotated[Optional[StrictStr], Field(description="Identifier to trace group of requests.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get the available products of a specific instance
+
+        Get all products the instance can be upgraded to, excluding the currently assigned one. Use the `offerId` of the desired product to submit the upgrade.
+
+        :param x_request_id: [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually. (required)
+        :type x_request_id: str
+        :param instance_id: The identifier of the instance (required)
+        :type instance_id: int
+        :param x_trace_id: Identifier to trace group of requests.
+        :type x_trace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._retrieve_available_instance_products_serialize(
+            x_request_id=x_request_id,
+            instance_id=instance_id,
+            x_trace_id=x_trace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListInstanceProductsResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _retrieve_available_instance_products_serialize(
+        self,
+        x_request_id,
+        instance_id,
+        x_trace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if instance_id is not None:
+            _path_params['instanceId'] = instance_id
+        # process the query parameters
+        # process the header parameters
+        if x_request_id is not None:
+            _header_params['x-request-id'] = x_request_id
+        if x_trace_id is not None:
+            _header_params['x-trace-id'] = x_trace_id
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'bearer'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/compute/instances/{instanceId}/products/available',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def retrieve_instance(
         self,
         x_request_id: Annotated[str, Field(strict=True, description="[Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.")],
@@ -1600,10 +2508,14 @@ class InstancesApi:
         instance_id: Annotated[Optional[StrictInt], Field(description="The identifier of the instance (deprecated)")] = None,
         instance_ids: Annotated[Optional[StrictStr], Field(description="Comma separated instances identifiers")] = None,
         status: Annotated[Optional[StrictStr], Field(description="The status of the instance")] = None,
+        product_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of the instance products")] = None,
         add_on_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of Addons the instances have")] = None,
         product_types: Annotated[Optional[StrictStr], Field(description="Comma separated instance's category depending on Product Id")] = None,
         ip_config: Annotated[Optional[StrictBool], Field(description="Filter instances that have an ip config")] = None,
+        suspended: Annotated[Optional[StrictBool], Field(description="Filter instances by suspension state. When set to false, suspended instances are excluded from the response. Any other value returns all instances (default behavior).")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`")] = None,
+        customer_id: Annotated[Optional[StrictStr], Field(description="Filter by customer ID")] = None,
+        tenant_id: Annotated[Optional[StrictStr], Field(description="Filter by tenant ID")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1645,14 +2557,22 @@ class InstancesApi:
         :type instance_ids: str
         :param status: The status of the instance
         :type status: str
+        :param product_ids: Identifiers of the instance products
+        :type product_ids: str
         :param add_on_ids: Identifiers of Addons the instances have
         :type add_on_ids: str
         :param product_types: Comma separated instance's category depending on Product Id
         :type product_types: str
         :param ip_config: Filter instances that have an ip config
         :type ip_config: bool
+        :param suspended: Filter instances by suspension state. When set to false, suspended instances are excluded from the response. Any other value returns all instances (default behavior).
+        :type suspended: bool
         :param search: Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`
         :type search: str
+        :param customer_id: Filter by customer ID
+        :type customer_id: str
+        :param tenant_id: Filter by tenant ID
+        :type tenant_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1688,10 +2608,14 @@ class InstancesApi:
             instance_id=instance_id,
             instance_ids=instance_ids,
             status=status,
+            product_ids=product_ids,
             add_on_ids=add_on_ids,
             product_types=product_types,
             ip_config=ip_config,
+            suspended=suspended,
             search=search,
+            customer_id=customer_id,
+            tenant_id=tenant_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1727,10 +2651,14 @@ class InstancesApi:
         instance_id: Annotated[Optional[StrictInt], Field(description="The identifier of the instance (deprecated)")] = None,
         instance_ids: Annotated[Optional[StrictStr], Field(description="Comma separated instances identifiers")] = None,
         status: Annotated[Optional[StrictStr], Field(description="The status of the instance")] = None,
+        product_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of the instance products")] = None,
         add_on_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of Addons the instances have")] = None,
         product_types: Annotated[Optional[StrictStr], Field(description="Comma separated instance's category depending on Product Id")] = None,
         ip_config: Annotated[Optional[StrictBool], Field(description="Filter instances that have an ip config")] = None,
+        suspended: Annotated[Optional[StrictBool], Field(description="Filter instances by suspension state. When set to false, suspended instances are excluded from the response. Any other value returns all instances (default behavior).")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`")] = None,
+        customer_id: Annotated[Optional[StrictStr], Field(description="Filter by customer ID")] = None,
+        tenant_id: Annotated[Optional[StrictStr], Field(description="Filter by tenant ID")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1772,14 +2700,22 @@ class InstancesApi:
         :type instance_ids: str
         :param status: The status of the instance
         :type status: str
+        :param product_ids: Identifiers of the instance products
+        :type product_ids: str
         :param add_on_ids: Identifiers of Addons the instances have
         :type add_on_ids: str
         :param product_types: Comma separated instance's category depending on Product Id
         :type product_types: str
         :param ip_config: Filter instances that have an ip config
         :type ip_config: bool
+        :param suspended: Filter instances by suspension state. When set to false, suspended instances are excluded from the response. Any other value returns all instances (default behavior).
+        :type suspended: bool
         :param search: Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`
         :type search: str
+        :param customer_id: Filter by customer ID
+        :type customer_id: str
+        :param tenant_id: Filter by tenant ID
+        :type tenant_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1815,10 +2751,14 @@ class InstancesApi:
             instance_id=instance_id,
             instance_ids=instance_ids,
             status=status,
+            product_ids=product_ids,
             add_on_ids=add_on_ids,
             product_types=product_types,
             ip_config=ip_config,
+            suspended=suspended,
             search=search,
+            customer_id=customer_id,
+            tenant_id=tenant_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1854,10 +2794,14 @@ class InstancesApi:
         instance_id: Annotated[Optional[StrictInt], Field(description="The identifier of the instance (deprecated)")] = None,
         instance_ids: Annotated[Optional[StrictStr], Field(description="Comma separated instances identifiers")] = None,
         status: Annotated[Optional[StrictStr], Field(description="The status of the instance")] = None,
+        product_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of the instance products")] = None,
         add_on_ids: Annotated[Optional[StrictStr], Field(description="Identifiers of Addons the instances have")] = None,
         product_types: Annotated[Optional[StrictStr], Field(description="Comma separated instance's category depending on Product Id")] = None,
         ip_config: Annotated[Optional[StrictBool], Field(description="Filter instances that have an ip config")] = None,
+        suspended: Annotated[Optional[StrictBool], Field(description="Filter instances by suspension state. When set to false, suspended instances are excluded from the response. Any other value returns all instances (default behavior).")] = None,
         search: Annotated[Optional[StrictStr], Field(description="Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`")] = None,
+        customer_id: Annotated[Optional[StrictStr], Field(description="Filter by customer ID")] = None,
+        tenant_id: Annotated[Optional[StrictStr], Field(description="Filter by tenant ID")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1899,14 +2843,22 @@ class InstancesApi:
         :type instance_ids: str
         :param status: The status of the instance
         :type status: str
+        :param product_ids: Identifiers of the instance products
+        :type product_ids: str
         :param add_on_ids: Identifiers of Addons the instances have
         :type add_on_ids: str
         :param product_types: Comma separated instance's category depending on Product Id
         :type product_types: str
         :param ip_config: Filter instances that have an ip config
         :type ip_config: bool
+        :param suspended: Filter instances by suspension state. When set to false, suspended instances are excluded from the response. Any other value returns all instances (default behavior).
+        :type suspended: bool
         :param search: Full text search when listing the instances. Can be searched by `name`, `displayName`, `ipAddress`
         :type search: str
+        :param customer_id: Filter by customer ID
+        :type customer_id: str
+        :param tenant_id: Filter by tenant ID
+        :type tenant_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1942,10 +2894,14 @@ class InstancesApi:
             instance_id=instance_id,
             instance_ids=instance_ids,
             status=status,
+            product_ids=product_ids,
             add_on_ids=add_on_ids,
             product_types=product_types,
             ip_config=ip_config,
+            suspended=suspended,
             search=search,
+            customer_id=customer_id,
+            tenant_id=tenant_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1976,10 +2932,14 @@ class InstancesApi:
         instance_id,
         instance_ids,
         status,
+        product_ids,
         add_on_ids,
         product_types,
         ip_config,
+        suspended,
         search,
+        customer_id,
+        tenant_id,
         _request_auth,
         _content_type,
         _headers,
@@ -2041,6 +3001,10 @@ class InstancesApi:
             
             _query_params.append(('status', status))
             
+        if product_ids is not None:
+            
+            _query_params.append(('productIds', product_ids))
+            
         if add_on_ids is not None:
             
             _query_params.append(('addOnIds', add_on_ids))
@@ -2053,9 +3017,21 @@ class InstancesApi:
             
             _query_params.append(('ipConfig', ip_config))
             
+        if suspended is not None:
+            
+            _query_params.append(('suspended', suspended))
+            
         if search is not None:
             
             _query_params.append(('search', search))
+            
+        if customer_id is not None:
+            
+            _query_params.append(('customerId', customer_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         # process the header parameters
         if x_request_id is not None:

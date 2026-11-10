@@ -41,7 +41,18 @@ class TestApplicationConfig(unittest.TestCase):
 user: admin
 timezone: Europe/Berlin
 chpasswd:
- expire: False'
+ expire: False',
+                meta_data = pfruck_contabo.models.application_meta_data.ApplicationMetaData(
+                    urls = [
+                        ''
+                        ], 
+                    logo_url = '', 
+                    initial_username = '', 
+                    documentation_urls = [
+                        ''
+                        ], 
+                    requires_password_for_install = True, ),
+                gpu = False
             )
         else:
             return ApplicationConfig(
@@ -52,6 +63,17 @@ user: admin
 timezone: Europe/Berlin
 chpasswd:
  expire: False',
+                meta_data = pfruck_contabo.models.application_meta_data.ApplicationMetaData(
+                    urls = [
+                        ''
+                        ], 
+                    logo_url = '', 
+                    initial_username = '', 
+                    documentation_urls = [
+                        ''
+                        ], 
+                    requires_password_for_install = True, ),
+                gpu = False,
         )
         """
 

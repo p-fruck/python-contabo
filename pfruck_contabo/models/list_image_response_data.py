@@ -43,10 +43,11 @@ class ListImageResponseData(BaseModel):
     status: StrictStr = Field(description="Image status (e.g. if image is still downloading)")
     error_message: StrictStr = Field(description="Image download error message", alias="errorMessage")
     standard_image: StrictBool = Field(description="Flag indicating that image is either a standard (true) or a custom image (false)", alias="standardImage")
+    gpu: StrictBool = Field(description="Flag indicating that image can be used for GPU product.")
     creation_date: datetime = Field(description="The creation date time for the image", alias="creationDate")
     last_modified_date: datetime = Field(description="The last modified date time for the image", alias="lastModifiedDate")
     tags: List[AssignedTagResponse] = Field(description="The tags assigned to the image")
-    __properties: ClassVar[List[str]] = ["imageId", "tenantId", "customerId", "name", "description", "url", "sizeMb", "uploadedSizeMb", "osType", "version", "format", "status", "errorMessage", "standardImage", "creationDate", "lastModifiedDate", "tags"]
+    __properties: ClassVar[List[str]] = ["imageId", "tenantId", "customerId", "name", "description", "url", "sizeMb", "uploadedSizeMb", "osType", "version", "format", "status", "errorMessage", "standardImage", "gpu", "creationDate", "lastModifiedDate", "tags"]
 
     @field_validator('tenant_id')
     def tenant_id_validate_enum(cls, value):
@@ -134,6 +135,7 @@ class ListImageResponseData(BaseModel):
             "status": obj.get("status"),
             "errorMessage": obj.get("errorMessage"),
             "standardImage": obj.get("standardImage"),
+            "gpu": obj.get("gpu"),
             "creationDate": obj.get("creationDate"),
             "lastModifiedDate": obj.get("lastModifiedDate"),
             "tags": [AssignedTagResponse.from_dict(_item) for _item in obj["tags"]] if obj.get("tags") is not None else None

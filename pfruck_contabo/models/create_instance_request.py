@@ -29,14 +29,14 @@ class CreateInstanceRequest(BaseModel):
     CreateInstanceRequest
     """ # noqa: E501
     image_id: Optional[StrictStr] = Field(default='afecbb85-e2fc-46f0-9684-b46b1faf00bb', description="ImageId to be used to setup the compute instance. Default is Ubuntu 22.04", alias="imageId")
-    product_id: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default='V45', description="Default is V45", alias="productId")
+    product_id: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default='V153', description="Default is V153", alias="productId")
     region: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default='EU', description="Instance Region where the compute instance should be located. Default is EU")
     ssh_keys: Optional[List[StrictInt]] = Field(default=None, description="Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.", alias="sshKeys")
     root_password: Optional[StrictInt] = Field(default=None, description="`secretId` of the password for the `defaultUser` with administrator/root privileges. For Linux/BSD please use SSH, for Windows RDP. Please refer to Secrets Management API.", alias="rootPassword")
     user_data: Optional[StrictStr] = Field(default=None, description="[Cloud-Init](https://cloud-init.io/) Config in order to customize during start of compute instance.", alias="userData")
     license: Optional[StrictStr] = Field(default=None, description="Additional licence in order to enhance your chosen product, mainly needed for software licenses on your product (not needed for windows).")
-    period: StrictInt = Field(description="Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. Default to 1 month")
-    display_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The display name of the instance", alias="displayName")
+    period: StrictInt = Field(description="Initial contract period in months. Available periods are: 1, 12 and 24 months. Default to 1 month")
+    display_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The display name of the instance. Pass an empty string to leave it unset.", alias="displayName")
     default_user: Optional[StrictStr] = Field(default='admin', description="Default user name created for login during (re-)installation with administrative privileges. Allowed values for Linux/BSD are `admin` (use sudo to apply administrative privileges like root) or `root`. Allowed values for Windows are `admin` (has administrative privileges like administrator) or `administrator`.", alias="defaultUser")
     add_ons: Optional[CreateInstanceAddons] = Field(default=None, description="Set attributes in the addons object for the corresponding ones that need to be added to the instance", alias="addOns")
     application_id: Optional[StrictStr] = Field(default=None, description="Application ID", alias="applicationId")
@@ -48,8 +48,8 @@ class CreateInstanceRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN', 'SIN', 'IND']):
-            raise ValueError("must be one of enum values ('EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN', 'SIN', 'IND')")
+        if value not in set(['EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN', 'IND']):
+            raise ValueError("must be one of enum values ('EU', 'US-central', 'US-east', 'US-west', 'SIN', 'UK', 'AUS', 'JPN', 'IND')")
         return value
 
     @field_validator('license')
@@ -127,7 +127,7 @@ class CreateInstanceRequest(BaseModel):
 
         _obj = cls.model_validate({
             "imageId": obj.get("imageId") if obj.get("imageId") is not None else 'afecbb85-e2fc-46f0-9684-b46b1faf00bb',
-            "productId": obj.get("productId") if obj.get("productId") is not None else 'V45',
+            "productId": obj.get("productId") if obj.get("productId") is not None else 'V153',
             "region": obj.get("region") if obj.get("region") is not None else 'EU',
             "sshKeys": obj.get("sshKeys"),
             "rootPassword": obj.get("rootPassword"),

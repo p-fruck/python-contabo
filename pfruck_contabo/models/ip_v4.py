@@ -26,10 +26,12 @@ class IpV4(BaseModel):
     """
     IpV4
     """ # noqa: E501
-    ip: StrictStr = Field(description="IP Address")
-    netmask_cidr: StrictInt = Field(description="Netmask CIDR", alias="netmaskCidr")
+    ip: StrictStr = Field(description="IP address")
     gateway: StrictStr = Field(description="Gateway")
-    __properties: ClassVar[List[str]] = ["ip", "netmaskCidr", "gateway"]
+    netmask_cidr: StrictInt = Field(description="Netmask CIDR", alias="netmaskCidr")
+    broadcast: StrictStr = Field(description="Broadcast address")
+    net: StrictStr = Field(description="Net address")
+    __properties: ClassVar[List[str]] = ["ip", "gateway", "netmaskCidr", "broadcast", "net"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,8 +85,10 @@ class IpV4(BaseModel):
 
         _obj = cls.model_validate({
             "ip": obj.get("ip"),
+            "gateway": obj.get("gateway"),
             "netmaskCidr": obj.get("netmaskCidr"),
-            "gateway": obj.get("gateway")
+            "broadcast": obj.get("broadcast"),
+            "net": obj.get("net")
         })
         return _obj
 

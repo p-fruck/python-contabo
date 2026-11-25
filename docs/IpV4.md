@@ -5,9 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ip** | **str** | IP Address | 
-**netmask_cidr** | **int** | Netmask CIDR | 
+**ip** | **str** | IP address | 
 **gateway** | **str** | Gateway | 
+**netmask_cidr** | **int** | Netmask CIDR | 
+**broadcast** | **str** | Broadcast address | 
+**net** | **str** | Net address | 
 
 ## Example
 

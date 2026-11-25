@@ -36,7 +36,8 @@ class TestUpdateTagRequest(unittest.TestCase):
         if include_optional:
             return UpdateTagRequest(
                 name = 'Updated-Web-Server',
-                color = '#0A78C3'
+                color = '#0A78C3',
+                description = 'Tag to differenciate the bad vhosts'
             )
         else:
             return UpdateTagRequest(

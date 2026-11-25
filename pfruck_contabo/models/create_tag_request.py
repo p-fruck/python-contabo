@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,8 @@ class CreateTagRequest(BaseModel):
     """ # noqa: E501
     name: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.")
     color: Annotated[str, Field(min_length=4, strict=True, max_length=7)] = Field(description="The color of the tag. Color can be specified using hexadecimal value. Default color is #0A78C3")
-    __properties: ClassVar[List[str]] = ["name", "color"]
+    description: Optional[StrictStr] = Field(default=None, description="The description of the Tag name. ")
+    __properties: ClassVar[List[str]] = ["name", "color", "description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,7 +84,8 @@ class CreateTagRequest(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "color": obj.get("color") if obj.get("color") is not None else '#0A78C3'
+            "color": obj.get("color") if obj.get("color") is not None else '#0A78C3',
+            "description": obj.get("description")
         })
         return _obj
 

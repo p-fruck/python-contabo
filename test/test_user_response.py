@@ -44,40 +44,8 @@ class TestUserResponse(unittest.TestCase):
                 email_verified = False,
                 enabled = False,
                 totp = False,
-                locale = 'de',
-                roles = [
-                    pfruck_contabo.models.role_response.RoleResponse(
-                        role_id = 12345, 
-                        tenant_id = 'DE', 
-                        customer_id = '54321', 
-                        name = 'infrastructure', 
-                        admin = True, 
-                        access_all_resources = True, 
-                        type = 'custom', 
-                        permissions = [
-                            pfruck_contabo.models.permission_response.PermissionResponse(
-                                api_name = '/v1/compute/instances', 
-                                actions = ["CREATE","READ"], 
-                                resources = [
-                                    pfruck_contabo.models.resource_permissions_response.ResourcePermissionsResponse(
-                                        tag_id = 12345, 
-                                        tag_name = 'Web', )
-                                    ], )
-                            ], )
-                    ],
-                owner = False
-            )
-        else:
-            return UserResponse(
-                tenant_id = 'DE',
-                customer_id = '54321',
-                user_id = '6cdf5968-f9fe-4192-97c2-f349e813c5e8',
-                first_name = 'John',
-                last_name = 'Doe',
-                email = 'john.doe@example.com',
-                email_verified = False,
-                enabled = False,
-                totp = False,
+                secondary_email = False,
+                secondary_email_address = 'john.doe@example.org',
                 locale = 'de',
                 roles = [
                     pfruck_contabo.models.role_response.RoleResponse(
@@ -100,6 +68,44 @@ class TestUserResponse(unittest.TestCase):
                             ], )
                     ],
                 owner = False,
+                send_invoice_email = False
+            )
+        else:
+            return UserResponse(
+                tenant_id = 'DE',
+                customer_id = '54321',
+                user_id = '6cdf5968-f9fe-4192-97c2-f349e813c5e8',
+                first_name = 'John',
+                last_name = 'Doe',
+                email = 'john.doe@example.com',
+                email_verified = False,
+                enabled = False,
+                totp = False,
+                secondary_email = False,
+                secondary_email_address = 'john.doe@example.org',
+                locale = 'de',
+                roles = [
+                    pfruck_contabo.models.role_response.RoleResponse(
+                        role_id = 12345, 
+                        tenant_id = 'DE', 
+                        customer_id = '54321', 
+                        name = 'infrastructure', 
+                        admin = True, 
+                        access_all_resources = True, 
+                        type = 'custom', 
+                        permissions = [
+                            pfruck_contabo.models.permission_response.PermissionResponse(
+                                api_name = '/v1/compute/instances', 
+                                actions = ["CREATE","READ"], 
+                                resources = [
+                                    pfruck_contabo.models.resource_permissions_response.ResourcePermissionsResponse(
+                                        tag_id = 12345, 
+                                        tag_name = 'Web', )
+                                    ], )
+                            ], )
+                    ],
+                owner = False,
+                send_invoice_email = False,
         )
         """
 

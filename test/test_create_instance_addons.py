@@ -37,6 +37,7 @@ class TestCreateInstanceAddons(unittest.TestCase):
             return CreateInstanceAddons(
                 private_networking = {},
                 additional_ips = {},
+                backup = {},
                 extra_storage = pfruck_contabo.models.extra_storage_request.ExtraStorageRequest(
                     ssd = [
                         ''

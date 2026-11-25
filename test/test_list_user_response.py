@@ -51,6 +51,8 @@ class TestListUserResponse(unittest.TestCase):
                         email_verified = False, 
                         enabled = False, 
                         totp = False, 
+                        secondary_email = False, 
+                        secondary_email_address = 'john.doe@example.org', 
                         locale = 'de', 
                         roles = [
                             pfruck_contabo.models.role_response.RoleResponse(
@@ -72,7 +74,8 @@ class TestListUserResponse(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        owner = False, )
+                        owner = False, 
+                        send_invoice_email = False, )
                     ],
                 links = pfruck_contabo.models.links.Links(
                     self = '', 
@@ -99,6 +102,8 @@ class TestListUserResponse(unittest.TestCase):
                         email_verified = False, 
                         enabled = False, 
                         totp = False, 
+                        secondary_email = False, 
+                        secondary_email_address = 'john.doe@example.org', 
                         locale = 'de', 
                         roles = [
                             pfruck_contabo.models.role_response.RoleResponse(
@@ -120,7 +125,8 @@ class TestListUserResponse(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        owner = False, )
+                        owner = False, 
+                        send_invoice_email = False, )
                     ],
                 links = pfruck_contabo.models.links.Links(
                     self = '', 

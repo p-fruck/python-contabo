@@ -49,6 +49,7 @@ class TestImageResponse(unittest.TestCase):
                 status = 'Pending',
                 error_message = 'Error downloading image from provided URL',
                 standard_image = True,
+                gpu = True,
                 creation_date = '2021-06-03T06:27:12Z',
                 last_modified_date = '2021-06-04T06:27:12Z'
             )
@@ -68,6 +69,7 @@ class TestImageResponse(unittest.TestCase):
                 status = 'Pending',
                 error_message = 'Error downloading image from provided URL',
                 standard_image = True,
+                gpu = True,
                 creation_date = '2021-06-03T06:27:12Z',
                 last_modified_date = '2021-06-04T06:27:12Z',
         )

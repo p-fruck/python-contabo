@@ -39,7 +39,7 @@ class CreateInstanceResponseData(BaseModel):
     region: StrictStr = Field(description="Instance Region where the compute instance should be located.")
     add_ons: List[AddOnResponse] = Field(alias="addOns")
     os_type: StrictStr = Field(description="Type of operating system (OS)", alias="osType")
-    status: InstanceStatus
+    status: InstanceStatus = Field(description="Instance's status")
     ssh_keys: List[StrictInt] = Field(description="Array of `secretId`s of public SSH keys for logging into as `defaultUser` with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management API.", alias="sshKeys")
     __properties: ClassVar[List[str]] = ["tenantId", "customerId", "instanceId", "createdDate", "imageId", "productId", "region", "addOns", "osType", "status", "sshKeys"]
 

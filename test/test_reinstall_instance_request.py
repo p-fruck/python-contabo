@@ -43,7 +43,7 @@ user: admin
 timezone: Europe/Berlin
 chpasswd:
  expire: False',
-                default_user = 'admin',
+                default_user = 'root',
                 application_id = '3f184ab8-a600-4e7c-8c9b-3413e21a3752'
             )
         else:

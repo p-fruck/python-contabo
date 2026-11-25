@@ -35,19 +35,15 @@ class TestIpV41(unittest.TestCase):
         model = IpV41()
         if include_optional:
             return IpV41(
-                ip = '195.123.123.1',
-                gateway = '255.255.255.1',
-                netmask_cidr = 24,
-                broadcast = '195.123.123.255',
-                net = '195.123.123.0/24'
+                ip = '192.168.0.1',
+                netmask_cidr = 19,
+                gateway = '1.1.1.1'
             )
         else:
             return IpV41(
-                ip = '195.123.123.1',
-                gateway = '255.255.255.1',
-                netmask_cidr = 24,
-                broadcast = '195.123.123.255',
-                net = '195.123.123.0/24',
+                ip = '192.168.0.1',
+                netmask_cidr = 19,
+                gateway = '1.1.1.1',
         )
         """
 

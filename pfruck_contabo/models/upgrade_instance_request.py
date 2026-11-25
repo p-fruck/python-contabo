@@ -27,7 +27,8 @@ class UpgradeInstanceRequest(BaseModel):
     UpgradeInstanceRequest
     """ # noqa: E501
     private_networking: Optional[Dict[str, Any]] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Private Networking addon. Please provide an empty object for the time being as value. There will be more configuration possible in the future.", alias="privateNetworking")
-    __properties: ClassVar[List[str]] = ["privateNetworking"]
+    backup: Optional[Dict[str, Any]] = Field(default=None, description="Set this attribute if you want to upgrade your instance with the Automated Backup addon.   Please provide an empty object for the time being as value. There will be more configuration possible   in the future.")
+    __properties: ClassVar[List[str]] = ["privateNetworking", "backup"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +81,8 @@ class UpgradeInstanceRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "privateNetworking": obj.get("privateNetworking")
+            "privateNetworking": obj.get("privateNetworking"),
+            "backup": obj.get("backup")
         })
         return _obj
 

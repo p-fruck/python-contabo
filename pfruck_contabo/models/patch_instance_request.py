@@ -27,7 +27,7 @@ class PatchInstanceRequest(BaseModel):
     """
     PatchInstanceRequest
     """ # noqa: E501
-    display_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The display name of the instance", alias="displayName")
+    display_name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The display name of the instance. Pass an empty string to clear it.", alias="displayName")
     __properties: ClassVar[List[str]] = ["displayName"]
 
     model_config = ConfigDict(

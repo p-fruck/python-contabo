@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **status** | **str** | Image status (e.g. if image is still downloading) | 
 **error_message** | **str** | Image download error message | 
 **standard_image** | **bool** | Flag indicating that image is either a standard (true) or a custom image (false) | 
+**gpu** | **bool** | Flag indicating that image can be used for GPU product. | 
 **creation_date** | **datetime** | The creation date time for the image | 
 **last_modified_date** | **datetime** | The last modified date time for the image | 
 **tags** | [**List[AssignedTagResponse]**](AssignedTagResponse.md) | The tags assigned to the image | 
